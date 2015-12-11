@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		<style>
+			*{margin:0px;padding:0px;}
+			body{
+				background:url("img/bg.jpg") no-repeat;
+				background-size:cover;
+
+			}
+
+			#logo{
+				width:270px;
+				height:129px;
+				margin:0px auto;
+				padding-top:45px;
+			}
+
+			#con{
+				width:930px;
+				height:320px;
+				margin:60px auto;
+
+			}
+
+			.left{
+				width:80px;
+				height:320px;
+				background:rgba(0,0,0,0.4);
+				float:left;
+				margin:0px 20px;
+			}
+			.left ul li{
+				list-style:none;
+				color:#fff;
+				font-size:14px;
+				cursor:pointer;
+				text-align:center;
+				line-height:35px;
+				cursor:pointer;
+			}
+			
+			.left ul li .curr{
+				background:#fff url("img/li-bg.png");
+				opacity:0.8;
+				color:#4b4b4b;
+			}
+			
+			.right{
+				width:810px;
+				height:320px;
+				float:left;
+				overflow:hidden;
+				position:relative;
+			}
+			
+			.right .scroll{
+				width:810px;
+				height:1000%;
+				position:absolute;
+				top:0px;
+				left0px;
+			}
+			
+			.right .scroll img{
+				display:block;
+				width:810px;
+				height:320px;
+				
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<div id="logo"><img src="img/logo.png" width="270px" height="129px"/></div>
+		<div id="con">
+			<div class="left">
+				<ul>
+					<li class="curr">dao hang</li>
+					<li>xin wei</li>
+					<li>yinyue</li>
+					<li>faxian</li>
+					<li>gouwu</li>
+					<li>shipin</li>
+					<li>xingzuo</li>
+					<li>xiaoshuo</li>
+				</ul>
+			</div>
+			<div class="right">
+				<div class="scroll">
+					<img src="img/1.png"/>
+					<img src="img/2.png"/>
+					<img src="img/3.png"/>
+					<img src="img/4.png"/>
+					<img src="img/5.png"/>
+					<img src="img/6.png"/>
+					<img src="img/7.png"/>
+					<img src="img/8.png"/>
+				</div>
+			
+			</div>
+		
+		</div>
+
+	
+	
+	</body>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var _index=0;
+				$("#con .left ul li").click(function(){
+					_index=$(this).index();
+					
+					$(this).addClass("curr").siblings().removeClass("curr");
+					$(".right .scroll").stop().animate({top:-_index*320},500);
+					
+				});
+			
+			
+			
+			
+			});
+
+		</script>
+
+</html>
