@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			*{margin:0px;padding:0px;}
+			body{
+				
+			}
+			#ww{
+				width:200px;
+				height:100px;
+				background:#243577;
+				position:absolute;
+				margin-top:0px;
+				margin-left:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ww"></div>
+		<button style="margin-left:300px;">开始动画</button>
+	</body>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		   
+			$("document").ready(function(){
+				$("button").click(function(){
+					play();
+				
+				
+			
+			
+				
+				/*$("button").click(function(){
+					$("#ww").animate({left:"+=1300px"
+					},1000).animate({top:"+=700px"},1000).animate({left:"0px"},1000).animate({top:"0px"},1000);
+					
+				});*/
+			
+			/*$("button").click(function(){
+				$("#ww").animate({top:"400px"},1000)
+			});
+			$("button").click(function(){
+				$("#ww").animate({left:"0px"},1000)
+			});
+			$("button").click(function(){
+				$("#ww").animate({top:"0px"},1000);
+				
+				
+			});
+			/*$("button").click(function(){
+				$("#ww").animate({play(),10});
+			});*/
+			
+					function play(){
+								
+								$("button").click(function(){
+									$("#ww").animate({left:"1300px"
+									},1000);
+								});
+								$("button").click(function(){
+									$("#ww").animate({top:"400px"},1000);
+								});
+								$("button").click(function(){
+									$("#ww").animate({left:"0px"},1000);
+								});
+								$("button").click(function(){
+									$("#ww").animate({top:"0px"},1000,play);
+									
+								});
+							
+			
+					};
+				});
+			});
+	</script>
+</html>

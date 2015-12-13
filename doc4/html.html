@@ -1,0 +1,312 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<meta charset="uutf-8">
+		<title></title>
+		<style>
+			*{margin:0px;padding:0px;}
+			#flash{
+				width:760px;
+				height:300px;
+				background:#cc99cc;
+				margin:200px auto 0px;
+				position:relative;
+			}
+			#flash img.but_left{
+				position:absolute;
+				top:120px;
+				left:20px;
+				z-index:5;
+			}
+			
+			#flash img.but_right{
+				position:absolute;
+				top:120px;
+				right:20px;
+				z-index:5;
+				
+			}
+			#flash .box{
+				width:760px;
+				height:300px;
+				border:2px solid #000;
+				position:absolute;
+				overflow:hidden;
+				
+			}
+			
+			#flash .box img.f_1_1{
+				position:absolute;
+				top:80px;
+				
+				left:-339px;
+				opacity:0;
+				
+				
+			}
+			
+			#flash .box img.f_1_2{
+				position:absolute;
+				top:150px;
+				/*left:20px;*/
+				left:-332px;
+				opacity:0;
+				
+			}
+			
+			#flash .box img.f_1_3{
+				position:absolute;
+				top:0px;
+				/*left:315px;*/
+				opacity:0;
+				left:-450px;
+				
+			}
+			
+			#flash .box img.f_2_1{
+				position:absolute;
+				/*top:50px;*/
+				left:20px;
+				opacity:0;
+				top:160px;
+			}
+			#flash .box img.f_2_2{
+				position:absolute;
+				/*top:160px;*/
+				left:20px;
+				opacity:0;
+				top:400px;
+				
+			}
+			#flash .box img.f_2_3{
+				position:absolute;
+				top:0px;
+				/*left:420px;*/
+				right:-450px;
+				opacity:0;
+				
+			}
+			
+			#flash .box img.f_3_1{
+				position:absolute;
+				top:120px;
+				/*left:320px;*/
+				z-index:3;
+				left:0px;
+				opacity:0;
+				
+			}
+			#flash .box img.f_3_2{
+				position:absolute;
+				/*top:200px;*/
+				left:320px;
+				z-index:3;
+				top:300px;
+				opacity:0;
+				
+			}
+			#flash .box img.f_3_3{
+				position:absolute;
+				top:-107px;
+				opacity:0;
+			}
+			#flash .box img.f_4_1{
+				position:absolute;
+				top:300px;
+				left:80px;
+				opacity:0;
+				
+			}
+			#flash .box img.f_4_2{
+				position:absolute;
+				top:80px;
+				left:340px;
+				opacity:0;
+				
+				
+			}
+			#flash .box img.f_4_3{
+				position:absolute;
+				top:220px;
+				left:340px;
+				opacity:0;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="flash">
+			<img src="images/left.png" class="but_left"/>
+			<img src="images/right.png" class="but_right"/>
+			
+			<div class="box" style="background:url('images/bg1.jpg');z-index:3">
+				<img src="images/flash1.png" class="f_1_1"/>
+				<img src="images/flash12.png" class="f_1_2"/>
+				<img src="images/flash13.png" class="f_1_3"/>
+				
+			</div>
+			<div class="box" style="background:#e66c55;">
+				<img src="images/flash2.png" class="f_2_1"/>
+				<img src="images/flash22.png" class="f_2_2"/>
+				<img src="images/flash23.png" class="f_2_3"/>
+			</div>
+			<div class="box" style="background:#202f3d;">
+				<img src="images/flash3.png" class="f_3_1"/>
+				<img src="images/flash32.png" class="f_3_2"/>
+				<img src="images/flash33.png" class="f_3_3"/>
+			</div>
+			<div class="box" style="background:url('images/bg2.jpg')">
+				<img src="images/flash4.png" class="f_4_1"/>
+				<img src="images/flash42.png" class="f_4_2"/>
+				<img src="images/flash43.png" class="f_4_3"/>
+			</div>
+			
+		
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			var arr=null;
+			var click_num=0;
+				play();
+			
+			$("#flash img.but_right").click(function(){
+				click_num++;
+				
+				if(click_num>3){click_num=0;}
+				$(".box").eq(click_num).fadeIn().siblings("div").fadeOut();
+				play();
+				
+			});
+			
+			$("#flash img.but_left").click(function(){
+				click_num--;
+				
+				if(click_num<0){click_num=3;}
+				$(".box").eq(click_num).fadeIn().siblings("div").fadeOut();
+				play();
+				
+			});
+			
+				
+				/*$(".box").find("img").removeAttr("style");
+				if(click_num==0){
+					arr=[{left:"20px",opacity:1},{left:"20px",opacity:1},{left:"315px",opacity:1}];
+				}
+				if(click_num==1){
+					arr=[{top:"20",opacity:1},{top:"20",opacity:1},{left:"420px",opacity:1}];
+				}
+				if(click_num==2){
+					arr=[{left:"320",opacity:1},{top:"200px",opacity:1},{opacity:1}];
+				}
+				if(click_num==3){
+					arr=[{top:"0px",opacity:1},{opacity:1},{opacity:1}];
+				}
+				
+				
+				
+				
+					$(".box").eq(click_num).find("img").eq(0).animate(arr[0],500,function(){
+						$(".box").eq(click_num).find("img").eq(1).animate(arr[1],500,function(){
+							$(".box").eq(click_num).find("img").eq(2).animate(arr[2],500);
+						});
+			
+					});*/
+			function play(){
+					$(".box").find("img").removeAttr("style");
+					if(click_num==0){
+						arr=[{left:"20px",opacity:1},{left:"20px",opacity:1},{left:"315px",opacity:1}];
+					}
+					if(click_num==1){
+						arr=[{top:"20",opacity:1},{top:"160",opacity:1},{left:"420px",opacity:1}];
+					}
+					if(click_num==2){
+						arr=[{left:"320",opacity:1},{top:"200px",opacity:1},{opacity:1}];
+					}
+					if(click_num==3){
+						arr=[{top:"0px",opacity:1},{opacity:1},{opacity:1}];
+					}
+					
+					
+					
+					
+						$(".box").eq(click_num).find("img").eq(0).animate(arr[0],500,function(){
+							$(".box").eq(click_num).find("img").eq(1).animate(arr[1],500,function(){
+								$(".box").eq(click_num).find("img").eq(2).animate(arr[2],500);
+							});
+				
+						});
+					
+			}
+				
+				
+				/*if(click_num==1){
+					$(".box").eq(click_num).find("img").eq(0).animate(arr[0],500,function(){
+						$(".box").eq(click_num).find("img").eq(1).animate(arr[1],500,function(){
+							$(".box").eq(click_num).find("img").eq(2).animate(arr[2],500);
+						});
+			
+					});
+				
+				}
+				
+				if(click_num==2){
+					$(".box").eq(click_num).find("img").eq(0).animate(arr[0],500,function(){
+						$(".box").eq(click_num).find("img").eq(1).animate(arr[1],500,function(){
+							$(".box").eq(click_num).find("img").eq(2).animate(arr[2],500);
+						});
+			
+					});
+				
+				}
+				
+				if(click_num==3){
+					$(".box").eq(click_num).find("img").eq(0).animate(arr[0],500,function(){
+						$(".box").eq(click_num).find("img").eq(1).animate(arr[1],500,function(){
+							$(".box").eq(click_num).find("img").eq(2).animate(arr[2],500);
+				
+						});
+			
+					})
+				
+				}*/
+			
+			
+			
+			
+			
+			
+			/*$(".box").eq(0).find("img").eq(0).animate({left:"20px",opacity:1},1000,function(){
+				$(".box").eq(0).find("img").eq(1).animate({left:"20px",opacity:1},500,function(){
+					$(".box").eq(0).find("img").eq(2).animate({left:"315px",opacity:1},500);
+				});
+			
+			});
+			
+			$(".box").eq(1).find("img").eq(0).animate({top:"20",opacity:1},500,function(){
+				$(".box").eq(1).find("img").eq(1).animate({top:"160px",opacity:1},500,function(){
+					$(".box").eq(1).find("img").eq(2).animate({left:"420px",opacity:1},1000);
+				});
+			
+			});
+			
+			$(".box").eq(2).find("img").eq(0).animate({left:"320",opacity:1},500,function(){
+				$(".box").eq(2).find("img").eq(1).animate({top:"200px",opacity:1},500,function(){
+					$(".box").eq(2).find("img").eq(2).animate({opacity:1},1000);
+				});
+			
+			});
+			
+			$(".box").eq(3).find("img").eq(0).animate({top:"0px",opacity:1},500,function(){
+				$(".box").eq(3).find("img").eq(1).animate({opacity:1},500,function(){
+					$(".box").eq(3).find("img").eq(2).animate({opacity:1},500);
+				
+				});
+			
+			});*/
+			
+		</script>
+	</body>
+
+</html>
