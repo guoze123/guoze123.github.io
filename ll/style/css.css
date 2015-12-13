@@ -1,0 +1,141 @@
+body{
+	background-image:url("../image/4.jpg")
+}
+
+a{
+	text-decoration:none;
+}
+
+.clear{
+	clear:both;
+}
+
+#head{
+	width:960px;
+	margin:auto;
+	border-bottom:dashed 1px blue;
+	margin-bottom:10px;
+
+}
+
+#wrapper{
+	margin:auto;
+
+	width:960px;
+
+}
+
+.main{
+	width:660px;
+
+	background:white;
+	float:left;
+	border-radius:8px;
+	padding:20px;
+}
+
+.side{
+	width:240px;
+	height:450px;
+
+	float:right;
+	border-radius:8px;
+	padding:10px;
+}
+#footer{
+	height:60px;
+	width:960px;
+	margin:auto;
+	border-top:dashed 1px blue;
+	margin-top:10px;
+}
+.logo_title{
+	float:left;
+}
+
+.nav{
+	float:right;
+}
+
+.nav ul{
+	list-style:none;
+	margin-top:80px;
+}
+
+.nav ul li{
+	display:inline-block;
+	margin-right:20px;
+}
+
+.item{
+	border-bottom:dashed 1px blue;
+	padding-bottom:10px;
+}
+
+.nav ul li a{
+	border:solid 1px white;
+	padding:5px;
+	padding-left:15px;
+	padding-right:15px;
+	border-radius:6px;
+}
+
+.item_img{
+	float:left;
+	padding-top:15px;
+}
+
+.item_img img{
+	width:80px;
+}
+
+.item_content{
+	padding-left:100px;
+}
+.item_content h3{
+	font-size:16px;
+	color:#a5612d;
+	margin:0;
+}
+
+.item_info{
+	font-size:12px;
+	font-style:italic;
+	margin:0;
+	color:#999;
+	margin-top:10px;
+	
+}
+
+.item_desc{
+	font-size:14px;
+	margin:0;
+	margin-top:10px;
+	border-left:solid 1px #ccc;
+}
+
+.author_img{
+	width:120px;
+	margin:auto;
+}
+
+.author_img img{
+	width:120px;
+	border:solid 1px #ccc;
+	border-radius:6px;
+	
+}
+.author_desc{
+	text-align:center;
+	border:solid 1px #ccc;
+	border-radius:6px;
+}
+
+.author_desc p{
+	margin:14px;
+	font-size:14px;
+}
+
+.author_desc h4{
+	margin:10px;
+}
