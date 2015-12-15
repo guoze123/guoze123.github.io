@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0px;padding:0px;}
+			#box{
+				width:100%;
+				height:50px;
+				
+			}
+			.gd{background:#404144;
+				position:fixed;
+				top:0px;
+			}
+			
+			#box .nav{
+				width:1200px;
+				height:50px;
+				background:#4b4b4b;
+				margin:0px auto;
+				
+			
+			}
+			#box .nav ul{
+				//border:1px solid blue;
+			}
+			
+			#box .nav ul li{
+				//border:1px solid red;
+				width:95px;
+				height:50px;
+				list-style:none;
+				float:left;
+				font-size:14px;
+				color:#fff;
+				text-align:center;
+				line-height:50px;
+				
+			}
+			#box .nav ul li.first{
+				background:#ff4a00;
+				width:214px;
+			}
+			#box .nav ul li a:hover{
+				background:#337d39;
+			}
+			#box .nav ul li a{
+				color:#fff;
+				text-decoration:none;
+				display:block;
+			}
+			#box_img{
+				background:url("images/adv_bg.png") no-repeat;
+				width:100%;
+				height:800px;
+			
+			}
+			#box_top{height:180px;}
+		</style>
+	
+	</head>
+	<body>
+		<div id="box_top"}></div>
+		<div id="box">
+			<div class="nav">
+				<ul>
+					<li class="first">1</li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">8</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">10</a></li>
+					<li><a href="#">11</a></li>
+				
+				</ul>
+			
+			</div>
+		</div>
+		<div id="box_img"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		 $(window).scroll(function(){
+			var _top=$(window).scrollTop();
+			if(_top>200){
+				$("#box").addClass("gd");
+			
+			}
+			else{
+				$("#box").removeClass("gd");
+			}
+		 
+		 });
+	
+	</script>
+</html>
