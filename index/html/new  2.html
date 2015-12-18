@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="utf-8"/>
+		<title></title>
+		<style>
+			*{margin:0px;padding:0px;}
+			#hd{
+				width:320px;
+				
+				background:#fff;
+				
+				margin:0 auto;
+				overflow:hidden;
+			}
+			#header{
+				position:fixed;
+				z-index:999;
+			}
+			#header .header1{
+				width:320px;
+				height:20px;
+				background:#000;
+				
+			}
+			#header .header2{
+				background:#393A3F;
+				width:320px;
+				height:30px;
+				color:#fff;
+				font-size:12px;
+				line-height:30px;
+				font-weight:bold;
+			}
+			.header2 p{
+				margin-left:20px;
+			}
+			#content{
+				width:320px;
+				
+				background:#fff;
+				
+			}
+			.ds{
+				
+				height:110px;
+				width:320px;
+			}
+			.ds .dt{
+				width:320px;
+				height:80px;
+				background:#fff;
+			}
+			.ds ul li{
+				width:10px;
+				height:80px;
+				list-style:none;
+				float:left;
+				
+				border-radius:4px;
+				transform:skew(170deg);
+				
+			}
+			.ds li.da{
+				background:#fff;
+				border:1px solid #fff;
+			}
+			.ds li.d1{
+				background:#60c1ba;
+				border:1px solid #60c1ba;
+			}
+			.ds .dd{
+				width:320px;
+				height:30px;
+				background:#48918c;
+				transform:(-10deg);
+			}
+			
+			.q1,.q2,.q3,.q4,.q5,.q6{
+				display:-webkit-box;
+				width:300px;
+				height:100px;
+				margin-left:10px;
+				margin-top:10px;
+				
+				
+			}
+			.co1 .q1 .left{
+				background:#f4eb5a;
+				width:200px;
+				
+			}
+			.co1 .q1 .left .ll,.co1 .q2 .left .ll,.co1 .q3 .left .ll,.co1 .q4 .left .ll,
+			.co1 .q5 .left .ll,.co1 .q6 .left .ll{
+				background:#fff;
+				width:10px;
+				height:5px;
+				margin-left:5px;
+				margin-top:12px;
+			}
+			.co1 .q1 .left{
+				
+				display:-webkit-box;
+				position:relative;
+			}
+			.co1 .q1 .left .txt{
+				
+				position:absolute;
+				left:25px;
+				font-size:40px;
+				width:150px;
+				height:40px;
+				text-align:center;
+				color:#989239;
+				line-height:40px;
+				margin-top:30px;
+				
+			}
+			.co1 .q1 .left .te
+			{
+				width:80px;
+				height:40px;
+				font-size:14px;
+				position:absolute;
+				z-index:44;
+				left:25px;
+				top:10px;
+				color:#989239;
+			}
+			.co1 .q1 .left .tl{
+				width:70px;
+				height:20px;
+				
+				position:absolute;
+				color:#989239;
+				bottom:7px;
+				left:65px;
+				font-size:12px;
+				line-height:20px;
+				text-align:center;
+			}
+			.co1 .q1 .right{
+				background:#fdf685;
+				width:100px;
+			}
+			.co1 .q1 .right .ls,.co1 .q2 .right .ls,.co1 .q3 .right .ls,
+			.co1 .q4 .right .ls,.co1 .q5 .right .ls,.co1 .q6 .right .ls{
+				background:#fff;
+				width:10px;
+				height:5px;
+				margin-left:85px;
+				margin-top:12px;
+			}
+			.co1 .q2 .left{
+				background:#fdbd69;
+				width:200px;
+				display:-webkit-box;
+				position:relative;
+				color:#bd6e05;
+			}
+			.co1 .q2 .left .txt,.co1 .q3 .left .txt,.co1 .q4 .left .txt,.co1 .q5 .left .txt,.co1 .q6 .left .txt{
+				
+				position:absolute;
+				left:25px;
+				font-size:40px;
+				width:150px;
+				height:40px;
+				text-align:center;
+				
+				line-height:40px;
+				margin-top:30px;
+				
+				
+			}
+			.co1 .q2 .left .te,
+			.co1 .q3 .left .te,
+			.co1 .q4 .left .te,
+			.co1 .q5 .left .te,
+			.co1 .q6 .left .te
+			{
+				width:80px;
+				height:40px;
+				font-size:14px;
+				position:absolute;
+				z-index:44;
+				left:25px;
+				top:10px;
+				
+			}
+			.co1 .q2 .left .tl,
+			.co1 .q3 .left .tl,
+			.co1 .q4 .left .tl,
+			.co1 .q5 .left .tl,
+			.co1 .q6 .left .tl{
+				width:70px;
+				height:20px;
+				
+				position:absolute;
+				
+				bottom:7px;
+				left:65px;
+				font-size:12px;
+				line-height:20px;
+				text-align:center;
+			}
+			.co1 .q2 .right{
+				background:#ffd399;
+				width:100px;
+			}
+			.co1 .q3 .left{
+				background:#fd8569;
+				width:200px;
+				display:-webkit-box;
+				color:#812510;
+				position:relative;
+			}
+			.co1 .q3 .right{
+				background:#feb5a4;
+				width:100px;
+			}
+			.co1 .q4 .right{
+				background:#dd58fe;
+				width:100px;
+			}
+			.co1 .q4 .left{
+				background:#ac19d1;
+				width:200px;
+				display:-webkit-box;
+				color:#530268;
+				position:relative;
+			}
+			.co1 .q5 .right{
+				background:#836ffd;
+				width:100px;
+			}
+			.co1 .q5 .left{
+				background:#593eff;
+				width:200px;
+				color:#0e015d;
+				display:-webkit-box;
+				position:relative;
+			}.co1 .q6 .right{
+				background:#70d1b4;
+				width:100px;
+			}
+			.co1 .q6 .left{
+				background:#0f956d;
+				width:200px;
+				display:-webkit-box;
+				color:#003f2c;
+				position:relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="hd">
+			<div id="header">
+				<div class="header1"></div>
+				<div class="header2">
+					<p>便利券</p>
+				</div>
+				
+			</div>
+			<div id="content">
+				<div class="ds">
+					<div class="dt">
+						<ul>
+							<li class="da"></li><li class="d1"></li><li class="da"></li><li class="d1"></li>
+							<li class="da"></li><li class="d1"></li><li class="da"></li><li class="d1"></li>
+							<li class="da"></li><li class="d1"></li><li class="da"></li><li class="d1"></li>
+							<li class="da"></li><li class="d1"></li><li class="da"></li><li class="d1"></li>
+							<li class="da"></li><li class="d1"></li><li class="da"></li><li class="d1"></li>
+							<li class="da"></li><li class="d1"></li><li class="da"></li><li class="d1"></li>
+							<li class="da"></li><li class="d1"></li>
+						</ul>
+					</div>
+					<div class="dd"></div>
+				</div>
+				<div class="co1">
+					<div class="q1">
+						
+						<div class="left">
+							<div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+							</div>
+							<div class="txt">1.00</div>
+							<div class="te">小林便利券</div>
+							<div class="tl">返券1%-5%</div>
+						</div>
+						<div class="right">
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+						
+						</div>
+					</div>
+					<div class="q2">
+						<div class="left">
+							<div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+							</div>
+							<div class="txt">20.00</div>
+							<div class="te">小林便利券</div>
+							<div class="tl">返券1%-5%</div>
+						</div>
+						<div class="right">
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+						</div>
+						
+					</div>
+					<div class="q3">
+						<div class="left">
+							<div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+							</div>
+							<div class="txt">50.00</div>
+							<div class="te">小林便利券</div>
+							<div class="tl">返券1%-5%</div>
+						</div>
+						<div class="right">
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+						</div>
+					</div>
+					<div class="q4">
+						<div class="left">
+							<div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+							</div>
+							<div class="txt">100.00</div>
+							<div class="te">小林便利券</div>
+							<div class="tl">返券1%-5%</div>
+						</div>
+						<div class="right">
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+						</div>
+					</div>
+					<div class="q5">
+						<div class="left">
+							<div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+							</div>
+							<div class="txt">200.00</div>
+							<div class="te">小林便利券</div>
+							<div class="tl">返券1%-5%</div>
+						</div>
+						<div class="right">
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+						</div>
+					</div>
+					<div class="q6">
+						<div class="left">
+							<div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+								<div class="ll"></div>
+							</div>
+							<div class="txt">500.00</div>
+							<div class="te">小林便利券</div>
+							<div class="tl">返券1%-5%</div>
+						</div>
+						<div class="right">
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+							<div class="ls"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
