@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0px;padding:0px;}
+			#box{
+				background:black;
+				width:300px;
+				height:550px;
+				margin:auto;
+				margin-top:40px;
+				border-radius:10px;
+				position:relative;
+				
+				
+			}
+			#ff{
+				background:#fff;
+				width:50px;
+				height:10px;
+				border-radius:6px;
+				position:absolute;
+				top:20px;
+				left:120px;
+			}
+			#ds{
+				width:290px;
+				height:430px;
+				position:absolute;
+				top:50px;
+				left:5px;
+				display:-webkit-box;
+				overflow:hidden;
+			
+			}
+			#ds .wl{
+				width:290px;
+				height:430px;
+				
+			}
+			#ds .ll{
+				background:#fff;
+				width:290px;
+				height:430px;
+				border:1px solid #000;
+				
+				
+			}
+			#ds .ll input{
+				width:200px;
+				height:50px;
+				margin-top:50px;
+				margin-left:45px;
+				border:1px solid #ccc;
+				border-radius:4px;
+				
+				background:-webkit-linear-gradient(top,#00ffcc,#fff,#00ffcc);
+				font-size:18px;
+				cursor:pointer;
+			}
+			#ds .ll img{
+				margin-top:50px;
+				margin-left:95px;
+			}
+			#ds .dl{
+				width:290px;
+				height:430px;
+				border:1px solid #ccc;
+				position:relative;
+			}
+			#ds .dl .el{
+				position:absolute;
+				left:10px;
+				top:50px;
+				
+			}
+			#ds .dl .el span{
+				font-size:18px;
+				font-weight:bold;
+			}
+			#ds .dl .el input{
+				width:200px;
+				height:40px;
+				border:0;
+				border-bottom:1px solid #000;
+				padding-left:5px;
+				margin-top:3px;
+				
+			}
+			#ds .dl{
+				background:-webkit-radial-gradient(center,ellipse cover,#99ffcc,#009bd5 100%);
+			}
+			.wd input{
+				width:200px;
+				height:50px;
+				border-radius:4px;
+				background:-webkit-linear-gradient(top,#00ffcc,#fff,#00ffcc);
+				position:absolute;
+				top:180px;
+				left:45px;
+				border:0px;
+				font-size:20px;
+				cursor:pointer;
+				border:1px solid #0ffcc;
+			}
+			.wd .ss{
+				margin-top:250px;
+				margin-left:95px;
+				width:100px;
+				height:30px;
+				cursor:pointer;
+				
+				text-align:center;
+				line-height:30px;
+			}
+			.dl .jp{
+				width:280px;
+				height:200px;
+				background:rgba(0,0,0,0.5);
+				
+				position:absolute;
+				bottom:2px;
+				left:5px;
+				border-radius:5px;
+				display:none;
+			}
+			.sf div{
+				display:inline-block;
+				font-size:30px;
+				color:#fff;
+				width:70px;
+				height:40px;
+				margin-left:14px;
+				margin-top:8px;
+				background:-webkit-linear-gradient(top,#fff,#00ccff,#f0f0f0);
+				text-align:center;
+				line-height:40px;
+				border-radius:5px;
+				text-shadow:4px 1px 3px #000;
+				cursor:pointer;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="box">
+			<div id="ff"></div>
+			<div id="ds">
+				<div class="wl">
+					<img src="../image/4.jpg" width="290px;" height="430px;">
+				</div>
+				<div class="ll">
+					<img src="../image/5.png" width="100px;" height="100px;">
+					<div class="b1"><input type="button" value="登     录"/></div>
+					<div><input type="button" value="注     册"/></div>
+				</div>
+				<div class="dl">
+					<div class="el">
+						<span>账 号:</span><input type="text" value="" class="sr" placeholder="用户名/邮箱/QQ"/><br/>
+						<span>密 码:</span><input type="password" value="" class="sp" placeholder="密码"/>
+					</div>
+					<div class="wd"> 
+						<input type="submit" value="登    录"/>
+						<div class="ss">忘记密码</div>
+					</div>
+					<div class="jp">
+						<div class="sf">
+							<div class="d1">1</div>
+							<div class="d2">2</div>
+							<div class="d3">3</div>
+							<div class="d4">4</div>
+							<div class="d5">5</div>
+							<div class="d6">6</div>
+							<div class="d7">7</div>
+							<div class="d8">8</div>
+							<div class="d9">9</div>
+							<div class="clear">删除</div>
+							<div class="d0">0</div>
+							<div class="df">完成</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function(){
+			$(".wl").click(function(){
+				$(".wl").css({"display":"none"});
+			});
+			$(".ll .b1").click(function(){
+				$(".ll").css({"display":"none"});
+			});
+			$(".el .sr").click(function(){
+				$(".jp").css({"display":"block"});
+			});
+			$(".el .sp").click(function(){
+				$(".jp").css({"display":"block"});
+			})
+			$(".jp .df").click(function(){
+				$(".jp").css({"display":"none"});
+			});
+			/*$(".pwd").bind('focus',function(){
+				var arr = [0,1,2,3,4,5,6,7,8,9];
+				$(".d1").each(function(){
+					var index=parselnt(Math.random()*arr.length);
+					$(this).html(arr[index]).css({"cursor":"pointer"}).hover(
+						function(){
+							$(this).css({})
+						});
+					
+					arr.splice(index,1);
+				
+				});
+			});
+				var l=$(this).offset().left;
+				
+				$(".d1").bind('click',function(){
+					$(".pwd").val($(".pwd").val()+""+$(this).html());
+				});
+				$(".clear").bind('click',function(){
+					$(".pwd").val("");
+				});*/
+			$(".sr").click(function(){
+				play();
+			})
+			
+			$(".sp").click(function(){
+				dpf();
+			});
+			
+			function play(){
+				$(".sf .d1").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"1";
+					});
+				
+				});
+				$(".sf .d2").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c+"2";
+					});
+					
+				
+				});
+				$(".sf .d3").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"3";
+					});
+				
+				});
+				$(".sf .d4").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"4";
+					});
+				
+				});
+				$(".sf .d5").unbind("click").click(function(){
+
+					$(".sr:text").val(function(n,c){
+						return c +"5";
+					});
+				
+				});
+				$(".sf .d6").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"6";
+					});
+				
+				});
+				$(".sf .d7").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"7";
+					});
+				
+				});
+				$(".sf .d8").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"8";
+					});
+				
+				});
+				
+				$(".sf .d9").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"9";
+					});
+				
+				});
+				$(".sf .d0").unbind("click").click(function(){
+					$(".sr:text").val(function(n,c){
+						return c +"0";
+					});
+				
+				});
+				
+				
+				$(".sf .clear").unbind("click").click(function(){
+					var arr=$(".sr").val();
+					var se=arr.slice(0,-1);
+					$(".sr:text").val(se);
+				});
+			};
+			function dpf(){
+				$(".sf .d1").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"1";
+					});
+				
+				});
+				$(".sf .d2").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"2";
+					});
+					
+				
+				});
+				$(".sf .d3").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"3";
+					});
+				
+				});
+				$(".sf .d4").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"4";
+					});
+				
+				});
+				$(".sf .d5").unbind("click").click(function(){
+
+					$(".sp:password").val(function(q,a){
+						return a +"5";
+					});
+				
+				});
+				$(".sf .d6").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"6";
+					});
+				
+				});
+				$(".sf .d7").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"7";
+					});
+				
+				});
+				$(".sf .d8").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"8";
+					});
+				
+				});
+				
+				$(".sf .d9").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"9";
+					});
+				
+				});
+				$(".sf .d0").unbind("click").click(function(){
+					$(".sp:password").val(function(q,a){
+						return a +"0";
+					});
+				
+				});
+				
+				
+				$(".sf .clear").unbind("click").click(function(){
+					var wer=$(".sp").val();
+					var qw=wer.slice(0,-1);
+					$(".sp:password").val(qw);
+				});
+			};
+		});
+	</script>
+</html>
