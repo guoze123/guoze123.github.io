@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0px;padding:0px;}
+			li{list-style:none;}
+			body{
+				
+				min-width:1300px;
+				height:100%;
+				background-image:url(../image/sd/17.jpg);
+				
+				background-position:center;
+				opacity:0;
+			}
+			#top ul li{
+				float:left;
+				margin-left:30px;
+			}
+			
+			#header{
+				
+				font-size:50px;
+				width:700px;
+				height:50px;
+				color:yellow;
+				margin:0 auto;
+				text-align:center;
+				line-height:50px;
+				text-shadow:0px 0px 5px #ccff00,0px -10px 5px #ff3; 
+			}
+			
+			.va li{
+				float:left;
+				margin-left:20px;
+				position:absolute;
+				animation:mu 10s infinite linear;
+				-webkit-box-reflect:below 3px -webkit-linear-gradient(top,rgba(0,0,0,0)50%,rgba(0,0,0,0.5)100%);
+			}
+			@keyframes mu{
+				0%{
+					left:20px;
+				}
+				50%{left:500px;}
+				100%{left:950px;}
+			}
+			#header p{
+				font-size:16px;
+				color:#ccff00;
+				display:none;
+				animation:nn 2s infinite;
+				text-shadow:0 0 45px #fff
+			}
+			@keyframes nn{
+				0%{
+					text-shadow:0 0 0 transparent
+				}
+				50%{text-shadow:0 0 45px #fff}
+				100%{text-shadow:0 0 0 transparent}
+			}
+			#wrap{
+				height:300px;
+				margin-top:100px;
+				perspective:800px;
+				position:relative;
+			}
+			#wrap .cu,#wrap .cu1{
+				width:100px;
+				height:100px;
+				transform-style:preserve-3d;
+				
+				position:relative;
+				font-size:70px;
+				line-height:100px;
+				text-align:center;
+				color:#ccff00;
+				margin-left:200px;
+				
+				animation:spin 4s infinite linear;
+				transform:translateZ(-50px);
+			}
+			#wrap .cu1{
+				position:absolute;
+				right:200px;
+				top:0px;
+				animation:spo 4s infinite linear;
+			}
+			#wrap .sk{
+				margin-left:600px;
+				margin-top:120px;
+				position:absolute;
+				-webkit-box-reflect:below 3px -webkit-linear-gradient(top,rgba(0,0,0,0)50%,rgba(0,0,0,0.5)100%);
+				transform:rotateY(50deg);
+				
+			}
+			@keyframes spin{
+				from{transform:rotateY(0deg)}
+				to{transform:rotateY(360deg)}
+				
+			
+			}
+			@keyframes spo{
+				from{transform:rotateX(0deg)}
+				to{transform:rotateX(360deg)}
+				
+			
+			}
+			
+			b{
+				width:100px;
+				height:100px;
+				display:block;
+				rgba(254,254,254,0.5);
+				box-shadow:inset 0px 0px 10px rgba(255,255,0,0.5);
+				position:absolute;
+				border-radius:50px;
+				
+			}
+			b:nth-child(1){
+				left:0px;
+				top:0px;
+				transform:translateZ(50px);
+				background:-webkit-linear-gradient(top,#fff,#00ccff,#f0f0f0);
+				
+			}
+			b:nth-child(2){
+			
+				left:0px;
+				top:0px;
+				transform:translateZ(-50px) rotateY(180deg);
+				background:-webkit-linear-gradient(top,#fff,#00ccff,#f0f0f0);
+			}
+			
+			b:nth-child(3){
+				top:-100px;
+				left:0px;
+				transform:translateZ(50px) rotateX(90deg);
+				transform-origin:bottom;
+			}
+			b:nth-child(4){
+				left:0px;
+				top:100px;
+				transform:translateZ(50px) rotateX(-90deg);
+				transform-origin:top;
+			}
+			b:nth-child(5){
+				left:-100px;
+				top:0px;
+				transform: translateZ(50px) rotateY(-90deg);
+				transform-origin:right;
+				background:-webkit-linear-gradient(top,#fff,#00ccff,#f0f0f0);
+			}
+			b:nth-child(6){
+				left:100px;
+				top:0px;
+				transform: translateZ(50px) rotateY(90deg);
+				transform-origin:left;
+				background:-webkit-linear-gradient(top,#fff,#00ccff,#f0f0f0);
+			}
+		</style>
+		<script src="../js/snow.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		
+		
+		<script>
+			$(function(){
+				createSnow("",600000)
+				$("#header p").show(6000);
+				$("body").animate({opacity:"1"},5000);
+				
+				
+			})
+			
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		<div id="box">
+			<audio src="1.mp3"  autoplay="autoplay" loop="loop"></audio>
+			<div id="top">
+				<ul>
+					<li><img src="../image/sd/2.gif"></li>
+					<li><img src="../image/sd/2.gif"></li>
+					<li><img src="../image/sd/2.gif"></li>
+					<li><img src="../image/sd/2.gif"></li>
+				</ul>
+			</div>
+			<div id="header">
+				圣诞快乐
+				
+				<p>愿作夜空中最亮的一颗星星，夜夜陪伴在你身旁，当你感觉疲惫仰望星空时，空中点点星光是我洒向你的无尽祝福，祝你圣诞快乐，幸福平安！</p>
+				<p>没有雪花即使不浪漫也可过圣诞，有了祝福即使是寒冬也感到温暖，平安夜我在许愿:愿幸福和您终生相伴！愿您的礼物堆积如山</p>
+			</div>
+			
+			<div id="wrap">
+				<div class="cu">
+					<b>圣</b>
+					<b>快</b>
+					<b>ss</b>
+					<b>dd</b>
+					<b>诞</b>
+					<b>乐</b>
+				</div>
+				<div class="cu1">
+					
+					<b><img src="../image/sd/5.jpg" width="100px" height="100px"></b>
+					<b><img src="../image/sd/5.jpg" width="100px" height="100px"></b>
+					<b><img src="../image/sd/5.jpg" width="100px" height="100px"></b>
+					<b><img src="../image/sd/5.jpg" width="100px" height="100px"></b>
+					<b><img src="../image/sd/5.jpg" width="100px" height="100px"></b>
+					<b><img src="../image/sd/5.jpg" width="100px" height="100px"></b>
+					
+				</div>
+				<div class="sk"><img src="../image/sd/2.png"></div>
+			</div>
+			<div class="va">
+				<ul>
+					<li><img src="../image/sd/1.gif"/></li>
+					
+				
+				</ul>
+				
+			</div>
+		</div>
+	</body>
+
+</html>
