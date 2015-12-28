@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			
+			#star{
+			
+			
+				width:0;
+				height:0;
+				margin-top:150px;
+				
+				position:relative;
+				display:block;
+				border-left:100px solid transparent;
+				border-right:100px solid transparent;
+				border-bottom:70px solid red;
+				transform:rotate(35deg);
+				
+			}
+			#star:before{
+				width:0;
+				height:0;
+				border-left:30px solid transparent;
+				border-right:30px solid transparent;
+				border-bottom:80px solid red;
+				position:absolute;
+				top:-45px;
+				left:-65px;
+				color:white;
+				display:block;
+				content:"";
+				transform:rotate(-35deg);
+			}
+			#star:after{
+				width:0;
+				height:0;
+				display:block;
+				position:absolute;
+				color:red;
+				top:3px;
+				left:-105px;
+				border-left:100px solid transparent;
+				border-right:100px solid transparent;
+				border-bottom:70px solid red;
+				content:"";
+				transform:rotate(-70deg);
+			}
+			#header{
+				position:relative;
+				width:100px;
+				height:90px;
+				margin-top:100px;
+			}
+			#header:before,
+			#header:after{
+				position:absolute;
+				content:"";
+				left:50px;
+				top:0;
+				width:50px;
+				height:80px;
+				background:red;
+				border-radius:50px 50px 0 0;
+				transform:rotate(-45deg);
+				-webkit-transform-origin:0 100%;
+				
+			}
+			#header:after{
+				left:0;
+				transform:rotate(45deg);
+				transform-origin:100% 100%;
+			}
+			#hex{
+				width:100px;
+				height:55px;
+				background:red;
+				position:absolute;
+				margin-top:30px;
+			}
+			#hex:before{
+					content: "";
+					position: absolute;
+					top: -25px;
+					left: 0;
+					width: 0;
+					height: ;
+					border-left: 50px solid transparent;
+					border-right: 50px solid transparent;
+					border-bottom: 25px solid red;
+			}
+			#hex:after{
+				content:"";
+				position:absolute;
+				bottom:-25px;
+				left:0;
+				width:0;
+				height:0;
+				border-left:50px solid transparent;
+				border-right:50px solid transparent;
+				border-top:25px solid red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="star"></div>
+		<div id="header"></div>
+		<div id="hex"></div>
+	</body>
+</html>
