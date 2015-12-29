@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>q</title>
+		<meta charset="utf-8">
+		<script>
+			function seltxt(){
+				document.getElementById("mytxt").select();
+			}
+			function formreset(){
+				document.getElementById("myform").reset();
+			}
+			function formreset1(){
+				document.getElementById("myform").submit()
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="text" id="mytxt" value="选定" size="30px"/>
+			<input type="button" value="选 文本" onclick="seltxt()"/><br/>
+			<input type="text" value="" size="30"><br/>
+			
+		</form>
+		<form id="myform" action="https://www.baidu.com" method="get">
+			姓名：<input type="text" value="" size="30"/><br/>
+			年龄：<input type="text" value="" size="30"/><br/>
+			<br/>
+			<input type="button" onclick="formreset()" value="重置"/>
+			<input type="button" onclick="formreset1()" value="提交"/>
+		</form>
+	</body>
+
+</html>

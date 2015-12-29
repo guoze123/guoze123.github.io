@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>e</title>
+		<meta charset="utf-8">
+		<script>
+			function check(browser){
+				document.getElementById("answer").value=browser;
+			}
+			function favbrowser(){
+				var mylisr=document.getElementById("mylist");
+				document.getElementById("favorite").value=mylist.options[mylist.selectedIndex].text
+			}
+		</script>
+	</head>
+	<body>
+		<p>选浏览器</p>
+		<form>
+			<input type="radio" name="browser" onclick="check(this.value)" value="IE"/>IE<br/>
+			<input type="radio" name="browser" onclick="check(this.value)" value="ff"/>ff<br/>
+			<input type="radio" name="browser" onclick="check(this.value)" value="Netscape"/>Netscape<br/>
+			<input type="radio" name="browser" onclick="check(this.value)" value="opera"/>Opera<br/>
+			<br/>
+			选浏览器：<input type="text" id="answer" size="50"/>
+		</form>
+		<form>
+			<select id="mylist" onchange="favbrowser()">
+				<option>IE</option>
+				<option>Ff</option>
+				<option>Opera</option>
+			</select>
+			<p>喜欢浏览器:<input type="text" id="favorite" size="30"/></p>
+		</form>
+	</body>
+</html>
