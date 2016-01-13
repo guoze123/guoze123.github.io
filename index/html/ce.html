@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>1</title>
+		<meta charset="utf-8">
+		<style>
+			*{margin:0px;padding:0px;}
+			li{
+				list-style:none;
+			}
+			#box{
+				width:200px;
+				height:100px;
+				border:2px solid red;
+				overflow:hidden;
+				position:relative;
+				left:40px;
+				top:60px;
+				
+			}
+			
+			ul li:nth-child(1){
+				position:absolute;
+				top:20px;
+				left:-20px;
+				animation:my 6s infinite;
+			}
+			@keyframes my{
+				0%{left:-20px;top:20px;}
+				100%{left:20px;top:20px;}
+				
+			}
+			ul li:nth-child(2){
+				position:absolute;
+				left:40px;
+				
+				top:-20px;
+				animation:my1 6s infinite;
+			}
+			@keyframes my1{
+				0%{left:40px;top:-20px;}
+				100%{left:40px;top:20px;}
+				
+			}
+			ul li:nth-child(3){
+				position:absolute;
+				top:120px;
+				left:60px;
+				animation:my2 6s forwards;
+			}
+			@keyframes my2{
+				0%{left:60;top:120px;}
+				100%{left:60px;top:20px;}
+				
+			}
+			ul li:nth-child(4){
+				position:absolute;
+				top:20px;
+				right:-20px;
+				animation:my3 6s forwards;
+			}
+			@keyframes my3{
+				0%{right:-20px;top:20px;}
+				100%{right:110px;top:20px;}
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>
