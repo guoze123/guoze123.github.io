@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			*{margin:0px;padding:0px;}
+			#box{
+				width:200px;
+				height:200px;
+				
+				margin:200px auto;
+			}
+			
+		</style>
+		<script>
+			function def(){
+				document.getElementById("im").style.transform="scale(2,2)";
+				document.getElementById("im").onclick=function(){
+					document.getElementById("im").style.transform="scale(1,1)";
+				}
+			}
+			
+				
+			
+		</script>
+	</head>
+	<body >
+		<div id="box">
+			<img id="im" src="../image/ce/f4.png" width="200" height="200" onclick="def()" alt="#"/>
+		</div>
+	</body>
+</html>
