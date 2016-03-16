@@ -1,0 +1,25 @@
+body{
+	background:rgb(250,250,250);
+	font-family: "微软雅黑";
+}
+.navbar-header{
+	text-align: center;
+	line-height: 50px;
+	
+}
+.content{
+	background: #FFF;
+}
+.content .container div{
+	height:50px;
+	border-bottom: 1px solid #CCCCCC;
+	line-height: 50px;
+	
+}
+.content .container .qk{
+	float: left;
+}
+.content .container .icon{
+	float: right;
+	
+}

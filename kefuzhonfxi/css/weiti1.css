@@ -1,0 +1,30 @@
+.navbar-header{
+	text-align: center;
+	line-height: 50px;
+	font-size: 33px;
+	font-family: "微软雅黑";
+	
+}
+@media screen and (max-width:500px){
+    .text, .header{
+	font-size: 28px;
+	font-family: "微软雅黑";
+	
+	
+	}
+	.header{
+		height:50px;
+		line-height: 50px;
+		border-bottom:2px solid #d3d4d7;
+		border-top:2px solid #d3d4d7;
+		background:#f3f4f5;
+		margin:0 auto;
+		text-align:center;
+		
+		color:rgb(220,220,220);
+	
+	}
+}
+
+
+
