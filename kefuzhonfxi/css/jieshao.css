@@ -1,0 +1,28 @@
+body{
+	background:#FFF;
+}
+.box{
+	height:100px;
+	border-top:1px solid #ccc;
+	
+	
+}
+
+.box:active{
+	background:#fafafa;
+}
+.icon{
+	width:46px;
+	height:40px;
+	
+	margin: 0 auto;
+	margin-top: 10px;
+	background: url(../img/icon-1.png);
+}
+.box:active .icon{
+	background: url(../img/icon-2.png);
+	
+}
+.ld{
+	border-bottom:1px solid #ccc;
+	}
