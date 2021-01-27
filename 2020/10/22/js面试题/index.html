@@ -28,11 +28,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较 如果一个操作值为 NaN ，则相等比较返回">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/10/22/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
+<meta property="og:image" content="http://example.com/2020/10/22/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png">
 <meta property="article:published_time" content="2020-10-22T03:05:28.000Z">
-<meta property="article:modified_time" content="2021-01-24T15:08:19.993Z">
+<meta property="article:modified_time" content="2021-01-27T14:33:10.303Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js面试题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/10/22/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
 
 <link rel="canonical" href="http://example.com/2020/10/22/js%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
@@ -225,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-24 23:08:19" itemprop="dateModified" datetime="2021-01-24T23:08:19+08:00">2021-01-24</time>
+                <time title="修改时间：2021-01-27 22:33:10" itemprop="dateModified" datetime="2021-01-27T22:33:10+08:00">2021-01-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,20 +276,29 @@
 
 </li>
 </ul>
-<h2 id="case语句是使用恒等（-）来判断的"><a href="#case语句是使用恒等（-）来判断的" class="headerlink" title="case语句是使用恒等（===）来判断的"></a>case语句是使用恒等（===）来判断的</h2><h2 id="正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串"><a href="#正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串" class="headerlink" title="正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串"></a>正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串</h2><h2 id="JSON-stringify-拷贝时obj-的缺陷"><a href="#JSON-stringify-拷贝时obj-的缺陷" class="headerlink" title="JSON.stringify 拷贝时obj 的缺陷"></a>JSON.stringify 拷贝时obj 的缺陷</h2><ul>
-<li><p>拷贝的对象的值中如果有函数、undefined、symbol 这几种类型，经过 JSON.stringify 序列化之后的字符串中这个键值对会消失</p>
+<h2 id="case语句是使用恒等（-）来判断的"><a href="#case语句是使用恒等（-）来判断的" class="headerlink" title="case语句是使用恒等（===）来判断的"></a>case语句是使用恒等（===）来判断的</h2><h2 id="正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串"><a href="#正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串" class="headerlink" title="正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串"></a>正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串</h2><h2 id="JSON-stringify-拷贝时obj-的缺陷"><a href="#JSON-stringify-拷贝时obj-的缺陷" class="headerlink" title="JSON.stringify 拷贝时obj 的缺陷"></a>JSON.stringify 拷贝时obj 的缺陷</h2><p><img src="/2020/10/22/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png" alt="JSON.stringify"></p>
+<ul>
+<li>拷贝的对象的值中如果有函数、undefined、symbol 这几种类型，经过 JSON.stringify 序列化之后的字符串中这个键值对会消失</li>
+<li>拷贝 Date 引用类型会变成字符串</li>
+<li>无法拷贝不可枚举的属性</li>
+<li>无法拷贝对象的原型链</li>
+<li>拷贝正则会变成空对象</li>
+<li>对象中含有 NaN、Infinity 以及 -Infinity，JSON 序列化的结果会变成 null</li>
+<li>无法拷贝对象的循环应用，即对象成环 (obj[key] = obj)</li>
+</ul>
+<h2 id="js-常见的6中继承方式"><a href="#js-常见的6中继承方式" class="headerlink" title="js 常见的6中继承方式"></a>js 常见的6中继承方式</h2><p> <img src="/2020/10/22/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png" alt="JavaScript继承"></p>
+<ul>
+<li><p>原型链继承<br>  缺点： 原型属性共享问题</p>
 </li>
-<li><p>拷贝 Date 引用类型会变成字符串</p>
+<li><p>构造函数继承<br>  缺点：只能继承父类的实例属性和方法，不能继承原型属性或者方法</p>
 </li>
-<li><p>无法拷贝不可枚举的属性</p>
+<li><p>组合继承<br>  缺点：父类函数会多次执行</p>
 </li>
-<li><p>无法拷贝对象的原型链</p>
+<li><p>原型式继承<br>  缺点：多个实例的引用类型属性指向相同的内存，存在篡改的可能</p>
 </li>
-<li><p>拷贝正则会变成空对象</p>
+<li><p>寄生式继承</p>
 </li>
-<li><p>对象中含有 NaN、Infinity 以及 -Infinity，JSON 序列化的结果会变成 null</p>
-</li>
-<li><p>无法拷贝对象的循环应用，即对象成环 (obj[key] = obj)</p>
+<li><p>寄生组合继承</p>
 <h2 id="面试题集"><a href="#面试题集" class="headerlink" title="面试题集"></a>面试题集</h2></li>
 <li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxODE4MTEzMA==&mid=2650081252&idx=1&sn=1fedc422a3806fa1f9c3faf31bb2a20b&chksm=83db9a81b4ac1397132de99ebdbdbdad57dcc6785d0b8fe1a5ee2b57dbb960b0fbf65015c3ca&scene=126&sessionid=1603760808&key=54ce6b15dc70fa94e4cee849718a95dcb45463880bfbf73a52f6e49f4e4a65fb8adec9e1c54df8bf81bfa1d78626a8537229cc36083224e425c795f892103475ca5f06542d47eec5dabc5d55c77dc7f9fabc4524bbc83cf94060d9236d1061a0fa026db04b47ae38fdfd65662df5549a11d6cd60ff371f5492081a022254d0e7&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AXrZ8Ft8M/kmfXMdRQOHyYs=&pass_ticket=Kkp6C7aNRW+SS3CyH29rTpuzIryrfuzR2BkuJOMPRmZ73lUqRYKqbJR1nz5SlRhp&wx_header=0">面试题1</a></p>
 </li>
@@ -378,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">&#x3D;&#x3D; 操作符的强制类型转换规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%81Object-is-%E3%80%81Set%E5%8E%BB%E9%87%8D%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;、Object.is()、Set去重的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this%E6%8C%87%E5%90%91-%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E7%9A%84%E4%B8%BB%E4%BD%93-%E8%B0%81%E6%89%A7%E8%A1%8C%E7%9A%84%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95-%E9%82%A3%E4%B9%88THIS%E5%B0%B1%E6%98%AF%E8%B0%81-%E6%89%80%E4%BB%A5THIS%E5%92%8C%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E5%9C%A8%E5%93%AA%E5%88%9B%E5%BB%BA%E7%9A%84%E6%88%96%E8%80%85%E5%9C%A8%E5%93%AA%E6%89%A7%E8%A1%8C%E7%9A%84%E9%83%BD%E6%B2%A1%E6%9C%89%E5%BF%85%E7%84%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">this指向 当前方法执行的主体(谁执行的这个方法,那么THIS就是谁,所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case%E8%AF%AD%E5%8F%A5%E6%98%AF%E4%BD%BF%E7%94%A8%E6%81%92%E7%AD%89%EF%BC%88-%EF%BC%89%E6%9D%A5%E5%88%A4%E6%96%AD%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">case语句是使用恒等（&#x3D;&#x3D;&#x3D;）来判断的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99-test-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E4%BC%9A%E7%BB%8F%E8%BF%87%E6%8A%BD%E8%B1%A1-ToString%E6%93%8D%E4%BD%9C%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.</span> <span class="nav-text">正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify-%E6%8B%B7%E8%B4%9D%E6%97%B6obj-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">6.</span> <span class="nav-text">JSON.stringify 拷贝时obj 的缺陷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86"><span class="nav-number">7.</span> <span class="nav-text">面试题集</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">&#x3D;&#x3D; 操作符的强制类型转换规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%81Object-is-%E3%80%81Set%E5%8E%BB%E9%87%8D%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;、Object.is()、Set去重的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this%E6%8C%87%E5%90%91-%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E7%9A%84%E4%B8%BB%E4%BD%93-%E8%B0%81%E6%89%A7%E8%A1%8C%E7%9A%84%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95-%E9%82%A3%E4%B9%88THIS%E5%B0%B1%E6%98%AF%E8%B0%81-%E6%89%80%E4%BB%A5THIS%E5%92%8C%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E5%9C%A8%E5%93%AA%E5%88%9B%E5%BB%BA%E7%9A%84%E6%88%96%E8%80%85%E5%9C%A8%E5%93%AA%E6%89%A7%E8%A1%8C%E7%9A%84%E9%83%BD%E6%B2%A1%E6%9C%89%E5%BF%85%E7%84%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">this指向 当前方法执行的主体(谁执行的这个方法,那么THIS就是谁,所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case%E8%AF%AD%E5%8F%A5%E6%98%AF%E4%BD%BF%E7%94%A8%E6%81%92%E7%AD%89%EF%BC%88-%EF%BC%89%E6%9D%A5%E5%88%A4%E6%96%AD%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">case语句是使用恒等（&#x3D;&#x3D;&#x3D;）来判断的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99-test-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E4%BC%9A%E7%BB%8F%E8%BF%87%E6%8A%BD%E8%B1%A1-ToString%E6%93%8D%E4%BD%9C%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.</span> <span class="nav-text">正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify-%E6%8B%B7%E8%B4%9D%E6%97%B6obj-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">6.</span> <span class="nav-text">JSON.stringify 拷贝时obj 的缺陷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%B8%B8%E8%A7%81%E7%9A%846%E4%B8%AD%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">js 常见的6中继承方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86"><span class="nav-number">8.</span> <span class="nav-text">面试题集</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
