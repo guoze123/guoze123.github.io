@@ -690,6 +690,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/25/react-hooks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/25/react-hooks/" class="post-title-link" itemprop="url">react-hooks</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-25 10:08:09" itemprop="dateCreated datePublished" datetime="2020-10-25T10:08:09+08:00">2020-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-28 23:06:17" itemprop="dateModified" datetime="2021-03-28T23:06:17+08:00">2021-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="认识hooks"><a href="#认识hooks" class="headerlink" title="认识hooks"></a>认识hooks</h2><ul>
+<li><p>Hook 是⼀一个特殊的函数，它可以让你“钩⼊入” React 的特性。例例如， useState 是允许你在 React 函数组件中添加 state 的 Hook</p>
+</li>
+<li><p>如果你在编写函数组件并意识到需要向其添加⼀一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件中使⽤用 Hook</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HookPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 声明⼀一个叫 “count” 的 state 变量量，初始化为0</span></span><br><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;h3&gt;HookPage&lt;/h3&gt;</span><br><span class="line">    &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="使⽤用-Effect-Hook"><a href="#使⽤用-Effect-Hook" class="headerlink" title="使⽤用 Effect Hook"></a>使⽤用 Effect Hook</h2><ul>
+<li>Effect Hook 可以让你在函数组件中执⾏行行副作⽤用操作。<br>数据获取，设置订阅以及⼿手动更更改 React 组件中的 DOM 都属于副作⽤用。不不管你知不不知道这些操作，或<br>是“副作⽤用”这个名字，应该都在组件中使⽤用过它们。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HookPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 声明⼀一个叫 “count” 的 state 变量量，初始化为0</span></span><br><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// 与 componentDidMount 和 componentDidUpdate相似</span></span><br><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// 更更新 title</span></span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">`You clicked <span class="subst">$&#123;count&#125;</span> times`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;h3&gt;HookPage&lt;/h3&gt;</span><br><span class="line">&lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">&lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> 在函数组件主体内（这⾥里里指在 React 渲染阶段）改变 DOM、添加订阅、设置定时器器、记录⽇日志以及执<br> ⾏行行其他包含副作⽤用的操作都是不不被允许的，因为这可能会产⽣生莫名其妙的 bug 并破坏 UI 的⼀一致性。<br> 使⽤用  useEffect 完成副作⽤用操作。赋值给  useEffect 的函数会在组件渲染到屏幕之后执⾏行行。你可以<br> 把 effect 看作从 React 的纯函数式世界通往命令式世界的逃⽣生通道。</p>
+<h2 id="effect-的条件执⾏"><a href="#effect-的条件执⾏" class="headerlink" title="effect 的条件执⾏"></a>effect 的条件执⾏</h2><p>默认情况下，effect 会在每轮组件渲染完成后执⾏行行。这样的话，⼀一旦 effect 的依赖发⽣生变化，它就会被<br>重新创建。<br>然⽽而，在某些场景下这么做可能会矫枉过正。⽐比如，在上⼀一章节的订阅示例例中，我们不不需要在每次组件<br>更更新时都创建新的订阅，⽽而是仅需要在  source props 改变时重新创建。<br>要实现这⼀一点，可以给  useEffect 传递第⼆二个参数，它是 effect 所依赖的值数组。更更新后的示例例如<br>下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HookPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 声明⼀一个叫 “count” 的 state 变量量，初始化为0</span></span><br><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> [date, setDate] = useState(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line"><span class="comment">// 与 componentDidMount 和 componentDidUpdate相似</span></span><br><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// 更更新 title</span></span><br><span class="line"> <span class="built_in">document</span>.title = <span class="string">`You clicked <span class="subst">$&#123;count&#125;</span> times`</span>;</span><br><span class="line"> &#125;, [count]);</span><br><span class="line"> useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  setDate(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;, []);</span><br><span class="line"> <span class="keyword">return</span> (</span><br><span class="line"> &lt;div&gt;</span><br><span class="line"> &lt;h3&gt;HookPage&lt;/h3&gt;</span><br><span class="line"> &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line"> &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line"> &lt;p&gt;&#123;date.toLocaleTimeString()&#125;&lt;/p&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时，只有当 useEffect第⼆二个参数数组⾥里里的数值 改变后才会重新创建订阅</p>
+<h2 id="清除-effect"><a href="#清除-effect" class="headerlink" title="清除 effect"></a>清除 effect</h2><p>组件卸载时需要清除 effect 创建的诸如订阅或计时器器 ID 等资源。要实现这⼀一点， useEffect<br>函数需返回⼀一个清除函数，以防⽌止内存泄漏漏，清除函数会在组件卸载前执⾏行行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">setDate(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/25/React-Redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -896,7 +988,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-28 16:24:20" itemprop="dateModified" datetime="2020-11-28T16:24:20+08:00">2020-11-28</time>
+                <time title="修改时间：2021-03-15 23:34:05" itemprop="dateModified" datetime="2021-03-15T23:34:05+08:00">2021-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -920,7 +1012,7 @@
 
       
           <h2 id="什么是Redux"><a href="#什么是Redux" class="headerlink" title="什么是Redux"></a>什么是Redux</h2><p>我们一直通过属性来进行组件中的数据传递,这种模式是非常脆弱的。在日常的开发中经常会遇到非父子组件传递的场景。原来的方式是找到共同的父级进行数据交互，这时通信就变得比较麻烦<br>我们先通过一个简单的例子实现一下redux的工作模式:</p>
-<h3 id="1-统一数据管理"><a href="#1-统一数据管理" class="headerlink" title="1).统一数据管理"></a>1).统一数据管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let state &#x3D; &#123;</span><br><span class="line">  title:&#123;color:&#39;red&#39;,text:&#39;标题&#39;&#125;,</span><br><span class="line">  content:&#123;color:&#39;green&#39;,text:&#39;内容&#39;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">function renderContent() &#123;</span><br><span class="line">  let content &#x3D; document.querySelector(&#39;.content&#39;);</span><br><span class="line">  content.innerHTML &#x3D; state.content.text;</span><br><span class="line">  content.style.color &#x3D; state.content.color;</span><br><span class="line">&#125;</span><br><span class="line">function renderTitle() &#123;</span><br><span class="line">  let title &#x3D; document.querySelector(&#39;.title&#39;);</span><br><span class="line">  title.innerHTML &#x3D; state.title.text;</span><br><span class="line">  title.style.color &#x3D; state.title.color;</span><br><span class="line">&#125;</span><br><span class="line">function renderApp() &#123;</span><br><span class="line">  renderContent();</span><br><span class="line">  renderTitle()</span><br><span class="line">&#125;</span><br><span class="line">renderApp();</span><br></pre></td></tr></table></figure>
+<h3 id="1-统一数据管理"><a href="#1-统一数据管理" class="headerlink" title="1).统一数据管理"></a>1).统一数据管理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> state = &#123;</span><br><span class="line">  title:&#123;<span class="attr">color</span>:<span class="string">&#x27;red&#x27;</span>,<span class="attr">text</span>:<span class="string">&#x27;标题&#x27;</span>&#125;,</span><br><span class="line">  content:&#123;<span class="attr">color</span>:<span class="string">&#x27;green&#x27;</span>,<span class="attr">text</span>:<span class="string">&#x27;内容&#x27;</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderContent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> content = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.content&#x27;</span>);</span><br><span class="line">  content.innerHTML = state.content.text;</span><br><span class="line">  content.style.color = state.content.color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderTitle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> title = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.title&#x27;</span>);</span><br><span class="line">  title.innerHTML = state.title.text;</span><br><span class="line">  title.style.color = state.title.color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderApp</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  renderContent();</span><br><span class="line">  renderTitle()</span><br><span class="line">&#125;</span><br><span class="line">renderApp();</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>这里我们可以将renderContent,renderTitle看成两个组件将所需的数据提取到state中统一进行管理。当渲染后我们希望更改状态，封装更改状态的方法(dispatch)</p>
@@ -928,88 +1020,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/23/Redux%E5%BA%94%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/22/React%E8%B7%AF%E7%94%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/22/React%E8%B7%AF%E7%94%B1/" class="post-title-link" itemprop="url">react 路由的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-22 10:07:09" itemprop="dateCreated datePublished" datetime="2020-10-22T10:07:09+08:00">2020-10-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-07 17:03:06" itemprop="dateModified" datetime="2020-11-07T17:03:06+08:00">2020-11-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="路由的使用"><a href="#路由的使用" class="headerlink" title="路由的使用"></a>路由的使用</h2><p>本章我们来介绍react中路由的使用,现在使用的路由是React-Router-4版本,我们需要下载的包叫react-router-dom</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/22/React%E8%B7%AF%E7%94%B1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1098,7 +1108,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1111,7 +1121,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
