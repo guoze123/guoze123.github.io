@@ -189,6 +189,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/25/React-Redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/25/React-Redux/" class="post-title-link" itemprop="url">react-redux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-25 10:07:09" itemprop="dateCreated datePublished" datetime="2020-10-25T10:07:09+08:00">2020-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-07 17:03:06" itemprop="dateModified" datetime="2020-11-07T17:03:06+08:00">2020-11-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="React-Redux应用"><a href="#React-Redux应用" class="headerlink" title="React-Redux应用"></a>React-Redux应用</h2><h3 id="1-为什么需要高阶组件"><a href="#1-为什么需要高阶组件" class="headerlink" title="1.为什么需要高阶组件"></a>1.为什么需要高阶组件</h3><p>我们先看一个非常常见的例子，一个输入框需要从本地获取数据将获取的数据放到输入框内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default class Username extends React.Component &#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    super();</span><br><span class="line">    this.state &#x3D; &#123;val:&#39;&#39;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">    let username &#x3D; localStorage.getItem(&#39;username&#39;)||&#39;&#39;;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      val:username</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">      &lt;input type&#x3D;&quot;text&quot; value&#x3D;&#123;this.state.val&#125; onChange&#x3D;&#123;()&#x3D;&gt;&#123;&#125;&#125;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这段逻辑可能在Password组件中也要使用，那么从本地存储中获取数据放到输入框内的逻辑应该就是公用逻辑。这时我们就要使用高阶组件，也就是将组件在原有的基础上进行包装。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/25/React-Redux/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/24/Redux%E6%B7%B1%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -477,7 +563,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-14 23:10:55" itemprop="dateModified" datetime="2021-03-14T23:10:55+08:00">2021-03-14</time>
+                <time title="修改时间：2021-05-24 23:55:30" itemprop="dateModified" datetime="2021-05-24T23:55:30+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -500,20 +586,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>学习要自信,学技术的目的是让我们更有自信。最害怕的事是越学越觉得恐惧。觉得自己什么都不会。</p>
-<p>不要忘记你努力的时候别人也再努力，但是你不努力就会被落下很远!</p>
-<h2 id="React基础篇"><a href="#React基础篇" class="headerlink" title="React基础篇"></a>React基础篇</h2><h3 id="1-什么是React"><a href="#1-什么是React" class="headerlink" title="1.什么是React?"></a>1.什么是React?</h3><ul>
+          <h2 id="什么是React"><a href="#什么是React" class="headerlink" title="什么是React?"></a>什么是React?</h2><ul>
 <li>React 是一个用于构建用户界面的JavaScript库</li>
 <li>核心专注于视图,目的实现组件化开发</li>
 </ul>
-<h3 id="2-组件化的概念"><a href="#2-组件化的概念" class="headerlink" title="2.组件化的概念"></a>2.组件化的概念</h3><p>我们可以很直观的将一个复杂的页面分割成若干个独立组件,每个组件包含自己的逻辑和样式 再将这些独立组件组合完成一个复杂的页面。 这样既减少了逻辑复杂度，又实现了代码的重用</p>
+<h2 id="组件化的概念"><a href="#组件化的概念" class="headerlink" title="组件化的概念"></a>组件化的概念</h2><p>我们可以很直观的将一个复杂的页面分割成若干个独立组件,每个组件包含自己的逻辑和样式 再将这些独立组件组合完成一个复杂的页面。 这样既减少了逻辑复杂度，又实现了代码的重用</p>
 <ul>
 <li>可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部</li>
 <li>可重用：每个组件都是具有独立功能的，它可以被使用在多个场景中</li>
 <li>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护</li>
 </ul>
 <p><em><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hsivfN2">https://pan.baidu.com/s/1hsivfN2</a></em></p>
-<h3 id="3-跑通react开发环境"><a href="#3-跑通react开发环境" class="headerlink" title="3.跑通react开发环境"></a>3.跑通react开发环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install create-react-app -g</span><br><span class="line">$ create-react-app &lt;project-name&gt;</span><br><span class="line">$ cd &lt;project-name&gt; &amp;&amp; npm start</span><br></pre></td></tr></table></figure>
+<h2 id="跑通react开发环境"><a href="#跑通react开发环境" class="headerlink" title="跑通react开发环境"></a>跑通react开发环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install create-react-app -g</span><br><span class="line">create-react-app &lt;project-name&gt;</span><br><span class="line">cd &lt;project-name&gt; &amp;&amp; npm start</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/21/React%E5%9F%BA%E7%A1%80%E7%AF%87/#more" rel="contents">
@@ -690,20 +774,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
