@@ -491,108 +491,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">js面试题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-29 11:05:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:05:28+08:00">2020-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 23:17:37" itemprop="dateModified" datetime="2021-05-24T23:17:37+08:00">2021-05-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">js面试题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="操作符的强制类型转换规则"><a href="#操作符的强制类型转换规则" class="headerlink" title="== 操作符的强制类型转换规则"></a>== 操作符的强制类型转换规则</h2><ul>
-<li>字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较</li>
-<li>其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较</li>
-<li>null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。</li>
-<li>对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较</li>
-<li>如果一个操作值为 NaN ，则相等比较返回 false（ NaN 本身也不等于 NaN ）</li>
-<li>如果两个操作值都是对象，则比较它们是不是指向同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回 true，否则，返回 false。</li>
-</ul>
-<h2 id="、Object-is-、Set去重的区别"><a href="#、Object-is-、Set去重的区别" class="headerlink" title="===、Object.is()、Set去重的区别"></a>===、Object.is()、Set去重的区别</h2><ul>
-<li>这几个的差异是在-0与+0；NaN上</li>
-<li>=== -0与+0是相等的 NaN与NaN是不相等的</li>
-<li>Object.is()  与===相反，-0与+0是不相等的，NaN与NaN是相等的</li>
-<li>Set 认为两组都是相等的</li>
-<li>includes 和 Set 相同</li>
-</ul>
-<h2 id="this指向-当前方法执行的主体-谁执行的这个方法-那么THIS就是谁-所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系"><a href="#this指向-当前方法执行的主体-谁执行的这个方法-那么THIS就是谁-所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系" class="headerlink" title="this指向 当前方法执行的主体(谁执行的这个方法,那么THIS就是谁,所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系)"></a>this指向 当前方法执行的主体(谁执行的这个方法,那么THIS就是谁,所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系)</h2><ul>
-<li>给元素的某个事件绑定方法，方法中的THIS都是当前操作的元素本身</li>
-<li>函数执行，看函数前面是否有点，有的话，点前面是谁THIS就是谁，没有点，THIS是WINDOW（在JS的严格模式下，没有点THIS是UNDEFINED）</li>
-<li>构造函数执行，方法中的this一般都是当前类的实例</li>
-<li>箭头函数中没有自己的THIS,THIS是上下文中的THIS</li>
-<li>在小括号表达式中，会影响THIS的指向</li>
-<li>使用call/apply/bind可以改变this指向</li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/js-codeSnippet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -624,7 +522,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 23:17:37" itemprop="dateModified" datetime="2021-05-24T23:17:37+08:00">2021-05-24</time>
+                <time title="修改时间：2021-06-02 23:10:34" itemprop="dateModified" datetime="2021-06-02T23:10:34+08:00">2021-06-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -666,6 +564,108 @@
 
 <h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myapply = <span class="function"><span class="keyword">function</span>(<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  thisArg.fn = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> result = thisArg.fn(...arg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">delete</span> thisArg.fn;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">js面试题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-29 11:05:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:05:28+08:00">2020-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-30 21:58:28" itemprop="dateModified" datetime="2021-05-30T21:58:28+08:00">2021-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">js面试题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="html"><a href="#html" class="headerlink" title="html"></a>html</h1><h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><h1 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h1><h2 id="操作符的强制类型转换规则"><a href="#操作符的强制类型转换规则" class="headerlink" title="== 操作符的强制类型转换规则"></a>== 操作符的强制类型转换规则</h2><ul>
+<li>字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较</li>
+<li>其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较</li>
+<li>null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。</li>
+<li>对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较</li>
+<li>如果一个操作值为 NaN ，则相等比较返回 false（ NaN 本身也不等于 NaN ）</li>
+<li>如果两个操作值都是对象，则比较它们是不是指向同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回 true，否则，返回 false。</li>
+</ul>
+<h2 id="、Object-is-、Set去重的区别"><a href="#、Object-is-、Set去重的区别" class="headerlink" title="===、Object.is()、Set去重的区别"></a>===、Object.is()、Set去重的区别</h2><ul>
+<li>这几个的差异是在-0与+0；NaN上</li>
+<li>=== -0与+0是相等的 NaN与NaN是不相等的</li>
+<li>Object.is()  与===相反，-0与+0是不相等的，NaN与NaN是相等的</li>
+<li>Set 认为两组都是相等的</li>
+<li>includes 和 Set 相同</li>
+</ul>
+<h2 id="this指向-当前方法执行的主体-谁执行的这个方法-那么THIS就是谁-所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系"><a href="#this指向-当前方法执行的主体-谁执行的这个方法-那么THIS就是谁-所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系" class="headerlink" title="this指向 当前方法执行的主体(谁执行的这个方法,那么THIS就是谁,所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系)"></a>this指向 当前方法执行的主体(谁执行的这个方法,那么THIS就是谁,所以THIS和当前方法在哪创建的或者在哪执行的都没有必然的关系)</h2><ul>
+<li>给元素的某个事件绑定方法，方法中的THIS都是当前操作的元素本身</li>
+<li>函数执行，看函数前面是否有点，有的话，点前面是谁THIS就是谁，没有点，THIS是WINDOW（在JS的严格模式下，没有点THIS是UNDEFINED）</li>
+<li>构造函数执行，方法中的this一般都是当前类的实例</li>
+<li>箭头函数中没有自己的THIS,THIS是上下文中的THIS</li>
+<li>在小括号表达式中，会影响THIS的指向</li>
+<li>使用call/apply/bind可以改变this指向</li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
