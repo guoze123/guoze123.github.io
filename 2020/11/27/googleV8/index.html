@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何学习谷歌高性能 JavaScript 引擎V8 什么是 V8？V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示： 上图中，中间的“黑盒”就是 JavaScript 引擎 V8。目前市面上有很多种 JavaScript 引擎，诸如 Spider">
+<meta property="og:type" content="article">
+<meta property="og:title" content="googleV8">
+<meta property="og:url" content="http://example.com/2020/11/27/googleV8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="如何学习谷歌高性能 JavaScript 引擎V8 什么是 V8？V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示： 上图中，中间的“黑盒”就是 JavaScript 引擎 V8。目前市面上有很多种 JavaScript 引擎，诸如 Spider">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/11/27/googleV8/v8_01.jpg">
+<meta property="og:image" content="http://example.com/2020/11/27/googleV8/v8_02.jpg">
+<meta property="og:image" content="http://example.com/2020/11/27/googleV8/all_v8.jpg">
+<meta property="article:published_time" content="2020-11-27T07:47:52.000Z">
+<meta property="article:modified_time" content="2021-10-13T10:11:55.288Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="googleV8">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/27/googleV8/v8_01.jpg">
+
+<link rel="canonical" href="http://example.com/2020/11/27/googleV8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>googleV8 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/27/googleV8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          googleV8
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-27 15:47:52" itemprop="dateCreated datePublished" datetime="2020-11-27T15:47:52+08:00">2020-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-13 18:11:55" itemprop="dateModified" datetime="2021-10-13T18:11:55+08:00">2021-10-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/googleV8/" itemprop="url" rel="index"><span itemprop="name">googleV8</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="如何学习谷歌高性能-JavaScript-引擎V8"><a href="#如何学习谷歌高性能-JavaScript-引擎V8" class="headerlink" title="如何学习谷歌高性能 JavaScript 引擎V8"></a>如何学习谷歌高性能 JavaScript 引擎V8</h2><ul>
+<li><p>什么是 V8？<br>V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示：<br><img src="/2020/11/27/googleV8/v8_01.jpg" alt="JavaScript引擎"></p>
+<p>上图中，中间的“黑盒”就是 JavaScript 引擎 V8。目前市面上有很多种 JavaScript 引擎，诸如 SpiderMonkey、V8、JavaScriptCore 等。而由谷歌开发的开源项目 V8 是当下使用最广泛的 JavaScript 虚拟机，全球有超过 25 亿台安卓设备，而这些设备中都使用了 Chrome 浏览器，所以我们写的 JavaScript 应用，大都跑在 V8 上。<br>在 V8 出现之前，所有的 JavaScript 虚拟机所采用的都是解释执行的方式，这是 JavaScript 执行速度过慢的一个主要原因。而 V8 率先引入了即时编译（JIT）的双轮驱动的设计，这是一种权衡策略，混合编译执行和解释执行这两种手段，给 JavaScript 的执行速度带来了极大的提升</p>
+<a id="more"></a>
+<p>在 V8 出现之前，所有的 JavaScript 虚拟机所采用的都是解释执行的方式，这是 JavaScript 执行速度过慢的一个主要原因。而 V8 率先引入了即时编译（JIT）的双轮驱动的设计，这是一种权衡策略，混合编译执行和解释执行这两种手段，给 JavaScript 的执行速度带来了极大的提升。</p>
+<p>V8 出现之后，各大厂商也都在自己的 JavaScript 虚拟机中引入了 JIT 机制，所以你会看到目前市面上 JavaScript 虚拟机都有着类似的架构。另外，V8 也是早于其他虚拟机引入了惰性编译、内联缓存、隐藏类等机制，进一步优化了 JavaScript 代码的编译执行效率</p>
+<p>V8 的主要功能，就是结合 JavaScript 语言的特性和本质来编译执行它</p>
+</li>
+<li><p>学习V8</p>
+<p>V8 的编译流水线，其完整流程<br><img src="/2020/11/27/googleV8/v8_02.jpg" alt="v8编译流水线"><br>编译流水线本身并不复杂，但是其中涉及到了很多技术，诸如 JIT、延迟解析、隐藏类、内联缓存等等。这些技术决定着一段 JavaScript 代码能否正常执行，以及代码的执行效率。</p>
+<p>V8 中使用的隐藏类（Hide Class），这是将 JavaScript 中动态类型转换为静态类型的一种技术，可以消除动态类型的语言执行速度过慢的问题，如果你熟悉 V8 的工作机制，在你编写 JavaScript 时，就能充分利用好隐藏类这种强大的优化特性，写出更加高效的代码</p>
+<p>V8 实现了 JavaScript 代码的惰性解析，目的是为了加速代码的启动速度，通过对惰性解析机制的学习，你可以优化你的代码更加适应这个机制，从而提高程序性能</p>
+<p>除了要分析编译流水线，我们还需要了解另外两个非常重要的特性，那就是 <strong><em>事件循环系统</em></strong> 和 <strong><em>垃圾回收机制</em></strong>。</p>
+<p>事件循环系统和 JavaScript 中的难点——异步编程特性紧密相关。JavaScript 是单线程的，JavaScript 代码都是在一个线程上执行，如果同一时间发送了多个 JavaScript 执行的请求，就需要排队，也就是进行异步编程。<br>V8 的事件循环系统会调度这些排队任务，保证 JavaScript 代码被 V8 有序地执行。因此也可以说，事件循环系统就是 V8 的心脏，它驱动了 V8 的持续工作。</p>
+<p>JavaScript 是一种自动垃圾回收的语言，V8 在执行垃圾回收时，会占用主线程的资源，如果我们编写的程序频繁触发垃圾回收，那么无疑会阻塞主线程，这也是我们经常会遇到的一个问题。你需要知道 V8 是如何分配内存数据的，以及这些数据是如何被回收的，打通整个链路，建立完整的系统，当下次遇到内存问题时，就知道如何去排查了<br><img src="/2020/11/27/googleV8/all_v8.jpg" alt="v8"></p>
+</li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>googlV8<ul>
+<li>v8的基础环境<ul>
+<li>堆空间<ul>
+<li>树状存储结构</li>
+<li>存储对象</li>
+<li>存储闭包函数引用的原生类型</li>
+</ul>
+</li>
+<li>栈空间<ul>
+<li>先进后出</li>
+<li>存储原生类型</li>
+</ul>
+</li>
+<li>全局执行上下文<ul>
+<li>初始化this</li>
+<li>全局作用域</li>
+<li>全局对象</li>
+</ul>
+</li>
+<li>宿主环境<ul>
+<li>宿主类型<ul>
+<li>浏览器</li>
+<li>node</li>
+<li>其他宿主</li>
+</ul>
+</li>
+<li>内置<ul>
+<li>内置函数</li>
+<li>内置对象<ul>
+<li>浏览器 window</li>
+<li>node.global</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件循环系统<ul>
+<li>消息队列</li>
+<li>任务调度系统</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>v8执行流程<ul>
+<li>词法分析<ul>
+<li>扫描源码</li>
+<li>分割源码中的字符</li>
+<li>输出Token</li>
+</ul>
+</li>
+<li>语法分析<ul>
+<li>基于词法分析出来的Token分析语法错误，给出提示</li>
+<li>输出AST</li>
+<li>输出作用域<ul>
+<li>词法作用域规则</li>
+<li>包含当前域中的对象和函数</li>
+</ul>
+</li>
+<li>惰性编译<ul>
+<li>推迟解析函数中的代码</li>
+<li>到执行函数时再解析</li>
+<li>默认只解析顶层代码</li>
+</ul>
+</li>
+<li>预解析器<ul>
+<li>快速查看函数</li>
+<li>检查函数的语法是否正确</li>
+<li>检查是否有闭包函数<ul>
+<li>如果函数引用了父函数中的变量，那么必须将引用的变量分配到堆中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>字节码<ul>
+<li>v8执行javascript过程中的中间代码</li>
+<li>根据作用域和AST生成</li>
+<li>机器代码的抽象</li>
+<li>v8虚拟机的指令集</li>
+<li>字节码缓存<ul>
+<li>降低内存</li>
+<li>提升执行速度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>解释执行字节码<ul>
+<li>两种经典的虚拟机架构<ul>
+<li>寄存器的虚拟机<ul>
+<li>累加器<ul>
+<li>计算过程中临时变量存放在累加器中</li>
+</ul>
+</li>
+<li>寄存器<ul>
+<li>PC寄存器—— 用来存放下一条字节码指令<ul>
+<li>通用寄存器—— 用来存放数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>堆和栈<ul>
+<li>堆存放对象等数据<ul>
+<li>栈管理函数调用关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于栈架构的虚拟机<ul>
+<li>寄存器<ul>
+<li>pc寄存器</li>
+<li>通用寄存器</li>
+</ul>
+</li>
+<li>栈<ul>
+<li>管理函数调用</li>
+<li>存放临时变量</li>
+</ul>
+</li>
+<li>堆<ul>
+<li>存放对象等数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>v8才用的是寄存器的虚拟机<ul>
+<li>充分使用累加器</li>
+<li>字节码指令集的编程风格和基于栈的有差异</li>
+<li>顺序执行字节码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优化字节码执行速度<ul>
+<li>为什么解释执行慢<ul>
+<li>javascript 是动态语言</li>
+<li>v8事先不知道类型的形状</li>
+<li>动态查找属性</li>
+<li>执行之前需要编译</li>
+</ul>
+</li>
+<li>内联缓存<ul>
+<li>缓存对象形状</li>
+<li>下次执行相同类型时，直接使用该形态来快速定位属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>即时编译<ul>
+<li>监视器<ul>
+<li>监视解释器的执行过程</li>
+<li>发现热点代码</li>
+<li>将热点代码提交给编辑器优化</li>
+</ul>
+</li>
+<li>编译器<ul>
+<li>编译器会编译热点代码</li>
+<li>并优化编译后的二进制机器代码</li>
+<li>二进制代码能够被高效执行</li>
+</ul>
+</li>
+<li>隐藏类<ul>
+<li>提取代码中的对象的形状</li>
+<li>并记录具体形状</li>
+<li>通过形状快速定位对象属性</li>
+</ul>
+</li>
+<li>反优化<ul>
+<li>对象的形状被动态修改了</li>
+<li>隐藏类失效</li>
+<li>触发反优化机制</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件循环系统<ul>
+<li>什么是事件循环系统<ul>
+<li>javascript是单线程模式</li>
+<li>单线程同时只能执行一个任务</li>
+<li>有新的任务就需要排队执行</li>
+<li>引入消息队列</li>
+<li>消息队列中的任务是宏任务</li>
+<li>任务调度器<ul>
+<li>循环读取消息队列中的任务</li>
+<li>分派给指定的任务处理器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>异步编程<ul>
+<li>回掉函数模式<ul>
+<li>以回掉函数的方式编写异步代码</li>
+<li>可读性差</li>
+<li>代码难维护</li>
+<li>回掉地狱</li>
+</ul>
+</li>
+<li>Promise 模式<ul>
+<li>半同步的方式编写异步代码</li>
+<li>使用微任务</li>
+<li>改造了回调函数</li>
+<li>可读性提升</li>
+</ul>
+</li>
+<li>async/await 模式<ul>
+<li>同步的方式编写异步代码</li>
+<li>使用微任务</li>
+<li>使用了协程</li>
+<li>可读性大幅提升</li>
+<li>原理复杂</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>javascript设计思想<ul>
+<li>函数一等公民<ul>
+<li>函数拥有普通类型的特性<ul>
+<li>可以作为参数</li>
+<li>可以作为返回值</li>
+<li>可以赋值给一个变量</li>
+</ul>
+</li>
+<li>基于对象设计<ul>
+<li>基本类型<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Symbol</li>
+<li>BigInt</li>
+</ul>
+</li>
+<li>对象类型<ul>
+<li>普通对象</li>
+<li>函数</li>
+<li>数组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对象是动态的<ul>
+<li>可以在运行时改变对象属性</li>
+</ul>
+</li>
+<li>支持闭包<ul>
+<li>函数即对象</li>
+<li>函数可以作为返回值</li>
+<li>子函数可以引用父函数内部的变量</li>
+<li>父函数返回子函数，子函数引用父函数的变量需要一同打包带走</li>
+</ul>
+</li>
+<li>函数表达式<ul>
+<li>函数声明<ul>
+<li>在编译阶段，会将声明的函数转换成函数对象</li>
+<li>函数声明会被变量提升</li>
+</ul>
+</li>
+<li>函数表达式<ul>
+<li>在编译阶段，不会对函数表达式做任何操作</li>
+<li>立即调用函数表达式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>类型系统和垃圾回收<ul>
+<li>类型系统<ul>
+<li>什么是类型系统<ul>
+<li>内存中的二进制是没有类型的</li>
+<li>我们可以强制给一组二进制赋予类型信息</li>
+<li>类型信息为许多操作提供隐含的上下文<ul>
+<li>两个整数类型相加</li>
+<li>两个字符串类型相加</li>
+</ul>
+</li>
+<li>类型系统限制了不合法的类型操作<ul>
+<li>1+ ‘2’ js 中合法</li>
+<li>1+ ‘2’ Python 中不合法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不同的类型如何存储<ul>
+<li>对象存储在堆中</li>
+<li>基本类型存储在栈中</li>
+</ul>
+</li>
+<li>传值和传引用<ul>
+<li>原生类型一律传值</li>
+<li>对象类型一律传引用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>垃圾回收<ul>
+<li>采用自动垃圾回收策略</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作用域<ul>
+<li>源代码中定义变量的区域</li>
+<li>静态作用域（写代码的时候静态确认下来的）</li>
+<li>动态作用域 （和函数调用的位置有关）</li>
+<li>javascript 是基于静态作用域</li>
+<li>作用域链(沿着多个作用域，查找变量的链路)<ul>
+<li>函数级作用域</li>
+<li>函数内声明的变量生成周期和函数绑定</li>
+<li>块级作用域</li>
+<li>变量和函数声明</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>原型链继承<ul>
+<li>原型<ul>
+<li>每个对象都有一个原型属性</li>
+<li>原型也是一个对象</li>
+<li>通过__proto__指向原型对象</li>
+</ul>
+</li>
+<li>原型链(查找对象属性的链路)<ul>
+<li>先在当前的属性中查找</li>
+<li>再在原型对象中查找</li>
+<li>再在原型的原型对象中查找直到 顶层Object的原型对象</li>
+</ul>
+</li>
+<li>new 关键字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>垃圾回收系统<ul>
+<li>什么是自动垃圾回收系统<ul>
+<li>自动跟踪正在使用的对象并回收不再使用的对象</li>
+</ul>
+</li>
+<li>回收方式<ul>
+<li>手动分配和回收<ul>
+<li>显示分配内存</li>
+<li>手动回收内存</li>
+</ul>
+</li>
+<li>智能指针<ul>
+<li>记住每个对象被引用的次数</li>
+<li>当引用计数为0 时，便自动回收该对象</li>
+</ul>
+</li>
+<li>自动内存管理<ul>
+<li>所有被引用的元素都用一个根元素</li>
+<li>每次从根向下遍历，没有被遍历到的数据视为垃圾数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代记假说<ul>
+<li>大部分对象在内存中存活的时间短</li>
+<li>不死的对象会会活的更久</li>
+</ul>
+</li>
+<li>分代收集<ul>
+<li>新生代存放新对象那</li>
+<li>老生代存放老对象</li>
+</ul>
+</li>
+<li>垃圾回收器<ul>
+<li>副垃圾回收器(负责新生代的垃圾回收)</li>
+<li>主垃圾回收器（负责老生代的代码回收）</li>
+</ul>
+</li>
+<li>垃圾回收流程<ul>
+<li>通用流程<ul>
+<li>回收非活动对象占用的内存</li>
+<li>整理内存碎片</li>
+</ul>
+</li>
+<li>副垃圾回收器<ul>
+<li>Scavenge 算法</li>
+<li>新生代的对象和空闲区域</li>
+<li>对象晋升策略</li>
+</ul>
+</li>
+<li>主垃圾回收器<ul>
+<li>标记清除算法</li>
+<li>标记整理算法</li>
+<li>大对象</li>
+<li>晋升的对象</li>
+</ul>
+</li>
+<li>全停顿<ul>
+<li>垃圾回收操作会占用主线程</li>
+<li>会阻塞主线程<ul>
+<li>引发问题<ul>
+<li>代码不规范，触发频繁的垃圾回收，主业务被阻塞</li>
+</ul>
+</li>
+<li>优化方法<ul>
+<li>优化代码<ul>
+<li>减少触发垃圾回收次数</li>
+<li>采用增量垃圾回收</li>
+</ul>
+</li>
+<li>v8 采用并行垃圾回收策略</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/googleV8/" rel="tag"># googleV8</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/29/js-codeSnippet/" rel="prev" title="js 代码片段实现">
+      <i class="fa fa-chevron-left"></i> js 代码片段实现
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/14/node/" rel="next" title="node">
+      node <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E8%B0%B7%E6%AD%8C%E9%AB%98%E6%80%A7%E8%83%BD-JavaScript-%E5%BC%95%E6%93%8EV8"><span class="nav-number">1.</span> <span class="nav-text">如何学习谷歌高性能 JavaScript 引擎V8</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
