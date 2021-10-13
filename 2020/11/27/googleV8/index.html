@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="./images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="./lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"./","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"gz1234.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="如何学习谷歌高性能 JavaScript 引擎V8 什么是 V8？V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示： 上图中，中间的“黑盒”就是 JavaScript 引擎 V8。目前市面上有很多种 JavaScript 引擎，诸如 Spider">
 <meta property="og:type" content="article">
 <meta property="og:title" content="googleV8">
-<meta property="og:url" content="http://example.com/2020/11/27/googleV8/index.html">
+<meta property="og:url" content="https://gz1234.gitee.io/2020/11/27/googleV8/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="如何学习谷歌高性能 JavaScript 引擎V8 什么是 V8？V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示： 上图中，中间的“黑盒”就是 JavaScript 引擎 V8。目前市面上有很多种 JavaScript 引擎，诸如 Spider">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2020/11/27/googleV8/2020/11/27/googleV8/v8_01.jpg">
-<meta property="og:image" content="http://example.com/2020/11/27/googleV8/2020/11/27/googleV8/v8_02.jpg">
-<meta property="og:image" content="http://example.com/2020/11/27/googleV8/2020/11/27/googleV8/all_v8.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/11/27/googleV8/v8_01.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/11/27/googleV8/v8_02.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/11/27/googleV8/all_v8.jpg">
 <meta property="article:published_time" content="2020-11-27T07:47:52.000Z">
 <meta property="article:modified_time" content="2021-10-13T10:11:55.288Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="googleV8">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/11/27/googleV8/2020/11/27/googleV8/v8_01.jpg">
+<meta name="twitter:image" content="https://gz1234.gitee.io/2020/11/27/googleV8/v8_01.jpg">
 
-<link rel="canonical" href="http://example.com/2020/11/27/googleV8/">
+<link rel="canonical" href="https://gz1234.gitee.io/2020/11/27/googleV8/">
 
 
 <script id="page-configurations">
@@ -100,7 +100,7 @@
 
   <div class="site-meta">
 
-    <a href="./" class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">Hexo</h1>
       <span class="logo-line-after"><i></i></span>
@@ -121,27 +121,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="./" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="./about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="./tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="./categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="./archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -199,10 +199,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/27/googleV8/">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/11/27/googleV8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="./images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="John Doe">
       <meta itemprop="description" content="">
     </span>
@@ -237,7 +237,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="./categories/googleV8/" itemprop="url" rel="index"><span itemprop="name">googleV8</span></a>
+                  <a href="/categories/googleV8/" itemprop="url" rel="index"><span itemprop="name">googleV8</span></a>
                 </span>
             </span>
 
@@ -253,7 +253,7 @@
 
       
         <h2 id="如何学习谷歌高性能-JavaScript-引擎V8"><a href="#如何学习谷歌高性能-JavaScript-引擎V8" class="headerlink" title="如何学习谷歌高性能 JavaScript 引擎V8"></a>如何学习谷歌高性能 JavaScript 引擎V8</h2><ul>
-<li><p>什么是 V8？<br>V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示：<br><img src="./2020/11/27/googleV8/v8_01.jpg" alt="JavaScript引擎"></p>
+<li><p>什么是 V8？<br>V8 是 JavaScript 虚拟机的一种。我们可以简单地把 JavaScript 虚拟机理解成是一个翻译程序，将人类能够理解的编程语言 JavaScript，翻译成机器能够理解的机器语言。如下图所示：<br><img src="/2020/11/27/googleV8/v8_01.jpg" alt="JavaScript引擎"></p>
 <p>上图中，中间的“黑盒”就是 JavaScript 引擎 V8。目前市面上有很多种 JavaScript 引擎，诸如 SpiderMonkey、V8、JavaScriptCore 等。而由谷歌开发的开源项目 V8 是当下使用最广泛的 JavaScript 虚拟机，全球有超过 25 亿台安卓设备，而这些设备中都使用了 Chrome 浏览器，所以我们写的 JavaScript 应用，大都跑在 V8 上。<br>在 V8 出现之前，所有的 JavaScript 虚拟机所采用的都是解释执行的方式，这是 JavaScript 执行速度过慢的一个主要原因。而 V8 率先引入了即时编译（JIT）的双轮驱动的设计，这是一种权衡策略，混合编译执行和解释执行这两种手段，给 JavaScript 的执行速度带来了极大的提升</p>
 <a id="more"></a>
 <p>在 V8 出现之前，所有的 JavaScript 虚拟机所采用的都是解释执行的方式，这是 JavaScript 执行速度过慢的一个主要原因。而 V8 率先引入了即时编译（JIT）的双轮驱动的设计，这是一种权衡策略，混合编译执行和解释执行这两种手段，给 JavaScript 的执行速度带来了极大的提升。</p>
@@ -261,12 +261,12 @@
 <p>V8 的主要功能，就是结合 JavaScript 语言的特性和本质来编译执行它</p>
 </li>
 <li><p>学习V8</p>
-<p>V8 的编译流水线，其完整流程<br><img src="./2020/11/27/googleV8/v8_02.jpg" alt="v8编译流水线"><br>编译流水线本身并不复杂，但是其中涉及到了很多技术，诸如 JIT、延迟解析、隐藏类、内联缓存等等。这些技术决定着一段 JavaScript 代码能否正常执行，以及代码的执行效率。</p>
+<p>V8 的编译流水线，其完整流程<br><img src="/2020/11/27/googleV8/v8_02.jpg" alt="v8编译流水线"><br>编译流水线本身并不复杂，但是其中涉及到了很多技术，诸如 JIT、延迟解析、隐藏类、内联缓存等等。这些技术决定着一段 JavaScript 代码能否正常执行，以及代码的执行效率。</p>
 <p>V8 中使用的隐藏类（Hide Class），这是将 JavaScript 中动态类型转换为静态类型的一种技术，可以消除动态类型的语言执行速度过慢的问题，如果你熟悉 V8 的工作机制，在你编写 JavaScript 时，就能充分利用好隐藏类这种强大的优化特性，写出更加高效的代码</p>
 <p>V8 实现了 JavaScript 代码的惰性解析，目的是为了加速代码的启动速度，通过对惰性解析机制的学习，你可以优化你的代码更加适应这个机制，从而提高程序性能</p>
 <p>除了要分析编译流水线，我们还需要了解另外两个非常重要的特性，那就是 <strong><em>事件循环系统</em></strong> 和 <strong><em>垃圾回收机制</em></strong>。</p>
 <p>事件循环系统和 JavaScript 中的难点——异步编程特性紧密相关。JavaScript 是单线程的，JavaScript 代码都是在一个线程上执行，如果同一时间发送了多个 JavaScript 执行的请求，就需要排队，也就是进行异步编程。<br>V8 的事件循环系统会调度这些排队任务，保证 JavaScript 代码被 V8 有序地执行。因此也可以说，事件循环系统就是 V8 的心脏，它驱动了 V8 的持续工作。</p>
-<p>JavaScript 是一种自动垃圾回收的语言，V8 在执行垃圾回收时，会占用主线程的资源，如果我们编写的程序频繁触发垃圾回收，那么无疑会阻塞主线程，这也是我们经常会遇到的一个问题。你需要知道 V8 是如何分配内存数据的，以及这些数据是如何被回收的，打通整个链路，建立完整的系统，当下次遇到内存问题时，就知道如何去排查了<br><img src="./2020/11/27/googleV8/all_v8.jpg" alt="v8"></p>
+<p>JavaScript 是一种自动垃圾回收的语言，V8 在执行垃圾回收时，会占用主线程的资源，如果我们编写的程序频繁触发垃圾回收，那么无疑会阻塞主线程，这也是我们经常会遇到的一个问题。你需要知道 V8 是如何分配内存数据的，以及这些数据是如何被回收的，打通整个链路，建立完整的系统，当下次遇到内存问题时，就知道如何去排查了<br><img src="/2020/11/27/googleV8/all_v8.jpg" alt="v8"></p>
 </li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
@@ -706,7 +706,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="./tags/googleV8/" rel="tag"># googleV8</a>
+              <a href="/tags/googleV8/" rel="tag"># googleV8</a>
           </div>
 
         
@@ -715,11 +715,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="./2020/10/29/js-codeSnippet/" rel="prev" title="js 代码片段实现">
+    <a href="/2020/10/29/js-codeSnippet/" rel="prev" title="js 代码片段实现">
       <i class="fa fa-chevron-left"></i> js 代码片段实现
     </a></div>
       <div class="post-nav-item">
-    <a href="./2021/05/14/node/" rel="next" title="node">
+    <a href="/2021/05/14/node/" rel="next" title="node">
       node <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -792,20 +792,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="./archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="./categories/">
+            <a href="/categories/">
           
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="./tags/">
+            <a href="/tags/">
           
         <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
@@ -857,33 +857,33 @@
   </div>
 
   
-  <script src="./lib/anime.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="./lib/velocity/velocity.min.js"></script>
-  <script src="./lib/velocity/velocity.ui.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="./js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="./js/motion.js"></script>
-
-
-<script src="./js/schemes/pisces.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="./js/next-boot.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-  
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
-<script src="./js/local-search.js"></script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
