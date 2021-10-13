@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="./images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="./css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="./lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"./","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="htmlcssjavascript&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较 如果一个">
@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="htmlcssjavascript&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较 如果一个">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
-<meta property="og:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png">
-<meta property="og:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/js%E5%8E%9F%E5%9E%8B%E9%93%BE.png">
+<meta property="og:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
+<meta property="og:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png">
+<meta property="og:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/js%E5%8E%9F%E5%9E%8B%E9%93%BE.png">
 <meta property="article:published_time" content="2020-10-29T03:05:28.000Z">
 <meta property="article:modified_time" content="2021-10-13T10:11:55.306Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
+<meta name="twitter:image" content="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
 
 <link rel="canonical" href="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
@@ -100,7 +100,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="./" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">Hexo</h1>
       <span class="logo-line-after"><i></i></span>
@@ -121,27 +121,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="./" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="./about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="./tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="./categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="./archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -202,7 +202,7 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="./images/avatar.gif">
       <meta itemprop="name" content="John Doe">
       <meta itemprop="description" content="">
     </span>
@@ -237,7 +237,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">js面试题</span></a>
+                  <a href="./categories/js%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">js面试题</span></a>
                 </span>
             </span>
 
@@ -277,7 +277,7 @@
 
 </li>
 </ul>
-<h2 id="case语句是使用恒等（-）来判断的"><a href="#case语句是使用恒等（-）来判断的" class="headerlink" title="case语句是使用恒等（===）来判断的"></a>case语句是使用恒等（===）来判断的</h2><h2 id="正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串"><a href="#正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串" class="headerlink" title="正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串"></a>正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串</h2><h2 id="JSON-stringify-拷贝时obj-的缺陷"><a href="#JSON-stringify-拷贝时obj-的缺陷" class="headerlink" title="JSON.stringify 拷贝时obj 的缺陷"></a>JSON.stringify 拷贝时obj 的缺陷</h2><p><img src="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png" alt="JSON.stringify"></p>
+<h2 id="case语句是使用恒等（-）来判断的"><a href="#case语句是使用恒等（-）来判断的" class="headerlink" title="case语句是使用恒等（===）来判断的"></a>case语句是使用恒等（===）来判断的</h2><h2 id="正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串"><a href="#正则-test-方法的参数如果不是字符串，会经过抽象-ToString操作强制转成字符串" class="headerlink" title="正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串"></a>正则 test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串</h2><h2 id="JSON-stringify-拷贝时obj-的缺陷"><a href="#JSON-stringify-拷贝时obj-的缺陷" class="headerlink" title="JSON.stringify 拷贝时obj 的缺陷"></a>JSON.stringify 拷贝时obj 的缺陷</h2><p><img src="./2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png" alt="JSON.stringify"></p>
 <ul>
 <li>拷贝的对象的值中如果有函数、undefined、symbol 这几种类型，经过 JSON.stringify 序列化之后的字符串中这个键值对会消失</li>
 <li>拷贝 Date 引用类型会变成字符串</li>
@@ -287,7 +287,7 @@
 <li>对象中含有 NaN、Infinity 以及 -Infinity，JSON 序列化的结果会变成 null</li>
 <li>无法拷贝对象的循环应用，即对象成环 (obj[key] = obj)</li>
 </ul>
-<h2 id="js-常见的6中继承方式"><a href="#js-常见的6中继承方式" class="headerlink" title="js 常见的6中继承方式"></a>js 常见的6中继承方式</h2><p> <img src="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png" alt="JavaScript继承"></p>
+<h2 id="js-常见的6中继承方式"><a href="#js-常见的6中继承方式" class="headerlink" title="js 常见的6中继承方式"></a>js 常见的6中继承方式</h2><p> <img src="./2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png" alt="JavaScript继承"></p>
 <ul>
 <li><p>原型链继承<br>  介绍：子类的原型指向父类构造的实例<br>  缺点： 原型属性共享问题</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">this</span>.name = <span class="string">&quot;parent1&quot;</span>;</span><br><span class="line"><span class="built_in">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">this</span>.type = <span class="string">&quot;child2&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">Child1.prototype = <span class="keyword">new</span> Parent1();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Child1());</span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Child2();</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Child2();</span><br><span class="line">s1.play.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s1.play, s2.play);</span><br></pre></td></tr></table></figure>
@@ -308,7 +308,7 @@
 
 </li>
 </ul>
-<h2 id="js-原型链"><a href="#js-原型链" class="headerlink" title="js 原型链"></a>js 原型链</h2><p><img src="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/js%E5%8E%9F%E5%9E%8B%E9%93%BE.png" alt="js原型链"></p>
+<h2 id="js-原型链"><a href="#js-原型链" class="headerlink" title="js 原型链"></a>js 原型链</h2><p><img src="./2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/js%E5%8E%9F%E5%9E%8B%E9%93%BE.png" alt="js原型链"></p>
 <ul>
 <li>每个函数都有  <code>prototype</code> 属性，除了  <code>Function.prototype.bind()</code> 该属性指向原型。该属性的值是一个堆内存，堆内存中默认自带一个属性<code>constructor</code>,值是函数本身。</li>
 <li>每个对象都有 <code>__proto__</code>属性，指向了创建该对象的构造函数的原型。</li>
@@ -401,7 +401,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># js面试题</a>
+              <a href="./tags/js%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># js面试题</a>
           </div>
 
         
@@ -410,11 +410,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" rel="prev" title="浏览器调试技巧">
+    <a href="./2020/10/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" rel="prev" title="浏览器调试技巧">
       <i class="fa fa-chevron-left"></i> 浏览器调试技巧
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/10/29/js-codeSnippet/" rel="next" title="js 代码片段实现">
+    <a href="./2020/10/29/js-codeSnippet/" rel="next" title="js 代码片段实现">
       js 代码片段实现 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -487,20 +487,20 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="./archives/">
         
           <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="./categories/">
           
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="./tags/">
           
         <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
@@ -552,33 +552,33 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
+  <script src="./lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="./lib/velocity/velocity.min.js"></script>
+  <script src="./lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="./js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="./js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="./js/schemes/pisces.js"></script>
 
 
-
-
-  
+<script src="./js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="./js/local-search.js"></script>
 
 
 
