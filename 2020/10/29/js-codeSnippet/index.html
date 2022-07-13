@@ -2,9 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,93 +15,66 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"gz1234.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-  <meta name="description" content="做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM12345678910111213141516171819202122232425262728293031(function(win) &amp;#123">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="做一个 PC 端的网页，设计图是 1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用 REM，width、height、margin、padding、left、top 都采用了 REM12345678910111213141516171819202122232425262728293031(function (win">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js 代码片段实现">
 <meta property="og:url" content="https://gz1234.gitee.io/2020/10/29/js-codeSnippet/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM12345678910111213141516171819202122232425262728293031(function(win) &amp;#123">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="做一个 PC 端的网页，设计图是 1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用 REM，width、height、margin、padding、left、top 都采用了 REM12345678910111213141516171819202122232425262728293031(function (win">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-29T03:05:28.000Z">
-<meta property="article:modified_time" content="2021-10-13T10:11:55.305Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2022-06-27T11:05:02.228Z">
+<meta property="article:author" content="郭泽">
 <meta property="article:tag" content="js 代码片段实现">
 <meta name="twitter:card" content="summary">
+
 
 <link rel="canonical" href="https://gz1234.gitee.io/2020/10/29/js-codeSnippet/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>js 代码片段实现 | Hexo</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2020/10/29/js-codeSnippet/","path":"2020/10/29/js-codeSnippet/","title":"js 代码片段实现"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>js 代码片段实现 | 郭泽</title>
   
 
 
 
 
 
-
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
@@ -112,34 +87,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -150,23 +99,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -174,175 +122,18 @@
   </div>
 
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/js-codeSnippet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          js 代码片段实现
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-29 11:05:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:05:28+08:00">2020-10-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-13 18:11:55" itemprop="dateModified" datetime="2021-10-13T18:11:55+08:00">2021-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E5%AE%9E%E7%8E%B0/" itemprop="url" rel="index"><span itemprop="name">js 代码片段实现</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常-，比如：1280X720-1366X768-1440X900-1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM"><a href="#做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常-，比如：1280X720-1366X768-1440X900-1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM" class="headerlink" title="做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM"></a>做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> tid;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">refreshRem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> designSize = <span class="number">1920</span>; <span class="comment">// 设计图尺寸</span></span><br><span class="line">    <span class="keyword">let</span> html = <span class="built_in">document</span>.documentElement;</span><br><span class="line">    <span class="keyword">let</span> wW = html.clientWidth; <span class="comment">// 窗口宽度</span></span><br><span class="line">    <span class="keyword">let</span> rem = (wW * <span class="number">100</span>) / designSize;</span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = rem + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  win.addEventListener(</span><br><span class="line">    <span class="string">&quot;resize&quot;</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(tid);</span><br><span class="line">      tid = <span class="built_in">setTimeout</span>(refreshRem, <span class="number">300</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">  );</span><br><span class="line">  win.addEventListener(</span><br><span class="line">    <span class="string">&quot;pageshow&quot;</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(tid);</span><br><span class="line">        tid = <span class="built_in">setTimeout</span>(refreshRem, <span class="number">300</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  refreshRem();</span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-
-<p>计算font-size的逻辑是：<br>当设计图是1920时,规定HTML的FONT-SIZE的值是100. 也就是,当浏览器窗口调整到1920PX时,1REM=100PX,如果要设定一个160PX(1920设计图时)的margin-top,那么REM设置值是1.6rem.</p>
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">origin, hashMap = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (origin == <span class="literal">undefined</span> || <span class="keyword">typeof</span> origin !== <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> origin</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (origin <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(origin)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (origin <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(origin)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> hashKey = hashMap.get(origin);</span><br><span class="line">    <span class="keyword">if</span> (hashKey) &#123;</span><br><span class="line">        <span class="keyword">return</span> hashKey</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> target = <span class="keyword">new</span> origin.constructor()</span><br><span class="line">    hashMap.set(origin, target)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> k <span class="keyword">in</span> origin) &#123;</span><br><span class="line">        <span class="keyword">if</span> (origin.hasOwnProperty(k)) &#123;</span><br><span class="line">            target[k] = deepClone(origin[k])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="js-原有的-toFixed-函数得到结果并非-想要的-需要自己重新定义"><a href="#js-原有的-toFixed-函数得到结果并非-想要的-需要自己重新定义" class="headerlink" title="js 原有的 toFixed 函数得到结果并非 想要的 需要自己重新定义"></a>js 原有的 toFixed 函数得到结果并非 想要的 需要自己重新定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toFixed</span>(<span class="params">number, m</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> number !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;number不是数字&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.pow(<span class="number">10</span>, m) * number) / <span class="built_in">Math</span>.pow(<span class="number">10</span>, m);</span><br><span class="line">    result = <span class="built_in">String</span>(result);</span><br><span class="line">    <span class="keyword">if</span> (result.indexOf(<span class="string">&quot;.&quot;</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">m != <span class="number">0</span></span>)</span>&#123;</span><br><span class="line">            result += <span class="string">&quot;.&quot;</span>;</span><br><span class="line">            result += <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>).join(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> arr = result.split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (arr[<span class="number">1</span>].length &lt; m) &#123;</span><br><span class="line">            arr[<span class="number">1</span>] += <span class="keyword">new</span> <span class="built_in">Array</span>(m - arr[<span class="number">1</span>].length + <span class="number">1</span>).join(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        result = arr.join(<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="bind-实现"><a href="#bind-实现" class="headerlink" title="bind 实现"></a>bind 实现</h2><ul>
-<li><p>箭头函数的 this 永远指向它所在的作用域，函数作为构造函数用 new 关键字调用时，不应该改变其 this 指向，因为 new绑定 的优先级高于 显示绑定 和 硬绑定</p>
-</li>
-<li><p>返回⼀个函数，绑定this，传递预置参数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.mybind = <span class="function"><span class="keyword">function</span>(<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 拿到参数，为了传给调用者</span></span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">   <span class="keyword">let</span>  self = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">let</span> nop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;  <span class="comment">// 构建一个干净的函数，用于保存原函数的原型</span></span><br><span class="line">    <span class="comment">// 绑定的函数</span></span><br><span class="line">    <span class="keyword">let</span> bound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// this instanceof nop, 判断是否使用 new 来调用 bound</span></span><br><span class="line">      <span class="comment">// 如果是 new 来调用的话，this的指向就是其实例，</span></span><br><span class="line">      <span class="comment">// 如果不是 new 调用的话，就改变 this 指向到指定的对象 o</span></span><br><span class="line">      <span class="keyword">return</span> self.apply(</span><br><span class="line">        <span class="built_in">this</span> <span class="keyword">instanceof</span> nop ? <span class="built_in">this</span> : thisArg,</span><br><span class="line">        args.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>))</span><br><span class="line">      );</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 箭头函数没有 prototype，箭头函数this永远指向它所在的作用域</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.prototype) &#123;</span><br><span class="line">    nop.prototype = <span class="built_in">this</span>.prototype;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 修改绑定函数的原型指向</span></span><br><span class="line">  bound.prototype = <span class="keyword">new</span> nop();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> bound;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="call实现"><a href="#call实现" class="headerlink" title="call实现"></a>call实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.mycall = <span class="function"><span class="keyword">function</span>(<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this指向调用call的对象</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 调用call的若不是函数则报错</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">  thisArg = thisArg || <span class="built_in">window</span>;</span><br><span class="line">  <span class="comment">// 将调用call函数的对象添加到thisArg的属性中</span></span><br><span class="line">  thisArg.fn = <span class="built_in">this</span>;</span><br><span class="line">  <span class="comment">// 执行该属性</span></span><br><span class="line">  <span class="keyword">const</span> result = thisArg.fn(...arg);</span><br><span class="line">  <span class="comment">// 删除该属性</span></span><br><span class="line">  <span class="keyword">delete</span> thisArg.fn;</span><br><span class="line">  <span class="comment">// 返回函数执行结果</span></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myapply = <span class="function"><span class="keyword">function</span>(<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  thisArg.fn = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> result = thisArg.fn(...arg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">delete</span> thisArg.fn;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="简单的防抖-函数"><a href="#简单的防抖-函数" class="headerlink" title="简单的防抖 函数"></a>简单的防抖 函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay = <span class="number">300</span></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">timer</span>)</span> &#123;</span><br><span class="line">       <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    &#125;</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="built_in">this</span>,args)</span><br><span class="line">    &#125;,delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!flag) <span class="keyword">return</span>;</span><br><span class="line">    flag = <span class="literal">false</span>;</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn();</span><br><span class="line">      flag = <span class="literal">true</span>;</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/js-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E5%AE%9E%E7%8E%B0/" rel="tag"># js 代码片段实现</a>
-          </div>
-
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/10/29/js%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="js面试题">
-      <i class="fa fa-chevron-left"></i> js面试题
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/11/27/googleV8/" rel="next" title="googleV8">
-      googleV8 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -351,36 +142,34 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E4%B8%80%E4%B8%AAPC%E7%AB%AF%E7%9A%84%E7%BD%91%E9%A1%B5%EF%BC%8C%E8%AE%BE%E8%AE%A1%E5%9B%BE%E6%98%AF1920X1080%EF%BC%8C%E8%A6%81%E5%9C%A8%E5%B8%B8%E8%A7%81%E5%B1%8F%E4%B8%8A%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8-%EF%BC%8C%E6%AF%94%E5%A6%82%EF%BC%9A1280X720-1366X768-1440X900-1920X1080%E3%80%82%E5%B0%B1%E8%A6%81%E4%BD%BF%E7%94%A8REM%EF%BC%8Cwidth%E3%80%81height%E3%80%81margin%E3%80%81padding%E3%80%81left%E3%80%81top%E9%83%BD%E9%87%87%E7%94%A8%E4%BA%86REM"><span class="nav-number">1.</span> <span class="nav-text">做一个PC端的网页，设计图是1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用REM，width、height、margin、padding、left、top都采用了REM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">2.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%8E%9F%E6%9C%89%E7%9A%84-toFixed-%E5%87%BD%E6%95%B0%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%9C%E5%B9%B6%E9%9D%9E-%E6%83%B3%E8%A6%81%E7%9A%84-%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">3.</span> <span class="nav-text">js 原有的 toFixed 函数得到结果并非 想要的 需要自己重新定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">bind 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">call实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">apply 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E9%98%B2%E6%8A%96-%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">简单的防抖 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E6%B5%81"><span class="nav-number">8.</span> <span class="nav-text">节流</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E4%B8%80%E4%B8%AA-PC-%E7%AB%AF%E7%9A%84%E7%BD%91%E9%A1%B5%EF%BC%8C%E8%AE%BE%E8%AE%A1%E5%9B%BE%E6%98%AF-1920X1080%EF%BC%8C%E8%A6%81%E5%9C%A8%E5%B8%B8%E8%A7%81%E5%B1%8F%E4%B8%8A%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8-%EF%BC%8C%E6%AF%94%E5%A6%82%EF%BC%9A1280X720-1366X768-1440X900-1920X1080%E3%80%82%E5%B0%B1%E8%A6%81%E4%BD%BF%E7%94%A8-REM%EF%BC%8Cwidth%E3%80%81height%E3%80%81margin%E3%80%81padding%E3%80%81left%E3%80%81top-%E9%83%BD%E9%87%87%E7%94%A8%E4%BA%86-REM"><span class="nav-number">1.</span> <span class="nav-text">做一个 PC 端的网页，设计图是 1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用 REM，width、height、margin、padding、left、top 都采用了 REM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">2.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%8E%9F%E6%9C%89%E7%9A%84-toFixed-%E5%87%BD%E6%95%B0%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%9C%E5%B9%B6%E9%9D%9E-%E6%83%B3%E8%A6%81%E7%9A%84-%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">3.</span> <span class="nav-text">js 原有的 toFixed 函数得到结果并非 想要的 需要自己重新定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">bind 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call-%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">call 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">apply 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E9%98%B2%E6%8A%96-%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">简单的防抖 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E6%B5%81"><span class="nav-number">8.</span> <span class="nav-text">节流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new-%E5%AE%9E%E7%8E%B0%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">new 实现的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compose-%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="nav-number">10.</span> <span class="nav-text">compose 函数实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#settimeout-%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0-setinterval"><span class="nav-number">11.</span> <span class="nav-text">settimeout 模拟实现 setinterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">12.</span> <span class="nav-text">发布订阅模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">13.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA-add-%E6%96%B9%E6%B3%95-%E4%BD%BF%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C%E8%83%BD%E5%A4%9F%E6%BB%A1%E8%B6%B3%E5%A6%82%E4%B8%8B%E9%A2%84%E6%9C%9F%EF%BC%9A-add-1-2-3-6-add-1-2-3-4-10"><span class="nav-number">14.</span> <span class="nav-text">实现一个 add 方法 使计算结果能够满足如下预期： add(1)(2)(3)()&#x3D;6 add(1,2,3)(4)()&#x3D;10</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">17</span>
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">10</span>
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">14</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -388,66 +177,204 @@
 
 
 
+        </div>
       </div>
-
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer class="footer">
-      <div class="footer-inner">
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/js-codeSnippet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="js 代码片段实现 | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js 代码片段实现
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 11:05:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:05:28+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-27 19:05:02" itemprop="dateModified" datetime="2022-06-27T19:05:02+08:00">2022-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E5%AE%9E%E7%8E%B0/" itemprop="url" rel="index"><span itemprop="name">js 代码片段实现</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="做一个-PC-端的网页，设计图是-1920X1080，要在常见屏上显示正常-，比如：1280X720-1366X768-1440X900-1920X1080。就要使用-REM，width、height、margin、padding、left、top-都采用了-REM"><a href="#做一个-PC-端的网页，设计图是-1920X1080，要在常见屏上显示正常-，比如：1280X720-1366X768-1440X900-1920X1080。就要使用-REM，width、height、margin、padding、left、top-都采用了-REM" class="headerlink" title="做一个 PC 端的网页，设计图是 1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用 REM，width、height、margin、padding、left、top 都采用了 REM"></a>做一个 PC 端的网页，设计图是 1920X1080，要在常见屏上显示正常 ，比如：1280X720 1366X768 1440X900 1920X1080。就要使用 REM，width、height、margin、padding、left、top 都采用了 REM</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> tid;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">refreshRem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> designSize = <span class="number">1920</span>; <span class="comment">// 设计图尺寸</span></span><br><span class="line">    <span class="keyword">let</span> html = <span class="built_in">document</span>.documentElement;</span><br><span class="line">    <span class="keyword">let</span> wW = html.clientWidth; <span class="comment">// 窗口宽度</span></span><br><span class="line">    <span class="keyword">let</span> rem = (wW * <span class="number">100</span>) / designSize;</span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = rem + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  win.addEventListener(</span><br><span class="line">    <span class="string">&quot;resize&quot;</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(tid);</span><br><span class="line">      tid = <span class="built_in">setTimeout</span>(refreshRem, <span class="number">300</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">  );</span><br><span class="line">  win.addEventListener(</span><br><span class="line">    <span class="string">&quot;pageshow&quot;</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(tid);</span><br><span class="line">        tid = <span class="built_in">setTimeout</span>(refreshRem, <span class="number">300</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  refreshRem();</span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
+
+<p>计算 font-size 的逻辑是：<br>当设计图是 1920 时,规定 HTML 的 FONT-SIZE 的值是 100. 也就是,当浏览器窗口调整到 1920PX 时,1REM=100PX,如果要设定一个 160PX(1920 设计图时)的 margin-top,那么 REM 设置值是 1.6rem.</p>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">origin, hashMap = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (origin == <span class="literal">undefined</span> || <span class="keyword">typeof</span> origin !== <span class="string">&quot;object&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> origin;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (origin <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(origin);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (origin <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(origin);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> hashKey = hashMap.get(origin);</span><br><span class="line">  <span class="keyword">if</span> (hashKey) &#123;</span><br><span class="line">    <span class="keyword">return</span> hashKey;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> target = <span class="keyword">new</span> origin.constructor();</span><br><span class="line">  hashMap.set(origin, target);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> k <span class="keyword">in</span> origin) &#123;</span><br><span class="line">    <span class="keyword">if</span> (origin.hasOwnProperty(k)) &#123;</span><br><span class="line">      target[k] = deepClone(origin[k]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="js-原有的-toFixed-函数得到结果并非-想要的-需要自己重新定义"><a href="#js-原有的-toFixed-函数得到结果并非-想要的-需要自己重新定义" class="headerlink" title="js 原有的 toFixed 函数得到结果并非 想要的 需要自己重新定义"></a>js 原有的 toFixed 函数得到结果并非 想要的 需要自己重新定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toFixed</span>(<span class="params">number, m</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> number !== <span class="string">&quot;number&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;number不是数字&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.pow(<span class="number">10</span>, m) * number) / <span class="built_in">Math</span>.pow(<span class="number">10</span>, m);</span><br><span class="line">  result = <span class="built_in">String</span>(result);</span><br><span class="line">  <span class="keyword">if</span> (result.indexOf(<span class="string">&quot;.&quot;</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (m != <span class="number">0</span>) &#123;</span><br><span class="line">      result += <span class="string">&quot;.&quot;</span>;</span><br><span class="line">      result += <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>).join(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> arr = result.split(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (arr[<span class="number">1</span>].length &lt; m) &#123;</span><br><span class="line">      arr[<span class="number">1</span>] += <span class="keyword">new</span> <span class="built_in">Array</span>(m - arr[<span class="number">1</span>].length + <span class="number">1</span>).join(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    result = arr.join(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="bind-实现"><a href="#bind-实现" class="headerlink" title="bind 实现"></a>bind 实现</h2><ul>
+<li><p>箭头函数的 this 永远指向它所在的作用域，函数作为构造函数用 new 关键字调用时，不应该改变其 this 指向，因为 new 绑定 的优先级高于 显示绑定 和 硬绑定</p>
+</li>
+<li><p>返回⼀个函数，绑定 this，传递预置参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.mybind = <span class="function"><span class="keyword">function</span> (<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 拿到参数，为了传给调用者</span></span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">let</span> self = <span class="built_in">this</span>;</span><br><span class="line">  <span class="keyword">let</span> nop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;; <span class="comment">// 构建一个干净的函数，用于保存原函数的原型</span></span><br><span class="line">  <span class="comment">// 绑定的函数</span></span><br><span class="line">  <span class="keyword">let</span> bound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// this instanceof nop, 判断是否使用 new 来调用 bound</span></span><br><span class="line">    <span class="comment">// 如果是 new 来调用的话，this的指向就是其实例，</span></span><br><span class="line">    <span class="comment">// 如果不是 new 调用的话，就改变 this 指向到指定的对象 o</span></span><br><span class="line">    <span class="keyword">return</span> self.apply(</span><br><span class="line">      <span class="built_in">this</span> <span class="keyword">instanceof</span> nop ? <span class="built_in">this</span> : thisArg,</span><br><span class="line">      args.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>))</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 箭头函数没有 prototype，箭头函数this永远指向它所在的作用域</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.prototype) &#123;</span><br><span class="line">    nop.prototype = <span class="built_in">this</span>.prototype;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 修改绑定函数的原型指向</span></span><br><span class="line">  bound.prototype = <span class="keyword">new</span> nop();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> bound;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="call-实现"><a href="#call-实现" class="headerlink" title="call 实现"></a>call 实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.mycall = <span class="function"><span class="keyword">function</span> (<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this指向调用call的对象</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">    <span class="comment">// 调用call的若不是函数则报错</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">  thisArg = thisArg || <span class="built_in">window</span>;</span><br><span class="line">  <span class="comment">// 将调用call函数的对象添加到thisArg的属性中</span></span><br><span class="line">  thisArg.fn = <span class="built_in">this</span>;</span><br><span class="line">  <span class="comment">// 执行该属性</span></span><br><span class="line">  <span class="keyword">const</span> result = thisArg.fn(...arg);</span><br><span class="line">  <span class="comment">// 删除该属性</span></span><br><span class="line">  <span class="keyword">delete</span> thisArg.fn;</span><br><span class="line">  <span class="comment">// 返回函数执行结果</span></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myapply = <span class="function"><span class="keyword">function</span> (<span class="params">thisArg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;不是一个函数&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  thisArg.fn = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> result = thisArg.fn(...arg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">delete</span> thisArg.fn;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单的防抖-函数"><a href="#简单的防抖-函数" class="headerlink" title="简单的防抖 函数"></a>简单的防抖 函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay = <span class="number">300</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</span><br><span class="line">    <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">    &#125;</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="built_in">this</span>, args);</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!flag) <span class="keyword">return</span>;</span><br><span class="line">    flag = <span class="literal">false</span>;</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn();</span><br><span class="line">      flag = <span class="literal">true</span>;</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="new-实现的过程"><a href="#new-实现的过程" class="headerlink" title="new 实现的过程"></a>new 实现的过程</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//因为new是关键字,函数的形式来实现，将构造函数和构造函数的参数传入</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNew</span>(<span class="params">Fn, ...args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//1.创建一个空对象，并将对象的__proto__指向构造函数的prototype 这里我两步一起做了</span></span><br><span class="line">  <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(Fn.prototype);</span><br><span class="line">  <span class="comment">//2.将构造函数中的this指向obj，执行构造函数代码,获取返回值</span></span><br><span class="line">  <span class="keyword">const</span> res = Fn.apply(obj, args);</span><br><span class="line">  <span class="comment">//3.判断返回值类型</span></span><br><span class="line">  <span class="keyword">return</span> res <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? res : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="compose-函数实现"><a href="#compose-函数实现" class="headerlink" title="compose 函数实现"></a>compose 函数实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">...fns</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params">!fns.length</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">v</span>) =&gt;</span> v</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params">fns.length === <span class="number">1</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fns[<span class="number">0</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> fns.reducer(<span class="function">(<span class="params">pre,cur</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> pre(cur(...args))</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="settimeout-模拟实现-setinterval"><a href="#settimeout-模拟实现-setinterval" class="headerlink" title="settimeout 模拟实现 setinterval"></a>settimeout 模拟实现 setinterval</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mySettimeout</span>(<span class="params">fn, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">interval</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fn();</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(interval, t);</span><br><span class="line">  &#125;</span><br><span class="line">  interval();</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    cancel: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.events = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 实现订阅</span></span><br><span class="line">  <span class="function"><span class="title">on</span>(<span class="params">type, callBack</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.events[type]) &#123;</span><br><span class="line">      <span class="built_in">this</span>.events[type] = [callBack];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.events[type].push(callBack);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 删除订阅</span></span><br><span class="line">  <span class="function"><span class="title">off</span>(<span class="params">type, callBack</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.events[type]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">this</span>.events[type] = <span class="built_in">this</span>.events[type].filter(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> item !== callBack;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 只执行一次订阅事件</span></span><br><span class="line">  <span class="function"><span class="title">once</span>(<span class="params">type, callBack</span>)</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      callBack();</span><br><span class="line">      <span class="built_in">this</span>.off(type, fn);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.on(type, fn);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 触发事件</span></span><br><span class="line">  <span class="function"><span class="title">emit</span>(<span class="params">type, ...rest</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.events[type] &amp;&amp;</span><br><span class="line">      <span class="built_in">this</span>.events[type].forEach(<span class="function">(<span class="params">fn</span>) =&gt;</span> fn.apply(<span class="built_in">this</span>, rest));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 缓存数组长度</span></span><br><span class="line">  <span class="keyword">const</span> len = arr.length;</span><br><span class="line">  <span class="comment">// 外层循环用于控制从头到尾的比较+交换到底有多少轮</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123; </span><br><span class="line">    <span class="comment">// 每循环完一次就少一次比教</span></span><br><span class="line">    <span class="comment">// 内层循环用于完成每一轮遍历过程中的重复比较+交换 </span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">      <span class="comment">// 若相邻元素前面的数比后面的大</span></span><br><span class="line">      <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="comment">// 交换两者</span></span><br><span class="line">        [arr[j], arr[j + <span class="number">1</span>]] = [arr[j + <span class="number">1</span>], arr[j]];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回数组</span></span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现一个-add-方法-使计算结果能够满足如下预期：-add-1-2-3-6-add-1-2-3-4-10"><a href="#实现一个-add-方法-使计算结果能够满足如下预期：-add-1-2-3-6-add-1-2-3-4-10" class="headerlink" title="实现一个 add 方法 使计算结果能够满足如下预期： add(1)(2)(3)()=6 add(1,2,3)(4)()=10"></a>实现一个 add 方法 使计算结果能够满足如下预期： add(1)(2)(3)()=6 add(1,2,3)(4)()=10</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> allArgs = [...args];</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">...newArgs</span>) </span>&#123;</span><br><span class="line">    allArgs = [...allArgs, ...newArgs];</span><br><span class="line">    <span class="keyword">return</span> fn;</span><br><span class="line">  &#125;</span><br><span class="line">  fn.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!allArgs.length) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> allArgs.reduce(<span class="function">(<span class="params">sum, cur</span>) =&gt;</span> sum + cur);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> fn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E5%AE%9E%E7%8E%B0/" rel="tag"># js 代码片段实现</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/29/react%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="react面试题">
+                  <i class="fa fa-chevron-left"></i> react面试题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="计算机基础面试题">
+                  计算机基础面试题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
-<script src="/js/utils.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
-<script src="/js/motion.js"></script>
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   
@@ -455,24 +382,6 @@
 
 
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>

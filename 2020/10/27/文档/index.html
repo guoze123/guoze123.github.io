@@ -2,9 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,93 +15,66 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"gz1234.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-  <meta name="description" content="书栈网 印记中文 JS中文网 MDN vue3 vue react angular 语雀 看云js月报 编码规范 拉钩教育极客时间珠峰培训开课吧 12.在线工具 CodePen  |  前端在线测试和演示工具  国外站点 Can  I  use |  Web前端兼容性列表 TinyPNG  |  PNG&#x2F;JPG 图片在线压缩工具 CNZZ |  老牌站点统计工具  5年前国内站长必上网站 web.">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="书栈网 印记中文 JS 中文网 MDN vue3 vue react angular 语雀 看云 js 月报 编码规范 拉钩教育极客时间珠峰培训开课吧 在线工具 CodePen | 前端在线测试和演示工具 国外站点 Can I use | Web 前端兼容性列表 TinyPNG | PNG&#x2F;JPG 图片在线压缩工具 CNZZ | 老牌站点统计工具 5 年前国内站长必上网站 web.dev | 评测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在线文档">
 <meta property="og:url" content="https://gz1234.gitee.io/2020/10/27/%E6%96%87%E6%A1%A3/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="书栈网 印记中文 JS中文网 MDN vue3 vue react angular 语雀 看云js月报 编码规范 拉钩教育极客时间珠峰培训开课吧 12.在线工具 CodePen  |  前端在线测试和演示工具  国外站点 Can  I  use |  Web前端兼容性列表 TinyPNG  |  PNG&#x2F;JPG 图片在线压缩工具 CNZZ |  老牌站点统计工具  5年前国内站长必上网站 web.">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="书栈网 印记中文 JS 中文网 MDN vue3 vue react angular 语雀 看云 js 月报 编码规范 拉钩教育极客时间珠峰培训开课吧 在线工具 CodePen | 前端在线测试和演示工具 国外站点 Can I use | Web 前端兼容性列表 TinyPNG | PNG&#x2F;JPG 图片在线压缩工具 CNZZ | 老牌站点统计工具 5 年前国内站长必上网站 web.dev | 评测">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-27T02:00:55.000Z">
-<meta property="article:modified_time" content="2021-10-13T10:11:55.337Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2022-02-25T02:36:23.231Z">
+<meta property="article:author" content="郭泽">
 <meta property="article:tag" content="在线文档">
 <meta name="twitter:card" content="summary">
+
 
 <link rel="canonical" href="https://gz1234.gitee.io/2020/10/27/%E6%96%87%E6%A1%A3/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>在线文档 | Hexo</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2020/10/27/%E6%96%87%E6%A1%A3/","path":"2020/10/27/文档/","title":"在线文档"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在线文档 | 郭泽</title>
   
 
 
 
 
 
-
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
@@ -112,34 +87,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -150,23 +99,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -174,169 +122,18 @@
   </div>
 
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/27/%E6%96%87%E6%A1%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          在线文档
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-27 10:00:55" itemprop="dateCreated datePublished" datetime="2020-10-27T10:00:55+08:00">2020-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-13 18:11:55" itemprop="dateModified" datetime="2021-10-13T18:11:55+08:00">2021-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9C%A8%E7%BA%BF%E6%96%87%E6%A1%A3/" itemprop="url" rel="index"><span itemprop="name">在线文档</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><a target="_blank" rel="noopener" href="https://www.bookstack.cn/">书栈网</a> <a target="_blank" rel="noopener" href="https://docschina.org/">印记中文</a> <a target="_blank" rel="noopener" href="https://www.javascriptc.com/">JS中文网</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">MDN</a> <a target="_blank" rel="noopener" href="https://vue3js.cn/">vue3</a> <a target="_blank" rel="noopener" href="https://cn.vuejs.org/">vue</a> <a target="_blank" rel="noopener" href="https://react.docschina.org/">react</a> <a target="_blank" rel="noopener" href="https://angular.cn/">angular</a> <a target="_blank" rel="noopener" href="https://www.yuque.com/dashboard/">语雀</a> <a target="_blank" rel="noopener" href="https://www.kancloud.cn/jsfront/month/1897005">看云js月报</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247487217&idx=2&sn=85f731a43b93b57230a7919945a7ae0d&chksm=fa2bee18cd5c670e9d0f2546fff7e579c416aa85fb4bf49223277ffb61624f99f6b50805902b&scene=126&sessionid=1606197281&key=b446d8ff764b323102bbb0c113388de17012eba1572ae079f7de09d4953d2d1bf50d1d2090b81c2dfc588fcff11bf70221158523c35e204a1efb7892811bf190ab4421d811a457fdc3900bfed451eb8448891ba49a6aa823bab680777e2c6eafae438fa434c108f7bf67b1397b3f1dca3dd4c3a5b661ebfefd647f8ebb7179cf&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AbqEAQXqtW+qx3SZA80qofI=&pass_ticket=EgQTrjNMllPeNIVkI9qHCXD/LxBZ2Z/8w6sriw+i2SdOdjARLD0NCMZcPJQLNT7e&wx_header=0">编码规范</a></p>
-<p><a target="_blank" rel="noopener" href="https://kaiwu.lagou.com/xunlianying/index.html?courseId=25#/course">拉钩教育</a><br><a target="_blank" rel="noopener" href="https://time.geekbang.org/">极客时间</a><br><a target="_blank" rel="noopener" href="https://appf96umjwe7950.h5.xiaoeknow.com/v1/auth?appId=appF96umJwe7950&redirect_url=https://appF96umJwe7950.h5.xiaoeknow.com/homepage/30">珠峰培训</a><br><a target="_blank" rel="noopener" href="https://www.kaikeba.com/">开课吧</a></p>
-<h2 id="12-在线工具"><a href="#12-在线工具" class="headerlink" title="12.在线工具"></a>12.在线工具</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://codepen.io/">CodePen  |  前端在线测试和演示工具  国外站点</a></li>
-<li><a target="_blank" rel="noopener" href="https://caniuse.com/">Can  I  use |  Web前端兼容性列表</a></li>
-<li><a target="_blank" rel="noopener" href="https://tinypng.com/">TinyPNG  |  PNG/JPG 图片在线压缩工具</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.umeng.com/">CNZZ |  老牌站点统计工具  5年前国内站长必上网站</a></li>
-<li><a target="_blank" rel="noopener" href="https://web.dev/measure/">web.dev  |  评测网站性能  基于Lighthouse</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.shapedivider.app/">Shape Divider  | 定制各种形状SVG的工具</a></li>
-<li><a target="_blank" rel="noopener" href="https://gtmetrix.com/">GTmetrix  |  网页性能在线分析工具</a></li>
-<li><a target="_blank" rel="noopener" href="https://carbon.now.sh/">Carbon  |  代码转图片工具</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.wappalyzer.com/">Wappalyzer  |  检测某个网站的技术栈</a></li>
-<li><a target="_blank" rel="noopener" href="https://unbug.github.io/codelf">CODEIF | 变量方法起名工具  人工智能加持</a></li>
-<li><a target="_blank" rel="noopener" href="https://tool.lu/">tool.lu  |  程序员在线工具大全</a></li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%96%87%E6%A1%A3/" rel="tag"># 在线文档</a>
-          </div>
-
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/10/26/MiddleWare%E5%BA%94%E7%94%A8/" rel="prev" title="react  redux中间件">
-      <i class="fa fa-chevron-left"></i> react  redux中间件
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/10/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" rel="next" title="浏览器调试技巧">
-      浏览器调试技巧 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -345,36 +142,34 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">12.在线工具</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">在线工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js"><span class="nav-number">3.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-js"><span class="nav-number">4.</span> <span class="nav-text">React.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-js"><span class="nav-number">5.</span> <span class="nav-text">Vue.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript"><span class="nav-number">6.</span> <span class="nav-text">TypeScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="nav-number">7.</span> <span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deno"><span class="nav-number">8.</span> <span class="nav-text">Deno</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown"><span class="nav-number">9.</span> <span class="nav-text">Markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">10.</span> <span class="nav-text">MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL"><span class="nav-number">11.</span> <span class="nav-text">NoSQL</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">17</span>
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">10</span>
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">14</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -382,66 +177,298 @@
 
 
 
+        </div>
       </div>
-
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer class="footer">
-      <div class="footer-inner">
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/27/%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在线文档 | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在线文档
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-27 10:00:55" itemprop="dateCreated datePublished" datetime="2020-10-27T10:00:55+08:00">2020-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-02-25 10:36:23" itemprop="dateModified" datetime="2022-02-25T10:36:23+08:00">2022-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%9C%A8%E7%BA%BF%E6%96%87%E6%A1%A3/" itemprop="url" rel="index"><span itemprop="name">在线文档</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://www.bookstack.cn/">书栈网</a> <a target="_blank" rel="noopener" href="https://docschina.org/">印记中文</a> <a target="_blank" rel="noopener" href="https://www.javascriptc.com/">JS 中文网</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">MDN</a> <a target="_blank" rel="noopener" href="https://vue3js.cn/">vue3</a> <a target="_blank" rel="noopener" href="https://cn.vuejs.org/">vue</a> <a target="_blank" rel="noopener" href="https://react.docschina.org/">react</a> <a target="_blank" rel="noopener" href="https://angular.cn/">angular</a> <a target="_blank" rel="noopener" href="https://www.yuque.com/dashboard/">语雀</a> <a target="_blank" rel="noopener" href="https://www.kancloud.cn/jsfront/month/1897005">看云 js 月报</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247487217&idx=2&sn=85f731a43b93b57230a7919945a7ae0d&chksm=fa2bee18cd5c670e9d0f2546fff7e579c416aa85fb4bf49223277ffb61624f99f6b50805902b&scene=126&sessionid=1606197281&key=b446d8ff764b323102bbb0c113388de17012eba1572ae079f7de09d4953d2d1bf50d1d2090b81c2dfc588fcff11bf70221158523c35e204a1efb7892811bf190ab4421d811a457fdc3900bfed451eb8448891ba49a6aa823bab680777e2c6eafae438fa434c108f7bf67b1397b3f1dca3dd4c3a5b661ebfefd647f8ebb7179cf&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AbqEAQXqtW+qx3SZA80qofI=&pass_ticket=EgQTrjNMllPeNIVkI9qHCXD/LxBZ2Z/8w6sriw+i2SdOdjARLD0NCMZcPJQLNT7e&wx_header=0">编码规范</a></p>
+<p><a target="_blank" rel="noopener" href="https://kaiwu.lagou.com/xunlianying/index.html?courseId=25#/course">拉钩教育</a><br><a target="_blank" rel="noopener" href="https://time.geekbang.org/">极客时间</a><br><a target="_blank" rel="noopener" href="https://appf96umjwe7950.h5.xiaoeknow.com/v1/auth?appId=appF96umJwe7950&redirect_url=https://appF96umJwe7950.h5.xiaoeknow.com/homepage/30">珠峰培训</a><br><a target="_blank" rel="noopener" href="https://www.kaikeba.com/">开课吧</a></p>
+<h2 id="在线工具"><a href="#在线工具" class="headerlink" title="在线工具"></a>在线工具</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://codepen.io/">CodePen | 前端在线测试和演示工具 国外站点</a></li>
+<li><a target="_blank" rel="noopener" href="https://caniuse.com/">Can I use | Web 前端兼容性列表</a></li>
+<li><a target="_blank" rel="noopener" href="https://tinypng.com/">TinyPNG | PNG/JPG 图片在线压缩工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.umeng.com/">CNZZ | 老牌站点统计工具 5 年前国内站长必上网站</a></li>
+<li><a target="_blank" rel="noopener" href="https://web.dev/measure/">web.dev | 评测网站性能 基于 Lighthouse</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.shapedivider.app/">Shape Divider | 定制各种形状 SVG 的工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://gtmetrix.com/">GTmetrix | 网页性能在线分析工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://carbon.now.sh/">Carbon | 代码转图片工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wappalyzer.com/">Wappalyzer | 检测某个网站的技术栈</a></li>
+<li><a target="_blank" rel="noopener" href="https://unbug.github.io/codelf">CODEIF | 变量方法起名工具 人工智能加持</a></li>
+<li><a target="_blank" rel="noopener" href="https://tool.lu/">tool.lu | 程序员在线工具大全</a></li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://justjavac.com/named-function-expressions-demystified.html">命名函数表达式探秘</a> - kangax、为之漫笔(翻译) (原始地址无法打开，所以此处地址为 justjavac 博客上的备份)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/getify/You-Dont-Know-JS/tree/1ed-zh-CN">你不知道的 Javascript</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">深入理解 JavaScript 系列</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oschina.net/translate/learning-javascript-design-patterns">学用 JavaScript 设计模式</a> - 开源中国</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/adamlu/javascript-style-guide">Airbnb JavaScript 规范</a></li>
+<li><a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/">ECMAScript 6 入门</a> - 阮一峰</li>
+<li><a target="_blank" rel="noopener" href="http://bq69.com/blog/articles/script/868/google-javascript-style-guide.html">Google JavaScript 代码风格指南</a></li>
+<li><a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/">JavaScript 标准参考教程（alpha）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/justjavac/12-javascript-quirks">javascript 的 12 个怪癖</a></li>
+<li><a target="_blank" rel="noopener" href="http://bonsaiden.github.io/JavaScript-Garden/zh/">JavaScript 秘密花园</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jayli/javascript-patterns">《JavaScript 模式》</a> (《JavaScript patterns》译本)</li>
+<li><a target="_blank" rel="noopener" href="https://web.archive.org/web/20170112164945/http://typeof.net/s/jsmech/">Javascript 原理</a></li>
+<li><a target="_blank" rel="noopener" href="http://liubin.github.io/promises-book/">JavaScript Promise 迷你书</a></li>
+<li><a target="_blank" rel="noopener" href="http://pij.robinqu.me/">Javascript 编程指南</a> (<a target="_blank" rel="noopener" href="https://github.com/RobinQu/Programing-In-Javascript">源码</a>)</li>
+<li><a target="_blank" rel="noopener" href="http://icodeit.org/jsccp/">JavaScript 核心概念及实践</a> (PDF)</li>
+</ul>
+<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://nqdeng.github.io/7-days-nodejs/">七天学会 NodeJS</a> - 阿里团队</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nswbmw/N-blog">使用 Express + MongoDB 搭建多人博客</a></li>
+<li><a target="_blank" rel="noopener" href="http://expressjs.jser.us/">express.js 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/nodejs/express.html">Express 框架</a></li>
+<li><a target="_blank" rel="noopener" href="http://nodejs.ctolib.com/docs/sfile/jstraining/engineering.html">JavaScript 全栈工程师培训材料</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/guo-yu/koa-guide">koa 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/learnyounode-zh-cn">Learn You The Node.js For Much Win! (中文版)</a></li>
+<li><a target="_blank" rel="noopener" href="http://i5ting.github.io/node-debug-tutorial/">Node debug 三法三例</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/alsotang/node-lessons">Node.js 包教不包会</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jollen/nodejs-fullstack-lessons">Node.js Fullstack《從零到一的進撃》</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.nodebeginner.org/index-zh-cn.html">Node 入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nodejs-tw/nodejs-wiki-book">Nodejs Wiki Book</a> (繁体中文)</li>
+<li><a target="_blank" rel="noopener" href="https://www.gitbook.com/book/0532/nodejs/details">nodejs 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.gitbook.com/book/0532/nodejs/details">The NodeJS 中文文档</a> - 社区翻译</li>
+<li><a target="_blank" rel="noopener" href="https://blog.poetries.top/node-learning-notes/notes/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html">Node.js 学习指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://theanarkh.github.io/understand-nodejs/">Node.js 源码剖析</a></li>
+</ul>
+<h2 id="React-js"><a href="#React-js" class="headerlink" title="React.js"></a>React.js</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/theJian/build-a-hn-front-page">Learn React &amp; Webpack by building the Hacker News front page</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hateonion/react-bits-CN">React-Bits 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.jikexueyuan.com/project/react-native/">React Native 中文文档(含最新 Android 内容)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fakefish/react-webpack-cookbook">React webpack-cookbook</a></li>
+<li><a target="_blank" rel="noopener" href="http://fraserxu.me/intro-to-react/">React.js 入门教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://discountry.github.io/react/">React.js 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sxfad/react-admin/">基于 Ant Design React 的管理系统架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://react.jokcy.me/">React 源码解析</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/KieSun/awesome-frontend-source-interpretation">从源码层面，剖析前端主流技术的底层实现原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904157829136398">React Hooks 使用详解及实际项目中遇到的坑</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/beichensky/Blog/issues/6">React Hooks 常见问题及解决方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://react.iamkasong.com/">react 技术揭秘</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/puxiao/react-hook-tutorial/blob/master/03%20useState%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md">React Hook 系列教程，学习和探索 Hooks 世界</a></li>
+</ul>
+<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/">Vue.js 中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://vue3.chengpeiquan.com/">Vue3.0 学习教程与实战案例</a> - chengpeiquan</li>
+<li><a target="_blank" rel="noopener" href="https://vue-js.com/learn-vue/start/">Vue 源码系列</a></li>
+<li><a target="_blank" rel="noopener" href="https://vue3js.cn/">vue3 文档</a></li>
+</ul>
+<h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html#tsconfig-json">深入理解 Typescript</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://typescript.bootcss.com/">typescript</a></p>
+</li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a> - runoob (HTML)</li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/getting-started-with-typescript.html">TypeScript 入门教程</a> - runoob (HTML)</li>
+<li><a target="_blank" rel="noopener" href="https://www.tslang.cn/">TypeScript 中文网</a> (HTML)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jkchao/typescript-book-chinese">TypeScript Deep Dive 中文版</a> - 三毛 (HTML)</li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/manual/gitbook/TypeScript/_book/">TypeScript Handbook（中文版）</a> - Patrick Zhong (HTML)</li>
+</ul>
+<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://web.archive.org/web/20191004044726/http://igit.linuxtoy.org:80/index.html">沉浸式学 Git</a></li>
+<li><a target="_blank" rel="noopener" href="http://backlogtool.com/git-guide/cn/">猴子都能懂的 GIT 入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/">学习 Git 分支</a></li>
+<li><a target="_blank" rel="noopener" href="http://rogerdudler.github.io/git-guide/index.zh.html">Git - 简易指南</a></li>
+<li><a target="_blank" rel="noopener" href="http://gitref.justjavac.com/">Git 参考手册</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/flyhigher139/Git-Cheat-Sheet">Git-Cheat-Sheet</a> - flyhigher139</li>
+<li><a target="_blank" rel="noopener" href="http://gitbook.liuhui998.com/">Git Community Book 中文版</a></li>
+<li><a target="_blank" rel="noopener" href="http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html">git-flow 备忘清单</a></li>
+<li><a target="_blank" rel="noopener" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/">Git magic</a></li>
+<li><a target="_blank" rel="noopener" href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/">Git Magic</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git 教程</a> - 廖雪峰</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/waylau/github-help">Github 帮助文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://snowdream86.gitbooks.io/github-cheat-sheet/content/zh/">GitHub 秘籍</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/gotgit/gotgithub">Got GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.worldhello.net/gotgithub/index.html">GotGitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh-hginit.readthedocs.io/en/latest/">HgInit (中文版)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mercurial-scm.org/wiki/ChineseTutorial">Mercurial 使用教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git</a></li>
+<li><a target="_blank" rel="noopener" href="https://bingohuang.gitbooks.io/progit2/content">Pro Git 第二版 中文版</a> - Bingo Huang</li>
+<li><a target="_blank" rel="noopener" href="http://svnbook.red-bean.com/nightly/zh/index.html">svn 手册</a></li>
+</ul>
+<h2 id="Deno"><a href="#Deno" class="headerlink" title="Deno"></a>Deno</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://deno-tutorial.js.org/">Deno 钻研之术</a></li>
+<li><a target="_blank" rel="noopener" href="https://chenshenhai.com/deno_note">Deno 进阶开发笔记</a> - 大深海</li>
+</ul>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/q81RER">献给写作者的 Markdown 新手指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://markdown.tw/">Markdown 語法說明</a></li>
+</ul>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html">21 分钟 MySQL 入门教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">MySQL 索引背后的数据结构及算法原理</a></li>
+</ul>
+<h2 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/huangz1990/annotated_redis_source">带有详细注释的 Redis 2.6 代码</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/huangz1990/redis-3.0-annotated">带有详细注释的 Redis 3.0 代码</a></li>
+<li><a target="_blank" rel="noopener" href="http://disque.huangz.me/">Disque 使用教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://redisdoc.com/">Redis 命令参考</a></li>
+<li><a target="_blank" rel="noopener" href="http://redisbook.com/">Redis 设计与实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/justinyhuang/the-little-mongodb-book-cn/blob/master/mongodb.md">The Little MongoDB Book</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/JasonLai256/the-little-redis-book/blob/master/cn/redis.md">The Little Redis Book</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%96%87%E6%A1%A3/" rel="tag"># 在线文档</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/26/MiddleWare%E5%BA%94%E7%94%A8/" rel="prev" title="react  redux中间件">
+                  <i class="fa fa-chevron-left"></i> react  redux中间件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" rel="next" title="浏览器调试技巧">
+                  浏览器调试技巧 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
-<script src="/js/utils.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
-<script src="/js/motion.js"></script>
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   
@@ -449,24 +476,6 @@
 
 
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
