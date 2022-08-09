@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MiddleWare的使用1.logger中间件我们改写了，dispatch方法实现了在更改状态时打印前后的状态,但是这种方案并不好。所以我们可以采用中间的方式。 123456789let store &#x3D; createStore(reducer);let dispatch &#x3D; store.dispatch;store.dispatch &#x3D; function (action) &amp;#123;  con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react  redux中间件">
+<meta property="og:url" content="https://gz1234.gitee.io/2020/10/26/react%E7%AC%94%E8%AE%B0/MiddleWare%E5%BA%94%E7%94%A8/index.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="MiddleWare的使用1.logger中间件我们改写了，dispatch方法实现了在更改状态时打印前后的状态,但是这种方案并不好。所以我们可以采用中间的方式。 123456789let store &#x3D; createStore(reducer);let dispatch &#x3D; store.dispatch;store.dispatch &#x3D; function (action) &amp;#123;  con">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-26T02:07:09.000Z">
+<meta property="article:modified_time" content="2022-07-15T08:18:07.599Z">
+<meta property="article:author" content="郭泽">
+<meta property="article:tag" content="react redux中间件">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/2020/10/26/react%E7%AC%94%E8%AE%B0/MiddleWare%E5%BA%94%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2020/10/26/react%E7%AC%94%E8%AE%B0/MiddleWare%E5%BA%94%E7%94%A8/","path":"2020/10/26/react笔记/MiddleWare应用/","title":"react  redux中间件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>react  redux中间件 | 郭泽</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MiddleWare%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">MiddleWare的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-logger%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">1.logger中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0logger%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">实现logger中间件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E7%8E%B0redux-thunk%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">2.实现redux-thunk中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%9E%E7%8E%B0redux-promise%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">3.实现redux-promise中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-compose%E5%BA%94%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">4.compose应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0compose"><span class="nav-number">1.4.1.</span> <span class="nav-text">实现compose</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-applyMiddleware%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">5.applyMiddleware实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%AE%80%E5%8C%96applyMiddleWare%E5%BA%94%E7%94%A8"><span class="nav-number">1.6.</span> <span class="nav-text">6.简化applyMiddleWare应用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/26/react%E7%AC%94%E8%AE%B0/MiddleWare%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="react  redux中间件 | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          react  redux中间件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-26 10:07:09" itemprop="dateCreated datePublished" datetime="2020-10-26T10:07:09+08:00">2020-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-15 16:18:07" itemprop="dateModified" datetime="2022-07-15T16:18:07+08:00">2022-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="MiddleWare的使用"><a href="#MiddleWare的使用" class="headerlink" title="MiddleWare的使用"></a>MiddleWare的使用</h2><h3 id="1-logger中间件"><a href="#1-logger中间件" class="headerlink" title="1.logger中间件"></a>1.logger中间件</h3><p>我们改写了，dispatch方法实现了在更改状态时打印前后的状态,但是这种方案并不好。所以我们可以采用中间的方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> store = createStore(reducer);</span><br><span class="line"><span class="keyword">let</span> dispatch = store.dispatch;</span><br><span class="line">store.dispatch = <span class="function"><span class="keyword">function</span> (<span class="params">action</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(store.getState().number);</span><br><span class="line">  dispatch(action);</span><br><span class="line">  <span class="built_in">console</span>.log(store.getState().number)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="实现logger中间件"><a href="#实现logger中间件" class="headerlink" title="实现logger中间件"></a>实现logger中间件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> logger = <span class="function"><span class="params">store</span> =&gt;</span> <span class="function"><span class="params">dispatch</span> =&gt;</span> <span class="function"><span class="params">action</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(store.getState().number);</span><br><span class="line">  dispatch(action);</span><br><span class="line">  <span class="built_in">console</span>.log(store.getState().number)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> applyMiddleWare = <span class="function"><span class="params">middleware</span> =&gt;</span> <span class="function"><span class="params">createStore</span> =&gt;</span> <span class="function"><span class="params">reducer</span> =&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> store = createStore(reducer);</span><br><span class="line">  <span class="keyword">let</span> middle = middleware(store);</span><br><span class="line">  <span class="keyword">let</span> dispatch = middle(store.dispatch);</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="comment">//将中间返回的dispatch方法覆盖掉原有store中的dispatch</span></span><br><span class="line">    ...store,</span><br><span class="line">    dispatch</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> applyMiddleWare(logger)(createStore)(reducer);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-实现redux-thunk中间件"><a href="#2-实现redux-thunk中间件" class="headerlink" title="2.实现redux-thunk中间件"></a>2.实现redux-thunk中间件</h3><p>实现派发异步动作,actionCreator可以返回函数，可以把dispatch的权限交给此函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// action</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">add</span>(<span class="params">amount</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">dispatch,getState</span>) </span>&#123;</span><br><span class="line">      dispatch(&#123;<span class="attr">type</span>:Types.ADD,amount&#125;);</span><br><span class="line">      dispatch(&#123;<span class="attr">type</span>:Types.ADD,amount&#125;);</span><br><span class="line">      <span class="built_in">console</span>.log(getState().number);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">minus</span>(<span class="params">amount</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">type</span>:Types.MINUS,amount&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// store/index.js</span></span><br><span class="line"><span class="keyword">let</span> reduxThunk = <span class="function"><span class="params">store</span> =&gt;</span> <span class="function"><span class="params">dispatch</span> =&gt;</span> <span class="function"><span class="params">action</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params"><span class="keyword">typeof</span> action === <span class="string">&#x27;function&#x27;</span></span>)</span>&#123; <span class="comment">//如果是函数将派发的权限传递给函数</span></span><br><span class="line">    <span class="keyword">return</span> action(dispatch,store.getState);</span><br><span class="line">  &#125;</span><br><span class="line">  dispatch(action);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-实现redux-promise中间件"><a href="#3-实现redux-promise中间件" class="headerlink" title="3.实现redux-promise中间件"></a>3.实现redux-promise中间件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// action</span></span><br><span class="line"><span class="function"><span class="title">minus</span>(<span class="params">amount</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      type:Types.MINUS,</span><br><span class="line">      payload:<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve,reject</span>) </span>&#123;</span><br><span class="line">        reject(&#123;<span class="attr">amount</span>:<span class="number">2</span>&#125;);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//store/index.js</span></span><br><span class="line"><span class="keyword">let</span> reduxPromise = <span class="function"><span class="params">store</span> =&gt;</span> <span class="function"><span class="params">dispatch</span> =&gt;</span> <span class="function"><span class="params">action</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params">action.then</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> action.then(dispatch); <span class="comment">//只支持成功</span></span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="function"><span class="title">if</span>(<span class="params">action.payload&amp;&amp;action.payload.then</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 如果payload是一个promise 会对成功和失败都进行捕获并且将成功或失败的数据放到payload中进行派发</span></span><br><span class="line">    <span class="keyword">return</span> action.payload.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      dispatch(&#123;...action,<span class="attr">payload</span>:data&#125;);</span><br><span class="line">    &#125;,<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      dispatch(&#123;...action,<span class="attr">payload</span>:data&#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  dispatch(action);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-compose应用"><a href="#4-compose应用" class="headerlink" title="4.compose应用"></a>4.compose应用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toResult</span>(<span class="params">who,decorator</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> who+decorator;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">len</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.length</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 我们的目的是将第一个函数的返回结果传递给第二个函数</span></span><br><span class="line"><span class="built_in">console</span>.log(len(toResult(<span class="string">&#x27;Mrs jiang&#x27;</span>, <span class="string">&#x27;很帅&#x27;</span>)));</span><br></pre></td></tr></table></figure>
+
+<h4 id="实现compose"><a href="#实现compose" class="headerlink" title="实现compose"></a>实现compose</h4><p>这个compose也是redux中的一个方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> compose = <span class="function">(<span class="params">...fns</span>)=&gt;</span><span class="function">(<span class="params">...args</span>)=&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> last = fns.pop();</span><br><span class="line">  <span class="keyword">return</span> fns.reduceRight(<span class="function"><span class="keyword">function</span> (<span class="params">prev,next</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> next(prev);</span><br><span class="line">  &#125;,last(...args))</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(compose(len, toResult)(<span class="string">&#x27;Mrs jiang&#x27;</span>, <span class="string">&#x27;很帅&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-applyMiddleware实现"><a href="#5-applyMiddleware实现" class="headerlink" title="5.applyMiddleware实现"></a>5.applyMiddleware实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> applyMiddleWare = <span class="function">(<span class="params">...middlewares</span>) =&gt;</span> <span class="function"><span class="params">createStore</span> =&gt;</span> <span class="function"><span class="params">reducer</span> =&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> store = createStore(reducer);</span><br><span class="line">  <span class="keyword">let</span> middles = middlewares.map(<span class="function"><span class="params">middleware</span>=&gt;</span>middleware(store))</span><br><span class="line">  <span class="keyword">let</span> dispatch = compose(...middles)(store.dispatch);</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ...store,</span><br><span class="line">    dispatch</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-简化applyMiddleWare应用"><a href="#6-简化applyMiddleWare应用" class="headerlink" title="6.简化applyMiddleWare应用"></a>6.简化applyMiddleWare应用</h3><p>最终实现效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createStore(reducer,applyMiddleware(reduxThunk,reduxPromise));</span><br></pre></td></tr></table></figure>
+<p>最终版redux库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> createStore = <span class="function">(<span class="params">reducer, fn</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> state;</span><br><span class="line">    <span class="keyword">let</span> listeners = [];</span><br><span class="line">    <span class="keyword">let</span> getState = <span class="function">() =&gt;</span> state;</span><br><span class="line">    <span class="keyword">let</span> dispatch = <span class="function">(<span class="params">action</span>) =&gt;</span> &#123;</span><br><span class="line">        state = reducer(state, action);</span><br><span class="line">        listeners.forEach(<span class="function"><span class="params">item</span> =&gt;</span> item());</span><br><span class="line">    &#125;;</span><br><span class="line">    dispatch(&#123;&#125;);</span><br><span class="line">    <span class="keyword">let</span> subscribe = <span class="function">(<span class="params">l</span>) =&gt;</span> &#123;</span><br><span class="line">        listeners.push(l);</span><br><span class="line">        <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            listeners = listeners.filter(<span class="function"><span class="params">item</span> =&gt;</span> item !== l);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> fn === <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> fn(createStore, reducer);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        createStore,</span><br><span class="line">        dispatch,</span><br><span class="line">        getState,</span><br><span class="line">        subscribe</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> combineReducers = <span class="function">(<span class="params">reducers</span>) =&gt;</span> <span class="function">(<span class="params">newState = &#123;&#125;, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> reducers) &#123;</span><br><span class="line">        newState[key] = reducers[key](newState[key], action)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newState;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> bindActionCreators = <span class="function">(<span class="params">actions, dispatch</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> actions) &#123;</span><br><span class="line">        obj[key] = <span class="function">(<span class="params">...args</span>) =&gt;</span> dispatch(actions[key](...args))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> applyMiddleware = <span class="function">(<span class="params">...middlewares</span>) =&gt;</span> <span class="function">(<span class="params">createStore, reducer</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> store = createStore(reducer);</span><br><span class="line">    <span class="keyword">let</span> middles = middlewares.map(<span class="function"><span class="params">middleware</span> =&gt;</span> middleware(store));</span><br><span class="line">    <span class="keyword">let</span> dispatch = compose(...middles)(store.dispatch);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        ...store,</span><br><span class="line">        dispatch</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> compose = <span class="function">(<span class="params">...fns</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> fn = fns.pop();</span><br><span class="line">        <span class="keyword">return</span> fns.reduceRight(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> next(prev);</span><br><span class="line">        &#125;, fn(...args));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> &#123;createStore, combineReducers, bindActionCreators, applyMiddleware, compose&#125;</span><br></pre></td></tr></table></figure>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react-redux%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag"># react redux中间件</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/25/react%E7%AC%94%E8%AE%B0/react-hooks/" rel="prev" title="react-hooks">
+                  <i class="fa fa-chevron-left"></i> react-hooks
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/27/%E6%96%87%E6%A1%A3/" rel="next" title="在线文档">
+                  在线文档 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Node 能够解决什么问题? # Node 的首要目标是提供一种简单的，用于创建高性能服务器的开发工具 Web 服务器的瓶颈在于并发的用户量，对比 Java 和 Php 的实现方式  Node 是什么? # Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,让 JavaScript 的执行效率与低端的 C 语言的相近的执行效率。。 Node.js 使用了一个事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node">
+<meta property="og:url" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/index.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="Node 能够解决什么问题? # Node 的首要目标是提供一种简单的，用于创建高性能服务器的开发工具 Web 服务器的瓶颈在于并发的用户量，对比 Java 和 Php 的实现方式  Node 是什么? # Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,让 JavaScript 的执行效率与低端的 C 语言的相近的执行效率。。 Node.js 使用了一个事">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/browser.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/eventloop.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/nodesystem.png">
+<meta property="article:published_time" content="2022-07-08T18:21:52.000Z">
+<meta property="article:modified_time" content="2022-08-08T11:43:04.036Z">
+<meta property="article:author" content="郭泽">
+<meta property="article:tag" content="node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/browser.jpg">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/","path":"2022/07/09/前端记录整理/node/","title":"node"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>node | 郭泽</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Node 能够解决什么问题? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Node 是什么? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">Node 特点 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-JavaScript-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">为什么 JavaScript 是单线程？ </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">浏览器模型 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A4-JS-%E7%BA%BF%E7%A8%8B%E5%92%8C-UI-%E7%BA%BF%E7%A8%8B%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">除 JS 线程和 UI 线程之外的其它线程 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-number">3.4.</span> <span class="nav-text">任务队列 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.5.</span> <span class="nav-text">Event Loop </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E7%9A%84-Event-Loop"><span class="nav-number">3.6.</span> <span class="nav-text">Node.js 的 Event Loop </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BE%9D%E8%B5%96%E2%BC%A6%E6%A8%A1%E5%9D%97%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">node.js 的主要依赖⼦模块有以下内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">同步与异步 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="nav-number">4.2.</span> <span class="nav-text">阻塞与非阻塞 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88"><span class="nav-number">4.3.</span> <span class="nav-text">组合 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8-Node-%E6%A1%86%E6%9E%B6"><span class="nav-number">5.</span> <span class="nav-text">什么场合下应该考虑使用 Node 框架 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E9%83%A8%E7%BD%B2"><span class="nav-number">6.</span> <span class="nav-text">node 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forever"><span class="nav-number">6.1.</span> <span class="nav-text">forever</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">6.2.</span> <span class="nav-text">pm2</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="node | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          node
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-08 19:43:04" itemprop="dateModified" datetime="2022-08-08T19:43:04+08:00">2022-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Node-能够解决什么问题"><a href="#Node-能够解决什么问题" class="headerlink" title="Node 能够解决什么问题? #"></a>Node 能够解决什么问题? <a href="#t01-node%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">#</a></h2><ul>
+<li>Node 的首要目标是提供一种简单的，用于创建高性能服务器的开发工具</li>
+<li>Web 服务器的瓶颈在于并发的用户量，对比 Java 和 Php 的实现方式</li>
+</ul>
+<h2 id="Node-是什么"><a href="#Node-是什么" class="headerlink" title="Node 是什么? #"></a>Node 是什么? <a href="#t12-node%E6%98%AF%E4%BB%80%E4%B9%88">#</a></h2><ul>
+<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,让 JavaScript 的执行效率与低端的 C 语言的相近的执行效率。。</li>
+<li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</li>
+<li>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
+</ul>
+<h2 id="Node-特点"><a href="#Node-特点" class="headerlink" title="Node 特点 #"></a>Node 特点 <a href="#t23-node%E7%89%B9%E7%82%B9">#</a></h2><h3 id="为什么-JavaScript-是单线程？"><a href="#为什么-JavaScript-是单线程？" class="headerlink" title="为什么 JavaScript 是单线程？ #"></a>为什么 JavaScript 是单线程？ <a href="#t331-%E4%B8%BA%E4%BB%80%E4%B9%88javascript%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B">#</a></h3><ul>
+<li>这是由 Javascript 这门脚本语言的用途决定的。</li>
+<li>Web Worker 并没有改变 JavaScript 单线程的本质。</li>
+</ul>
+<h3 id="浏览器模型"><a href="#浏览器模型" class="headerlink" title="浏览器模型 #"></a>浏览器模型 <a href="#t432-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B">#</a></h3><ul>
+<li>用户界面-包括地址栏、前进/后退按钮、书签菜单等</li>
+<li>浏览器引擎-在用户界面和呈现引擎之间传送指令</li>
+<li>呈现引擎-又称渲染引擎，也被称为浏览器内核，在线程方面又称为 UI 线程</li>
+<li>网络-用于网络调用，比如 HTTP 请求</li>
+<li>用户界面后端-用于绘制基本的窗口小部件,UI 线程和 JS 共用一个线程</li>
+<li>JavaScript 解释器-用于解析和执行 JavaScript 代码</li>
+<li>数据存储-这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie</li>
+</ul>
+<p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/browser.jpg"></p>
+<h3 id="除-JS-线程和-UI-线程之外的其它线程"><a href="#除-JS-线程和-UI-线程之外的其它线程" class="headerlink" title="除 JS 线程和 UI 线程之外的其它线程 #"></a>除 JS 线程和 UI 线程之外的其它线程 <a href="#t533-%E9%99%A4js%E7%BA%BF%E7%A8%8B%E5%92%8Cui%E7%BA%BF%E7%A8%8B%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B">#</a></h3><ul>
+<li>浏览器事件触发线程</li>
+<li>定时触发器线程</li>
+<li>异步 HTTP 请求线程</li>
+</ul>
+<h3 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列 #"></a>任务队列 <a href="#t634-%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97">#</a></h3><ol>
+<li>所有同步任务都在主线程上执行，形成一个执行栈</li>
+<li>主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件。</li>
+<li>一旦执行栈中的所有 <strong>同步任务</strong>执行完毕，系统就会读取 <strong>任务队列</strong>，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</li>
+<li>主线程不断重复上面的第三步。</li>
+</ol>
+<h3 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop #"></a>Event Loop <a href="#t735-event-loop">#</a></h3><p>主线程从 <strong>任务队列</strong>中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为 Event Loop(事件循环)</p>
+<p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/eventloop.png"></p>
+<h3 id="Node-js-的-Event-Loop"><a href="#Node-js-的-Event-Loop" class="headerlink" title="Node.js 的 Event Loop #"></a>Node.js 的 Event Loop <a href="#t836-nodejs%E7%9A%84event-loop">#</a></h3><p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/nodesystem.png"></p>
+<h2 id="node-js-的主要依赖⼦模块有以下内容"><a href="#node-js-的主要依赖⼦模块有以下内容" class="headerlink" title="node.js 的主要依赖⼦模块有以下内容"></a>node.js 的主要依赖⼦模块有以下内容</h2><ul>
+<li>V8 引擎：主要是 JS 语法的解析，有了它才能识别 JS语法</li>
+<li>libuv: c 语⾔实现的⼀个⾼性能异步⾮阻塞 IO 库，⽤来实现 node.js 的事件循环</li>
+<li>http-parser/llhttp: 底层处理 http 请求，处理报⽂，解析请求包等内容</li>
+<li>openssl: 处理加密算法，各种框架运⽤⼴泛</li>
+<li>zlib: 处理压缩等内容</li>
+</ul>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步 #"></a>同步与异步 <a href="#t937-%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5">#</a></h3><p>同步和异步关注的是消息通知机制</p>
+<ul>
+<li>同步就是发出调用后，没有得到结果之前，该调用不返回，一旦调用返回，就得到返回值了。 简而言之就是调用者主动等待这个调用的结果</li>
+<li>而异步则相反，调用者在发出调用后这个调用就直接返回了，所以没有返回结果。换句话说当一个异步过程调用发出后，调用者不会立刻得到结果，而是调用发出后，被调用者通过状态、通知或回调函数处理这个调用。</li>
+</ul>
+<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞 #"></a>阻塞与非阻塞 <a href="#t1038-%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E">#</a></h3><p>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态.</p>
+<ul>
+<li>阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。</li>
+<li>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</li>
+</ul>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合 #"></a>组合 <a href="#t1139-%E7%BB%84%E5%90%88">#</a></h3><p>同步异步取决于被调用者，阻塞非阻塞取决于调用者</p>
+<ul>
+<li>同步阻塞</li>
+<li>异步阻塞</li>
+<li>同步非阻塞</li>
+<li>异步非阻塞</li>
+</ul>
+<h2 id="什么场合下应该考虑使用-Node-框架"><a href="#什么场合下应该考虑使用-Node-框架" class="headerlink" title="什么场合下应该考虑使用 Node 框架 #"></a>什么场合下应该考虑使用 Node 框架 <a href="#t124%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8node%E6%A1%86%E6%9E%B6">#</a></h2><p>当应用程序需要处理大量并发的输入输出，而在向客户端响应之前，应用程序并不需要进行非常复杂的处理。</p>
+<ul>
+<li>聊天服务器</li>
+<li>电子商务网站</li>
+</ul>
+<h2 id="node-部署"><a href="#node-部署" class="headerlink" title="node 部署"></a>node 部署</h2><h3 id="forever"><a href="#forever" class="headerlink" title="forever"></a>forever</h3><ul>
+<li>forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启</li>
+<li>安装 npm install -g forever</li>
+<li>forever的帮助手册 forever –help</li>
+<li>使用forever启动项目 forever start app.js</li>
+<li>使用forever停止项目 forever stop app.js</li>
+<li>列出所有通过forever管理的项目 forever list</li>
+<li>监视项目中的文件,当文件有变动时重启项目 forever -w start app.js</li>
+</ul>
+<h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>PM2 是具有内置负载均衡器的 Node.js 应用程序的生产流程管理器。它允许您使应用程序永远保持活动状态，在不停机的情况下重新加载它们，并促进常见的系统管理任务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 全局安装</span><br><span class="line">&gt; npm install pm2 -g</span><br><span class="line"># pm2启动项目</span><br><span class="line">&gt; pm2 start index.js</span><br><span class="line"># pm2停止项目</span><br><span class="line">&gt; pm2 stop index.js</span><br><span class="line"># 列出pm2管理的所有项目 </span><br><span class="line">&gt; pm2 list</span><br><span class="line"># 追踪资源运行情况</span><br><span class="line">&gt; pm2 monit</span><br><span class="line"># 查看日志</span><br><span class="line">&gt; pm2 logs</span><br><span class="line"># pm2重启项目</span><br><span class="line">&gt; pm2 restart id/name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/node/" rel="tag"># node</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/" rel="prev" title="nodeCore">
+                  <i class="fa fa-chevron-left"></i> nodeCore
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/module&NPM/" rel="next" title="module&NPM">
+                  module&NPM <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

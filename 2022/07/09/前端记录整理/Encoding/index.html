@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="字符发展历史 #字节 # 计算机内部，所有信息最终都是一个二进制值 每一个二进制位（bit）有0和1两种状态，因此八个二进制位就可以组合出256种状态，这被称为一个字节(byte)  单位 # 8位 &#x3D; 1字节 1024字节 &#x3D; 1K 1024K &#x3D; 1M 1024M &#x3D; 1G 1024G &#x3D; 1T  JavaScript中的进制 #进制表示 #1234567let a &#x3D; 0b10100;&#x2F;&#x2F;二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Encoding">
+<meta property="og:url" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/index.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="字符发展历史 #字节 # 计算机内部，所有信息最终都是一个二进制值 每一个二进制位（bit）有0和1两种状态，因此八个二进制位就可以组合出256种状态，这被称为一个字节(byte)  单位 # 8位 &#x3D; 1字节 1024字节 &#x3D; 1K 1024K &#x3D; 1M 1024M &#x3D; 1G 1024G &#x3D; 1T  JavaScript中的进制 #进制表示 #1234567let a &#x3D; 0b10100;&#x2F;&#x2F;二">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/bits.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/ascii.jpg">
+<meta property="article:published_time" content="2022-07-08T19:21:52.000Z">
+<meta property="article:modified_time" content="2022-08-04T07:31:40.210Z">
+<meta property="article:author" content="郭泽">
+<meta property="article:tag" content="Encoding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/bits.jpg">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/","path":"2022/07/09/前端记录整理/Encoding/","title":"Encoding"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Encoding | 郭泽</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">字符发展历史 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E8%8A%82"><span class="nav-number">1.1.</span> <span class="nav-text">字节 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D"><span class="nav-number">1.2.</span> <span class="nav-text">单位 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E4%B8%AD%E7%9A%84%E8%BF%9B%E5%88%B6"><span class="nav-number">1.3.</span> <span class="nav-text">JavaScript中的进制 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">进制表示 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.3.2.</span> <span class="nav-text">进制转换 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCII"><span class="nav-number">1.4.</span> <span class="nav-text">ASCII </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GB2312"><span class="nav-number">1.5.</span> <span class="nav-text">GB2312 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBK"><span class="nav-number">1.6.</span> <span class="nav-text">GBK </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GB18030-DBCS"><span class="nav-number">1.7.</span> <span class="nav-text">GB18030 &#x2F; DBCS </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode"><span class="nav-number">1.8.</span> <span class="nav-text">Unicode </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-8"><span class="nav-number">1.9.</span> <span class="nav-text">UTF-8 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E8%A7%84%E5%88%99"><span class="nav-number">1.10.</span> <span class="nav-text">编码规则 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E9%80%9A%E4%B8%8D%E5%A6%82%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.11.</span> <span class="nav-text">联通不如移动 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81"><span class="nav-number">1.12.</span> <span class="nav-text">文本编码 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-BOM%E7%9A%84%E7%A7%BB%E9%99%A4"><span class="nav-number">1.12.1.</span> <span class="nav-text">.1 BOM的移除 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-GBK%E8%BD%ACUTF8"><span class="nav-number">1.12.2.</span> <span class="nav-text">.2 GBK转UTF8 </span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB"><span class="nav-number">2.</span> <span class="nav-text">扩展阅读 </span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Encoding | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Encoding
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 03:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T03:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-04 15:31:40" itemprop="dateModified" datetime="2022-08-04T15:31:40+08:00">2022-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="字符发展历史"><a href="#字符发展历史" class="headerlink" title="字符发展历史 #"></a>字符发展历史 <a href="#t01-%E5%AD%97%E7%AC%A6%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2">#</a></h2><h3 id="字节"><a href="#字节" class="headerlink" title="字节 #"></a>字节 <a href="#t111-%E5%AD%97%E8%8A%82">#</a></h3><ul>
+<li>计算机内部，所有信息最终都是一个二进制值</li>
+<li>每一个二进制位（bit）有0和1两种状态，因此八个二进制位就可以组合出256种状态，这被称为一个字节(byte)<br><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/bits.jpg"></li>
+</ul>
+<h3 id="单位"><a href="#单位" class="headerlink" title="单位 #"></a>单位 <a href="#t212-%E5%8D%95%E4%BD%8D">#</a></h3><ul>
+<li>8位 = 1字节</li>
+<li>1024字节 = 1K</li>
+<li>1024K = 1M</li>
+<li>1024M = 1G</li>
+<li>1024G = 1T</li>
+</ul>
+<h3 id="JavaScript中的进制"><a href="#JavaScript中的进制" class="headerlink" title="JavaScript中的进制 #"></a>JavaScript中的进制 <a href="#t313-javascript%E4%B8%AD%E7%9A%84%E8%BF%9B%E5%88%B6">#</a></h3><h4 id="进制表示"><a href="#进制表示" class="headerlink" title="进制表示 #"></a>进制表示 <a href="#t4131-%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA">#</a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">0b10100</span>;<span class="comment">//二进制</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">0o24</span>;<span class="comment">//八进制</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">20</span>;<span class="comment">//十进制</span></span><br><span class="line"><span class="keyword">let</span> d = <span class="number">0x14</span>;<span class="comment">//十六进制</span></span><br><span class="line"><span class="built_in">console</span>.log(a == b);</span><br><span class="line"><span class="built_in">console</span>.log(b == c);</span><br><span class="line"><span class="built_in">console</span>.log(c == d);</span><br></pre></td></tr></table></figure>
+
+<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换 #"></a>进制转换 <a href="#t5132-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2">#</a></h4><ul>
+<li>10进制转任意进制 10进制数.toString(目标进制)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(c.toString(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>任意进制转十进制 parseInt(‘任意进制字符串’, 原始进制);</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;10100&#x27;</span>, <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII #"></a>ASCII <a href="#t614-ascii">#</a></h3><p>最开始计算机只在美国用，八位的字节可以组合出256种不同状态。0-32种状态规定了特殊用途,一旦终端、打印机遇上约定好的这些字节被传过来时，就要做一些约定的动作，如：</p>
+<ul>
+<li>遇上0×10, 终端就换行；</li>
+<li>遇上0×07, 终端就向人们嘟嘟叫；</li>
+</ul>
+<p>又把所有的空格、标点符号、数字、大小写字母分别用连续的字节状态表示，一直编到了第 127 号，这样计算机就可以用不同字节来存储英语的文字了</p>
+<p>这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的一位统一规定为0</p>
+<p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/ascii.jpg"></p>
+<p>这个方案叫做 ASCII 编码</p>
+<blockquote>
+<p>American Standard Code for Information Interchange：美国信息互换标准代码</p>
+</blockquote>
+<h3 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312 #"></a>GB2312 <a href="#t715-gb2312">#</a></h3><p>后来西欧一些国家用的不是英文，它们的字母在ASCII里没有为了可以保存他们的文字，他们使用127号这后的空位来保存新的字母，一直编到了最后一位255。比如法语中的é的编码为130。当然了不同国家表示的符号也不一样，比如，130在法语编码中代表了é，在希伯来语编码中却代表了字母Gimel (ג)。</p>
+<blockquote>
+<p>从128 到 255 这一页的字符集被称为扩展字符集。</p>
+</blockquote>
+<p>中国为了表示汉字，把127号之后的符号取消了，规定</p>
+<ul>
+<li>一个小于127的字符的意义与原来相同，但两个大于 127 的字符连在一起时，就表示一个汉字；</li>
+<li>前面的一个字节（他称之为高字节）从 <code>0xA1</code>用到 <code>0xF7</code>，后面一个字节（低字节）从 <code>0xA1</code> 到 <code>0xFE</code>；</li>
+<li>这样我们就可以组合出大约7000多个(247-161)*(254-161)=(7998)简体汉字了。</li>
+<li>还把数学符号、日文假名和ASCII里原来就有的数字、标点和字母都重新编成两个字长的编码。这就是全角字符，127以下那些就叫半角字符。</li>
+<li>把这种汉字方案叫做 GB2312。GB2312 是对 ASCII 的中文扩展</li>
+</ul>
+<h3 id="GBK"><a href="#GBK" class="headerlink" title="GBK #"></a>GBK <a href="#t816-gbk">#</a></h3><p>后来还是不够用，于是干脆不再要求低字节一定是 127 号之后的内码，只要第一个字节是大于 127 就固定表示这是一个汉字的开始,又增加了近 20000 个新的汉字（包括繁体字）和符号。</p>
+<h3 id="GB18030-DBCS"><a href="#GB18030-DBCS" class="headerlink" title="GB18030 / DBCS #"></a>GB18030 / DBCS <a href="#t917-gb18030--dbcs">#</a></h3><p>又加了几千个新的少数民族的字， <code>GBK</code>扩成了 <code>GB18030</code> 通称他们叫做 DBCS</p>
+<blockquote>
+<p>Double Byte Character Set：双字节字符集。</p>
+</blockquote>
+<p>在 DBCS 系列标准里，最大的特点是两字节长的汉字字符和一字节长的英文字符并存于同一套编码方案里</p>
+<p>各个国家都像中国这样搞出一套自己的编码标准，结果互相之间谁也不懂谁的编码，谁也不支持别人的编码</p>
+<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode #"></a>Unicode <a href="#t1018-unicode">#</a></h3><p>ISO 的国际组织废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符 的编码！ Unicode 当然是一个很大的集合，现在的规模可以容纳100多万个符号。</p>
+<ul>
+<li>International Organization for Standardization：国际标准化组织。</li>
+<li>Universal Multiple-Octet Coded Character Set，简称 UCS，俗称 Unicode</li>
+</ul>
+<p>ISO 就直接规定必须用两个字节，也就是 16 位来统一表示所有的字符，对于 ASCII 里的那些 半角字符，Unicode 保持其原编码不变，只是将其长度由原来的 8 位扩展为16 位，而其他文化和语言的字符则全部重新统一编码。</p>
+<p>从 Unicode 开始，无论是半角的英文字母，还是全角的汉字，它们都是统一的一个字符！同时，也都是统一的 两个字节</p>
+<ul>
+<li>字节是一个8位的物理存贮单元，</li>
+<li>而字符则是一个文化相关的符号。</li>
+</ul>
+<h3 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8 #"></a>UTF-8 <a href="#t1119-utf-8">#</a></h3><p>Unicode 在很长一段时间内无法推广，直到互联网的出现，为解决 Unicode 如何在网络上传输的问题，于是面向传输的众多 UTF 标准出现了，</p>
+<blockquote>
+<p>Universal Character Set（UCS）Transfer Format：UTF编码</p>
+</blockquote>
+<ul>
+<li>UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式</li>
+<li>UTF-8就是每次以8个位为单位传输数据</li>
+<li>而UTF-16就是每次 16 个位</li>
+<li>UTF-8 最大的一个特点，就是它是一种变长的编码方式</li>
+<li>Unicode 一个中文字符占 2 个字节，而 UTF-8 一个中文字符占 3 个字节</li>
+<li>UTF-8 是 Unicode 的实现方式之一</li>
+</ul>
+<h3 id="编码规则"><a href="#编码规则" class="headerlink" title="编码规则 #"></a>编码规则 <a href="#t12110-%E7%BC%96%E7%A0%81%E8%A7%84%E5%88%99">#</a></h3><p> 对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。<br> 对于n字节的符号（n &gt; 1），第一个字节的前n位都设为1，第n+ 1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Unicode符号范围     |        UTF-<span class="number">8</span>编码方式</span><br><span class="line">(十六进制)        |              （二进制）</span><br><span class="line">----------------------+---------------------------------------------</span><br><span class="line"><span class="number">0</span>000 <span class="number">0</span>000-<span class="number">0</span>000 <span class="number">0</span>07F | <span class="number">0</span>xxxxxxx</span><br><span class="line"><span class="number">0</span>000 <span class="number">0</span>080-<span class="number">0</span>000 <span class="number">0</span>7FF | <span class="number">110</span>xxxxx <span class="number">10</span>xxxxxx</span><br><span class="line"><span class="number">0</span>000 <span class="number">0</span>800-<span class="number">0</span>000 FFFF | <span class="number">1110</span>xxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx</span><br><span class="line"><span class="number">0</span>001 <span class="number">0</span>000-<span class="number">0</span>010 FFFF | <span class="number">11110</span>xxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.chi2ko.com/tool/CJK.htm">Unicode编码</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transfer</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ary = [<span class="string">&#x27;1110&#x27;</span>, <span class="string">&#x27;10&#x27;</span>, <span class="string">&#x27;10&#x27;</span>];</span><br><span class="line">  <span class="keyword">let</span> binary = num.toString(<span class="number">2</span>);</span><br><span class="line">  ary[<span class="number">2</span>] = ary[<span class="number">2</span>]+binary.slice(binary.length-<span class="number">6</span>);</span><br><span class="line">  ary[<span class="number">1</span>] = ary[<span class="number">1</span>]+binary.slice(binary.length-<span class="number">12</span>,binary.length-<span class="number">6</span>);</span><br><span class="line">  ary[<span class="number">0</span>] = ary[<span class="number">0</span>]+binary.slice(<span class="number">0</span>,binary.length-<span class="number">12</span>).padStart(<span class="number">4</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> result =  ary.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(result,<span class="number">2</span>).toString(<span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&amp;#x4E07;</span></span><br><span class="line"><span class="keyword">let</span> result = transfer(<span class="number">0x4E07</span>);<span class="comment">//E4B887</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="联通不如移动"><a href="#联通不如移动" class="headerlink" title="联通不如移动 #"></a>联通不如移动 <a href="#t13111-%E8%81%94%E9%80%9A%E4%B8%8D%E5%A6%82%E7%A7%BB%E5%8A%A8">#</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">C1 1100 0001</span><br><span class="line">AA 1010 1010</span><br><span class="line">CD 1100 1101</span><br><span class="line">A8 1010 1000</span><br><span class="line"></span><br><span class="line">0000000001101010-&gt;006A(106)-&gt;j</span><br><span class="line">0000001101101000-&gt;0368(872)-&gt;?</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="http://tools.jb5net/table/gb2312">GB2312</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/hherima/article/details/9045765">unicode编码表1</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/hherima/article/details/9045861">unicode编码表2</a></li>
+</ul>
+<h3 id="文本编码"><a href="#文本编码" class="headerlink" title="文本编码 #"></a>文本编码 <a href="#t14112-%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81">#</a></h3><p>使用NodeJS编写前端工具时，操作得最多的是文本文件，因此也就涉及到了文件编码的处理问题。我们常用的文本编码有UTF8和GBK两种，并且UTF8文件还可能带有BOM。在读取不同编码的文本文件时，需要将文件内容转换为JS使用的UTF8编码字符串后才能正常处理。</p>
+<h4 id="1-BOM的移除"><a href="#1-BOM的移除" class="headerlink" title=".1 BOM的移除 #"></a>.1 BOM的移除 <a href="#t151121-bom%E7%9A%84%E7%A7%BB%E9%99%A4">#</a></h4><p>BOM用于标记一个文本文件使用Unicode编码，其本身是一个Unicode字符（”\uFEFF”），位于文本文件头部。在不同的Unicode编码下，BOM字符对应的二进制字节如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> Bytes      Encoding</span><br><span class="line">----------------------------</span><br><span class="line"> FE FF       UTF16BE</span><br><span class="line"> FF FE       UTF16LE</span><br><span class="line"> EF BB BF    UTF8</span><br></pre></td></tr></table></figure>
+
+<p>因此，我们可以根据文本文件头几个字节等于啥来判断文件是否包含BOM，以及使用哪种Unicode编码。但是，BOM字符虽然起到了标记文件编码的作用，其本身却不属于文件内容的一部分，如果读取文本文件时不去掉BOM，在某些使用场景下就会有问题。例如我们把几个JS文件合并成一个文件后，如果文件中间含有BOM字符，就会导致浏览器JS语法错误。因此，使用NodeJS读取文本文件时，一般需要去掉BOM</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname);</span><br><span class="line">    <span class="keyword">if</span> (bin[<span class="number">0</span>] === <span class="number">0xEF</span> &amp;&amp; bin[<span class="number">1</span>] === <span class="number">0xBB</span> &amp;&amp; bin[<span class="number">2</span>] === <span class="number">0xBF</span>) &#123;</span><br><span class="line">        bin = bin.slice(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> bin.toString(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-GBK转UTF8"><a href="#2-GBK转UTF8" class="headerlink" title=".2 GBK转UTF8 #"></a>.2 GBK转UTF8 <a href="#t161122-gbk%E8%BD%ACutf8">#</a></h4><p>NodeJS支持在读取文本文件时，或者在Buffer转换为字符串时指定文本编码，但遗憾的是，GBK编码不在NodeJS自身支持范围内。因此，一般我们借助iconv-lite这个三方包来转换编码。使用NPM下载该包后，我们可以按下边方式编写一个读取GBK文本文件的函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconv = <span class="built_in">require</span>(<span class="string">&#x27;iconv-lite&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readGBKText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname);</span><br><span class="line">    <span class="keyword">return</span> iconv.decode(bin, <span class="string">&#x27;gbk&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读 #"></a>扩展阅读 <a href="#t17112-%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB">#</a></h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-html">utf-8</a></li>
+<li><a target="_blank" rel="noopener" href="https://tianziyao.github.io/2017/07/03/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E7%9A%84%E6%95%85%E4%BA%8B/">字符编码的故事</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Encoding/" rel="tag"># Encoding</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/module&NPM/" rel="prev" title="module&NPM">
+                  <i class="fa fa-chevron-left"></i> module&NPM
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Buffer/" rel="next" title="Buffer">
+                  Buffer <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>
