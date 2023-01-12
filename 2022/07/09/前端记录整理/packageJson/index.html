@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="package.jsonpackage.json简介在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y然后在你的目录下会生成3个目录&#x2F;文件， node_modules, package.json和 package.lock.json。其中package.json的内容为： 12345678910111213">
+<meta property="og:type" content="article">
+<meta property="og:title" content="package.json">
+<meta property="og:url" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/index.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="package.jsonpackage.json简介在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y然后在你的目录下会生成3个目录&#x2F;文件， node_modules, package.json和 package.lock.json。其中package.json的内容为： 12345678910111213">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-08T18:21:52.000Z">
+<meta property="article:modified_time" content="2022-11-16T07:25:59.269Z">
+<meta property="article:author" content="郭泽">
+<meta property="article:tag" content="package.json">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/","path":"2022/07/09/前端记录整理/packageJson/","title":"package.json"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>package.json | 郭泽</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">1.</span> <span class="nav-text">package.json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">package.json简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-lock-json"><span class="nav-number">1.2.</span> <span class="nav-text">package-lock.json</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">package.json常用属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#script"><span class="nav-number">2.1.</span> <span class="nav-text">script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bin"><span class="nav-number">2.2.</span> <span class="nav-text">bin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#workspaces"><span class="nav-number">2.3.</span> <span class="nav-text">workspaces</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">package.json环境相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type"><span class="nav-number">3.1.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-amp-module-amp-browser"><span class="nav-number">3.2.</span> <span class="nav-text">main &amp; module &amp; browser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exports"><span class="nav-number">3.3.</span> <span class="nav-text">exports</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json%E4%BE%9D%E8%B5%96%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">package.json依赖相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#peerDependencies"><span class="nav-number">4.1.</span> <span class="nav-text">peerDependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#peerDependenciesMeta"><span class="nav-number">4.2.</span> <span class="nav-text">peerDependenciesMeta</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%9A%84%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">依赖包的版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm%E7%9A%84%E5%8C%85%E9%80%9A%E5%B8%B8%E9%9C%80%E8%A6%81%E9%81%B5%E4%BB%8Esemver%E7%89%88%E6%9C%AC%E8%A7%84%E8%8C%83"><span class="nav-number">5.1.</span> <span class="nav-text">npm的包通常需要遵从semver版本规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#semver%E7%89%88%E6%9C%AC%E8%A7%84%E8%8C%83%E6%98%AFX-Y-Z"><span class="nav-number">5.2.</span> <span class="nav-text">semver版本规范是X.Y.Z</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.3.</span> <span class="nav-text">^ * 和~的区别</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="package.json | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          package.json
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-16 15:25:59" itemprop="dateModified" datetime="2022-11-16T15:25:59+08:00">2022-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><h3 id="package-json简介"><a href="#package-json简介" class="headerlink" title="package.json简介"></a>package.json简介</h3><p>在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y<br>然后在你的目录下会生成3个目录/文件， node_modules, package.json和 package.lock.json。其中package.json的内容为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Your project description&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;app.js&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Author name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: <span class="string">&quot;^1.4.0&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: <span class="string">&quot;^1.5.2&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>package.json中包含了项目本身的元数据,以及项目的子依赖信息(比如dependicies等)。</p>
+<h3 id="package-lock-json"><a href="#package-lock-json" class="headerlink" title="package-lock.json"></a>package-lock.json</h3><p>我们发现在npm init的时候，不仅生成了package.json文件，还生成了package-lock.json文件。那么为什么存在package.json的清空下，还需要生成package-lock.json文件呢。</p>
+<p>本质上package-lock.json文件是为了锁版本，在package.json中指定的子npm包比如：react: “^16.0.0”，在实际安装中，只要高于react的版本都满足package.json的要求。这样就使得根据同一个package.json文件，两次安装的子依赖版本不能保证一致。</p>
+<p>而package-lock文件如下所示，子依赖dependency1就详细的指定了其版本。起到lock版本的作用。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;lockfileVersion&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;requires&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.4.0&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency1/-/dependency1-1.4.0.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.5.2&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency2/-/dependency2-1.5.2.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-WOn21V8AhyE1QqVfPIVxe3tupJacq1xGkPTB4iagT6o+P2cAgEOOwIxMftr4+ZCTI6d551ij9j61DFr0nsP2uQ==&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="package-json常用属性"><a href="#package-json常用属性" class="headerlink" title="package.json常用属性"></a>package.json常用属性</h2><h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p>在npm中使用script标签来定义脚本，每当制定npm run的时候，就会自动创建一个shell脚本，这里需要注意的是，npm run新建的这个 Shell，会将本地目录的node_modules/.bin子目录加入PATH变量。</p>
+<p>这意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 esbuild，只要直接写esbuild xxx 就可以了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;esbuild index.js&quot;</span>,</span><br><span class="line"> <span class="comment">// &quot;build&quot;: &quot;./node_modules/.bin/esbuild index.js&quot;  上面两种写法是等价的。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h3><p>bin属性用来将可执行文件加载到全局环境中，指定了bin字段的npm包，一旦在全局安装，就会被加载到全局环境中，可以通过别名来执行该文件。<br>比如@bytepack/cli的npm包：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">    &quot;bytepack&quot;: &quot;./bin/index.js&quot;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>一旦在全局安装了@bytepack/cli，就可以直接通过bytepack来执行相应的命令，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bytepack -v</span><br><span class="line"><span class="comment">//显示1.11.0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果非全局安装，那么会自动连接到项目的node_module/.bin目录中。与前面介绍的script标签中所说的一致，可以直接用别名来使用。</p>
+<h3 id="workspaces"><a href="#workspaces" class="headerlink" title="workspaces"></a>workspaces</h3><p>在项目过大的时候，最近越来越流行monorepo。提到monorepo就绕不看workspaces，早期我们会用yarn workspaces，现在npm官方也支持了workspaces.<br>workspaces解决了本地文件系统中如何在一个顶层root package下管理多个子packages的问题，在workspaces声明目录下的package会软链到最上层root package的node_modules中</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;workspaces&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;packages/a&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个npm包名为my-project的npm包中，存在workspaces配置的目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- package.json</span><br><span class="line">+-- index.js</span><br><span class="line">&#96;-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |  &#96;-- package.json</span><br></pre></td></tr></table></figure>
+
+<p>并且该最上层的名为my-project的root包，有packages/a子包。此时，我们如果npm install,那么在root package中node_modules中安装的npm包a，指向的是本地的package/a.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- node_modules</span><br><span class="line">|  `-- packages/a -&gt; ../packages/a</span><br><span class="line">+-- package-lock.json</span><br><span class="line">+-- package.json</span><br><span class="line">`-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |   `-- package.json</span><br></pre></td></tr></table></figure>
+
+<p><code>-- packages/a -&gt; ../packages/a</code>指的就是从node_modules中a链接到本地npm包的软链</p>
+<p>###</p>
+<h2 id="package-json环境相关属性"><a href="#package-json环境相关属性" class="headerlink" title="package.json环境相关属性"></a>package.json环境相关属性</h2><p>常见的环境，基本上分为浏览器browser和node环境两大类，接下来我们来看看package.json中，跟环境相关的配置属性。环境的定义可以简单理解如下：</p>
+<ul>
+<li>browser环境：比如存在一些只有在浏览器中才会存在的全局变量等，比如window，Document等</li>
+<li>node环境: npm包的源文件中存在只有在node环境中才会有的一些变量和内置包，内置函数等。</li>
+</ul>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>js的模块化规范包含了commonjs、CMD、UMD、AMD和ES module等，最早先在node中支持的仅仅是commonjs字段，但是从node13.2.0开始后，node正式支持了ES module规范，在package.json中可以通过type字段来声明npm包遵循的模块化规范。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   name: &quot;some package&quot;,</span><br><span class="line">   type: &quot;module&quot;||&quot;commonjs&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不指定type的时候，type的默认值是commonjs，不过建议npm包都指定一下type</li>
+<li>当type字段指定值为module则采用ESModule规范</li>
+<li>当type字段指定时，目录下的所有.js后缀结尾的文件，都遵循type所指定的模块化规范</li>
+<li>除了type可以指定模块化规范外，通过文件的后缀来指定文件所遵循的模块化规范，以.mjs结尾的文件就是使用的ESModule规范，以.cjs结尾的遵循的是commonjs规范</li>
+</ul>
+<h3 id="main-amp-module-amp-browser"><a href="#main-amp-module-amp-browser" class="headerlink" title="main &amp; module &amp; browser"></a>main &amp; module &amp; browser</h3><p>除了type外，package.json中还有main,module和browser 3个字段来定义npm包的入口文件。</p>
+<ul>
+<li>main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用</li>
+<li>module : 定义 npm 包的 ESM 规范的入口文件，browser 环境和 node - 环境均可使用</li>
+<li>browser : 定义 npm 包在 browser 环境下的入口文件<br>我们来看一下这3个字段的使用场景，以及同时存在这3个字段时的优先级。我们假设有一个npm包为demo1</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">----- dist</span><br><span class="line">   |-- index.browser.js</span><br><span class="line">   |-- index.browser.mjs</span><br><span class="line">   |-- index.js</span><br><span class="line">   |-- index.mjs</span><br></pre></td></tr></table></figure>
+
+<p>其package.json中同时指定了main,module和browser这3个字段，</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;dist/index.js&quot;,  // main </span><br><span class="line">  &quot;module&quot;: &quot;dist/index.mjs&quot;, // module</span><br><span class="line"></span><br><span class="line">  <span class="comment">// browser 可定义成和 main/module 字段一一对应的映射对象，也可以直接定义为字符串</span></span><br><span class="line">  &quot;browser&quot;: &#123;</span><br><span class="line">    &quot;./dist/index.js&quot;: &quot;./dist/index.browser.js&quot;, // browser+cjs</span><br><span class="line">    &quot;./dist/index.mjs&quot;: &quot;./dist/index.browser.mjs&quot;  // browser+mjs</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &quot;browser&quot;: &quot;./dist/index.browser.js&quot; // browser</span></span><br></pre></td></tr></table></figure>
+
+<p>默认构建和使用，比如我们在项目中引用这个npm包 <code>import demo from &#39;demo&#39;</code><br>通过构建工具构建上述代码后，模块的加载循序为：</p>
+<p><code>browser+mjs &gt; module &gt; browser+cjs &gt; main</code></p>
+<p>这个加载顺序是大部分构建工具默认的加载顺序，比如webapck、esbuild等等。可以通过相应的配置修改这个加载顺序，不过大部分场景，我们还是会遵循默认的加载顺序。</p>
+<h3 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h3><p>如果在package.json中定义了exports字段，那么这个字段所定义的内容就是该npm包的真实和全部的导出，优先级会高于main和file等字段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;pkg&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;.&quot;: &quot;.&#x2F;main.mjs&quot;,</span><br><span class="line">    &quot;.&#x2F;foo&quot;: &quot;.&#x2F;foo.js&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import &#123; something &#125; from &quot;pkg&quot;; &#x2F;&#x2F; from &quot;pkg&#x2F;main.mjs&quot;</span><br><span class="line">const &#123; something &#125; &#x3D; require(&quot;pkg&#x2F;foo&quot;); &#x2F;&#x2F; require(&quot;pkg&#x2F;foo.js&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>从上述的例子来看，exports可以定义不同path的导出。如果存在exports后，以前正常生效的file目录到处会失效，比如require(‘pkg/package.json’)，因为在exports中没有指定，就会报错。</p>
+<p>exports还有一个最大的特点，就是条件引用，比如我们可以根据不同的引用方式或者模块化类型，来指定npm包引用不同的入口文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  &quot;name&quot;:&quot;pkg&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;.&#x2F;main-require.cjs&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;import&quot;: &quot;.&#x2F;main-module.js&quot;,</span><br><span class="line">    &quot;require&quot;: &quot;.&#x2F;main-require.cjs&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;type&quot;: &quot;module&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的例子中，如果我们通过</p>
+<p><code>const p = require(&#39;pkg&#39;)</code><br>引用的就是”./main-require.cjs”。</p>
+<p>如果通过：<br><code>import p from &#39;pkg&#39;</code><br>引用的就是”./main-module.js”<br>最后需要注意的是 ：<code>如果存在exports属性，exports属性不仅优先级高于main，同时也高于module和browser字段</code>。</p>
+<h2 id="package-json依赖相关属性"><a href="#package-json依赖相关属性" class="headerlink" title="package.json依赖相关属性"></a>package.json依赖相关属性</h2><p>package.json中跟依赖相关的配置属性包含了dependencies、devDependencies、peerDependencies和peerDependenciesMeta等。</p>
+<p>dependencies是项目的依赖，而devDependencies是开发所需要的模块，所以我们可以在开发过程中需要的安装上去，来提高我们的开发效率。这里需要注意的时，在自己的项目中尽量的规范使用，形如webpack、babel等是开发依赖，而不是项目本身的依赖，不要放在dependencies中。<br>dependencies除了dependencies和devDependencies，重点peerDependencies和peerDependenciesMeta。</p>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>peerDependencies是package.json中的依赖项,可以解决核心库被下载多次，以及统一核心库版本的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;package&#x2F;pkg</span><br><span class="line">----- node_modules</span><br><span class="line">   |-- npm-a -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- npm-b -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- index.js</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<p>比如上述的例子中如果子npm包a,b都依赖了react和react-dom,此时如果我们在子npm包a,b的package.json中声明了PeerDependicies后，相应的依赖就不会重新安装。</p>
+<p>需要注意的有两点：</p>
+<ul>
+<li>对于子npm包a,在npm7中，如果单独安装子npm a,其peerDependicies中的包，会被安装下来。但是npm7之前是不会的。</li>
+<li>请规范和详细的指定PeerDependicies的配置，笔者在看到有些react组件库，不在PeerDependicies中指定react和react-dom，或者将react和- react-dom放到了dependicies中，这两种不规范的指定都会存在一些问题。</li>
+<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#101;&#x61;&#x63;&#116;&#x2d;&#x66;&#x6f;&#x63;&#117;&#115;&#45;&#x6c;&#x6f;&#99;&#107;&#64;&#50;&#46;&#x38;&#x2e;&#49;">&#x72;&#101;&#x61;&#x63;&#116;&#x2d;&#x66;&#x6f;&#x63;&#117;&#115;&#45;&#x6c;&#x6f;&#99;&#107;&#64;&#50;&#46;&#x38;&#x2e;&#49;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
+</ul>
+<h3 id="peerDependenciesMeta"><a href="#peerDependenciesMeta" class="headerlink" title="peerDependenciesMeta"></a>peerDependenciesMeta</h3><p>看到“Meta”就有元数据的意思，这里的peerDependenciesMeta就是详细修饰了peerDependicies，比如在react-redux这个npm包中的package.json中有这么一段：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">   &quot;react&quot;: &quot;^16.8.3 || ^17 || ^18&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&quot;peerDependenciesMeta&quot;: &#123;</span><br><span class="line">   &quot;react-dom&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;react-native&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里指定了”react-dom”,”react-native”在peerDependenciesMeta中，且为可选项，因此如果项目中检测没有安装”react-dom”和”react-native”都不会报错。</p>
+<p>值得注意的是，通过peerDependenciesMeta我们确实是取消了限制，但是这里经常存在非A即B的场景，比如上述例子中，我们需要的是“react-dom”和”react-native”需要安装一个，但是实际上通过上述的声明，我们实现不了这种提示。</p>
+<h2 id="依赖包的版本管理"><a href="#依赖包的版本管理" class="headerlink" title="依赖包的版本管理"></a>依赖包的版本管理</h2><p>^2.0.3或~2.0.3，这是什么意思呢</p>
+<h3 id="npm的包通常需要遵从semver版本规范"><a href="#npm的包通常需要遵从semver版本规范" class="headerlink" title="npm的包通常需要遵从semver版本规范"></a>npm的包通常需要遵从semver版本规范</h3><ul>
+<li>semver：<a target="_blank" rel="noopener" href="https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
+<li>npm semver：<a target="_blank" rel="noopener" href="https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>
+<h3 id="semver版本规范是X-Y-Z"><a href="#semver版本规范是X-Y-Z" class="headerlink" title="semver版本规范是X.Y.Z"></a>semver版本规范是X.Y.Z</h3><ul>
+<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
+</ul>
+<h3 id="和-的区别"><a href="#和-的区别" class="headerlink" title="^ * 和~的区别"></a>^ * 和~的区别</h3><ul>
+<li>x.y.z：表示一个明确的版本号；</li>
+<li>^x.y.z：表示x是保持不变的，y和z永远安装最新的版本；</li>
+<li>~x.y.z：表示x和y保持不变的，z永远安装最新的版本；</li>
+<li>*x.y.x: 一般是最后一次正式发布版本</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/package-json/" rel="tag"># package.json</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" rel="prev" title="包管理器">
+                  <i class="fa fa-chevron-left"></i> 包管理器
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/" rel="next" title="nodeCore">
+                  nodeCore <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

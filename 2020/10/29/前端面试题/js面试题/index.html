@@ -16,24 +16,26 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较 如果一个操作值为 NaN ，则相等比较返回">
+    <meta name="description" content="&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后基本类型，再进行比较 如果一个操作值为 NaN ，则相等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js面试题">
 <meta property="og:url" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="郭泽">
-<meta property="og:description" content="&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较 如果一个操作值为 NaN ，则相等比较返回">
+<meta property="og:description" content="&#x3D;&#x3D; 操作符的强制类型转换规则 字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较 其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较 null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。 对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后基本类型，再进行比较 如果一个操作值为 NaN ，则相等">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98/json.stringify.png">
 <meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BB%A7%E6%89%BF.png">
 <meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/js%E9%9D%A2%E8%AF%95%E9%A2%98/js%E5%8E%9F%E5%9E%8B%E9%93%BE.png">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342e581223d2471d9484fc48beb9f8e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp">
 <meta property="article:published_time" content="2020-10-29T03:11:28.000Z">
-<meta property="article:modified_time" content="2022-08-01T01:12:03.642Z">
+<meta property="article:modified_time" content="2022-12-06T08:39:06.840Z">
 <meta property="article:author" content="郭泽">
 <meta property="article:tag" content="js面试题">
 <meta name="twitter:card" content="summary">
@@ -92,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -149,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">&#x3D;&#x3D; 操作符的强制类型转换规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%81Object-is-%E3%80%81Set-%E5%8E%BB%E9%87%8D%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;、Object.is()、Set 去重的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-indexOf-%E5%92%8C-includes-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">Array indexOf 和 includes 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E6%8C%87%E5%90%91-%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E7%9A%84%E4%B8%BB%E4%BD%93-%E8%B0%81%E6%89%A7%E8%A1%8C%E7%9A%84%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95-%E9%82%A3%E4%B9%88-THIS-%E5%B0%B1%E6%98%AF%E8%B0%81-%E6%89%80%E4%BB%A5-THIS-%E5%92%8C%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E5%9C%A8%E5%93%AA%E5%88%9B%E5%BB%BA%E7%9A%84%E6%88%96%E8%80%85%E5%9C%A8%E5%93%AA%E6%89%A7%E8%A1%8C%E7%9A%84%E9%83%BD%E6%B2%A1%E6%9C%89%E5%BF%85%E7%84%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.</span> <span class="nav-text">this 指向 当前方法执行的主体(谁执行的这个方法,那么 THIS 就是谁,所以 THIS 和当前方法在哪创建的或者在哪执行的都没有必然的关系)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-%E8%AF%AD%E5%8F%A5%E6%98%AF%E4%BD%BF%E7%94%A8%E6%81%92%E7%AD%89%EF%BC%88-%EF%BC%89%E6%9D%A5%E5%88%A4%E6%96%AD%E7%9A%84"><span class="nav-number">5.</span> <span class="nav-text">case 语句是使用恒等（&#x3D;&#x3D;&#x3D;）来判断的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99-test-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E4%BC%9A%E7%BB%8F%E8%BF%87%E6%8A%BD%E8%B1%A1-ToString-%E6%93%8D%E4%BD%9C%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">6.</span> <span class="nav-text">正则 test 方法的参数如果不是字符串，会经过抽象 ToString 操作强制转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify-%E6%8B%B7%E8%B4%9D%E6%97%B6-obj-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">7.</span> <span class="nav-text">JSON.stringify 拷贝时 obj 的缺陷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%B8%B8%E8%A7%81%E7%9A%84-6-%E4%B8%AD%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">js 常见的 6 中继承方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">9.</span> <span class="nav-text">js 原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E7%B2%BE%E7%A1%AE%E7%9A%84"><span class="nav-number">10.</span> <span class="nav-text">定时器为什么不是精确的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-%E7%9A%84%E5%90%84%E7%A7%8D%E4%BD%8D%E7%BD%AE%EF%BC%8C%E6%AF%94%E5%A6%82-clientHeight-scrollHeight-offsetHeight-%E4%BB%A5%E5%8F%8A-scrollTop-offsetTop-clientTop-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">11.</span> <span class="nav-text">JS 的各种位置，比如 clientHeight,scrollHeight,offsetHeight ,以及 scrollTop, offsetTop,clientTop 的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">12.</span> <span class="nav-text">箭头函数和普通函数的区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript-%E9%87%8C%E9%9D%A2%E6%9C%89%E5%93%AA%E4%BA%9B-JavaScript-%E6%B2%A1%E6%9C%89%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">13.</span> <span class="nav-text">TypeScript 里面有哪些 JavaScript 没有的类型?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-URL-%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81-%E8%A7%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">14.</span> <span class="nav-text">对 URL 进行编码&#x2F;解码的实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F-%E4%B8%8E%E9%9D%9E%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E5%8C%BA%E5%88%AB"><span class="nav-number">15.</span> <span class="nav-text">严格模式 与非严格模式区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-super-%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98"><span class="nav-number">16.</span> <span class="nav-text">ES6 super 指向问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">17.</span> <span class="nav-text">JSON.stringify 使用注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-keys-%E7%9A%84%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90"><span class="nav-number">18.</span> <span class="nav-text">Object.keys()的顺序问题及参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios-%E4%B8%8E-fetch-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">19.</span> <span class="nav-text">axios 与 fetch 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87%E5%92%8C%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E4%BC%98%E5%85%88%E7%BA%A7%E5%93%AA%E4%B8%AA%E9%AB%98"><span class="nav-number">20.</span> <span class="nav-text">函数提升和变量提升优先级哪个高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-%E4%B8%AD%E5%85%B1%E6%9C%89%E4%BA%94%E7%A7%8D%E9%92%88%E5%AF%B9%E5%AF%B9%E8%B1%A1%E9%81%8D%E5%8E%86%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">21.</span> <span class="nav-text">ES6 中共有五种针对对象遍历的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">22.</span> <span class="nav-text">缓存的理解</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">&#x3D;&#x3D; 操作符的强制类型转换规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E8%BD%AC%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">对象转原始类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%81Object-is-%E3%80%81Set-%E5%8E%BB%E9%87%8D%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;、Object.is()、Set 去重的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-indexOf-%E5%92%8C-includes-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.</span> <span class="nav-text">Array indexOf 和 includes 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E6%8C%87%E5%90%91-%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E7%9A%84%E4%B8%BB%E4%BD%93-%E8%B0%81%E6%89%A7%E8%A1%8C%E7%9A%84%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95-%E9%82%A3%E4%B9%88-THIS-%E5%B0%B1%E6%98%AF%E8%B0%81-%E6%89%80%E4%BB%A5-THIS-%E5%92%8C%E5%BD%93%E5%89%8D%E6%96%B9%E6%B3%95%E5%9C%A8%E5%93%AA%E5%88%9B%E5%BB%BA%E7%9A%84%E6%88%96%E8%80%85%E5%9C%A8%E5%93%AA%E6%89%A7%E8%A1%8C%E7%9A%84%E9%83%BD%E6%B2%A1%E6%9C%89%E5%BF%85%E7%84%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">5.</span> <span class="nav-text">this 指向 当前方法执行的主体(谁执行的这个方法,那么 THIS 就是谁,所以 THIS 和当前方法在哪创建的或者在哪执行的都没有必然的关系)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-%E8%AF%AD%E5%8F%A5%E6%98%AF%E4%BD%BF%E7%94%A8%E6%81%92%E7%AD%89%EF%BC%88-%EF%BC%89%E6%9D%A5%E5%88%A4%E6%96%AD%E7%9A%84"><span class="nav-number">6.</span> <span class="nav-text">case 语句是使用恒等（&#x3D;&#x3D;&#x3D;）来判断的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99-test-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E4%BC%9A%E7%BB%8F%E8%BF%87%E6%8A%BD%E8%B1%A1-ToString-%E6%93%8D%E4%BD%9C%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">7.</span> <span class="nav-text">正则 test 方法的参数如果不是字符串，会经过抽象 ToString 操作强制转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify-%E6%8B%B7%E8%B4%9D%E6%97%B6-obj-%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">8.</span> <span class="nav-text">JSON.stringify 拷贝时 obj 的缺陷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%B8%B8%E8%A7%81%E7%9A%84-6-%E4%B8%AD%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="nav-number">9.</span> <span class="nav-text">js 常见的 6 中继承方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">10.</span> <span class="nav-text">js 原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E7%B2%BE%E7%A1%AE%E7%9A%84"><span class="nav-number">11.</span> <span class="nav-text">定时器为什么不是精确的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-%E7%9A%84%E5%90%84%E7%A7%8D%E4%BD%8D%E7%BD%AE%EF%BC%8C%E6%AF%94%E5%A6%82-clientHeight-scrollHeight-offsetHeight-%E4%BB%A5%E5%8F%8A-scrollTop-offsetTop-clientTop-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">JS 的各种位置，比如 clientHeight,scrollHeight,offsetHeight ,以及 scrollTop, offsetTop,clientTop 的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">13.</span> <span class="nav-text">箭头函数和普通函数的区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator%E5%87%BD%E6%95%B0-%E7%94%9F%E6%88%90%E5%99%A8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">14.</span> <span class="nav-text">Generator函数 生成器函数与普通函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript-%E9%87%8C%E9%9D%A2%E6%9C%89%E5%93%AA%E4%BA%9B-JavaScript-%E6%B2%A1%E6%9C%89%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">15.</span> <span class="nav-text">TypeScript 里面有哪些 JavaScript 没有的类型?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-URL-%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81-%E8%A7%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">16.</span> <span class="nav-text">对 URL 进行编码&#x2F;解码的实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F-%E4%B8%8E%E9%9D%9E%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E5%8C%BA%E5%88%AB"><span class="nav-number">17.</span> <span class="nav-text">严格模式 与非严格模式区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es5%E5%92%8Ces6%E7%9A%84%E7%BB%A7%E6%89%BF%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">18.</span> <span class="nav-text">es5和es6的继承有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es6-calss-%E5%90%8C%E6%97%B6%E6%9C%89prototype%E5%B1%9E%E6%80%A7%E5%92%8C-proto-%E5%B1%9E%E6%80%A7"><span class="nav-number">19.</span> <span class="nav-text">es6  calss 同时有prototype属性和__proto__属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-super-%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98"><span class="nav-number">20.</span> <span class="nav-text">ES6 super 指向问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">21.</span> <span class="nav-text">JSON.stringify 使用注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-keys-%E7%9A%84%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90"><span class="nav-number">22.</span> <span class="nav-text">Object.keys()的顺序问题及参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios-%E4%B8%8E-fetch-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">23.</span> <span class="nav-text">axios 与 fetch 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87%E5%92%8C%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E4%BC%98%E5%85%88%E7%BA%A7%E5%93%AA%E4%B8%AA%E9%AB%98"><span class="nav-number">24.</span> <span class="nav-text">函数提升和变量提升优先级哪个高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-%E4%B8%AD%E5%85%B1%E6%9C%89%E4%BA%94%E7%A7%8D%E9%92%88%E5%AF%B9%E5%AF%B9%E8%B1%A1%E9%81%8D%E5%8E%86%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">25.</span> <span class="nav-text">ES6 中共有五种针对对象遍历的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-JS-%E7%9A%84%E5%BC%82%E6%AD%A5%EF%BC%9F"><span class="nav-number">26.</span> <span class="nav-text">如何理解 JS 的异步？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventLoop-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="nav-number">27.</span> <span class="nav-text">EventLoop 事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%8E%AF%EF%BC%88Event-Loop"><span class="nav-number">27.1.</span> <span class="nav-text">浏览器中的事件环（Event Loop)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%8E%AF%EF%BC%88Event-Loop"><span class="nav-number">27.2.</span> <span class="nav-text">Node 环境中的事件环（Event Loop)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">28.</span> <span class="nav-text">js事件机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E4%B8%89%E9%98%B6%E6%AE%B5"><span class="nav-number">28.1.</span> <span class="nav-text">事件触发三阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">28.2.</span> <span class="nav-text">注册事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">28.3.</span> <span class="nav-text">事件代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%A6%82%E4%BD%95%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%EF%BC%9F"><span class="nav-number">29.</span> <span class="nav-text">浏览器是如何渲染页面的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-reflow%EF%BC%9F"><span class="nav-number">30.</span> <span class="nav-text">什么是 reflow？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-repaint%EF%BC%9F"><span class="nav-number">31.</span> <span class="nav-text">什么是 repaint？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-transform-%E7%9A%84%E6%95%88%E7%8E%87%E9%AB%98%EF%BC%9F"><span class="nav-number">32.</span> <span class="nav-text">为什么 transform 的效率高？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F"><span class="nav-number">33.</span> <span class="nav-text">js 编程范式</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -195,7 +197,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
@@ -250,7 +251,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-01 09:12:03" itemprop="dateModified" datetime="2022-08-01T09:12:03+08:00">2022-08-01</time>
+      <time title="修改时间：2022-12-06 16:39:06" itemprop="dateModified" datetime="2022-12-06T16:39:06+08:00">2022-12-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,10 +277,20 @@
 <li>字符串和数字之间的相等比较，将字符串转换为数字之后再进行比较</li>
 <li>其他类型和布尔类型之间的相等比较，先将布尔值转换为数字后，再应用其他规则进行比较</li>
 <li>null 和 undefined 之间的相等比较，结果为真。其他值和它们进行比较都返回假值。</li>
-<li>对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后，再进行比较</li>
+<li>对象和非对象之间的相等比较，对象先调用 ToPrimitive 抽象操作后基本类型，再进行比较</li>
 <li>如果一个操作值为 NaN ，则相等比较返回 false（ NaN 本身也不等于 NaN ）</li>
 <li>如果两个操作值都是对象，则比较它们是不是指向同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回 true，否则，返回 false。</li>
 </ul>
+<h2 id="对象转原始类型"><a href="#对象转原始类型" class="headerlink" title="对象转原始类型"></a>对象转原始类型</h2><p>对象在转换类型的时候，会调用内置的 <code>[[ToPrimitive]]</code> 函数，对于该函数来说，算法逻辑一般来说如下：</p>
+<ul>
+<li>如果已经是原始类型了，那就不需要转换了</li>
+<li>调用 <code>x.valueOf()</code>，如果转换为基础类型，就返回转换的值</li>
+<li>调用 <code>x.toString()</code>，如果转换为基础类型，就返回转换的值</li>
+<li>如果都没有返回原始类型，就会报错</li>
+</ul>
+<p>当然你也可以重写 <code>Symbol.toPrimitive</code> ，该方法在转原始类型时调用优先级最高。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  <span class="function"><span class="title">valueOf</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">toString</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  [<span class="built_in">Symbol</span>.toPrimitive]() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">1</span> + a <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="、Object-is-、Set-去重的区别"><a href="#、Object-is-、Set-去重的区别" class="headerlink" title="===、Object.is()、Set 去重的区别"></a>===、Object.is()、Set 去重的区别</h2><ul>
 <li>这几个的差异是在-0 与+0；NaN 上</li>
 <li>=== -0 与+0 是相等的 NaN 与 NaN 是不相等的</li>
@@ -299,7 +310,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="this-指向-当前方法执行的主体-谁执行的这个方法-那么-THIS-就是谁-所以-THIS-和当前方法在哪创建的或者在哪执行的都没有必然的关系"><a href="#this-指向-当前方法执行的主体-谁执行的这个方法-那么-THIS-就是谁-所以-THIS-和当前方法在哪创建的或者在哪执行的都没有必然的关系" class="headerlink" title="this 指向 当前方法执行的主体(谁执行的这个方法,那么 THIS 就是谁,所以 THIS 和当前方法在哪创建的或者在哪执行的都没有必然的关系)"></a>this 指向 当前方法执行的主体(谁执行的这个方法,那么 THIS 就是谁,所以 THIS 和当前方法在哪创建的或者在哪执行的都没有必然的关系)</h2><ul>
+<h2 id="this-指向-当前方法执行的主体-谁执行的这个方法-那么-THIS-就是谁-所以-THIS-和当前方法在哪创建的或者在哪执行的都没有必然的关系"><a href="#this-指向-当前方法执行的主体-谁执行的这个方法-那么-THIS-就是谁-所以-THIS-和当前方法在哪创建的或者在哪执行的都没有必然的关系" class="headerlink" title="this 指向 当前方法执行的主体(谁执行的这个方法,那么 THIS 就是谁,所以 THIS 和当前方法在哪创建的或者在哪执行的都没有必然的关系)"></a>this 指向 当前方法执行的主体(谁执行的这个方法,那么 THIS 就是谁,所以 THIS 和当前方法在哪创建的或者在哪执行的都没有必然的关系)</h2><p><code>new</code> 的方式优先级最高，接下来是 <code>bind</code> 这些函数，然后是 <code>obj.foo()</code> 这种调用方式，最后是 <code>foo</code> 这种调用方式，同时，箭头函数的 <code>this</code> 一旦被绑定，就不会再被任何方式所改变。</p>
+<ul>
 <li>给元素的某个事件绑定方法，方法中的 THIS 都是当前操作的元素本身</li>
 <li>函数执行，看函数前面是否有点，有的话，点前面是谁 THIS 就是谁，没有点，THIS 是 WINDOW（在 JS 的严格模式下，没有点 THIS 是 UNDEFINED）</li>
 <li>构造函数执行，方法中的 this 一般都是当前类的实例</li>
@@ -346,17 +358,25 @@
 <li>每个对象都有 <code>__proto__</code>属性，指向了创建该对象的构造函数的原型。</li>
 <li>对象可以通过 <code>__proto__</code>来寻找不属于该对象的属性， <code>__proto__</code> 将对象连接起来组成了原型链。</li>
 </ul>
-<h2 id="定时器为什么不是精确的"><a href="#定时器为什么不是精确的" class="headerlink" title="定时器为什么不是精确的"></a>定时器为什么不是精确的</h2><h2 id="JS-的各种位置，比如-clientHeight-scrollHeight-offsetHeight-以及-scrollTop-offsetTop-clientTop-的区别？"><a href="#JS-的各种位置，比如-clientHeight-scrollHeight-offsetHeight-以及-scrollTop-offsetTop-clientTop-的区别？" class="headerlink" title="JS 的各种位置，比如 clientHeight,scrollHeight,offsetHeight ,以及 scrollTop, offsetTop,clientTop 的区别？"></a>JS 的各种位置，比如 clientHeight,scrollHeight,offsetHeight ,以及 scrollTop, offsetTop,clientTop 的区别？</h2><ul>
+<h2 id="定时器为什么不是精确的"><a href="#定时器为什么不是精确的" class="headerlink" title="定时器为什么不是精确的"></a>定时器为什么不是精确的</h2><ul>
+<li>操作系统的计时器本身就有偏差，js的计时器最终调用的还是操作系统的函数，</li>
+<li>按照W3Ｃ的标准，浏览器实现计时器时　嵌套超过５层，则带有４毫秒的最少时间，这样在计时时间少于４毫秒时带来偏差</li>
+<li>受事件循环的影响，计时器任务只有在主线程空闲的时候才能执行</li>
+</ul>
+<h2 id="JS-的各种位置，比如-clientHeight-scrollHeight-offsetHeight-以及-scrollTop-offsetTop-clientTop-的区别？"><a href="#JS-的各种位置，比如-clientHeight-scrollHeight-offsetHeight-以及-scrollTop-offsetTop-clientTop-的区别？" class="headerlink" title="JS 的各种位置，比如 clientHeight,scrollHeight,offsetHeight ,以及 scrollTop, offsetTop,clientTop 的区别？"></a>JS 的各种位置，比如 clientHeight,scrollHeight,offsetHeight ,以及 scrollTop, offsetTop,clientTop 的区别？</h2><ul>
 <li>clientHeight：表示的是可视区域的高度，不包含 border 和滚动条</li>
-<li>offsetHeight：表示可视区域的高度，包含了 border 和滚动条</li>
+<li>offsetHeight：表示元素的高度，包含了 border 和滚动条</li>
 <li>scrollHeight：表示了所有区域的高度，包含了因为滚动被隐藏的部分</li>
 <li>clientTop：表示边框 border 的厚度，在未指定的情况下一般为 0</li>
 <li>scrollTop：滚动后被隐藏的高度，获取对象相对于由 offsetParent 属性指定的父坐标(css 定位的元素或 body 元素)距离顶端的高度。</li>
 </ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43655631/article/details/98093345">各种位置</a></p>
 <h2 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别?"></a>箭头函数和普通函数的区别?</h2><ul>
 <li><p>箭头函数没有自己的 this，只能通过作用域链来向上查找离自己最近的那个函数的 this</p>
 </li>
 <li><p>箭头函数不能作为 constructor，因此不能通过 new 来调用，所以它并没用 new.target 这个属性</p>
+</li>
+<li><p>箭头函数没有原型prototype</p>
 </li>
 <li><p>箭头函数没有 argument 属性，可以通过 rest 可以获取</p>
 </li>
@@ -368,6 +388,20 @@
 </li>
 <li><p>ES6 为 new 命令引入了一个 new.target 属性，该属性一般用在构造函数之中，返回 new 命令作用于的那个构造函数或构造方法。如果构造函数不是通过 new 命令或 Reflect.construct()调用的，new.target 会返回 undefined，因此这个属性可以用来确定构造函数时怎样调用的。包括 super 也不存在以及原型 prototype —- 因为在执行 new 的时候需要将函数的原型赋值给实力对象的原型属性。</p>
 </li>
+</ul>
+<h2 id="Generator函数-生成器函数与普通函数的区别"><a href="#Generator函数-生成器函数与普通函数的区别" class="headerlink" title="Generator函数 生成器函数与普通函数的区别"></a>Generator函数 生成器函数与普通函数的区别</h2><ul>
+<li>函数特征：关键字function与函数名之间有*，函数体内部yeild关键字</li>
+<li>函数调用后不执行，而是返回一个指针对象（遍历器对象）。调用对象的next()方法，执行一段yield逻辑。故函数的分段执行的，yield是暂停执行的标志，next()可以恢复执行。</li>
+<li>yield与return的区别：yield有记忆功能，return没有；一个函数可以多次执行yeild，但只会return一次</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">2</span> * (<span class="keyword">yield</span> (x + <span class="number">1</span>))</span><br><span class="line">  <span class="keyword">let</span> z = <span class="keyword">yield</span> (y / <span class="number">3</span>)</span><br><span class="line">  <span class="keyword">return</span> (x + y + z)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> it = foo(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(it.next())   <span class="comment">// =&gt; &#123;value: 6, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">12</span>)) <span class="comment">// =&gt; &#123;value: 8, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(it.next(<span class="number">13</span>)) <span class="comment">// =&gt; &#123;value: 42, done: true&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>你也许会疑惑为什么会产生与你预想不同的值，接下来就让我为你逐行代码分析原因</p>
+<ul>
+<li>首先 <code>Generator</code> 函数调用和普通函数不同，它会返回一个迭代器</li>
+<li>当执行第一次 <code>next</code> 时，传参会被忽略，并且函数暂停在 <code>yield (x + 1)</code> 处，所以返回 <code>5 + 1 = 6</code></li>
+<li>当执行第二次 <code>next</code> 时，传入的参数等于上一个 <code>yield</code> 的返回值，如果你不传参，<code>yield</code> 永远返回 <code>undefined</code>。此时 <code>let y = 2 * 12</code>，所以第二个 <code>yield</code> 等于 <code>2 * 12 / 3 = 8</code></li>
+<li>当执行第三次 <code>next</code> 时，传入的参数会传递给 <code>z</code>，所以 <code>z = 13, x = 5, y = 24</code>，相加等于 <code>42</code></li>
 </ul>
 <h2 id="TypeScript-里面有哪些-JavaScript-没有的类型"><a href="#TypeScript-里面有哪些-JavaScript-没有的类型" class="headerlink" title="TypeScript 里面有哪些 JavaScript 没有的类型?"></a>TypeScript 里面有哪些 JavaScript 没有的类型?</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">相比较JavaScript，TypeScript独有的类型</span><br><span class="line">any</span><br><span class="line">声明为any的变量可以赋予任意类型的值</span><br><span class="line"></span><br><span class="line">tuple</span><br><span class="line">元组类型用来表示已知元素数量和类型的数组，个元素的类型不必相同，对应位置的类型需要一样</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x: [string, number];</span><br><span class="line">x = [‘string’, <span class="number">0</span>]; <span class="comment">// 正常</span></span><br><span class="line">x = [<span class="number">0</span>, ‘string’]; <span class="comment">// 报错</span></span><br><span class="line">enum</span><br><span class="line">枚举类型用于定义值集合</span><br><span class="line"></span><br><span class="line">enum Color &#123;</span><br><span class="line">    Red,</span><br><span class="line">    Green,</span><br><span class="line">    Blue,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c: Color = Color.Green;</span><br><span class="line"><span class="built_in">console</span>.log©; <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">void</span> 标识方法返回值的类型，表示方法没有返回值。</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;&#125;</span><br><span class="line">never</span><br><span class="line">never是其它类型(包括<span class="literal">null</span>和<span class="literal">undefined</span>)的子类型，是不会发生的类型。例如，never总是抛出异常或永不返回的异常的函数表达式的返回类型</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回 never 的函数终点不可达</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">error</span>(<span class="params">message: string</span>): <span class="title">never</span> </span>&#123;</span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 推断的返回类型是 never</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> error(‘Something failed’);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回 never 的函数终点不可达</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">infiniteLoop</span>(<span class="params"></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">unknown 未知类型，一般在使用后再手动转具体的类型</span><br><span class="line"></span><br><span class="line">union</span><br><span class="line"></span><br><span class="line">联合类型，多种类型之一</span><br><span class="line"></span><br><span class="line">string | number; <span class="comment">// string 或 number</span></span><br><span class="line">intersection</span><br><span class="line">交叉类型，多种类型合并</span><br><span class="line"></span><br><span class="line">&#123; <span class="attr">a</span>: string; &#125; &amp; &#123; <span class="attr">b</span>: number; &#125; <span class="comment">// =&gt; &#123; a: string; b: number &#125;</span></span><br><span class="line">Generics</span><br><span class="line">泛型</span><br><span class="line"></span><br><span class="line">interface Backpack &#123;</span><br><span class="line">add: <span class="function">(<span class="params">obj: T</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">get: <span class="function">() =&gt;</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -393,6 +427,18 @@
 <li>禁用 caller 与 callee</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee.caller, fn.caller); <span class="comment">// 严格模式下报错；非严格模式指向fn2</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee); <span class="comment">// 严格模式报错；非严格模式指向fn</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  fn();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br></pre></td></tr></table></figure>
+
+<h2 id="es5和es6的继承有什么区别"><a href="#es5和es6的继承有什么区别" class="headerlink" title="es5和es6的继承有什么区别"></a>es5和es6的继承有什么区别</h2><ul>
+<li>ES5的继承时通过prototype或构造函数机制来实现。ES5的继承实质上是先创建子类的实例对象，然后再将父类的方法添加到this上（Parent.apply(this)）</li>
+<li>ES6的继承机制完全不同，实质上是先创建父类的实例对象this（所以必须先调用父类的super()方法），然后再用子类的构造函数修改this。具体的：ES6通过class关键字定义类，里面有构造方法，类之间通过extends关键字实现继承。子类必须在constructor方法中调用super方法，否则新建实例报错。因为子类没有自己的this对象，而是继承了父类的this对象，然后对其进行加工。如果不调用super方法，子类得不到this对象。</li>
+<li>ps：super关键字指代父类的实例，即父类的this对象。在子类构造函数中，调用super后，才可使用this关键字，否则报错</li>
+</ul>
+<h2 id="es6-calss-同时有prototype属性和-proto-属性"><a href="#es6-calss-同时有prototype属性和-proto-属性" class="headerlink" title="es6  calss 同时有prototype属性和__proto__属性"></a>es6  calss 同时有prototype属性和__proto__属性</h2><ul>
+<li>大多数浏览器的ES5中，每一个对象都有__proto__属性，指向对应的构造函数的prototype属性。Class作为语法糖，同时有prototype属性和__proto__属性，因此存在两条继承链</li>
+<li>（1）子类的__proto__属性，表示构造函数的继承，总是指向父类</li>
+<li>（2）子类的prototype属性的__proto__属性表示方法的继承，总是指向父类的prototype属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B.__proto__ === A <span class="comment">// true</span></span><br><span class="line">B.prototype.__proto__ === A.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="ES6-super-指向问题"><a href="#ES6-super-指向问题" class="headerlink" title="ES6 super 指向问题"></a>ES6 super 指向问题</h2><ul>
 <li>在类的构造方法中 super()，super 指向父类的构造器，this 指向 new 创建的实例</li>
@@ -451,7 +497,168 @@
 <li>Object.getOwnPropertySymbols(obj)<br>返回一个数组，包含对象自身所有的 Symbol 属性</li>
 <li>Reflect.ownKeys(obj)<br>返回一个数组，包含对象自身的所有属性，不论属性名是 Symbol 或字符串，也不管是否可枚举。</li>
 </ul>
-<h2 id="缓存的理解"><a href="#缓存的理解" class="headerlink" title="缓存的理解"></a>缓存的理解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">缓存分为强缓存和协商缓存。</span><br><span class="line">  强缓存不过服务器，协商缓存需要过服务器，协商缓存返回的状态码是304。两类缓存机制可以同时存在，强缓存的优先级高于协商缓存。当执行强缓存时，如若缓存命中，则直接使用缓存数据库中的数据，不再进行缓存协商。</span><br><span class="line">强缓存:</span><br><span class="line">Expires</span><br><span class="line">cache-control</span><br><span class="line">协商缓存:</span><br><span class="line">Last-Modified 和 If-Modified-Since    http1.0</span><br><span class="line">Etag 和 If-None-Match    http1.1</span><br></pre></td></tr></table></figure>
+<h2 id="如何理解-JS-的异步？"><a href="#如何理解-JS-的异步？" class="headerlink" title="如何理解 JS 的异步？"></a>如何理解 JS 的异步？</h2><p>JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。</p>
+<p>而渲染主线程承担着诸多的工作，渲染页面、执行 JS 都在其中运行。</p>
+<p>如果使用同步的方式，就极有可能导致主线程产生阻塞，从而导致消息队列中的很多其他任务无法得到执行。这样一来，一方面会导致繁忙的主线程白白的消耗时间，另一方面导致页面无法及时更新，给用户造成卡死现象。</p>
+<p>所以浏览器采用异步的方式来避免。具体做法是当某些任务发生时，比如计时器、网络、事件监听，主线程将任务交给其他线程去处理，自身立即结束任务的执行，转而执行后续代码。当其他线程完成时，将事先传递的回调函数包装成任务，加入到消息队列的末尾排队，等待主线程调度执行。</p>
+<p>在这种异步模式下，浏览器永不阻塞，从而最大限度的保证了单线程的流畅运行</p>
+<h2 id="EventLoop-事件循环"><a href="#EventLoop-事件循环" class="headerlink" title="EventLoop 事件循环"></a>EventLoop 事件循环</h2><p>事件循环又叫做消息循环，是浏览器渲染主线程的工作方式。</p>
+<p>在 Chrome 的源码中，它开启一个不会结束的 for 循环，每次循环从消息队列中取出第一个任务执行，而其他线程只需要在合适的时候将任务加入到队列末尾即可。</p>
+<p>过去把消息队列简单分为宏队列和微队列，这种说法目前已无法满足复杂的浏览器环境，取而代之的是一种更加灵活多变的处理方式。</p>
+<p>根据 W3C 官方的解释，每个任务有不同的类型，同类型的任务必须在同一个队列，不同的任务可以属于不同的队列。不同任务队列有不同的优先级，在一次事件循环中，由浏览器自行决定取哪一个队列的任务。但浏览器必须有一个微队列，微队列的任务一定具有最高的优先级，必须优先调度执行。</p>
+<p>任务没有优先级，在消息队列中先进先出</p>
+<p>但<strong>消息队列是有优先级的</strong></p>
+<p>根据 W3C 的最新解释:</p>
+<ul>
+<li>每个任务都有一个任务类型，同一个类型的任务必须在一个队列，不同类型的任务可以分属于不同的队列。<br>在一次事件循环中，浏览器可以根据实际情况从不同的队列中取出任务执行。</li>
+<li>浏览器必须准备好一个微队列，微队列中的任务优先所有其他任务执行<br><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint">https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint</a></li>
+</ul>
+<blockquote>
+<p>随着浏览器的复杂度急剧提升，W3C 不再使用宏队列的说法</p>
+</blockquote>
+<p>在目前 chrome 的实现中，至少包含了下面的队列：</p>
+<ul>
+<li>延时队列：用于存放计时器到达后的回调任务，优先级「中」</li>
+<li>交互队列：用于存放用户操作后产生的事件处理任务，优先级「高」</li>
+<li>微队列：用户存放需要最快执行的任务，优先级「最高」</li>
+</ul>
+<p>JS运行的环境。一般为浏览器或者Node。 在浏览器环境中，有JS 引擎线程和渲染线程，且两个线程互斥。 Node环境中，只有JS 线程。 不同环境执行机制有差异，不同任务进入不同Event Queue队列。 当主程结束，先执行准备好微任务，然后再执行准备好的宏任务，一个轮询结束。</p>
+<h3 id="浏览器中的事件环（Event-Loop"><a href="#浏览器中的事件环（Event-Loop" class="headerlink" title="浏览器中的事件环（Event Loop)"></a><strong>浏览器中的事件环（Event Loop)</strong></h3><p>事件环的运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。</p>
+<ul>
+<li><p>eventLoop 是由JS的宿主环境（浏览器）来实现的；</p>
+</li>
+<li><p>事件循环可以简单的描述为以下四个步骤:</p>
+<ol>
+<li>函数入栈，当Stack中执行到异步任务的时候，就将他丢给WebAPIs,接着执行同步任务,直到Stack为空；</li>
+<li>此期间WebAPIs完成这个事件，把回调函数放入队列中等待执行（微任务放到微任务队列，宏任务放到宏任务队列）</li>
+<li>执行栈为空时，Event Loop把微任务队列执行清空；</li>
+<li>微任务队列清空后，进入宏任务队列，取队列的第一项任务放入Stack(栈）中执行，执行完成后，查看微任务队列是否有任务，有的话，清空微任务队列。重复4，继续从宏任务中取任务执行，执行完成之后，继续清空微任务，如此反复循环，直至清空所有的任务。</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342e581223d2471d9484fc48beb9f8e1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp" alt="事件循环流程"></p>
+</li>
+<li><p>浏览器中的任务源(task):</p>
+<ul>
+<li><code>宏任务(macrotask)</code>：<br>  宿主环境提供的，比如浏览器<br>  ajax、setTimeout、setInterval、setTmmediate(只兼容ie)、script、requestAnimationFrame、messageChannel、UI渲染、一些浏览器api</li>
+<li><code>微任务(microtask)</code>：<br>  语言本身提供的，比如promise.then<br>  then、queueMicrotask(基于then)、mutationObserver(浏览器提供)、messageChannel 、mutationObersve</li>
+</ul>
+</li>
+</ul>
+<p>传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/7001881781125251086" title="https://juejin.cn/post/7001881781125251086"># 宏任务和微任务</a></p>
+<h3 id="Node-环境中的事件环（Event-Loop"><a href="#Node-环境中的事件环（Event-Loop" class="headerlink" title="Node 环境中的事件环（Event Loop)"></a><strong>Node 环境中的事件环（Event Loop)</strong></h3><p><code>Node</code>是基于V8引擎的运行在服务端的<code>JavaScript</code>运行环境，在处理高并发、I/O密集(文件操作、网络操作、数据库操作等)场景有明显的优势。虽然用到也是V8引擎，但由于服务目的和环境不同，导致了它的API与原生JS有些区别，其Event Loop还要处理一些I/O，比如新的网络连接等，所以Node的Event Loop(事件环机制)与浏览器的是不太一样。<br>event loop 每一次循环都要执行这6个阶段。每个阶段都有自己的callback队列，每当进入某个阶段，都会从所属的队列中取出callback来执行，当队列为空或者被执行callback的数量达到系统的最大数量时候，进入下一阶段。这六个阶段都被执行完毕之后被称为一个循环</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp" alt="2020120317343116.png"> 执行顺序如下：</p>
+<ul>
+<li><p><code>timers</code>: 计时器，执行setTimeout和setInterval的回调</p>
+</li>
+<li><p><code>pending callbacks</code>: 执行延迟到下一个循环迭代的 I/O 回调</p>
+</li>
+<li><p><code>idle, prepare</code>: 队列的移动，仅系统内部使用</p>
+</li>
+<li><p><code>poll轮询</code>: 检索新的 I/O 事件;执行与 I/O 相关的回调。回到 timer 阶段执⾏回调<br>并且在进⼊该阶段时如果没有设定了 timer 的话，会发⽣以下两件事情</p>
+<ul>
+<li>如果 poll 队列不为空，会遍历回调队列并同步执⾏，直到队列为空或者达到系统限制</li>
+<li>如果 poll 队列为空时，会有两件事发⽣<br>  1 如果有 setImmediate 回调需要执⾏，poll 阶段会停⽌并且进⼊到 check 阶段执⾏回调<br>  2如果没有 setImmediate 回调需要执⾏，会等待回调被加⼊到队列中并⽴即执⾏回调，这⾥同样会有个超时时间设置防⽌⼀直等待下去</li>
+</ul>
+</li>
+<li><p><code>check</code>: 执行<code>setImmediate</code>回调，setImmediate在这里执行</p>
+</li>
+<li><p><code>close callbacks</code>: 执行<code>close</code>事件的<code>callback</code>，一些关闭的回调函数，如：socket.on(‘close’, …)</p>
+</li>
+</ul>
+<h2 id="js事件机制"><a href="#js事件机制" class="headerlink" title="js事件机制"></a>js事件机制</h2><h3 id="事件触发三阶段"><a href="#事件触发三阶段" class="headerlink" title="事件触发三阶段"></a>事件触发三阶段</h3><p>事件触发有三个阶段：</p>
+<ul>
+<li><code>window</code> 往事件触发处传播，遇到注册的捕获事件会触发 （捕获）</li>
+<li>传播到事件触发处时触发注册的事件 （目标阶段）</li>
+<li>从事件触发处往 <code>window</code> 传播，遇到注册的冒泡事件会触发 （冒泡）</li>
+</ul>
+<p>事件触发一般来说会按照上面的顺序进行，但是也有特例，<strong>如果给一个 <code>body</code> 中的子节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下会先打印冒泡然后是捕获</span></span><br><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  event =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  event =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;捕获 &#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h3><p>通常我们使用 <code>addEventListener</code> 注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值 <code>useCapture</code> 参数来说，该参数默认值为 <code>false</code> ，<code>useCapture</code> 决定了注册的事件是捕获事件还是冒泡事件。对于对象参数来说，可以使用以下几个属性</p>
+<ul>
+<li><code>capture</code>：布尔值，和 <code>useCapture</code> 作用一样</li>
+<li><code>once</code>：布尔值，值为 <code>true</code> 表示该回调只会调用一次，调用后会移除监听</li>
+<li><code>passive</code>：布尔值，表示永远不会调用 <code>preventDefault</code></li>
+</ul>
+<p>一般来说，如果我们只希望事件只触发在目标上，这时候可以使用 <code>stopPropagation</code> 来阻止事件的进一步传播。通常我们认为 <code>stopPropagation</code> 是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。<code>stopImmediatePropagation</code> 同样也能实现阻止事件，但是还能阻止该事件目标执行别的注册事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  event =&gt; &#123;</span><br><span class="line">    event.stopImmediatePropagation()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">// 点击 node 只会执行上面的函数，该函数不会执行</span></span><br><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  event =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;捕获 &#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h3><p>如果一个节点中的子节点是动态生成的，那么子节点需要注册事件的话<strong>应该注册在父节点上</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;ul&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"> <span class="keyword">let</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#ul&#x27;</span>)</span></span><br><span class="line"><span class="javascript"> ul.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(event.target);</span></span><br><span class="line"> &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>事件代理的方式相较于直接给目标注册事件来说，有以下优点：</p>
+<ul>
+<li>节省内存</li>
+<li>不需要给子节点注销事件</li>
+</ul>
+<h2 id="浏览器是如何渲染页面的？"><a href="#浏览器是如何渲染页面的？" class="headerlink" title="浏览器是如何渲染页面的？"></a>浏览器是如何渲染页面的？</h2> <div class="pdf-container" data-target="./渲染页面.pdf" data-height="500px"></div>
+
+<p>当浏览器的网络线程收到 HTML 文档后，会产生一个渲染任务，并将其传递给渲染主线程的消息队列。</p>
+<p>在事件循环机制的作用下，渲染主线程取出消息队列中的渲染任务，开启渲染流程。</p>
+<hr>
+<p>整个渲染流程分为多个阶段，分别是： HTML 解析、样式计算、布局、分层、绘制、分块、光栅化、画</p>
+<p>每个阶段都有明确的输入输出，上一个阶段的输出会成为下一个阶段的输入。</p>
+<p>这样，整个渲染流程就形成了一套组织严密的生产流水线。</p>
+<hr>
+<p>渲染的第一步是<strong>解析 HTML</strong>。</p>
+<p>解析过程中遇到 CSS 解析 CSS，遇到 JS 执行 JS。为了提高解析效率，浏览器在开始解析前，会启动一个预解析的线程，率先下载 HTML 中的外部 CSS 文件和 外部的 JS 文件。</p>
+<p>如果主线程解析到<code>link</code>位置，此时外部的 CSS 文件还没有下载解析好，主线程不会等待，继续解析后续的 HTML。这是因为下载和解析 CSS 的工作是在预解析线程中进行的。这就是 CSS 不会阻塞 HTML 解析的根本原因。</p>
+<p>如果主线程解析到<code>script</code>位置，会停止解析 HTML，转而等待 JS 文件下载好，并将全局代码解析执行完成后，才能继续解析 HTML。这是因为 JS 代码的执行过程可能会修改当前的 DOM 树，所以 DOM 树的生成必须暂停。这就是 JS 会阻塞 HTML 解析的根本原因。</p>
+<p>第一步完成后，会得到 DOM 树和 CSSOM 树，浏览器的默认样式、内部样式、外部样式、行内样式均会包含在 CSSOM 树中。</p>
+<hr>
+<p>渲染的下一步是<strong>样式计算</strong>。</p>
+<p>主线程会遍历得到的 DOM 树，依次为树中的每个节点计算出它最终的样式，称之为 Computed Style。</p>
+<p>在这一过程中，很多预设值会变成绝对值，比如<code>red</code>会变成<code>rgb(255,0,0)</code>；相对单位会变成绝对单位，比如<code>em</code>会变成<code>px</code></p>
+<p>这一步完成后，会得到一棵带有样式的 DOM 树。</p>
+<hr>
+<p>接下来是<strong>布局</strong>，布局完成后会得到布局树。</p>
+<p>布局阶段会依次遍历 DOM 树的每一个节点，计算每个节点的几何信息。例如节点的宽高、相对包含块的位置。</p>
+<p>大部分时候，DOM 树和布局树并非一一对应。</p>
+<p>比如<code>display:none</code>的节点没有几何信息，因此不会生成到布局树；又比如使用了伪元素选择器，虽然 DOM 树中不存在这些伪元素节点，但它们拥有几何信息，所以会生成到布局树中。还有匿名行盒、匿名块盒等等都会导致 DOM 树和布局树无法一一对应。</p>
+<hr>
+<p>下一步是<strong>分层</strong></p>
+<p>主线程会使用一套复杂的策略对整个布局树中进行分层。</p>
+<p>分层的好处在于，将来某一个层改变后，仅会对该层进行后续处理，从而提升效率。</p>
+<p>滚动条、堆叠上下文、transform、opacity 等样式都会或多或少的影响分层结果，也可以通过<code>will-change</code>属性更大程度的影响分层结果。</p>
+<hr>
+<p>再下一步是<strong>绘制</strong></p>
+<p>主线程会为每个层单独产生绘制指令集，用于描述这一层的内容该如何画出来。</p>
+<hr>
+<p>完成绘制后，主线程将每个图层的绘制信息提交给合成线程，剩余工作将由合成线程完成。</p>
+<p>合成线程首先对每个图层进行分块，将其划分为更多的小区域。</p>
+<p>它会从线程池中拿取多个线程来完成分块工作。</p>
+<hr>
+<p>分块完成后，进入<strong>光栅化</strong>阶段。</p>
+<p>合成线程会将块信息交给 GPU 进程，以极高的速度完成光栅化。</p>
+<p>GPU 进程会开启多个线程来完成光栅化，并且优先处理靠近视口区域的块。</p>
+<p>光栅化的结果，就是一块一块的位图</p>
+<hr>
+<p>最后一个阶段就是<strong>画</strong>了</p>
+<p>合成线程拿到每个层、每个块的位图后，生成一个个「指引（quad）」信息。</p>
+<p>指引会标识出每个位图应该画到屏幕的哪个位置，以及会考虑到旋转、缩放等变形。</p>
+<p>变形发生在合成线程，与渲染主线程无关，这就是<code>transform</code>效率高的本质原因。</p>
+<p>合成线程会把 quad 提交给 GPU 进程，由 GPU 进程产生系统调用，提交给 GPU 硬件，完成最终的屏幕成像。</p>
+<h2 id="什么是-reflow？"><a href="#什么是-reflow？" class="headerlink" title="什么是 reflow？"></a>什么是 reflow？</h2><p>reflow 的本质就是重新计算 layout 树。</p>
+<p>当进行了会影响布局树的操作后，需要重新计算布局树，会引发 layout。</p>
+<p>为了避免连续的多次操作导致布局树反复计算，浏览器会合并这些操作，当 JS 代码全部完成后再进行统一计算。所以，改动属性造成的 reflow 是异步完成的。</p>
+<p>也同样因为如此，当 JS 获取布局属性时，就可能造成无法获取到最新的布局信息。</p>
+<p>浏览器在反复权衡下，最终决定获取属性立即 reflow。</p>
+<h2 id="什么是-repaint？"><a href="#什么是-repaint？" class="headerlink" title="什么是 repaint？"></a>什么是 repaint？</h2><p>repaint 的本质就是重新根据分层信息计算了绘制指令。</p>
+<p>当改动了可见样式后，就需要重新计算，会引发 repaint。</p>
+<p>由于元素的布局信息也属于可见样式，所以 reflow 一定会引起 repaint。</p>
+<h2 id="为什么-transform-的效率高？"><a href="#为什么-transform-的效率高？" class="headerlink" title="为什么 transform 的效率高？"></a>为什么 transform 的效率高？</h2><p>因为 transform 既不会影响布局也不会影响绘制指令，它影响的只是渲染流程的最后一个「draw」阶段</p>
+<p>由于 draw 阶段在合成线程中，所以 transform 的变化几乎不会影响渲染主线程。反之，渲染主线程无论如何忙碌，也不会影响 transform 的变化。</p>
+<h2 id="js-编程范式"><a href="#js-编程范式" class="headerlink" title="js 编程范式"></a>js 编程范式</h2><ul>
+<li>命令式（Imperative JavaScript）命令式就是简单的从上而下完成任务，流水账过程式编码风格：</li>
+<li>面向对象（Object-Oriented JavaScript）</li>
+<li>函数式<ul>
+<li>函数式编程是一种强调以函数使用为主的软件开发风格；</li>
+<li>纯函数指没有副作用的函数，相同的输入有相同的输出；</li>
+<li>在函数式编程里面，将多个不同函数组合是一个非常非常非常重要的思想；</li>
+<li>函数式编程将函数视为积木，通过一些高阶函数来提高代码的模块化和可重用性</li>
+</ul>
+</li>
+</ul>
+<p><a href="hanshushi.png">函数式</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
     </div>
 
@@ -496,7 +703,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -521,7 +728,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>

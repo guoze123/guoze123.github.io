@@ -16,11 +16,11 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Node 能够解决什么问题? # Node 的首要目标是提供一种简单的，用于创建高性能服务器的开发工具 Web 服务器的瓶颈在于并发的用户量，对比 Java 和 Php 的实现方式  Node 是什么? # Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,让 JavaScript 的执行效率与低端的 C 语言的相近的执行效率。。 Node.js 使用了一个事">
 <meta property="og:type" content="article">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/eventloop.png">
 <meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/nodesystem.png">
 <meta property="article:published_time" content="2022-07-08T18:21:52.000Z">
-<meta property="article:modified_time" content="2022-08-08T11:43:04.036Z">
+<meta property="article:modified_time" content="2022-12-26T01:55:35.757Z">
 <meta property="article:author" content="郭泽">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
@@ -92,7 +92,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Node 能够解决什么问题? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Node 是什么? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">Node 特点 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-JavaScript-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">为什么 JavaScript 是单线程？ </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">浏览器模型 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A4-JS-%E7%BA%BF%E7%A8%8B%E5%92%8C-UI-%E7%BA%BF%E7%A8%8B%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">除 JS 线程和 UI 线程之外的其它线程 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-number">3.4.</span> <span class="nav-text">任务队列 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.5.</span> <span class="nav-text">Event Loop </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E7%9A%84-Event-Loop"><span class="nav-number">3.6.</span> <span class="nav-text">Node.js 的 Event Loop </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BE%9D%E8%B5%96%E2%BC%A6%E6%A8%A1%E5%9D%97%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">node.js 的主要依赖⼦模块有以下内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">同步与异步 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="nav-number">4.2.</span> <span class="nav-text">阻塞与非阻塞 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88"><span class="nav-number">4.3.</span> <span class="nav-text">组合 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8-Node-%E6%A1%86%E6%9E%B6"><span class="nav-number">5.</span> <span class="nav-text">什么场合下应该考虑使用 Node 框架 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E9%83%A8%E7%BD%B2"><span class="nav-number">6.</span> <span class="nav-text">node 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forever"><span class="nav-number">6.1.</span> <span class="nav-text">forever</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">6.2.</span> <span class="nav-text">pm2</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Node 能够解决什么问题? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Node 是什么? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">Node 特点 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-JavaScript-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">为什么 JavaScript 是单线程？ </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">浏览器模型 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A4-JS-%E7%BA%BF%E7%A8%8B%E5%92%8C-UI-%E7%BA%BF%E7%A8%8B%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">除 JS 线程和 UI 线程之外的其它线程 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-number">3.4.</span> <span class="nav-text">任务队列 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.5.</span> <span class="nav-text">Event Loop </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E7%9A%84-Event-Loop"><span class="nav-number">3.6.</span> <span class="nav-text">Node.js 的 Event Loop </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BE%9D%E8%B5%96%E2%BC%A6%E6%A8%A1%E5%9D%97%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">node.js 的主要依赖⼦模块有以下内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">同步与异步 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="nav-number">4.2.</span> <span class="nav-text">阻塞与非阻塞 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88"><span class="nav-number">4.3.</span> <span class="nav-text">组合 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8-Node-%E6%A1%86%E6%9E%B6"><span class="nav-number">5.</span> <span class="nav-text">什么场合下应该考虑使用 Node 框架 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E9%83%A8%E7%BD%B2"><span class="nav-number">6.</span> <span class="nav-text">node 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forever"><span class="nav-number">6.1.</span> <span class="nav-text">forever</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">6.2.</span> <span class="nav-text">pm2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-fnm"><span class="nav-number">7.</span> <span class="nav-text">node 版本管理工具 fnm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">7.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +162,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -195,7 +195,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
@@ -250,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-08 19:43:04" itemprop="dateModified" datetime="2022-08-08T19:43:04+08:00">2022-08-08</time>
+      <time title="修改时间：2022-12-26 09:55:35" itemprop="dateModified" datetime="2022-12-26T09:55:35+08:00">2022-12-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -281,7 +280,8 @@
 <li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</li>
 <li>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
 </ul>
-<h2 id="Node-特点"><a href="#Node-特点" class="headerlink" title="Node 特点 #"></a>Node 特点 <a href="#t23-node%E7%89%B9%E7%82%B9">#</a></h2><h3 id="为什么-JavaScript-是单线程？"><a href="#为什么-JavaScript-是单线程？" class="headerlink" title="为什么 JavaScript 是单线程？ #"></a>为什么 JavaScript 是单线程？ <a href="#t331-%E4%B8%BA%E4%BB%80%E4%B9%88javascript%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B">#</a></h3><ul>
+<h2 id="Node-特点"><a href="#Node-特点" class="headerlink" title="Node 特点 #"></a>Node 特点 <a href="#t23-node%E7%89%B9%E7%82%B9">#</a></h2><a id="more"></a>
+<h3 id="为什么-JavaScript-是单线程？"><a href="#为什么-JavaScript-是单线程？" class="headerlink" title="为什么 JavaScript 是单线程？ #"></a>为什么 JavaScript 是单线程？ <a href="#t331-%E4%B8%BA%E4%BB%80%E4%B9%88javascript%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B">#</a></h3><ul>
 <li>这是由 Javascript 这门脚本语言的用途决定的。</li>
 <li>Web Worker 并没有改变 JavaScript 单线程的本质。</li>
 </ul>
@@ -349,6 +349,10 @@
 </ul>
 <h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>PM2 是具有内置负载均衡器的 Node.js 应用程序的生产流程管理器。它允许您使应用程序永远保持活动状态，在不停机的情况下重新加载它们，并促进常见的系统管理任务。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 全局安装</span><br><span class="line">&gt; npm install pm2 -g</span><br><span class="line"># pm2启动项目</span><br><span class="line">&gt; pm2 start index.js</span><br><span class="line"># pm2停止项目</span><br><span class="line">&gt; pm2 stop index.js</span><br><span class="line"># 列出pm2管理的所有项目 </span><br><span class="line">&gt; pm2 list</span><br><span class="line"># 追踪资源运行情况</span><br><span class="line">&gt; pm2 monit</span><br><span class="line"># 查看日志</span><br><span class="line">&gt; pm2 logs</span><br><span class="line"># pm2重启项目</span><br><span class="line">&gt; pm2 restart id/name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="node-版本管理工具-fnm"><a href="#node-版本管理工具-fnm" class="headerlink" title="node 版本管理工具 fnm"></a>node 版本管理工具 fnm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 管理员模式打开终端，安装后只能使用管理员模式打开使用</span><br><span class="line"></span><br><span class="line">choco install fnm</span><br><span class="line"></span><br><span class="line"># 安装完成还需要手动设置环境变量</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 命令帮助</span><br><span class="line">fnm --help</span><br><span class="line"></span><br><span class="line"># node 已安装列表</span><br><span class="line">fnm list</span><br><span class="line"></span><br><span class="line"># node 安装</span><br><span class="line">fnm install 版本号(支持模糊&#x2F;lts)</span><br><span class="line"></span><br><span class="line">fnm install v10.22.1  --node-dist-mirror&#x3D;&quot;https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist&quot;</span><br><span class="line"># 速度慢的时候，可以切换到国内源</span><br><span class="line">fnm install 16 --node-dist-mirror&#x3D;https:&#x2F;&#x2F;npmmirror.com&#x2F;mirrors&#x2F;node</span><br><span class="line"></span><br><span class="line"># node 卸载</span><br><span class="line">fnm uninstall 版本号</span><br><span class="line"></span><br><span class="line"># node 切换</span><br><span class="line">fnm use 版本号</span><br><span class="line"></span><br><span class="line"># node 设置默认</span><br><span class="line">fnm default 版本号</span><br><span class="line"></span><br><span class="line">use 是切换当前 shell 环境，临时的</span><br><span class="line">default 是切换全局，永久的</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Windows\System32\WindowsPowerShell\v1.0</span><br><span class="line">添加配置文件 profile.ps1</span><br><span class="line"></span><br><span class="line">http:&#x2F;&#x2F;zhishichong.com&#x2F;article&#x2F;47322</span><br><span class="line"></span><br><span class="line">fnm env --use-on-cd | Out-String | Invoke-Expression</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
     </div>
 
@@ -365,13 +369,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/" rel="prev" title="nodeCore">
-                  <i class="fa fa-chevron-left"></i> nodeCore
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/module&NPM/" rel="prev" title="module&NPM">
+                  <i class="fa fa-chevron-left"></i> module&NPM
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/module&NPM/" rel="next" title="module&NPM">
-                  module&NPM <i class="fa fa-chevron-right"></i>
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/" rel="next" title="Encoding">
+                  Encoding <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -393,7 +397,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -418,7 +422,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>

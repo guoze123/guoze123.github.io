@@ -16,11 +16,11 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="npm run xxx 的过程 运行 npm run XXX npm 先在当前目录 的 node_modules&#x2F;.bin 查找要执行的程序，如果找到则运行；没有找到 则从全局的 node_modules&#x2F;.bin 中查找，npm i -g xxx 就是安装到到全局目录； 如果全局目录还是没找到，那么就从 path 环境变量中查找有没有其他同名的可执行程序。 npm install 到npm ru">
 <meta property="og:type" content="article">
@@ -29,11 +29,14 @@
 <meta property="og:site_name" content="郭泽">
 <meta property="og:description" content="npm run xxx 的过程 运行 npm run XXX npm 先在当前目录 的 node_modules&#x2F;.bin 查找要执行的程序，如果找到则运行；没有找到 则从全局的 node_modules&#x2F;.bin 中查找，npm i -g xxx 就是安装到到全局目录； 如果全局目录还是没找到，那么就从 path 环境变量中查找有没有其他同名的可执行程序。 npm install 到npm ru">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/node%E9%9D%A2%E8%AF%95%E9%A2%98/node_stream.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/node%E9%9D%A2%E8%AF%95%E9%A2%98/pm2.png">
 <meta property="article:published_time" content="2020-10-29T03:09:28.000Z">
-<meta property="article:modified_time" content="2022-08-05T12:01:24.783Z">
+<meta property="article:modified_time" content="2022-10-31T03:06:22.648Z">
 <meta property="article:author" content="郭泽">
 <meta property="article:tag" content="node面试题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/node%E9%9D%A2%E8%AF%95%E9%A2%98/node_stream.png">
 
 
 <link rel="canonical" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/node%E9%9D%A2%E8%AF%95%E9%A2%98/">
@@ -88,7 +91,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -145,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-run-xxx-%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">npm run xxx 的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bin-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E8%A1%A8%E7%A4%BA%E8%BD%AF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E9%82%A3%E8%BF%99%E4%B8%AAbin%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E9%82%A3%E4%BA%9B%E8%BD%AF%E8%BF%9E%E6%8E%A5%E6%96%87%E4%BB%B6%E6%98%AF%E5%93%AA%E9%87%8C%E6%9D%A5%E7%9A%84%E5%91%A2%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">.bin 目录下的文件表示软连接，那这个bin目录下的那些软连接文件是哪里来的呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json-%E4%B8%8E-package-lock-json-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">package.json 与 package-lock.json 的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#master%E6%8C%82%E4%BA%86%EF%A6%BA%E7%9A%84%E8%AF%9Dpm2%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%EF%A7%A4"><span class="nav-number">4.</span> <span class="nav-text">master挂了了的话pm2怎么处理理</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-run-xxx-%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">npm run xxx 的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bin-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E8%A1%A8%E7%A4%BA%E8%BD%AF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E9%82%A3%E8%BF%99%E4%B8%AAbin%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E9%82%A3%E4%BA%9B%E8%BD%AF%E8%BF%9E%E6%8E%A5%E6%96%87%E4%BB%B6%E6%98%AF%E5%93%AA%E9%87%8C%E6%9D%A5%E7%9A%84%E5%91%A2%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">.bin 目录下的文件表示软连接，那这个bin目录下的那些软连接文件是哪里来的呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json-%E4%B8%8E-package-lock-json-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">package.json 与 package-lock.json 的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#master%E6%8C%82%E4%BA%86%EF%A6%BA%E7%9A%84%E8%AF%9Dpm2%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%EF%A7%A4"><span class="nav-number">4.</span> <span class="nav-text">master挂了了的话pm2怎么处理理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-stream"><span class="nav-number">5.</span> <span class="nav-text">node stream</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A8%A1%E5%9D%97%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E4%B8%8D%E4%BC%9A%E6%AD%BB%E5%BE%AA%E7%8E%AF%EF%BC%9FCommonJS%E5%92%8CES-Module%E7%9A%84%E5%A4%84%E7%90%86%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">为什么模块循环依赖不会死循环？CommonJS和ES Module的处理不同？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,18 +161,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -191,7 +194,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
@@ -246,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-05 20:01:24" itemprop="dateModified" datetime="2022-08-05T20:01:24+08:00">2022-08-05</time>
+      <time title="修改时间：2022-10-31 11:06:22" itemprop="dateModified" datetime="2022-10-31T11:06:22+08:00">2022-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,7 +281,21 @@
 <li>它存在项目最外层的package-lock.json文件中<br>从 package-lock.json 中可知，当我们npm i 整个新建的vue项目的时候，npm 将 bin/vue-cli-service.js 作为 bin 声明了。<br>所以在 npm install 时，npm 读到该配置后，就将该文件软链接到 ./node_modules/.bin 目录下，而 npm 还会自动把node_modules/.bin加入$PATH，这样就可以直接作为命令运行依赖程序和开发依赖程序，不用全局安装了</li>
 </ul>
 <h2 id="package-json-与-package-lock-json-的关系"><a href="#package-json-与-package-lock-json-的关系" class="headerlink" title="package.json 与 package-lock.json 的关系"></a>package.json 与 package-lock.json 的关系</h2><p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yalong/p/15013880.html">package.json 与 package-lock.json 的关系</a></p>
-<h2 id="master挂了了的话pm2怎么处理理"><a href="#master挂了了的话pm2怎么处理理" class="headerlink" title="master挂了了的话pm2怎么处理理"></a>master挂了了的话pm2怎么处理理</h2><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+<h2 id="master挂了了的话pm2怎么处理理"><a href="#master挂了了的话pm2怎么处理理" class="headerlink" title="master挂了了的话pm2怎么处理理"></a>master挂了了的话pm2怎么处理理</h2><h2 id="node-stream"><a href="#node-stream" class="headerlink" title="node stream"></a>node stream</h2><p><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/node%E9%9D%A2%E8%AF%95%E9%A2%98/node_stream.png" alt="node-stream"><br><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/node%E9%9D%A2%E8%AF%95%E9%A2%98/pm2.png" alt="pm2"></p>
+<h2 id="为什么模块循环依赖不会死循环？CommonJS和ES-Module的处理不同？"><a href="#为什么模块循环依赖不会死循环？CommonJS和ES-Module的处理不同？" class="headerlink" title="为什么模块循环依赖不会死循环？CommonJS和ES Module的处理不同？"></a>为什么模块循环依赖不会死循环？CommonJS和ES Module的处理不同？</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/t-TUAzL0q0oK7HsDVQRNMw">模块循环依赖</a></p>
+<ul>
+<li><p>CommonJS和ES Module都对循环引入做了处理，不会进入死循环，但方式不同：</p>
+</li>
+<li><p>CommonJS借助模块缓存，遇到require函数会先检查是否有缓存，已经有的则不会进入执行，在模块缓存中还记录着导出的变量的拷贝值；</p>
+<ul>
+<li>ES Module借助模块地图，已经进入过的模块标注为获取中，遇到import语句会去检查这个地图，已经标注为获取中的则不会进入，地图中的每一个节点是一个模块记录，上面有导出变量的内存地址，导入时会做一个连接——即指向同一块内存。</li>
+<li>CommonJS的export和module.export指向同一块内存，但由于最后导出的是module.export，所以不能直接给export赋值，会导致指向丢失。</li>
+</ul>
+</li>
+<li><p>查找模块时，核心模块和文件模块的查找都比较简单，对于react/vue这种第三方模块，会从当前目录下的node_module文件下开始，递归往上查找，找到该包后，根据package.json的main字段找到入口文件。</p>
+</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
     </div>
 
     
@@ -295,8 +311,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/vue%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="vue面试题">
-                  <i class="fa fa-chevron-left"></i> vue面试题
+                <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="webpack面试题">
+                  <i class="fa fa-chevron-left"></i> webpack面试题
                 </a>
             </div>
             <div class="post-nav-item">
@@ -323,7 +339,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -348,7 +364,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>

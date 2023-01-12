@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="(一)命名规范项目命名全部采用小写方式， 以中划线分隔。 正例：mall-management-system 反例：mall_management-system &#x2F; mallManagementSystem 目录命名全部采用小写方式， 以中划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数 正例： scripts &#x2F; styles &#x2F; components &#x2F; images &#x2F; utils">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端代码规范">
+<meta property="og:url" content="https://gz1234.gitee.io/2022/09/04/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="(一)命名规范项目命名全部采用小写方式， 以中划线分隔。 正例：mall-management-system 反例：mall_management-system &#x2F; mallManagementSystem 目录命名全部采用小写方式， 以中划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数 正例： scripts &#x2F; styles &#x2F; components &#x2F; images &#x2F; utils">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-03T16:55:43.000Z">
+<meta property="article:modified_time" content="2022-12-16T01:25:23.326Z">
+<meta property="article:author" content="郭泽">
+<meta property="article:tag" content="前端代码规范">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/2022/09/04/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2022/09/04/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/","path":"2022/09/04/代码规范/","title":"前端代码规范"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端代码规范 | 郭泽</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">(一)命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.</span> <span class="nav-text">项目命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E5%91%BD%E5%90%8D"><span class="nav-number">1.2.</span> <span class="nav-text">目录命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS%E3%80%81CSS%E3%80%81SCSS%E3%80%81HTML%E3%80%81PNG-%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D"><span class="nav-number">1.3.</span> <span class="nav-text">JS、CSS、SCSS、HTML、PNG 文件命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E4%B8%A5%E8%B0%A8%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">命名严谨性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-HTML-%E8%A7%84%E8%8C%83-%EF%BC%88Vue-Template-%E5%90%8C%E6%A0%B7%E9%80%82%E7%94%A8%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">(二)HTML 规范 （Vue Template 同样适用）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML-%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">HTML 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">2.2.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%9D%97%E6%B3%A8%E9%87%8A"><span class="nav-number">2.3.</span> <span class="nav-text">分块注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="nav-number">3.</span> <span class="nav-text">语义化标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%8F%B7"><span class="nav-number">3.1.</span> <span class="nav-text">引号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89-CSS-%E8%A7%84%E8%8C%83"><span class="nav-number">4.</span> <span class="nav-text">(三) CSS 规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">4.1.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BD%E9%87%8F%E4%BD%BF%E7%94%A8%E7%BC%A9%E5%86%99%E5%B1%9E%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">尽量使用缩写属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%8F%E4%B8%AA%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%B1%9E%E6%80%A7%E7%8B%AC%E5%8D%A0%E4%B8%80%E8%A1%8C"><span class="nav-number">4.4.</span> <span class="nav-text">每个选择器及属性独占一行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9C%81%E7%95%A50%E5%90%8E%E9%9D%A2%E7%9A%84%E5%8D%95%E4%BD%8D"><span class="nav-number">4.5.</span> <span class="nav-text">省略0后面的单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8ID%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%85%A8%E5%B1%80%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8%E9%98%B2%E6%AD%A2%E6%B1%A1%E6%9F%93%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.6.</span> <span class="nav-text">避免使用ID选择器及全局标签选择器防止污染全局样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B-LESS-%E8%A7%84%E8%8C%83"><span class="nav-number">5.</span> <span class="nav-text">(四) LESS 规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87"><span class="nav-number">5.1.</span> <span class="nav-text">代码组织</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%B0%86%E5%85%AC%E5%85%B1less%E6%96%87%E4%BB%B6%E6%94%BE%E7%BD%AE%E5%9C%A8style-less-common%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">5.1.1.</span> <span class="nav-text">1)将公共less文件放置在style&#x2F;less&#x2F;common文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%8C%89%E4%BB%A5%E4%B8%8B%E9%A1%BA%E5%BA%8F%E7%BB%84%E7%BB%87"><span class="nav-number">5.1.2.</span> <span class="nav-text">2)按以下顺序组织</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%BF%E5%85%8D%E5%B5%8C%E5%A5%97%E5%B1%82%E7%BA%A7%E8%BF%87%E5%A4%9A"><span class="nav-number">5.2.</span> <span class="nav-text">避免嵌套层级过多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94-Javascript-%E8%A7%84%E8%8C%83"><span class="nav-number">6.</span> <span class="nav-text">(五) Javascript 规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D-1"><span class="nav-number">6.1.</span> <span class="nav-text">命名</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%87%87%E7%94%A8%E5%B0%8F%E5%86%99%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D-lowerCamelCase%EF%BC%8C%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E5%91%BD%E5%90%8D%E5%9D%87%E4%B8%8D%E8%83%BD%E4%BB%A5%E4%B8%8B%E5%88%92%E7%BA%BF%EF%BC%8C%E4%B9%9F%E4%B8%8D%E8%83%BD%E4%BB%A5%E4%B8%8B%E5%88%92%E7%BA%BF%E6%88%96%E7%BE%8E%E5%85%83%E7%AC%A6%E5%8F%B7%E7%BB%93%E6%9D%9F"><span class="nav-number">6.1.1.</span> <span class="nav-text">1) 采用小写驼峰命名 lowerCamelCase，代码中的命名均不能以下划线，也不能以下划线或美元符号结束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95%E5%90%8D%E3%80%81%E5%8F%82%E6%95%B0%E5%90%8D%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E3%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E9%83%BD%E7%BB%9F%E4%B8%80%E4%BD%BF%E7%94%A8-lowerCamelCase-%E9%A3%8E%E6%A0%BC%EF%BC%8C%E5%BF%85%E9%A1%BB%E9%81%B5%E4%BB%8E%E9%A9%BC%E5%B3%B0%E5%BD%A2%E5%BC%8F"><span class="nav-number">6.1.2.</span> <span class="nav-text">2) 方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%B8%B8%E9%87%8F%E5%91%BD%E5%90%8D%E5%85%A8%E9%83%A8%E5%A4%A7%E5%86%99%EF%BC%8C%E5%8D%95%E8%AF%8D%E9%97%B4%E7%94%A8%E4%B8%8B%E5%88%92%E7%BA%BF%E9%9A%94%E5%BC%80%EF%BC%8C%E5%8A%9B%E6%B1%82%E8%AF%AD%E4%B9%89%E8%A1%A8%E8%BE%BE%E5%AE%8C%E6%95%B4%E6%B8%85%E6%A5%9A%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%AB%8C%E5%90%8D%E5%AD%97%E9%95%BF"><span class="nav-number">6.1.3.</span> <span class="nav-text">3) 常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-number">6.2.</span> <span class="nav-text">代码格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8-2-%E4%B8%AA%E7%A9%BA%E6%A0%BC%E8%BF%9B%E8%A1%8C%E7%BC%A9%E8%BF%9B"><span class="nav-number">6.2.1.</span> <span class="nav-text">1) 使用 2 个空格进行缩进</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%B8%8D%E5%90%8C%E9%80%BB%E8%BE%91%E3%80%81%E4%B8%8D%E5%90%8C%E8%AF%AD%E4%B9%89%E3%80%81%E4%B8%8D%E5%90%8C%E4%B8%9A%E5%8A%A1%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B9%8B%E9%97%B4%E6%8F%92%E5%85%A5%E4%B8%80%E4%B8%AA%E7%A9%BA%E8%A1%8C%E5%88%86%E9%9A%94%E5%BC%80%E6%9D%A5%E4%BB%A5%E6%8F%90%E5%8D%87%E5%8F%AF%E8%AF%BB%E6%80%A7"><span class="nav-number">6.2.2.</span> <span class="nav-text">2) 不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">6.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%A3%B0%E6%98%8E"><span class="nav-number">6.4.</span> <span class="nav-text">对象声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E5%80%BC%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.4.1.</span> <span class="nav-text">1)使用字面值创建对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E9%87%8F%E6%9D%A5%E4%BB%A3%E6%9B%BF%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">6.4.2.</span> <span class="nav-text">2) 使用字面量来代替对象构造器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ES6-7"><span class="nav-number">6.5.</span> <span class="nav-text">使用 ES6,7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%AC%E5%8F%B7"><span class="nav-number">6.6.</span> <span class="nav-text">括号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined-%E5%88%A4%E6%96%AD"><span class="nav-number">6.7.</span> <span class="nav-text">undefined 判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E5%BE%AA%E7%8E%AF%E6%9C%80%E5%A4%9A%E4%B8%89%E5%B1%82"><span class="nav-number">6.8.</span> <span class="nav-text">条件判断和循环最多三层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this-%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%91%BD%E5%90%8D"><span class="nav-number">6.9.</span> <span class="nav-text">this 的转换命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-10-%E6%85%8E%E7%94%A8-console-log"><span class="nav-number">6.10.</span> <span class="nav-text">1.5.10 慎用 console.log</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80"><span class="nav-number">7.</span> <span class="nav-text">Vue 编码基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%A7%84%E8%8C%83"><span class="nav-number">7.1.</span> <span class="nav-text">组件规范</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%BB%84%E4%BB%B6%E5%90%8D%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%8D%95%E8%AF%8D"><span class="nav-number">7.1.1.</span> <span class="nav-text">1) 组件名为多个单词</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%BB%84%E4%BB%B6%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%BA-pascal-case-%E6%A0%BC%E5%BC%8F"><span class="nav-number">7.1.2.</span> <span class="nav-text">2) 组件文件名为 pascal-case 格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%BA-base-%E5%BC%80%E5%A4%B4%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%AE%8C%E6%95%B4%E5%8D%95%E8%AF%8D%E8%80%8C%E4%B8%8D%E6%98%AF%E7%BC%A9%E5%86%99"><span class="nav-number">7.1.3.</span> <span class="nav-text">3) 基础组件文件名为 base 开头，使用完整单词而不是缩写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%92%8C%E7%88%B6%E7%BB%84%E4%BB%B6%E7%B4%A7%E5%AF%86%E8%80%A6%E5%90%88%E7%9A%84%E5%AD%90%E7%BB%84%E4%BB%B6%E5%BA%94%E8%AF%A5%E4%BB%A5%E7%88%B6%E7%BB%84%E4%BB%B6%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%89%8D%E7%BC%80%E5%91%BD%E5%90%8D"><span class="nav-number">7.1.4.</span> <span class="nav-text">4) 和父组件紧密耦合的子组件应该以父组件名作为前缀命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%9C%A8-Template-%E6%A8%A1%E7%89%88%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%BA%94%E4%BD%BF%E7%94%A8-PascalCase-%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E8%87%AA%E9%97%AD%E5%90%88%E7%BB%84%E4%BB%B6"><span class="nav-number">7.1.5.</span> <span class="nav-text">5) 在 Template 模版中使用组件，应使用 PascalCase 模式，并且使用自闭合组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E7%BB%84%E4%BB%B6%E7%9A%84-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="nav-number">7.1.6.</span> <span class="nav-text">6) 组件的 data 必须是一个函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-Prop-%E5%AE%9A%E4%B9%89%E5%BA%94%E8%AF%A5%E5%B0%BD%E9%87%8F%E8%AF%A6%E7%BB%86"><span class="nav-number">7.1.7.</span> <span class="nav-text">7) Prop 定义应该尽量详细</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-%E4%B8%BA%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">7.1.8.</span> <span class="nav-text">8) 为组件样式设置作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-%E5%A6%82%E6%9E%9C%E7%89%B9%E6%80%A7%E5%85%83%E7%B4%A0%E8%BE%83%E5%A4%9A%EF%BC%8C%E5%BA%94%E8%AF%A5%E4%B8%BB%E5%8A%A8%E6%8D%A2%E8%A1%8C"><span class="nav-number">7.1.9.</span> <span class="nav-text">9) 如果特性元素较多，应该主动换行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">7.2.</span> <span class="nav-text">模板中使用简单的表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%83%BD%E4%BD%BF%E7%94%A8%E7%BC%A9%E5%86%99%E5%BD%A2%E5%BC%8F"><span class="nav-number">7.3.</span> <span class="nav-text">指令都使用缩写形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E9%A1%BA%E5%BA%8F%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4"><span class="nav-number">7.4.</span> <span class="nav-text">标签顺序保持一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%85%E9%A1%BB%E4%B8%BA-v-for-%E8%AE%BE%E7%BD%AE%E9%94%AE%E5%80%BC-key"><span class="nav-number">7.5.</span> <span class="nav-text">必须为 v-for 设置键值 key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-show-%E4%B8%8E-v-if-%E9%80%89%E6%8B%A9"><span class="nav-number">7.6.</span> <span class="nav-text">v-show 与 v-if 选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#script-%E6%A0%87%E7%AD%BE%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E9%A1%BA%E5%BA%8F"><span class="nav-number">7.7.</span> <span class="nav-text">script 标签内部结构顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-Router-%E8%A7%84%E8%8C%83"><span class="nav-number">7.8.</span> <span class="nav-text">Vue Router 规范</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">7.8.1.</span> <span class="nav-text">1) 页面跳转数据传递使用路由参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%EF%BC%88%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%EF%BC%89%E6%9C%BA%E5%88%B6"><span class="nav-number">7.8.2.</span> <span class="nav-text">2) 使用路由懒加载（延迟加载）机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-router-%E4%B8%AD%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">7.8.3.</span> <span class="nav-text">3) router 中的命名规范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-router-%E4%B8%AD%E7%9A%84-path-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">7.8.4.</span> <span class="nav-text">4) router 中的 path 命名规范</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-Vue-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83"><span class="nav-number">8.</span> <span class="nav-text">(二) Vue 项目目录规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">8.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E"><span class="nav-number">8.2.</span> <span class="nav-text">目录说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A%E8%AF%B4%E6%98%8E"><span class="nav-number">8.3.</span> <span class="nav-text">注释说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">8.4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%B0%BD%E9%87%8F%E4%B8%8D%E8%A6%81%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C-DOM"><span class="nav-number">8.4.1.</span> <span class="nav-text">1) 尽量不要手动操作 DOM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E4%BB%A3%E7%A0%81"><span class="nav-number">8.4.2.</span> <span class="nav-text">2) 删除无用代码</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/09/04/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前端代码规范 | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端代码规范
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-04 00:55:43" itemprop="dateCreated datePublished" datetime="2022-09-04T00:55:43+08:00">2022-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-12-16 09:25:23" itemprop="dateModified" datetime="2022-12-16T09:25:23+08:00">2022-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" itemprop="url" rel="index"><span itemprop="name">前端代码规范</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="一-命名规范"><a href="#一-命名规范" class="headerlink" title="(一)命名规范"></a>(一)命名规范</h3><h4 id="项目命名"><a href="#项目命名" class="headerlink" title="项目命名"></a>项目命名</h4><p>全部采用小写方式， 以中划线分隔。</p>
+<p>正例：<code>mall-management-system</code></p>
+<p>反例：<code>mall_management-system / mallManagementSystem</code></p>
+<h4 id="目录命名"><a href="#目录命名" class="headerlink" title="目录命名"></a>目录命名</h4><p>全部采用小写方式， 以中划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数</p>
+<p>正例： <code>scripts / styles / components / images / utils / layouts / demo-styles / demo-scripts / img / doc</code></p>
+<p>反例： <code>script / style / demo_scripts / demoStyles / imgs / docs</code></p>
+<p>【特殊】VUE 的项目中的 components 中的组件目录，使用 kebab-case 命名</p>
+<p>正例： <code>head-search / page-loading / authorized / notice-icon</code></p>
+<p>反例： <code>HeadSearch / PageLoading</code></p>
+<p>【特殊】VUE 的项目中的除 components 组件目录外的所有目录也使用 kebab-case 命名<br>正例： <code>page-one / shopping-car / user-management</code></p>
+<p>反例： <code>ShoppingCar / UserManagement</code></p>
+<a id="more"></a>
+<h4 id="JS、CSS、SCSS、HTML、PNG-文件命名"><a href="#JS、CSS、SCSS、HTML、PNG-文件命名" class="headerlink" title="JS、CSS、SCSS、HTML、PNG 文件命名"></a>JS、CSS、SCSS、HTML、PNG 文件命名</h4><p>全部采用小驼峰</p>
+<p>例子： <code>renderDom.js</code></p>
+<h4 id="命名严谨性"><a href="#命名严谨性" class="headerlink" title="命名严谨性"></a>命名严谨性</h4><p>代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。 说明：正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用</p>
+<p>正例：<code>henan / luoyang / rmb 等国际通用的名称，可视同英文。</code></p>
+<p>反例：<code>DaZhePromotion [打折] / getPingfenByName() [评分] / int 某变量 = 3</code></p>
+<p><strong>杜绝完全不规范的缩写，避免望文不知义：</strong></p>
+<p>反例：AbstractClass“缩写”命名成 AbsClass；condition“缩写”命名成 condi，此类随意缩写严重降低了代码的可阅读性。</p>
+<h3 id="二-HTML-规范-（Vue-Template-同样适用）"><a href="#二-HTML-规范-（Vue-Template-同样适用）" class="headerlink" title="(二)HTML 规范 （Vue Template 同样适用）"></a>(二)HTML 规范 （Vue Template 同样适用）</h3><h4 id="HTML-类型"><a href="#HTML-类型" class="headerlink" title="HTML 类型"></a>HTML 类型</h4><p>推荐使用 HTML5 的文档类型申明： .<br>（建议使用 text/html 格式的 HTML。避免使用 XHTML。XHTML 以及它的属性，比如 application/xhtml+xml 在浏览器中的应用支持与优化空间都十分有限）。</p>
+<ul>
+<li>规定字符编码</li>
+<li>IE 兼容模式</li>
+<li>规定字符编码</li>
+<li>doctype 大写</li>
+</ul>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;Edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Page title&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;img src&#x3D;&quot;images&#x2F;company-logo.png&quot; alt&#x3D;&quot;Company&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h4><p>缩进使用 2 个空格（一个 tab）</p>
+<p>嵌套的节点应该缩进。</p>
+<h4 id="分块注释"><a href="#分块注释" class="headerlink" title="分块注释"></a>分块注释</h4><p>在每一个块状元素，列表元素和表格元素后，加上一对 HTML 注释。注释格式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 英文 中文 start &gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 英文 中文 end &gt;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;!-- header 头部 start --&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">      &lt;a href=<span class="string">&quot;#&quot;</span>&gt;</span><br><span class="line">        &lt;!-- 图片会把a标签给撑开，所以不用设置a标签的大小 --&gt;</span><br><span class="line">        &lt;img src=<span class="string">&quot;images/header.jpg&quot;</span> /&gt;</span><br><span class="line">      &lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;!-- header 头部 end --&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h3><p>HTML5 中新增很多语义化标签，所以优先使用语义化标签，避免一个页面都是 div 或者 p 标签</p>
+<p>正例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;&lt;&#x2F;header&gt;</span><br><span class="line">&lt;footer&gt;&lt;&#x2F;footer&gt;</span><br></pre></td></tr></table></figure>
+
+<p>反例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;p&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h4><p>使用双引号(“ “) 而不是单引号(’ ‘) 。</p>
+<p>正例： ``</p>
+<p>反例： ``</p>
+<h3 id="三-CSS-规范"><a href="#三-CSS-规范" class="headerlink" title="(三) CSS 规范"></a>(三) CSS 规范</h3><h4 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h4><ul>
+<li>类名使用小写字母，以中划线分隔</li>
+<li>id 采用驼峰式命名</li>
+<li>scss 中的变量、函数、混合、placeholder 采用驼峰式命名</li>
+</ul>
+<p>ID 和 class 的名称总是使用可以反应元素目的和用途的名称，或其他通用的名称，代替表象和晦涩难懂的名称</p>
+<p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.fw-800 &#123;</span><br><span class="line">  font-weight: 800;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.red &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推荐:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.heavy &#123;</span><br><span class="line">  font-weight: 800;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.important &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><p>1)css 选择器中避免使用标签名<br>从结构、表现、行为分离的原则来看，应该尽量避免 css 中出现 HTML 标签，并且在 css 选择器中出现标签名会存在潜在的问题。</p>
+<p>2)很多前端开发人员写选择器链的时候不使用 直接子选择器（注：直接子选择器和后代选择器的区别）。有时，这可能会导致疼痛的设计问题并且有时候可能会很耗性能。然而，在任何情况下，这是一个非常不好的做法。如果你不写很通用的，需要匹配到 DOM 末端的选择器， 你应该总是考虑直接子选择器。</p>
+<p>不推荐:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.content .title &#123;</span><br><span class="line">  font-size: 2rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推荐:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.content &gt; .title &#123;</span><br><span class="line">  font-size: 2rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="尽量使用缩写属性"><a href="#尽量使用缩写属性" class="headerlink" title="尽量使用缩写属性"></a>尽量使用缩写属性</h4><p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">border-top-style: none;</span><br><span class="line">font-family: palatino, georgia, serif;</span><br><span class="line">font-size: 100%;</span><br><span class="line">line-height: 1.6;</span><br><span class="line">padding-bottom: 2em;</span><br><span class="line">padding-left: 1em;</span><br><span class="line">padding-right: 1em;</span><br><span class="line">padding-top: 0;</span><br></pre></td></tr></table></figure>
+
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-top: 0;</span><br><span class="line">font: 100%&#x2F;1.6 palatino, georgia, serif;</span><br><span class="line">padding: 0 1em 2em;</span><br></pre></td></tr></table></figure>
+
+<h4 id="每个选择器及属性独占一行"><a href="#每个选择器及属性独占一行" class="headerlink" title="每个选择器及属性独占一行"></a>每个选择器及属性独占一行</h4><p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">button&#123;</span><br><span class="line">  width:100px;height:50px;color:#fff;background:#00a0e9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">button&#123;</span><br><span class="line">  width:100px;</span><br><span class="line">  height:50px;</span><br><span class="line">  color:#fff;</span><br><span class="line">  background:#00a0e9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="省略0后面的单位"><a href="#省略0后面的单位" class="headerlink" title="省略0后面的单位"></a>省略0后面的单位</h4><p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">  padding-bottom: 0px;</span><br><span class="line">  margin: 0em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">  padding-bottom: 0;</span><br><span class="line">  margin: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="避免使用ID选择器及全局标签选择器防止污染全局样式"><a href="#避免使用ID选择器及全局标签选择器防止污染全局样式" class="headerlink" title="避免使用ID选择器及全局标签选择器防止污染全局样式"></a>避免使用ID选择器及全局标签选择器防止污染全局样式</h4><p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#header&#123;</span><br><span class="line">  padding-bottom: 0px;</span><br><span class="line">  margin: 0em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.header&#123;</span><br><span class="line">  padding-bottom: 0px;</span><br><span class="line">  margin: 0em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四-LESS-规范"><a href="#四-LESS-规范" class="headerlink" title="(四) LESS 规范"></a>(四) LESS 规范</h3><h4 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h4><h5 id="1-将公共less文件放置在style-less-common文件夹"><a href="#1-将公共less文件放置在style-less-common文件夹" class="headerlink" title="1)将公共less文件放置在style/less/common文件夹"></a>1)将公共less文件放置在style/less/common文件夹</h5><p>例:// color.less,common.less</p>
+<h5 id="2-按以下顺序组织"><a href="#2-按以下顺序组织" class="headerlink" title="2)按以下顺序组织"></a>2)按以下顺序组织</h5><p>1、@import;<br>2、变量声明;<br>3、样式声明;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;mixins&#x2F;size.less&quot;;</span><br><span class="line"></span><br><span class="line">@default-text-color: #333;</span><br><span class="line"></span><br><span class="line">.page &#123;</span><br><span class="line">  width: 960px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="避免嵌套层级过多"><a href="#避免嵌套层级过多" class="headerlink" title="避免嵌套层级过多"></a>避免嵌套层级过多</h4><p>将嵌套深度限制在3级。对于超过4级的嵌套，给予重新评估。这可以避免出现过于详实的CSS选择器。<br>避免大量的嵌套规则。当可读性受到影响时，将之打断。推荐避免出现多于20行的嵌套规则出现</p>
+<p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.main&#123;</span><br><span class="line">  .title&#123;</span><br><span class="line">    .name&#123;</span><br><span class="line">       color:#fff</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.main-title&#123;</span><br><span class="line">   .name&#123;</span><br><span class="line">      color:#fff</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五-Javascript-规范"><a href="#五-Javascript-规范" class="headerlink" title="(五) Javascript 规范"></a>(五) Javascript 规范</h3><h4 id="命名-1"><a href="#命名-1" class="headerlink" title="命名"></a>命名</h4><h5 id="1-采用小写驼峰命名-lowerCamelCase，代码中的命名均不能以下划线，也不能以下划线或美元符号结束"><a href="#1-采用小写驼峰命名-lowerCamelCase，代码中的命名均不能以下划线，也不能以下划线或美元符号结束" class="headerlink" title="1) 采用小写驼峰命名 lowerCamelCase，代码中的命名均不能以下划线，也不能以下划线或美元符号结束"></a>1) 采用小写驼峰命名 lowerCamelCase，代码中的命名均不能以下划线，也不能以下划线或美元符号结束</h5><p>反例： <code>_name / name_ / name$</code></p>
+<h5 id="2-方法名、参数名、成员变量、局部变量都统一使用-lowerCamelCase-风格，必须遵从驼峰形式"><a href="#2-方法名、参数名、成员变量、局部变量都统一使用-lowerCamelCase-风格，必须遵从驼峰形式" class="headerlink" title="2) 方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式"></a>2) 方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式</h5><p>正例： <code>localValue / getHttpMessage() / inputUserId</code></p>
+<p><strong><strong>其中 method 方法命名必须是 动词 或者 动词+名词 形式\</strong></strong></p>
+<p>正例：<code>saveShopCarData /openShopCarInfoDialog</code></p>
+<p>反例：<code>save / open / show / go</code></p>
+<p><strong><strong>特此说明，增删查改，详情统一使用如下 5 个单词，不得使用其他（目的是为了统一各个端）\</strong></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add &#x2F; update &#x2F; delete &#x2F; detail &#x2F; get</span><br></pre></td></tr></table></figure>
+
+<p><strong>附： 函数方法常用的动词:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">get 获取&#x2F;set 设置,</span><br><span class="line">add 增加&#x2F;remove 删除</span><br><span class="line">create 创建&#x2F;destory 移除</span><br><span class="line">start 启动&#x2F;stop 停止</span><br><span class="line">open 打开&#x2F;close 关闭,</span><br><span class="line">read 读取&#x2F;write 写入</span><br><span class="line">load 载入&#x2F;save 保存,</span><br><span class="line">create 创建&#x2F;destroy 销毁</span><br><span class="line">begin 开始&#x2F;end 结束,</span><br><span class="line">backup 备份&#x2F;restore 恢复</span><br><span class="line">import 导入&#x2F;export 导出,</span><br><span class="line">split 分割&#x2F;merge 合并</span><br><span class="line">inject 注入&#x2F;extract 提取,</span><br><span class="line">attach 附着&#x2F;detach 脱离</span><br><span class="line">bind 绑定&#x2F;separate 分离,</span><br><span class="line">view 查看&#x2F;browse 浏览</span><br><span class="line">edit 编辑&#x2F;modify 修改,</span><br><span class="line">select 选取&#x2F;mark 标记</span><br><span class="line">copy 复制&#x2F;paste 粘贴,</span><br><span class="line">undo 撤销&#x2F;redo 重做</span><br><span class="line">insert 插入&#x2F;delete 移除,</span><br><span class="line">add 加入&#x2F;append 添加</span><br><span class="line">clean 清理&#x2F;clear 清除,</span><br><span class="line">index 索引&#x2F;sort 排序</span><br><span class="line">find 查找&#x2F;search 搜索,</span><br><span class="line">increase 增加&#x2F;decrease 减少</span><br><span class="line">play 播放&#x2F;pause 暂停,</span><br><span class="line">launch 启动&#x2F;run 运行</span><br><span class="line">compile 编译&#x2F;execute 执行,</span><br><span class="line">debug 调试&#x2F;trace 跟踪</span><br><span class="line">observe 观察&#x2F;listen 监听,</span><br><span class="line">build 构建&#x2F;publish 发布</span><br><span class="line">input 输入&#x2F;output 输出,</span><br><span class="line">encode 编码&#x2F;decode 解码</span><br><span class="line">encrypt 加密&#x2F;decrypt 解密,</span><br><span class="line">compress 压缩&#x2F;decompress 解压缩</span><br><span class="line">pack 打包&#x2F;unpack 解包,</span><br><span class="line">parse 解析&#x2F;emit 生成</span><br><span class="line">connect 连接&#x2F;disconnect 断开,</span><br><span class="line">send 发送&#x2F;receive 接收</span><br><span class="line">download 下载&#x2F;upload 上传,</span><br><span class="line">refresh 刷新&#x2F;synchronize 同步</span><br><span class="line">update 更新&#x2F;revert 复原,</span><br><span class="line">lock 锁定&#x2F;unlock 解锁</span><br><span class="line">check out 签出&#x2F;check in 签入,</span><br><span class="line">submit 提交&#x2F;commit 交付</span><br><span class="line">push 推&#x2F;pull 拉,</span><br><span class="line">expand 展开&#x2F;collapse 折叠</span><br><span class="line">begin 起始&#x2F;end 结束,</span><br><span class="line">start 开始&#x2F;finish 完成</span><br><span class="line">enter 进入&#x2F;exit 退出,</span><br><span class="line">abort 放弃&#x2F;quit 离开</span><br><span class="line">obsolete 废弃&#x2F;depreciate 废旧,</span><br><span class="line">collect 收集&#x2F;aggregate 聚集</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长"><a href="#3-常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长" class="headerlink" title="3) 常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长"></a>3) 常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长</h5><p>正例： <code>MAX_STOCK_COUNT</code></p>
+<p>反例： <code>MAX_COUNT</code></p>
+<h4 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h4><h5 id="1-使用-2-个空格进行缩进"><a href="#1-使用-2-个空格进行缩进" class="headerlink" title="1) 使用 2 个空格进行缩进"></a>1) 使用 2 个空格进行缩进</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (x &lt; y) &#123;</span><br><span class="line">  x +&#x3D; 10;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  x +&#x3D; 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性"><a href="#2-不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性" class="headerlink" title="2) 不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性"></a>2) 不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性</h5><blockquote>
+<p>说明：任何情形，没有必要插入多个空行进行隔开。</p>
+</blockquote>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>统一使用单引号(‘)，不使用双引号(“)。这在创建 HTML 字符串非常有好处：</p>
+<p>正例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let str &#x3D; &#39;foo&#39;;</span><br><span class="line">let testDiv &#x3D; &#39;&lt;div id&#x3D;&quot;test&quot;&gt;&lt;&#x2F;div&gt;&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>反例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let str &#x3D; &#39;foo&#39;;</span><br><span class="line">let testDiv &#x3D; &quot;&lt;div id&#x3D;&#39;test&#39;&gt;&lt;&#x2F;div&gt;&quot;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="对象声明"><a href="#对象声明" class="headerlink" title="对象声明"></a>对象声明</h4><h5 id="1-使用字面值创建对象"><a href="#1-使用字面值创建对象" class="headerlink" title="1)使用字面值创建对象"></a>1)使用字面值创建对象</h5><p>正例： <code>let user = &#123;&#125;;</code></p>
+<p>反例： <code>let user = new Object();</code></p>
+<h5 id="2-使用字面量来代替对象构造器"><a href="#2-使用字面量来代替对象构造器" class="headerlink" title="2) 使用字面量来代替对象构造器"></a>2) 使用字面量来代替对象构造器</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var user &#x3D; &#123;</span><br><span class="line">  age: 0,</span><br><span class="line">  name: 1,</span><br><span class="line">  city: 3</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var user &#x3D; new Object();</span><br><span class="line">user.age &#x3D; 0;</span><br><span class="line">user.name &#x3D; 0;</span><br><span class="line">user.city &#x3D; 0;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用-ES6-7"><a href="#使用-ES6-7" class="headerlink" title="使用 ES6,7"></a>使用 ES6,7</h4><p>必须优先使用 ES6,7 中新增的语法糖和函数。这将简化你的程序，并让你的代码更加灵活和可复用。</p>
+<blockquote>
+<p>必须强制使用 ES6, ES7 的新语法，比如箭头函数、await/async ， 解构， let ， for…of 等等</p>
+</blockquote>
+<h4 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h4><p>下列关键字后必须有大括号（即使代码块的内容只有一行）：if, else, for, while, do, switch, try, catch, finally, with。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (condition) &#123;</span><br><span class="line">  doSomething();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (condition) doSomething();</span><br></pre></td></tr></table></figure>
+
+<h4 id="undefined-判断"><a href="#undefined-判断" class="headerlink" title="undefined 判断"></a>undefined 判断</h4><p>永远不要直接使用 undefined 进行变量判断；使用 typeof 和字符串’undefined’对变量进行判断。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (typeof person &#x3D;&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (person &#x3D;&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="条件判断和循环最多三层"><a href="#条件判断和循环最多三层" class="headerlink" title="条件判断和循环最多三层"></a>条件判断和循环最多三层</h4><p>条件判断能使用三目运算符和逻辑运算符解决的，就不要使用条件判断，但是谨记不要写太长的三目运算符。如果超过 3 层请抽成函数，并写清楚注释。</p>
+<h4 id="this-的转换命名"><a href="#this-的转换命名" class="headerlink" title="this 的转换命名"></a>this 的转换命名</h4><p>对上下文 this 的引用只能使用’self’来命名</p>
+<h4 id="1-5-10-慎用-console-log"><a href="#1-5-10-慎用-console-log" class="headerlink" title="1.5.10 慎用 console.log"></a>1.5.10 慎用 console.log</h4><p>因 console.log 大量使用会有性能问题，所以在非 webpack 项目中谨慎使用 log 功能</p>
+<h3 id="Vue-编码基础"><a href="#Vue-编码基础" class="headerlink" title="Vue 编码基础"></a>Vue 编码基础</h3><p>vue 项目规范以 Vue 官方规范 （<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/style-guide/">https://cn.vuejs.org/v2/style-guide/</a>） 中的 A 规范为基础，在其上面进行项目开发，故所有代码均遵守该规范。</p>
+<blockquote>
+<p>请仔仔细细阅读 Vue 官方规范，切记，此为第一步。</p>
+</blockquote>
+<h4 id="组件规范"><a href="#组件规范" class="headerlink" title="组件规范"></a>组件规范</h4><h5 id="1-组件名为多个单词"><a href="#1-组件名为多个单词" class="headerlink" title="1) 组件名为多个单词"></a>1) 组件名为多个单词</h5><p>组件名应该始终是多个单词组成（大于等于 2），且命名规范为<code>KebabCase</code>格式。<br>这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  name: &#39;TodoItem&#39;</span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  name: &#39;Todo&#39;,</span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;todo-item&#39;,</span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-组件文件名为-pascal-case-格式"><a href="#2-组件文件名为-pascal-case-格式" class="headerlink" title="2) 组件文件名为 pascal-case 格式"></a>2) 组件文件名为 pascal-case 格式</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">|- my-component.vue</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">|- myComponent.vue</span><br><span class="line">|- MyComponent.vue</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-基础组件文件名为-base-开头，使用完整单词而不是缩写"><a href="#3-基础组件文件名为-base-开头，使用完整单词而不是缩写" class="headerlink" title="3) 基础组件文件名为 base 开头，使用完整单词而不是缩写"></a>3) 基础组件文件名为 base 开头，使用完整单词而不是缩写</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">|- base-button.vue</span><br><span class="line">|- base-table.vue</span><br><span class="line">|- base-icon.vue</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">|- MyButton.vue</span><br><span class="line">|- VueTable.vue</span><br><span class="line">|- Icon.vue</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-和父组件紧密耦合的子组件应该以父组件名作为前缀命名"><a href="#4-和父组件紧密耦合的子组件应该以父组件名作为前缀命名" class="headerlink" title="4) 和父组件紧密耦合的子组件应该以父组件名作为前缀命名"></a>4) 和父组件紧密耦合的子组件应该以父组件名作为前缀命名</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">|- todo-list.vue</span><br><span class="line">|- todo-list-item.vue</span><br><span class="line">|- todo-list-item-button.vue</span><br><span class="line">|- user-profile-options.vue （完整单词）</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">|- TodoList.vue</span><br><span class="line">|- TodoItem.vue</span><br><span class="line">|- TodoButton.vue</span><br><span class="line">|- UProfOpts.vue （使用了缩写）</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-在-Template-模版中使用组件，应使用-PascalCase-模式，并且使用自闭合组件"><a href="#5-在-Template-模版中使用组件，应使用-PascalCase-模式，并且使用自闭合组件" class="headerlink" title="5) 在 Template 模版中使用组件，应使用 PascalCase 模式，并且使用自闭合组件"></a>5) 在 Template 模版中使用组件，应使用 PascalCase 模式，并且使用自闭合组件</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在单文件组件、字符串模板和 JSX 中 --&gt;</span><br><span class="line">&lt;MyComponent &#x2F;&gt;</span><br><span class="line">&lt;Row&gt;&lt;table :column&#x3D;&quot;data&quot;&#x2F;&gt;&lt;&#x2F;Row&gt;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component &#x2F;&gt; &lt;row&gt;&lt;table :column&#x3D;&quot;data&quot;&#x2F;&gt;&lt;&#x2F;row&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-组件的-data-必须是一个函数"><a href="#6-组件的-data-必须是一个函数" class="headerlink" title="6) 组件的 data 必须是一个函数"></a>6) 组件的 data 必须是一个函数</h5><p>当在组件中使用 data 属性的时候 (除了 new Vue 外的任何地方)，它的值必须是返回一个对象的函数。 因为如果直接是一个对象的话，子组件之间的属性值会互相影响。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      name: &#39;jack&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    name: &#39;jack&#39;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-Prop-定义应该尽量详细"><a href="#7-Prop-定义应该尽量详细" class="headerlink" title="7) Prop 定义应该尽量详细"></a>7) Prop 定义应该尽量详细</h5><ul>
+<li>必须使用 camelCase 驼峰命名</li>
+<li>必须指定类型</li>
+<li>必须加上注释，表明其含义</li>
+<li>必须加上 required 或者 default，两者二选其一</li>
+<li>如果有业务需要，必须加上 validator 验证</li>
+</ul>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> props: &#123;</span><br><span class="line">  &#x2F;&#x2F; 组件状态，用于控制组件的颜色</span><br><span class="line">   status: &#123;</span><br><span class="line">     type: String,</span><br><span class="line">     required: true,</span><br><span class="line">     validator: function (value) &#123;</span><br><span class="line">       return [</span><br><span class="line">         &#39;succ&#39;,</span><br><span class="line">         &#39;info&#39;,</span><br><span class="line">         &#39;error&#39;</span><br><span class="line">       ].indexOf(value) !&#x3D;&#x3D; -1</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">    &#x2F;&#x2F; 用户级别，用于显示皇冠个数</span><br><span class="line">   userLevel：&#123;</span><br><span class="line">      type: String,</span><br><span class="line">      required: true</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-为组件样式设置作用域"><a href="#8-为组件样式设置作用域" class="headerlink" title="8) 为组件样式设置作用域"></a>8) 为组件样式设置作用域</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button class&#x3D;&quot;btn btn-close&quot;&gt;X&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用 &#96;scoped&#96; 特性 --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .btn-close &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button class&#x3D;&quot;btn btn-close&quot;&gt;X&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;!-- 没有使用 &#96;scoped&#96; 特性 --&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .btn-close &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-如果特性元素较多，应该主动换行"><a href="#9-如果特性元素较多，应该主动换行" class="headerlink" title="9) 如果特性元素较多，应该主动换行"></a>9) 如果特性元素较多，应该主动换行</h5><p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyComponent foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot;</span><br><span class="line">    foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot;</span><br><span class="line">    foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot;</span><br><span class="line"> &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyComponent foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot; foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot; foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot; foo&#x3D;&quot;a&quot; bar&#x3D;&quot;b&quot; baz&#x3D;&quot;c&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="模板中使用简单的表达式"><a href="#模板中使用简单的表达式" class="headerlink" title="模板中使用简单的表达式"></a>模板中使用简单的表达式</h4><p>组件模板应该只包含简单的表达式，复杂的表达式则应该重构为计算属性或方法。复杂表达式会让你的模板变得不那么声明式。我们应该尽量描述应该出现的是什么，而非如何计算那个值。而且计算属性和方法使得代码可以重用。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; normalizedFullName &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 复杂表达式已经移入一个计算属性</span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedFullName: function () &#123;</span><br><span class="line">    return this.fullName.split(&#39; &#39;).map(function (word) &#123;</span><br><span class="line">      return word[0].toUpperCase() + word.slice(1)</span><br><span class="line">    &#125;).join(&#39; &#39;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">       &#123;&#123;</span><br><span class="line">          fullName.split(&#39; &#39;).map(function (word) &#123;</span><br><span class="line">             return word[0].toUpperCase() + word.slice(1)</span><br><span class="line">           &#125;).join(&#39; &#39;)</span><br><span class="line">        &#125;&#125;</span><br><span class="line">  &lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="指令都使用缩写形式"><a href="#指令都使用缩写形式" class="headerlink" title="指令都使用缩写形式"></a>指令都使用缩写形式</h4><p>指令推荐都使用缩写形式，(用 : 表示 v-bind: 、用 @ 表示 v-on: 和用 # 表示 v-slot:)</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input</span><br><span class="line">  @input&#x3D;&quot;onInput&quot;</span><br><span class="line">  @focus&#x3D;&quot;onFocus&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input</span><br><span class="line">  v-on:input&#x3D;&quot;onInput&quot;</span><br><span class="line">  @focus&#x3D;&quot;onFocus&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="标签顺序保持一致"><a href="#标签顺序保持一致" class="headerlink" title="标签顺序保持一致"></a>标签顺序保持一致</h4><p>单文件组件应该总是让标签顺序保持为 `</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;...&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;...&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style&gt;...&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>反例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;...&lt;&#x2F;template&gt;</span><br><span class="line">&lt;style&gt;...&lt;&#x2F;style&gt;</span><br><span class="line">&lt;script&gt;...&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="必须为-v-for-设置键值-key"><a href="#必须为-v-for-设置键值-key" class="headerlink" title="必须为 v-for 设置键值 key"></a>必须为 v-for 设置键值 key</h4><h4 id="v-show-与-v-if-选择"><a href="#v-show-与-v-if-选择" class="headerlink" title="v-show 与 v-if 选择"></a>v-show 与 v-if 选择</h4><p>如果运行时，需要非常频繁地切换，使用 v-show ；如果在运行时，条件很少改变，使用 v-if。</p>
+<h4 id="script-标签内部结构顺序"><a href="#script-标签内部结构顺序" class="headerlink" title="script 标签内部结构顺序"></a>script 标签内部结构顺序</h4><p>components &gt; props &gt; data &gt; computed &gt; watch &gt; filter &gt; 钩子函数（钩子函数按其执行顺序） &gt; methods</p>
+<h4 id="Vue-Router-规范"><a href="#Vue-Router-规范" class="headerlink" title="Vue Router 规范"></a>Vue Router 规范</h4><h5 id="1-页面跳转数据传递使用路由参数"><a href="#1-页面跳转数据传递使用路由参数" class="headerlink" title="1) 页面跳转数据传递使用路由参数"></a>1) 页面跳转数据传递使用路由参数</h5><p>页面跳转，例如 A 页面跳转到 B 页面，需要将 A 页面的数据传递到 B 页面，推荐使用 路由参数进行传参，而不是将需要传递的数据保存 vuex，然后在 B 页面取出 vuex 的数据，因为如果在 B 页面刷新会导致 vuex 数据丢失，导致 B 页面无法正常显示数据。</p>
+<p>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let id &#x3D; &#39; 123&#39;;</span><br><span class="line">this.$router.push(&#123; name: &#39;userCenter&#39;, query: &#123; id: id &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-使用路由懒加载（延迟加载）机制"><a href="#2-使用路由懒加载（延迟加载）机制" class="headerlink" title="2) 使用路由懒加载（延迟加载）机制"></a>2) 使用路由懒加载（延迟加载）机制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &#39;&#x2F;uploadAttachment&#39;,</span><br><span class="line">    name: &#39;uploadAttachment&#39;,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: &#39;上传附件&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    component: () &#x3D;&gt; import(&#39;@&#x2F;view&#x2F;components&#x2F;uploadAttachment&#x2F;index.vue&#39;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-router-中的命名规范"><a href="#3-router-中的命名规范" class="headerlink" title="3) router 中的命名规范"></a>3) router 中的命名规范</h5><p>path、childrenPoints 命名规范采用<code>kebab-case</code>命名规范（尽量vue文件的目录结构保持一致，因为目录、文件名都是<code>kebab-case</code>，这样很方便找到对应的文件）</p>
+<p>name 命名规范采用<code>KebabCase</code>命名规范且和component组件名保持一致！（因为要保持keep-alive特性，keep-alive按照component的name进行缓存，所以两者必须高度保持一致）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 动态加载</span><br><span class="line">export const reload &#x3D; [</span><br><span class="line">  &#123;</span><br><span class="line">    path: &#39;&#x2F;reload&#39;,</span><br><span class="line">    name: &#39;reload&#39;,</span><br><span class="line">    component: Main,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: &#39;动态加载&#39;,</span><br><span class="line">      icon: &#39;icon iconfont&#39;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        path: &#39;&#x2F;reload&#x2F;smart-reload-list&#39;,</span><br><span class="line">        name: &#39;SmartReloadList&#39;,</span><br><span class="line">        meta: &#123;</span><br><span class="line">          title: &#39;SmartReload&#39;,</span><br><span class="line">          childrenPoints: [</span><br><span class="line">            &#123;</span><br><span class="line">              title: &#39;查询&#39;,</span><br><span class="line">              name: &#39;smart-reload-search&#39;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              title: &#39;执行reload&#39;,</span><br><span class="line">              name: &#39;smart-reload-update&#39;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              title: &#39;查看执行结果&#39;,</span><br><span class="line">              name: &#39;smart-reload-result&#39;</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;,</span><br><span class="line">        component: () &#x3D;&gt;</span><br><span class="line">          import(&#39;@&#x2F;views&#x2F;reload&#x2F;smart-reload&#x2F;smart-reload-list.vue&#39;)</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-router-中的-path-命名规范"><a href="#4-router-中的-path-命名规范" class="headerlink" title="4) router 中的 path 命名规范"></a>4) router 中的 path 命名规范</h5><p>path除了采用<code>kebab-case</code>命名规范以外，必须以 / 开头，即使是children里的path也要以 / 开头。如下示例</p>
+<p>-</p>
+<p>目的：</p>
+<p>经常有这样的场景：某个页面有问题，要立刻找到这个vue文件，如果不用以/开头，path为parent和children组成的，可能经常需要在router文件里搜索多次才能找到，而如果以/开头，则能立刻搜索到对应的组件<br>*</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &#39;&#x2F;file&#39;,</span><br><span class="line">    name: &#39;File&#39;,</span><br><span class="line">    component: Main,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      title: &#39;文件服务&#39;,</span><br><span class="line">      icon: &#39;ios-cloud-upload&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        path: &#39;&#x2F;file&#x2F;file-list&#39;,</span><br><span class="line">        name: &#39;FileList&#39;,</span><br><span class="line">        component: () &#x3D;&gt; import(&#39;@&#x2F;views&#x2F;file&#x2F;file-list.vue&#39;)</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        path: &#39;&#x2F;file&#x2F;file-add&#39;,</span><br><span class="line">        name: &#39;FileAdd&#39;,</span><br><span class="line">        component: () &#x3D;&gt; import(&#39;@&#x2F;views&#x2F;file&#x2F;file-add.vue&#39;)</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        path: &#39;&#x2F;file&#x2F;file-update&#39;,</span><br><span class="line">        name: &#39;FileUpdate&#39;,</span><br><span class="line">        component: () &#x3D;&gt; import(&#39;@&#x2F;views&#x2F;file&#x2F;file-update.vue&#39;)</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二-Vue-项目目录规范"><a href="#二-Vue-项目目录规范" class="headerlink" title="(二) Vue 项目目录规范"></a>(二) Vue 项目目录规范</h3><h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>vue 项目中的所有命名一定要与后端命名统一。</p>
+<p>比如权限：后端 privilege, 前端无论 router , store, api 等都必须使用 privielege 单词！</p>
+<h4 id="目录说明"><a href="#目录说明" class="headerlink" title="目录说明"></a>目录说明</h4><p>目录名按照上面的命名规范，其中 components 组件用大写驼峰，其余除 components 组件目录外的所有目录均使用 kebab-case 命名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">src                               源码目录</span><br><span class="line">|-- api                              所有api接口</span><br><span class="line">|-- assets                           静态资源，images, icons, styles等</span><br><span class="line">|-- components                       公用组件</span><br><span class="line">|-- config                           配置信息</span><br><span class="line">|-- constants                        常量信息，项目所有Enum, 全局常量等</span><br><span class="line">|-- directives                       自定义指令</span><br><span class="line">|-- filters                          过滤器，全局工具</span><br><span class="line">|-- datas                            模拟数据，临时存放</span><br><span class="line">|-- lib                              外部引用的插件存放及修改文件</span><br><span class="line">|-- mock                             模拟接口，临时存放</span><br><span class="line">|-- plugins                          插件，全局使用</span><br><span class="line">|-- router                           路由，统一管理</span><br><span class="line">|-- store                            vuex, 统一管理</span><br><span class="line">|-- themes                           自定义样式主题</span><br><span class="line">|-- views                            视图目录</span><br><span class="line">|   |-- role                             role模块名</span><br><span class="line">|   |-- |-- RoleList.vue                    role列表页面</span><br><span class="line">|   |-- |-- RoleAdd.vue                     role新建页面</span><br><span class="line">|   |-- |-- RoleUpdate.vue                  role更新页面</span><br><span class="line">|   |-- |-- index.less                      role模块样式</span><br><span class="line">|   |-- |-- components                      role模块通用组件文件夹</span><br><span class="line">|   |-- employee                         employee模块</span><br></pre></td></tr></table></figure>
+
+<h4 id="注释说明"><a href="#注释说明" class="headerlink" title="注释说明"></a>注释说明</h4><p>整理必须加注释的地方</p>
+<ul>
+<li>公共组件使用说明</li>
+<li>api 目录的接口 js 文件必须加注释</li>
+<li>store 中的 state, mutation, action 等必须加注释</li>
+<li>vue 文件中的 template 必须加注释，若文件较大添加 start end 注释</li>
+<li>vue 文件的 methods，每个 method 必须添加注释</li>
+<li>vue 文件的 data, 非常见单词要加注释</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="1-尽量不要手动操作-DOM"><a href="#1-尽量不要手动操作-DOM" class="headerlink" title="1) 尽量不要手动操作 DOM"></a>1) 尽量不要手动操作 DOM</h5><p>因使用 vue 框架，所以在项目开发中尽量使用 vue 的数据驱动更新 DOM，尽量（不到万不得已）不要手动操作 DOM，包括：增删改 dom 元素、以及更改样式、添加事件等。</p>
+<h5 id="2-删除无用代码"><a href="#2-删除无用代码" class="headerlink" title="2) 删除无用代码"></a>2) 删除无用代码</h5><p>因使用了 git/svn 等代码版本工具，对于无用代码必须及时删除，例如：一些调试的 console 语句、无用的弃用功能代码。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" rel="tag"># 前端代码规范</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/worker/" rel="prev" title="web worker">
+                  <i class="fa fa-chevron-left"></i> web worker
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/05/%E6%AD%A3%E5%88%99/" rel="next" title="正则">
+                  正则 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

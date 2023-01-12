@@ -16,24 +16,31 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="请求在客户端报 413 是什么错误,怎么解决呢? HTTP 413 错误(Request entity too large 请求实体太大)，就是客户端发送的实体主体部分比服务器能够或者希望处理的要大时，会出现这样的错误。一般上传文件时会出现这样的错误概率比较大。解决方案可以修改服务器的配置文件。配置客户端请求大小和缓存大小  tcp 和 udp 的 区 别 和 使 用 场 景quic 基 于 ud">
+    <meta name="description" content="请求在客户端报 413 是什么错误,怎么解决呢? HTTP 413 错误(Request entity too large 请求实体太大)，就是客户端发送的实体主体部分比服务器能够或者希望处理的要大时，会出现这样的错误。一般上传文件时会出现这样的错误概率比较大。解决方案可以修改服务器的配置文件。配置客户端请求大小和缓存大小  quic 基 于 udp 怎 么 保 证 可 靠 性讲 一 下 同 源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http网落协议面试题">
 <meta property="og:url" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="郭泽">
-<meta property="og:description" content="请求在客户端报 413 是什么错误,怎么解决呢? HTTP 413 错误(Request entity too large 请求实体太大)，就是客户端发送的实体主体部分比服务器能够或者希望处理的要大时，会出现这样的错误。一般上传文件时会出现这样的错误概率比较大。解决方案可以修改服务器的配置文件。配置客户端请求大小和缓存大小  tcp 和 udp 的 区 别 和 使 用 场 景quic 基 于 ud">
+<meta property="og:description" content="请求在客户端报 413 是什么错误,怎么解决呢? HTTP 413 错误(Request entity too large 请求实体太大)，就是客户端发送的实体主体部分比服务器能够或者希望处理的要大时，会出现这样的错误。一般上传文件时会出现这样的错误概率比较大。解决方案可以修改服务器的配置文件。配置客户端请求大小和缓存大小  quic 基 于 udp 怎 么 保 证 可 靠 性讲 一 下 同 源">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%BA%E7%BC%93%E5%AD%98.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/http.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/http2.png">
+<meta property="og:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.png">
 <meta property="article:published_time" content="2020-10-29T03:09:28.000Z">
-<meta property="article:modified_time" content="2022-08-01T01:12:03.641Z">
+<meta property="article:modified_time" content="2022-12-07T07:37:26.352Z">
 <meta property="article:author" content="郭泽">
 <meta property="article:tag" content="http网落协议面试题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%BA%E7%BC%93%E5%AD%98.png">
 
 
 <link rel="canonical" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/">
@@ -88,7 +95,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -145,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8A%A5-413-%E6%98%AF%E4%BB%80%E4%B9%88%E9%94%99%E8%AF%AF-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%91%A2"><span class="nav-number">1.</span> <span class="nav-text">请求在客户端报 413 是什么错误,怎么解决呢?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp-%E5%92%8C-udp-%E7%9A%84-%E5%8C%BA-%E5%88%AB-%E5%92%8C-%E4%BD%BF-%E7%94%A8-%E5%9C%BA-%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">tcp 和 udp 的 区 别 和 使 用 场 景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#quic-%E5%9F%BA-%E4%BA%8E-udp-%E6%80%8E-%E4%B9%88-%E4%BF%9D-%E8%AF%81-%E5%8F%AF-%E9%9D%A0-%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">quic 基 于 udp 怎 么 保 证 可 靠 性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2-%E4%B8%80-%E4%B8%8B-%E5%90%8C-%E6%BA%90-%E7%AD%96-%E7%95%A5-%E5%92%8C-%E8%B7%A8-%E5%9F%9F-%E6%96%B9-%E6%A1%88-%EF%BC%9F-CORS-%E7%9A%84-%E5%87%A0-%E4%B8%AA-%E5%A4%B4-%E9%83%A8-%E6%98%AF-%E4%BB%80-%E4%B9%88-%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">讲 一 下 同 源 策 略 和 跨 域 方 案 ？ CORS 的 几 个 头 部 是 什 么 ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grpc-%E7%9B%B8-%E6%AF%94-http-%E7%9A%84-%E4%BC%98-%E5%8A%BF-%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">grpc 相 比 http 的 优 势 ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">6.</span> <span class="nav-text">http 组成部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-number">7.</span> <span class="nav-text">三次握手 四次挥手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS-%E5%92%8C-HTTP-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%BB%E8%A6%81%E5%A6%82%E4%B8%8B"><span class="nav-number">8.</span> <span class="nav-text">HTTPS 和 HTTP 的区别主要如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ht-tp2-%E7%9A%84-%E7%9B%B8-%E5%85%B3-%E7%89%B9-%E6%80%A7-%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">ht tp2 的 相 关 特 性 ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text"></span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8A%A5-413-%E6%98%AF%E4%BB%80%E4%B9%88%E9%94%99%E8%AF%AF-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%91%A2"><span class="nav-number">1.</span> <span class="nav-text">请求在客户端报 413 是什么错误,怎么解决呢?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#quic-%E5%9F%BA-%E4%BA%8E-udp-%E6%80%8E-%E4%B9%88-%E4%BF%9D-%E8%AF%81-%E5%8F%AF-%E9%9D%A0-%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">quic 基 于 udp 怎 么 保 证 可 靠 性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2-%E4%B8%80-%E4%B8%8B-%E5%90%8C-%E6%BA%90-%E7%AD%96-%E7%95%A5-%E5%92%8C-%E8%B7%A8-%E5%9F%9F-%E6%96%B9-%E6%A1%88-%EF%BC%9F-CORS-%E7%9A%84-%E5%87%A0-%E4%B8%AA-%E5%A4%B4-%E9%83%A8-%E6%98%AF-%E4%BB%80-%E4%B9%88-%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">讲 一 下 同 源 策 略 和 跨 域 方 案 ？ CORS 的 几 个 头 部 是 什 么 ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grpc-%E7%9B%B8-%E6%AF%94-http-%E7%9A%84-%E4%BC%98-%E5%8A%BF-%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">grpc 相 比 http 的 优 势 ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-%E5%92%8C-https-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">5.</span> <span class="nav-text">http 和 https 的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-%E5%92%8C-https-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">http 和 https 的区别及优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">https 协议的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="nav-number">8.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-number">9.</span> <span class="nav-text">TCP 四次挥手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%95%B0%E6%8D%AE%E5%8C%85%E4%BC%A0%E8%BE%93%E7%9A%84%E6%9C%89%E5%BA%8F%E5%8F%AF%E9%9D%A0%EF%BC%9F"><span class="nav-number">10.</span> <span class="nav-text">TCP&#x2F;IP &#x2F; 如何保证数据包传输的有序可靠？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">11.</span> <span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http%E7%BC%93%E5%AD%98%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">12.</span> <span class="nav-text">http缓存的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">12.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">12.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">13.</span> <span class="nav-text">浏览器缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B"><span class="nav-number">14.</span> <span class="nav-text">说下进程、线程和协程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB"><span class="nav-number">14.1.</span> <span class="nav-text">进程和线程的区别与联系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http1-x-%E5%92%8Chttp2-x%E5%8C%BA%E5%88%AB"><span class="nav-number">15.</span> <span class="nav-text">http1.x 和http2.x区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%B7%E6%B1%82%E5%B9%B6%E5%8F%91%E6%95%B0%E9%99%90%E5%88%B6"><span class="nav-number">16.</span> <span class="nav-text">浏览器为什么要请求并发数限制</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,18 +165,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -191,7 +198,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
@@ -246,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-01 09:12:03" itemprop="dateModified" datetime="2022-08-01T09:12:03+08:00">2022-08-01</time>
+      <time title="修改时间：2022-12-07 15:37:26" itemprop="dateModified" datetime="2022-12-07T15:37:26+08:00">2022-12-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,38 +277,132 @@
         <h2 id="请求在客户端报-413-是什么错误-怎么解决呢"><a href="#请求在客户端报-413-是什么错误-怎么解决呢" class="headerlink" title="请求在客户端报 413 是什么错误,怎么解决呢?"></a>请求在客户端报 413 是什么错误,怎么解决呢?</h2><ul>
 <li>HTTP 413 错误(Request entity too large 请求实体太大)，就是客户端发送的实体主体部分比服务器能够或者希望处理的要大时，会出现这样的错误。一般上传文件时会出现这样的错误概率比较大。<br>解决方案可以修改服务器的配置文件。配置客户端请求大小和缓存大小</li>
 </ul>
-<h2 id="tcp-和-udp-的-区-别-和-使-用-场-景"><a href="#tcp-和-udp-的-区-别-和-使-用-场-景" class="headerlink" title="tcp 和 udp 的 区 别 和 使 用 场 景"></a>tcp 和 udp 的 区 别 和 使 用 场 景</h2><h2 id="quic-基-于-udp-怎-么-保-证-可-靠-性"><a href="#quic-基-于-udp-怎-么-保-证-可-靠-性" class="headerlink" title="quic 基 于 udp 怎 么 保 证 可 靠 性"></a>quic 基 于 udp 怎 么 保 证 可 靠 性</h2><h2 id="讲-一-下-同-源-策-略-和-跨-域-方-案-？-CORS-的-几-个-头-部-是-什-么-？"><a href="#讲-一-下-同-源-策-略-和-跨-域-方-案-？-CORS-的-几-个-头-部-是-什-么-？" class="headerlink" title="讲 一 下 同 源 策 略 和 跨 域 方 案 ？ CORS 的 几 个 头 部 是 什 么 ？"></a>讲 一 下 同 源 策 略 和 跨 域 方 案 ？ CORS 的 几 个 头 部 是 什 么 ？</h2><h2 id="grpc-相-比-http-的-优-势-？"><a href="#grpc-相-比-http-的-优-势-？" class="headerlink" title="grpc 相 比 http 的 优 势 ？"></a>grpc 相 比 http 的 优 势 ？</h2><h2 id="http-组成部分"><a href="#http-组成部分" class="headerlink" title="http 组成部分"></a>http 组成部分</h2><ul>
-<li>第一部分：请求行，用来说明请求类型,要访问的资源以及所使用的 HTTP 版本.</li>
-<li>第二部分：请求头部，用来说明服务器要使用的附加信息</li>
-<li>第三部分：空行，请求头部后面的空行是必须的</li>
-<li>第四部分：请求数据也叫主体，可以添加任意的其他数据。</li>
-<li>HTTP 协议主要用于 Web 浏览器和 Web 服务器之间的数据交换。HTTP 是超文本协议，默认端口是 80，以明文方式传输。<br>特点：支持客户/服务器模式，由于 HTTP 协议简单，使得 HTTP 服务器的程序规模小，因而通信速度很快，HTTP 允许传输任意类型的数据对象</li>
+<h2 id="quic-基-于-udp-怎-么-保-证-可-靠-性"><a href="#quic-基-于-udp-怎-么-保-证-可-靠-性" class="headerlink" title="quic 基 于 udp 怎 么 保 证 可 靠 性"></a>quic 基 于 udp 怎 么 保 证 可 靠 性</h2><h2 id="讲-一-下-同-源-策-略-和-跨-域-方-案-？-CORS-的-几-个-头-部-是-什-么-？"><a href="#讲-一-下-同-源-策-略-和-跨-域-方-案-？-CORS-的-几-个-头-部-是-什-么-？" class="headerlink" title="讲 一 下 同 源 策 略 和 跨 域 方 案 ？ CORS 的 几 个 头 部 是 什 么 ？"></a>讲 一 下 同 源 策 略 和 跨 域 方 案 ？ CORS 的 几 个 头 部 是 什 么 ？</h2><h2 id="grpc-相-比-http-的-优-势-？"><a href="#grpc-相-比-http-的-优-势-？" class="headerlink" title="grpc 相 比 http 的 优 势 ？"></a>grpc 相 比 http 的 优 势 ？</h2><h2 id="http-和-https-的基本概念"><a href="#http-和-https-的基本概念" class="headerlink" title="http 和 https 的基本概念"></a>http 和 https 的基本概念</h2><p>http: 是一个客户端和服务器端请求和应答的标准（TCP），用于从 WWW 服务器传输超文本到本地浏览器的超文本传输协议。<br>https:是以安全为目标的 HTTP 通道，即 HTTP 下 加入 SSL 层进行加密。其作用是：建立一个信息安全通道，来确保数据的传输，确保网站的真实性。</p>
+<h2 id="http-和-https-的区别及优缺点？"><a href="#http-和-https-的区别及优缺点？" class="headerlink" title="http 和 https 的区别及优缺点？"></a>http 和 https 的区别及优缺点？</h2><ul>
+<li>http 是超文本传输协议，信息是明文传输，HTTPS 协议要比 http 协议<code>安全</code>，https 是具有安全性的 ssl 加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性(当然这种安全性并非绝对的，对于更深入的 Web 安全问题，此处暂且不表)。</li>
+<li>http 协议的<code>默认端口</code>为 80，https 的默认端口为 443。</li>
+<li>http 的连接很简单，是无状态的。https 握手阶段比较<code>费时</code>，会使页面加载时间延长 50%，增加 10%~20%的耗电。</li>
+<li>https <code>缓存</code>不如 http 高效，会增加数据开销。</li>
+<li>Https 协议需要 ca 证书，费用较高，功能越强大的<code>证书费</code>用越高。</li>
+<li>SSL 证书需要绑定 <code>IP</code>，不能再同一个 IP 上绑定多个域名，IPV4 资源支持不了这种消耗。</li>
 </ul>
-<h2 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h2><ul>
-<li><p>第一次握手：建立连接时，客户端向服务器发送 SYN 包，并进入 SYN-send（发送中）状态，等待服务器确认。</p>
+<a id="more"></a>
+<h2 id="https-协议的工作原理"><a href="#https-协议的工作原理" class="headerlink" title="https 协议的工作原理"></a>https 协议的工作原理</h2><p>客户端在使用 HTTPS 方式与 Web 服务器通信时有以下几个步骤：</p>
+<ol>
+<li>客户端使用 https url 访问服务器，则要求 web 服务器<code>建立 ssl 链接</code>。</li>
+<li>web 服务器接收到客户端的请求之后，会<code>将网站的证书（证书中包含了公钥），传输给客户端</code>。</li>
+<li>客户端和 web 服务器端开始<code>协商 SSL 链接的安全等级</code>，也就是加密等级。</li>
+<li>客户端浏览器通过双方协商一致的安全等级，<code>建立会话密钥</code>，然后通过网站的公钥来加密会话密钥，并传送给网站。</li>
+<li>web 服务器<code>通过自己的私钥解密出会话密钥</code>。</li>
+<li>web 服务器<code>通过会话密钥加密与客户端之间的通信</code>。</li>
+</ol>
+<p>传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/6995109407545622542"># 解读 HTTP1/HTTP2/HTTP3</a></p>
+<h2 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h2><ol>
+<li>第一次握手：<code>建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认</code>；SYN：同步序列编号（Synchronize Sequence Numbers）。</li>
+<li>第二次握手：<code>服务器收到syn包并确认客户的SYN</code>（ack=j+1），<code>同时也发送一个自己的SYN包</code>（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</li>
+<li>第三次握手：<code>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1）</code>，此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</li>
+</ol>
+<blockquote>
+<p>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。</p>
+</blockquote>
+<h2 id="TCP-四次挥手"><a href="#TCP-四次挥手" class="headerlink" title="TCP 四次挥手"></a>TCP 四次挥手</h2><ol>
+<li><p><code>客户端进程发出连接释放报文</code>，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，<code>客户端进入FIN-WAIT-1（终止等待1）状态</code>。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。</p>
 </li>
-<li><p>第二次握手：服务器收到 SYN 包，必须确认后，同时也发送一个 SYN ＋ ACK 包给客户端，此时服务器进入 SYN_recv(收到)状态。</p>
+<li><p><code>服务器收到连接释放报文，发出确认报文</code>，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，<code>服务端就进入了CLOSE-WAIT（关闭等待）状态</code>。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。</p>
 </li>
-<li><p>第三次握手：客户端收到服务器的 SYN ＋ ACK 包，向服务器发送 ACK 确认包，此包发送完毕，客户端和服务器进入 established 状态，完成三次握手。</p>
+<li><p>客户端收到服务器的确认请求后，此时，<code>客户端就进入FIN-WAIT-2（终止等待2）状态</code>，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最 后的数据）。</p>
 </li>
-<li><p>完成三次握手，客户端与服务器开始传送数据。</p>
+<li><p><code>服务器将最后的数据发送完毕后，就向客户端发送连接释放报文</code>，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，<code>服务器就进入了LAST-ACK（最后确认）状态</code>，等待客户端的确认。</p>
 </li>
-<li><p>客户端发送一个 FIN，用来关闭客户端到服务器的数据传送。</p>
+<li><p><code>客户端收到服务器的连接释放报文后，必须发出确认</code>，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，<code>客户端就进入了TIME-WAIT（时间等待）状态</code>。注意此时TCP连接还没有释放，必须经过2∗∗MSL（最长报文段寿命）的时间后，<code>当客户端撤销相应的TCB后，才进入CLOSED状态</code>。</p>
 </li>
-<li><p>服务器收到这个 FIN，它发回一个 ACK，确认序号为收到的序号加 1</p>
+<li><p>服务器只要收到了客户端发出的确认，<code>立即进入CLOSED状态</code>。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，<code>服务器结束TCP连接的时间要比客户端早一些</code>。</p>
 </li>
-<li><p>服务器关闭与客户端的连接，发送一个 FIN 给客户端。</p>
+</ol>
+<h2 id="TCP-IP-如何保证数据包传输的有序可靠？"><a href="#TCP-IP-如何保证数据包传输的有序可靠？" class="headerlink" title="TCP/IP / 如何保证数据包传输的有序可靠？"></a>TCP/IP / 如何保证数据包传输的有序可靠？</h2><p>对字节流分段并进行编号然后<code>通过 ACK 回复</code>和<code>超时重发</code>这两个机制来保证。</p>
+<p>（1）为了保证数据包的可靠传递，发送方必须把已发送的数据包保留在缓冲区；<br>（2）并为每个已发送的数据包启动一个超时定时器；<br>（3）如在定时器超时之前收到了对方发来的应答信息（可能是对本包的应答，也可以是对本包后续包的应答），则释放该数据包占用的缓冲区;<br>（4）否则，重传该数据包，直到收到应答或重传次数超过规定的最大次数为止。<br>（5）接收方收到数据包后，先进行CRC校验，如果正确则把数据交给上层协议，然后给发送方发送一个累计应答包，表明该数据已收到，如果接收方正好也有数据要发给发送方，应答包也可方在数据包中捎带过去。</p>
+<h2 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h2><ol>
+<li>TCP是面向<code>链接</code>的，而UDP是面向无连接的。</li>
+<li>TCP仅支持<code>单播传输</code>，UDP 提供了单播，多播，广播的功能。</li>
+<li>TCP的三次握手保证了连接的<code>可靠性</code>; UDP是无连接的、不可靠的一种数据传输协议，首先不可靠性体现在无连接上，通信都不需要建立连接，对接收到的数据也不发送确认信号，发送端不知道数据是否会正确接收。</li>
+<li>UDP的<code>头部开销</code>比TCP的更小，数据<code>传输速率更高</code>，<code>实时性更好</code>。</li>
+</ol>
+<p>传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/6992743999756845087" title="https://juejin.cn/post/6992743999756845087"># 深度剖析TCP与UDP的区别</a></p>
+<h2 id="http缓存的理解"><a href="#http缓存的理解" class="headerlink" title="http缓存的理解"></a>http缓存的理解</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903763665240072">强缓存和协商缓存</a></p>
+<p>缓存分为强缓存和协商缓存。强缓存不过服务器，协商缓存需要过服务器，协商缓存返回的状态码是304。两类缓存机制可以同时存在，强缓存的优先级高于协商缓存。当执行强缓存时，如若缓存命中，则直接使用缓存数据库中的数据，不再进行缓存协商。</p>
+<ul>
+<li>浏览器请求某一资源时，会先获取该资源缓存的header信息，然后根据header中的 Cache-Control 和 Expires 来判断是否过期。若没过期则直接从缓存中获取资源信息，包括缓存的header的信息，所以此次请求不会与服务器进行通信。这里判断是否过期，则是强缓存相关。后面会讲 Cache-Control 和 Expires 相关。</li>
+<li>如果显示已过期，浏览器会向服务器端发送请求，这个请求会携带第一次请求返回的有关缓存的header字段信息，比如客户端会通过 If-None-Match 头将先前服务器端发送过来的Etag发送给服务器，服务会对比这个客户端发过来的Etag是否与服务器的相同，若相同，就将 If-None-Match 的值设为false，返回状态304，客户端继续使用本地缓存，不解析服务器端发回来的数据，若不相同就将 If-None-Match 的值设为true，返回状态为200，客户端重新机械服务器端返回的数据；客户端还会通过 If-Modified-Since 头将先前服务器端发过来的最后修改时间戳发送给服务器，服务器端通过这个时间戳判断客户端的页面是否是最新的，如果不是最新的，则返回最新的内容，如果是最新的，则返回304，客户端继续使用本地缓存。</li>
+</ul>
+<h3 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h3><p> <a target="_blank" rel="noopener" href="https://juejin.cn/post/6992843117963509791">彻底理解浏览器的缓存机制</a></p>
+<ul>
+<li><p>Expires<br>Expires 是http1.0的规范，它的值是一个绝对时间的GMT格式的时间字符串。如我现在这个网页的<br>Expires 值是： expires:Fri, 14 Apr 2017 10:47:02 GMT 。这个时间代表这这个资源的失效时<br>间，只要发送请求时间是在 Expires 之前，那么本地缓存始终有效，则在缓存中读取数据。所以这种方<br>式有一个明显的缺点，由于失效的时间是一个绝对时间，所以当服务器与客户端时间偏差较大时，就会<br>导致缓存混乱。如果同时出现 Cache-Control:max-age 和 Expires ，那么 max-age 优先级更高。如我<br>主页的response headers部分如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  cache-control:max-age=<span class="number">691200</span></span><br><span class="line">expires:Fri, <span class="number">14</span> Apr <span class="number">2017</span> <span class="number">10</span>:<span class="number">47</span>:<span class="number">0</span>2 GMT</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>客户端发回 ACK 报文确认，并将确认序号设置为收到 序号加 1。完成四次挥手</p>
+<li><p>Cache-Control<br>Cache-Control是在http1.1中出现的，主要是利用该字段的max-age值来进行判断，它是一个相对时间，例<br>如Cache-Control:max-age=3600，代表着资源的有效期是3600秒。cache-control除了该字段外，还有下面<br>几个比较常用的设置值:</p>
+<ul>
+<li><p>no-cache：不使用强缓存。直接使用缓存协商，先与服务器确认返回的响应是否被更改，如果之<br>前的响应中存在ETag，那么请求的时候会与服务端验证，如果资源未被更改，则可以避免重新下<br>载。</p>
+</li>
+<li><p>no-store：直接禁止游览器缓存数据，每次用户请求该资源，都会向服务器发送一个请求，每次都<br>会下载完整的资源。</p>
+</li>
+<li><p>public：可以被所有的用户缓存，包括终端用户和CDN等中间代理服务器。</p>
+</li>
+<li><p>private：只能被终端用户的浏览器缓存，不允许CDN等中继缓存服务器对其缓存。</p>
+</li>
+<li><p>Cache-Control与Expires可以在服务端配置同时启用，同时启用的时候Cache-Control优先级高</p>
+<p><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%BA%E7%BC%93%E5%AD%98.png" alt="强缓存"></p>
 </li>
 </ul>
-<h2 id="HTTPS-和-HTTP-的区别主要如下"><a href="#HTTPS-和-HTTP-的区别主要如下" class="headerlink" title="HTTPS 和 HTTP 的区别主要如下"></a>HTTPS 和 HTTP 的区别主要如下</h2><ul>
-<li>https 协议需要有 ca 申请证书</li>
-<li>http 是超文本传输协议，信息是明文传输，https 则是具有安全性的 ssl 加密传输协议。</li>
-<li>http 和 https 使用的是完全不同的连接方式，用的端口也不一样，前者是 80，后者是 443。</li>
-<li>http 的连接很简单，是无状态的；HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 http 协议安全。</li>
+</li>
 </ul>
-<h2 id="ht-tp2-的-相-关-特-性-？"><a href="#ht-tp2-的-相-关-特-性-？" class="headerlink" title="ht tp2 的 相 关 特 性 ？"></a>ht tp2 的 相 关 特 性 ？</h2><h2 id><a href="#" class="headerlink" title></a></h2><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+<h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><p>协商缓存就是由服务器来确定缓存资源是否可用，所以客户端与服务器端要通过某种标识来进行通信，<br>从而让服务器判断请求资源是否可以缓存访问。</p>
+<p>普通刷新会启用弱缓存，忽略强缓存。只有在地址栏或收藏夹输入网址、通过链接引用资源等情况下，<br>浏览器才会启用强缓存，这也是为什么有时候我们更新一张图片、一个js文件，页面内容依然是旧的，<br>但是直接浏览器访问那个图片或文件，看到的内容却是新的。</p>
+<p>这个主要涉及到两组header字段： Etag 和 If-None-Match 、 Last-Modified 和 If-Modified-Since 。</p>
+<ul>
+<li><p>Etag 和 If-None-Match<br>Etag/If-None-Match返回的是一个校验码。ETag可以保证每一个资源是唯一的，资源变化都会导致ETag变<br>化。服务器根据浏览器上送的If-None-Match值来判断是否命中缓存。</p>
+<p>与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response<br>header中还会把这个ETag返回，即使这个ETag跟之前的没有变化。</p>
+</li>
+<li><p>Last-Modify/If-Modify-Since</p>
+<p>浏览器第一次请求一个资源的时候，服务器返回的header中会加上Last-Modify，Last-modify是一个时间<br>标识该资源的最后修改时间，例如Last-Modify: Thu,31 Dec 2037 23:59:59 GMT。</p>
+<p>当浏览器再次请求该资源时，request的请求头中会包含If-Modify-Since，该值为缓存之前返回的Last-<br>Modify。服务器收到If-Modify-Since后，根据资源的最后修改时间判断是否命中缓存。<br>如果命中缓存，则返回304，并且不会返回资源内容，并且不会返回Last-Modify。</p>
+</li>
+<li><p>为什么要有Etag<br>你可能会觉得使用Last-Modified已经足以让浏览器知道本地的缓存副本是否足够新，为什么还需要Etag<br>呢？HTTP1.1中Etag的出现主要是为了解决几个Last-Modified比较难解决的问题：</p>
+<ul>
+<li>一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新GET；</li>
+<li>某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，If-Modified-Since能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)；</li>
+<li>某些服务器不能精确的得到文件的最后修改时间。</li>
+</ul>
+<p>Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-<br>Modified，最后才决定是否返回304。</p>
+<p><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.png" alt="协商缓存"></p>
+</li>
+</ul>
+<h2 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h2><p><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>
+<h2 id="说下进程、线程和协程"><a href="#说下进程、线程和协程" class="headerlink" title="说下进程、线程和协程"></a>说下进程、线程和协程</h2><p><strong>进程</strong>是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，<code>是操作系统进行资源分配和调度的一个独立单位</code>，是应用程序运行的载体。进程是一种抽象的概念，从来没有统一的标准定义。</p>
+<p><strong>线程</strong>是程序执行中一个单一的顺序控制流程，是<code>程序执行流的最小单元</code>，是处理器调度和分派的基本单位。一个进程可以有一个或多个线程，各个线程之间共享程序的内存空间(也就是所在进程的内存空间)。一个标准的线程由线程ID、当前指令指针(PC)、寄存器和堆栈组成。而进程由内存空间(代码、数据、进程空间、打开的文件)和一个或多个线程组成。</p>
+<p><strong>协程</strong>，英文Coroutines，是一种<code>基于线程之上，但又比线程更加轻量级的存在</code>，这种由程序员自己写程序来管理的轻量级线程叫做『用户空间线程』，具有对内核来说不可见的特性。</p>
+<h3 id="进程和线程的区别与联系"><a href="#进程和线程的区别与联系" class="headerlink" title="进程和线程的区别与联系"></a>进程和线程的区别与联系</h3><p>【区别】：<br>调度：线程作为调度和分配的基本单位，进程作为拥有资源的基本单位；<br>并发性：不仅进程之间可以并发执行，同一个进程的多个线程之间也可并发执行；<br>拥有资源：进程是拥有资源的一个独立单位，线程不拥有系统资源，但可以访问隶属于进程的资源。<br>系统开销：在创建或撤消进程时，由于系统都要为之分配和回收资源，导致系统的开销明显大于创建或撤消线程时的开销。但是进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个进程死掉就等于所有的线程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。</p>
+<p>【联系】： 一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程；<br>资源分配给进程，同一进程的所有线程共享该进程的所有资源；<br>处理机分给线程，即真正在处理机上运行的是线程；<br>线程在执行过程中，需要协作同步。不同进程的线程间要利用消息通信的办法实现同步。</p>
+<p>传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/7005465381791875109" title="https://juejin.cn/post/7005465381791875109"># 一文搞懂进程、线程、协程及JS协程的发展</a> <a href="https://link.juejin.cn/?target=http://www.360doc.com/content/20/0417/14/32196507_906628857.shtml" title="http://www.360doc.com/content/20/0417/14/32196507_906628857.shtml">☞了解更多</a></p>
+<p>关于浏览器传送门 ☞<a target="_blank" rel="noopener" href="https://juejin.cn/post/6993095345576083486" title="https://juejin.cn/post/6993095345576083486"># 深入了解现代 Web 浏览器</a></p>
+<h2 id="http1-x-和http2-x区别"><a href="#http1-x-和http2-x区别" class="headerlink" title="http1.x 和http2.x区别"></a>http1.x 和http2.x区别</h2><ul>
+<li>HTTP2使用的是二进制传送，HTTP1.X是文本（字符串）传送。<br>二进制传送的单位是帧和流。帧组成了流，同时流还有流ID标示</li>
+<li>HTTP2支持多路复用<br>因为有流ID，所以通过同一个http请求实现多个http请求传输变成了可能，可以通过流ID来标示究竟是哪个流从而定位到是哪个http请求</li>
+<li>HTTP2头部压缩<br>HTTP2通过gzip和compress压缩头部然后再发送，同时客户端和服务器端同时维护一张头信息表，所有字段都记录在这张表中，这样后面每次传输只需要传输表里面的索引Id就行，通过索引ID查询表头的值</li>
+<li>HTTP2支持服务器推送<br>HTTP2支持在未经客户端许可的情况下，主动向客户端推送内容</li>
+</ul>
+<p><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/http.png" alt="http"><br><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/http2.png" alt="http2"><br><img src="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.png" alt="网络协议"></p>
+<h2 id="浏览器为什么要请求并发数限制"><a href="#浏览器为什么要请求并发数限制" class="headerlink" title="浏览器为什么要请求并发数限制"></a>浏览器为什么要请求并发数限制</h2><ul>
+<li><p>对操作系统端口资源考虑<br>PC的端口总数为 65536<br>一个HTTP请求就会建立一个TCP链接，一个 TCP 链接就会占用一个端口，什么是 TCP 链接<br>[[HTTP协议 与 TCP协议 的区别]]<br>操作系统通常会对总端口一半开放对外请求，以防端口数量不被迅速消耗殆尽</p>
+</li>
+<li><p>过多并发导致频繁切换产生性能问题<br>一个线程对应处理一个 http 请求，那么如果并发数量巨大的话会导致线程频繁切换。而线程的上下文切换有时候并不是轻量级的资源。这导致得不偿失，所以请求控制器里面会产生一个链接池，以复用之前的链接。所以我们可以看作同域名下链接池最大为 4-8 个，如果链接池全部被使用后阻塞后面请求任务，等待有空闲链接时执行后续任务</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zsy3757486/article/details/121779679">什么是链接池</a></p>
+</li>
+<li><p>避免同一客户端并发大量请求超过服务端的并发阈值<br>在服务端通常都对同一客户端来源设置并发阈值避免恶意攻击，如果浏览器不对同一域名做并发限制可能会导致超过服务端的并发阈值被 BAN 掉</p>
+</li>
+<li><p>客户端良知机制<br>为了防止两个应用抢占资源时导致强势一方无限制的获取资源导致弱势一方永远阻塞状态</p>
+</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
     </div>
 
     
@@ -346,7 +446,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -371,7 +471,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.min.js","integrity":"sha256-8L3O8tirFUa8Va4NSTAyIbHJeLd6OnlcxgupV9F77e0="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>
