@@ -152,18 +152,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Buffer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/" class="post-title-link" itemprop="url">node</a>
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Buffer/" class="post-title-link" itemprop="url">Buffer</a>
         </h2>
 
         <div class="post-meta-container">
@@ -231,14 +231,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+      <time title="创建时间：2022-07-09 03:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T03:21:52+08:00">2022-07-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-12-26 09:55:35" itemprop="dateModified" datetime="2022-12-26T09:55:35+08:00">2022-12-26</time>
+      <time title="修改时间：2022-11-16 10:09:11" itemprop="dateModified" datetime="2022-11-16T10:09:11+08:00">2022-11-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -260,19 +260,131 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Node-能够解决什么问题"><a href="#Node-能够解决什么问题" class="headerlink" title="Node 能够解决什么问题? #"></a>Node 能够解决什么问题? <a href="#t01-node%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">#</a></h2><ul>
-<li>Node 的首要目标是提供一种简单的，用于创建高性能服务器的开发工具</li>
-<li>Web 服务器的瓶颈在于并发的用户量，对比 Java 和 Php 的实现方式</li>
+          <h2 id="什么是Buffer"><a href="#什么是Buffer" class="headerlink" title="什么是Buffer"></a>什么是Buffer</h2><ul>
+<li>缓冲区Buffer是暂时存放输入输出数据的一段内存。</li>
+<li>JS语言没有二进制数据类型，而在处理TCP和文件流的时候，必须要处理二进制数据。</li>
+<li>NodeJS提供了一个Buffer对象来提供对二进制数据的操作</li>
+<li>是一个表示固定内存分配的全局对象，也就是说要放到缓存区中的字节数需要提前确定</li>
+<li>Buffer好比由一个8位字节元素组成的数组，可以有效的在JavasScript中表示二进制数据</li>
 </ul>
-<h2 id="Node-是什么"><a href="#Node-是什么" class="headerlink" title="Node 是什么? #"></a>Node 是什么? <a href="#t12-node%E6%98%AF%E4%BB%80%E4%B9%88">#</a></h2><ul>
-<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,让 JavaScript 的执行效率与低端的 C 语言的相近的执行效率。。</li>
-<li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</li>
-<li>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
+<h2 id="什么是字节"><a href="#什么是字节" class="headerlink" title="什么是字节"></a>什么是字节</h2><ul>
+<li>字节(Byte)是计算机存储时的一种计量单位，一个字节等于8位二进制数</li>
+<li>一个位就代表一个0或1，每8个位（bit）组成一个字节（Byte）</li>
+<li>字节是通过网络传输信息的基本单位</li>
+<li>一个字节最大值十进制数是255(2**8-1)</li>
 </ul>
-<h2 id="Node-特点"><a href="#Node-特点" class="headerlink" title="Node 特点 #"></a>Node 特点 <a href="#t23-node%E7%89%B9%E7%82%B9">#</a></h2>
+<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2><ul>
+<li><p>0b 2进制</p>
+</li>
+<li><p>0x 16进制</p>
+</li>
+<li><p>0o 8进制</p>
+</li>
+<li><p>将任意进制字符串转换为十进制</p></li></ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/#more" rel="contents">
+              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Buffer/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/" class="post-title-link" itemprop="url">Encoding</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 03:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T03:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-16 10:09:11" itemprop="dateModified" datetime="2022-11-16T10:09:11+08:00">2022-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="字符发展历史"><a href="#字符发展历史" class="headerlink" title="字符发展历史 #"></a>字符发展历史 <a href="#t01-%E5%AD%97%E7%AC%A6%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2">#</a></h2><h3 id="字节"><a href="#字节" class="headerlink" title="字节 #"></a>字节 <a href="#t111-%E5%AD%97%E8%8A%82">#</a></h3><ul>
+<li>计算机内部，所有信息最终都是一个二进制值</li>
+<li>每一个二进制位（bit）有0和1两种状态，因此八个二进制位就可以组合出256种状态，这被称为一个字节(byte)<br><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/bits.jpg"></li>
+</ul>
+<h3 id="单位"><a href="#单位" class="headerlink" title="单位 #"></a>单位 <a href="#t212-%E5%8D%95%E4%BD%8D">#</a></h3><ul>
+<li>8位 = 1字节</li>
+<li>1024字节 = 1K</li>
+<li>1024K = 1M</li>
+<li>1024M = 1G</li>
+<li>1024G = 1T</li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -408,6 +520,107 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/" class="post-title-link" itemprop="url">node</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Node-能够解决什么问题"><a href="#Node-能够解决什么问题" class="headerlink" title="Node 能够解决什么问题? #"></a>Node 能够解决什么问题? <a href="#t01-node%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">#</a></h2><ul>
+<li>Node 的首要目标是提供一种简单的，用于创建高性能服务器的开发工具</li>
+<li>Web 服务器的瓶颈在于并发的用户量，对比 Java 和 Php 的实现方式</li>
+</ul>
+<h2 id="Node-是什么"><a href="#Node-是什么" class="headerlink" title="Node 是什么? #"></a>Node 是什么? <a href="#t12-node%E6%98%AF%E4%BB%80%E4%B9%88">#</a></h2><ul>
+<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,让 JavaScript 的执行效率与低端的 C 语言的相近的执行效率。。</li>
+<li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</li>
+<li>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
+</ul>
+<h2 id="Node-特点"><a href="#Node-特点" class="headerlink" title="Node 特点 #"></a>Node 特点 <a href="#t23-node%E7%89%B9%E7%82%B9">#</a></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -444,7 +657,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-16 10:09:11" itemprop="dateModified" datetime="2022-11-16T10:09:11+08:00">2022-11-16</time>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -520,6 +733,99 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/" class="post-title-link" itemprop="url">promise</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-02-28 10:03:22" itemprop="dateModified" datetime="2023-02-28T10:03:22+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="异步回调"><a href="#异步回调" class="headerlink" title="异步回调"></a>异步回调</h2><p>在需要多个操作的时候，会导致多个回调函数嵌套，导致代码不够直观，就是常说的回调地狱<br>如果几个异步操作之间并没有前后顺序之分,但需要等多个异步操作都完成后才能执行后续的任务，无法实现并行节约时间</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise 本意是承诺，在程序中的意思就是承诺我 <strong>过一段时间后</strong>会给你一个结果。 什么时候会用到 <strong>过一段时间</strong>？答案是异步操作，异步是指可能比较长时间才有结果的才做，例如网络请求、读取本地文件等</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -556,7 +862,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-16 15:25:59" itemprop="dateModified" datetime="2022-11-16T15:25:59+08:00">2022-11-16</time>
+      <time title="修改时间：2023-01-28 17:54:26" itemprop="dateModified" datetime="2023-01-28T17:54:26+08:00">2023-01-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -578,7 +884,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><h3 id="package-json简介"><a href="#package-json简介" class="headerlink" title="package.json简介"></a>package.json简介</h3><p>在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y<br>然后在你的目录下会生成3个目录/文件， node_modules, package.json和 package.lock.json。其中package.json的内容为：</p>
+          <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/info.png" alt="package"><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2MTIyNDUwMA==&mid=2247499545&idx=1&sn=bf3b3cf415274cd5db8f82604e5ccb2f&chksm=fc7eb142cb09385417ea9259bc34e5fbf8b845d1b3946c1f2a59ca8b5623e9d587083a51708e&token=400768939&lang=zh_CN&scene=21#wechat_redirect">package.json</a></p>
+<h3 id="package-json简介"><a href="#package-json简介" class="headerlink" title="package.json简介"></a>package.json简介</h3><p>在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y<br>然后在你的目录下会生成3个目录/文件， node_modules, package.json和 package.lock.json。其中package.json的内容为：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Your project description&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;app.js&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Author name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: <span class="string">&quot;^1.4.0&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: <span class="string">&quot;^1.5.2&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>package.json中包含了项目本身的元数据,以及项目的子依赖信息(比如dependicies等)。</p>
@@ -657,7 +964,7 @@
 <ul>
 <li>对于子npm包a,在npm7中，如果单独安装子npm a,其peerDependicies中的包，会被安装下来。但是npm7之前是不会的。</li>
 <li>请规范和详细的指定PeerDependicies的配置，笔者在看到有些react组件库，不在PeerDependicies中指定react和react-dom，或者将react和- react-dom放到了dependicies中，这两种不规范的指定都会存在一些问题。</li>
-<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#101;&#x61;&#x63;&#116;&#x2d;&#x66;&#x6f;&#x63;&#117;&#115;&#45;&#x6c;&#x6f;&#99;&#107;&#64;&#50;&#46;&#x38;&#x2e;&#49;">&#x72;&#101;&#x61;&#x63;&#116;&#x2d;&#x66;&#x6f;&#x63;&#117;&#115;&#45;&#x6c;&#x6f;&#99;&#107;&#64;&#50;&#46;&#x38;&#x2e;&#49;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
+<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#101;&#x61;&#99;&#x74;&#45;&#x66;&#111;&#x63;&#117;&#115;&#x2d;&#108;&#x6f;&#99;&#x6b;&#64;&#50;&#46;&#56;&#x2e;&#x31;">&#x72;&#101;&#x61;&#99;&#x74;&#45;&#x66;&#111;&#x63;&#117;&#115;&#x2d;&#108;&#x6f;&#99;&#x6b;&#64;&#50;&#46;&#56;&#x2e;&#x31;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
 </ul>
 <h3 id="peerDependenciesMeta"><a href="#peerDependenciesMeta" class="headerlink" title="peerDependenciesMeta"></a>peerDependenciesMeta</h3><p>看到“Meta”就有元数据的意思，这里的peerDependenciesMeta就是详细修饰了peerDependicies，比如在react-redux这个npm包中的package.json中有这么一段：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">   &quot;react&quot;: &quot;^16.8.3 || ^17 || ^18&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&quot;peerDependenciesMeta&quot;: &#123;</span><br><span class="line">   &quot;react-dom&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;react-native&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
@@ -742,7 +1049,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-16 16:59:35" itemprop="dateModified" datetime="2022-11-16T16:59:35+08:00">2022-11-16</time>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -766,100 +1073,8 @@
     <div class="post-body" itemprop="articleBody">
           <p>npm、yarn、cnpm、npx、pnpm</p>
 <p><a href="./%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.pdf">包管理工具</a></p>
+<div class="pdf-container" data-target="./包管理工具.pdf" data-height="500px"></div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/" class="post-title-link" itemprop="url">promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-12-09 10:29:33" itemprop="dateModified" datetime="2022-12-09T10:29:33+08:00">2022-12-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="异步回调"><a href="#异步回调" class="headerlink" title="异步回调"></a>异步回调</h2><p>在需要多个操作的时候，会导致多个回调函数嵌套，导致代码不够直观，就是常说的回调地狱<br>如果几个异步操作之间并没有前后顺序之分,但需要等多个异步操作都完成后才能执行后续的任务，无法实现并行节约时间</p>
-<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise 本意是承诺，在程序中的意思就是承诺我 <strong>过一段时间后</strong>会给你一个结果。 什么时候会用到 <strong>过一段时间</strong>？答案是异步操作，异步是指可能比较长时间才有结果的才做，例如网络请求、读取本地文件等</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1047,432 +1262,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><img src="/2022/03/13/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="运算符优先级"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2021/12/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-12-12 22:37:05" itemprop="dateCreated datePublished" datetime="2021-12-12T22:37:05+08:00">2021-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-01 09:12:03" itemprop="dateModified" datetime="2022-08-01T09:12:03+08:00">2022-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/git%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">git命令</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <table>
-<thead>
-<tr>
-<th>命令</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git init</td>
-<td>git仓库初始化</td>
-</tr>
-<tr>
-<td>git clone <giturl></giturl></td>
-<td>复制现有仓库</td>
-</tr>
-<tr>
-<td>git status</td>
-<td>查看git仓库状态</td>
-</tr>
-<tr>
-<td>git log</td>
-<td>查看commit列表记录<br>–oneline  浓缩成一行一条记录<br>–stat         输出文件改动的统计数据<br>-p               输出改动文件的具体内容<br>-w              忽略空格的修改和-p一起用</td>
-</tr>
-<tr>
-<td>git show <SHA></SHA></td>
-<td>查看commit具体记录，也有–stat,-p,-w的配置</td>
-</tr>
-<tr>
-<td>git add .</td>
-<td>将工作区全部改动提交到暂存区</td>
-</tr>
-<tr>
-<td>git commit</td>
-<td>将暂存区改动提交到版本库<br>-m             添加本次改动的title<br>–amend  更改最后一个commit包括缓存区改动和改动的title</td>
-</tr>
-<tr>
-<td>git diff</td>
-<td>查看工作区修改</td>
-</tr>
-<tr>
-<td>git tag -a <tagname></tagname></td>
-<td>设置commit标签<br>-a               设置标签名<br>-d               删除标签名</td>
-</tr>
-<tr>
-<td>git checkout <Branch></Branch></td>
-<td>切换分支</td>
-</tr>
-<tr>
-<td>git checkout -b &lt;本地分支名&gt; &lt;远程分支名&gt;</td>
-<td>创建本地分支并关联远程分支</td>
-</tr>
-<tr>
-<td>git checkout -t &lt;远程分支名&gt;</td>
-<td>创建本地分支并自动关联远程分支，本地分支名和远程分支一致</td>
-</tr>
-<tr>
-<td>git checkout .</td>
-<td>撤销工作区的修改(只能撤销在已有文件上的修改)</td>
-</tr>
-<tr>
-<td>git restore .</td>
-<td>撤销工作区的修改</td>
-</tr>
-<tr>
-<td>git clean -df</td>
-<td>删除工作区新增的文件</td>
-</tr>
-<tr>
-<td>git clean -xdf</td>
-<td>删除工作区新增的文件和文件夹</td>
-</tr>
-<tr>
-<td>git merge <branch></branch></td>
-<td>合并分支</td>
-</tr>
-<tr>
-<td>git revert <sha></sha></td>
-<td>还原，并向前提交一个新的commit来保存还原的内容</td>
-</tr>
-<tr>
-<td>git reset</td>
-<td>重置，会删除commit，慎用<br>–hard  会清空工作目录和暂存区的改动<br>–soft    则会保留工作目录的内容，并把因为保留工作目录内容所带来的新的文件差异放进暂存区。<br>–mixed  默认行为，保留工作目录，并且清空暂存区<br>HEAD^表示当前版本<br>HEAD^^上上一个版本<br>HEAD~2上上一个版本</td>
-</tr>
-<tr>
-<td>git reset HEAD^</td>
-<td>使用场景：已使用git add . 命令，未使用git commit -m ‘’命令</td>
-</tr>
-<tr>
-<td>git reset –soft HEAD^</td>
-<td>使用场景：已使用git commit -m ‘’命令，撤销之后会把修改放在暂存区</td>
-</tr>
-<tr>
-<td>git reset  –hard  HEAD^</td>
-<td>使用场景：已使用git commit -m，撤销之后不会保留任何更改，比如打包之后提交了commit，想重新打包，则可以使用</td>
-</tr>
-<tr>
-<td>git reset HEAD</td>
-<td>撤销缓存区的修改，撤销上一次add</td>
-</tr>
-<tr>
-<td>git remote -v</td>
-<td>远程库查询</td>
-</tr>
-<tr>
-<td>git remote add origin <url></url></td>
-<td>添加远程库</td>
-</tr>
-<tr>
-<td>git remote remove <origin></origin></td>
-<td>删除远程库</td>
-</tr>
-<tr>
-<td>git push origin –delete <branch></branch></td>
-<td>删除远程分支</td>
-</tr>
-<tr>
-<td>git push &lt;分支名&gt;</td>
-<td>推送本地分支到远程分支</td>
-</tr>
-<tr>
-<td>git push origin –delete <branch></branch></td>
-<td>删除远程分支</td>
-</tr>
-<tr>
-<td>git push origin –delete &lt;分支名&gt;</td>
-<td>删除远程分支</td>
-</tr>
-<tr>
-<td>git config –global core.autocrlf false</td>
-<td>禁用换行方式转换</td>
-</tr>
-<tr>
-<td>git push -u origin master</td>
-<td>跟踪远程分支</td>
-</tr>
-<tr>
-<td>git push -f</td>
-<td>强制推送</td>
-</tr>
-<tr>
-<td>git pull &lt;分支名&gt;</td>
-<td>拉取远程分支到本地分支</td>
-</tr>
-<tr>
-<td>git pull -u origin dev</td>
-<td>拉取远程分支</td>
-</tr>
-<tr>
-<td>git branch</td>
-<td>列出所有分支(仅本地分支)</td>
-</tr>
-<tr>
-<td>git branch -a</td>
-<td>列出所有分支(包括远程分支)</td>
-</tr>
-<tr>
-<td>git branch -d &lt;分支名&gt;</td>
-<td>删除分支</td>
-</tr>
-<tr>
-<td>git branch -D &lt;分支名&gt;</td>
-<td>强行删除分支</td>
-</tr>
-<tr>
-<td>git branch &lt;分支名&gt;</td>
-<td>创建新分支</td>
-</tr>
-<tr>
-<td>git branch -m &lt;旧分支名&gt;  &lt;新分支名&gt;</td>
-<td>重命名分支</td>
-</tr>
-<tr>
-<td>git branch -vv</td>
-<td>查看本地分支与远程分支的关联分支</td>
-</tr>
-<tr>
-<td>git clean -n</td>
-<td>显示将要删除的新增文件，不显示新增的文件夹及包含的文件</td>
-</tr>
-<tr>
-<td>git clean -f</td>
-<td>删除新增文件，不删除新增的文件夹及包含的文件</td>
-</tr>
-<tr>
-<td>git clean -df</td>
-<td>删除新增文件以及新增的文件夹和其包含的文件</td>
-</tr>
-<tr>
-<td>git fetch &lt;分支名&gt;</td>
-<td>获取远端的更新，但不进行合并</td>
-</tr>
-<tr>
-<td>git config –global core.quotepath false</td>
-<td>git中文显示数字的问题</td>
-</tr>
-<tr>
-<td>git log –pretty=oneline 文件名 （文件名是文件路径+文件名，输入完整）</td>
-<td>git查看某个文件的提交历史</td>
-</tr>
-<tr>
-<td>git show 某次commit 的哈希值  文件名</td>
-<td>git查看某个文件某次提交的修改</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>git config –global gui.encoding utf-8</td>
-<td></td>
-</tr>
-<tr>
-<td>git config –global i18n.commit.encoding utf-8</td>
-<td></td>
-</tr>
-<tr>
-<td>git config –global i18n.logoutputencoding utf-8</td>
-<td></td>
-</tr>
-<tr>
-<td>$env:LESSCHARSET=’utf-8’</td>
-<td>解决 powerShell git log显示中文的问题</td>
-</tr>
-<tr>
-<td>git config –global core.autocrlf false</td>
-<td>git提示LF CRLF转换的警告</td>
-</tr>
-<tr>
-<td>git blame -L <lineStart>,<lineEnd> &lt;path+fileName&gt;</lineEnd></lineStart></td>
-<td>git查看部分行的历史改动记录</td>
-</tr>
-<tr>
-<td>git config –global core.quotepath false</td>
-<td>解决中文显示成数字的bug</td>
-</tr>
-<tr>
-<td>GIT_MERGE_AUTOEDIT=no      export GIT_MERGE_AUTOEDIT</td>
-<td>用来解决git bash 合并时自动打开VIM编辑器的问题</td>
-</tr>
-<tr>
-<td>git blame</td>
-<td>找到具体代码的责任人</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2021/05/14/browersRander/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/14/browersRander/" class="post-title-link" itemprop="url">浏览器原理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-14 00:06:23" itemprop="dateCreated datePublished" datetime="2021-05-14T00:06:23+08:00">2021-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-23 15:17:49" itemprop="dateModified" datetime="2022-09-23T15:17:49+08:00">2022-09-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">浏览器原理</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="浏览器原理"><a href="#浏览器原理" class="headerlink" title="浏览器原理"></a>浏览器原理</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html">浏览器原理</a></li>
-</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>

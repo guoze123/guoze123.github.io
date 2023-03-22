@@ -152,18 +152,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -193,6 +193,432 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2021/12/12/git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/12/git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git常用命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-12 22:37:05" itemprop="dateCreated datePublished" datetime="2021-12-12T22:37:05+08:00">2021-12-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="git-命令"><a href="#git-命令" class="headerlink" title="git 命令"></a>git 命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git init</td>
+<td>git仓库初始化</td>
+</tr>
+<tr>
+<td>git clone <giturl></giturl></td>
+<td>复制现有仓库</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看git仓库状态</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>查看commit列表记录<br>–oneline  浓缩成一行一条记录<br>–stat         输出文件改动的统计数据<br>-p               输出改动文件的具体内容<br>-w              忽略空格的修改和-p一起用</td>
+</tr>
+<tr>
+<td>git show <SHA></SHA></td>
+<td>查看commit具体记录，也有–stat,-p,-w的配置</td>
+</tr>
+<tr>
+<td>git add .</td>
+<td>将工作区全部改动提交到暂存区</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td>将暂存区改动提交到版本库<br>-m             添加本次改动的title<br>–amend  更改最后一个commit包括缓存区改动和改动的title</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>查看工作区修改</td>
+</tr>
+<tr>
+<td>git tag -a <tagname></tagname></td>
+<td>设置commit标签<br>-a               设置标签名<br>-d               删除标签名</td>
+</tr>
+<tr>
+<td>git checkout <Branch></Branch></td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td>git checkout -b &lt;本地分支名&gt; &lt;远程分支名&gt;</td>
+<td>创建本地分支并关联远程分支</td>
+</tr>
+<tr>
+<td>git checkout -t &lt;远程分支名&gt;</td>
+<td>创建本地分支并自动关联远程分支，本地分支名和远程分支一致</td>
+</tr>
+<tr>
+<td>git checkout .</td>
+<td>撤销工作区的修改(只能撤销在已有文件上的修改)</td>
+</tr>
+<tr>
+<td>git restore .</td>
+<td>撤销工作区的修改</td>
+</tr>
+<tr>
+<td>git clean -df</td>
+<td>删除工作区新增的文件</td>
+</tr>
+<tr>
+<td>git clean -xdf</td>
+<td>删除工作区新增的文件和文件夹</td>
+</tr>
+<tr>
+<td>git merge <branch></branch></td>
+<td>合并分支</td>
+</tr>
+<tr>
+<td>git revert <sha></sha></td>
+<td>还原，并向前提交一个新的commit来保存还原的内容</td>
+</tr>
+<tr>
+<td>git reset</td>
+<td>重置，会删除commit，慎用<br>–hard  会清空工作目录和暂存区的改动<br>–soft    则会保留工作目录的内容，并把因为保留工作目录内容所带来的新的文件差异放进暂存区。<br>–mixed  默认行为，保留工作目录，并且清空暂存区<br>HEAD^表示当前版本<br>HEAD^^上上一个版本<br>HEAD~2上上一个版本</td>
+</tr>
+<tr>
+<td>git reset HEAD^</td>
+<td>使用场景：已使用git add . 命令，未使用git commit -m ‘’命令</td>
+</tr>
+<tr>
+<td>git reset –soft HEAD^</td>
+<td>使用场景：已使用git commit -m ‘’命令，撤销之后会把修改放在暂存区</td>
+</tr>
+<tr>
+<td>git reset  –hard  HEAD^</td>
+<td>使用场景：已使用git commit -m，撤销之后不会保留任何更改，比如打包之后提交了commit，想重新打包，则可以使用</td>
+</tr>
+<tr>
+<td>git reset HEAD</td>
+<td>撤销缓存区的修改，撤销上一次add</td>
+</tr>
+<tr>
+<td>git remote -v</td>
+<td>远程库查询</td>
+</tr>
+<tr>
+<td>git remote add origin <url></url></td>
+<td>添加远程库</td>
+</tr>
+<tr>
+<td>git remote remove <origin></origin></td>
+<td>删除远程库</td>
+</tr>
+<tr>
+<td>git push origin –delete <branch></branch></td>
+<td>删除远程分支</td>
+</tr>
+<tr>
+<td>git push &lt;分支名&gt;</td>
+<td>推送本地分支到远程分支</td>
+</tr>
+<tr>
+<td>git push origin –delete <branch></branch></td>
+<td>删除远程分支</td>
+</tr>
+<tr>
+<td>git push origin –delete &lt;分支名&gt;</td>
+<td>删除远程分支</td>
+</tr>
+<tr>
+<td>git config –global core.autocrlf false</td>
+<td>禁用换行方式转换</td>
+</tr>
+<tr>
+<td>git push -u origin master</td>
+<td>跟踪远程分支</td>
+</tr>
+<tr>
+<td>git push -f</td>
+<td>强制推送</td>
+</tr>
+<tr>
+<td>git pull &lt;分支名&gt;</td>
+<td>拉取远程分支到本地分支</td>
+</tr>
+<tr>
+<td>git pull -u origin dev</td>
+<td>拉取远程分支</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>列出所有分支(仅本地分支)</td>
+</tr>
+<tr>
+<td>git branch -a</td>
+<td>列出所有分支(包括远程分支)</td>
+</tr>
+<tr>
+<td>git branch -d &lt;分支名&gt;</td>
+<td>删除分支</td>
+</tr>
+<tr>
+<td>git branch -D &lt;分支名&gt;</td>
+<td>强行删除分支</td>
+</tr>
+<tr>
+<td>git branch &lt;分支名&gt;</td>
+<td>创建新分支</td>
+</tr>
+<tr>
+<td>git branch -m &lt;旧分支名&gt;  &lt;新分支名&gt;</td>
+<td>重命名分支</td>
+</tr>
+<tr>
+<td>git branch -vv</td>
+<td>查看本地分支与远程分支的关联分支</td>
+</tr>
+<tr>
+<td>git clean -n</td>
+<td>显示将要删除的新增文件，不显示新增的文件夹及包含的文件</td>
+</tr>
+<tr>
+<td>git clean -f</td>
+<td>删除新增文件，不删除新增的文件夹及包含的文件</td>
+</tr>
+<tr>
+<td>git clean -df</td>
+<td>删除新增文件以及新增的文件夹和其包含的文件</td>
+</tr>
+<tr>
+<td>git fetch &lt;分支名&gt;</td>
+<td>获取远端的更新，但不进行合并</td>
+</tr>
+<tr>
+<td>git config –global core.quotepath false</td>
+<td>git中文显示数字的问题</td>
+</tr>
+<tr>
+<td>git log –pretty=oneline 文件名 （文件名是文件路径+文件名，输入完整）</td>
+<td>git查看某个文件的提交历史</td>
+</tr>
+<tr>
+<td>git show 某次commit 的哈希值  文件名</td>
+<td>git查看某个文件某次提交的修改</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>git config –global gui.encoding utf-8</td>
+<td></td>
+</tr>
+<tr>
+<td>git config –global i18n.commit.encoding utf-8</td>
+<td></td>
+</tr>
+<tr>
+<td>git config –global i18n.logoutputencoding utf-8</td>
+<td></td>
+</tr>
+<tr>
+<td>$env:LESSCHARSET=’utf-8’</td>
+<td>解决 powerShell git log显示中文的问题</td>
+</tr>
+<tr>
+<td>git config –global core.autocrlf false</td>
+<td>git提示LF CRLF转换的警告</td>
+</tr>
+<tr>
+<td>git blame -L <lineStart>,<lineEnd> &lt;path+fileName&gt;</lineEnd></lineStart></td>
+<td>git查看部分行的历史改动记录</td>
+</tr>
+<tr>
+<td>git config –global core.quotepath false</td>
+<td>解决中文显示成数字的bug</td>
+</tr>
+<tr>
+<td>GIT_MERGE_AUTOEDIT=no      export GIT_MERGE_AUTOEDIT</td>
+<td>用来解决git bash 合并时自动打开VIM编辑器的问题</td>
+</tr>
+<tr>
+<td>git blame</td>
+<td>找到具体代码的责任人</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/12/git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2021/05/14/browersRander/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/14/browersRander/" class="post-title-link" itemprop="url">浏览器原理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-14 00:06:23" itemprop="dateCreated datePublished" datetime="2021-05-14T00:06:23+08:00">2021-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-23 15:17:49" itemprop="dateModified" datetime="2022-09-23T15:17:49+08:00">2022-09-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">浏览器原理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="浏览器原理"><a href="#浏览器原理" class="headerlink" title="浏览器原理"></a>浏览器原理</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html">浏览器原理</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -238,7 +664,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-29 10:10:34" itemprop="dateModified" datetime="2022-08-29T10:10:34+08:00">2022-08-29</time>
+      <time title="修改时间：2023-01-17 11:08:45" itemprop="dateModified" datetime="2023-01-17T11:08:45+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,7 +758,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-12-06 16:39:06" itemprop="dateModified" datetime="2022-12-06T16:39:06+08:00">2022-12-06</time>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -432,7 +858,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/DOM&BOM%E9%9D%A2%E8%AF%95%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -450,7 +876,134 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/DOM&BOM%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">DOM&BOM面试题</a>
+          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/" class="post-title-link" itemprop="url">面试题集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-31 14:03:44" itemprop="dateModified" datetime="2023-01-31T14:03:44+08:00">2023-01-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="面试题集"><a href="#面试题集" class="headerlink" title="面试题集"></a>面试题集</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxODE4MTEzMA==&mid=2650081252&idx=1&sn=1fedc422a3806fa1f9c3faf31bb2a20b&chksm=83db9a81b4ac1397132de99ebdbdbdad57dcc6785d0b8fe1a5ee2b57dbb960b0fbf65015c3ca&scene=126&sessionid=1603760808&key=54ce6b15dc70fa94e4cee849718a95dcb45463880bfbf73a52f6e49f4e4a65fb8adec9e1c54df8bf81bfa1d78626a8537229cc36083224e425c795f892103475ca5f06542d47eec5dabc5d55c77dc7f9fabc4524bbc83cf94060d9236d1061a0fa026db04b47ae38fdfd65662df5549a11d6cd60ff371f5492081a022254d0e7&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AXrZ8Ft8M/kmfXMdRQOHyYs=&pass_ticket=Kkp6C7aNRW+SS3CyH29rTpuzIryrfuzR2BkuJOMPRmZ73lUqRYKqbJR1nz5SlRhp&wx_header=0">面试题 1</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247486750&idx=1&sn=d7e13a8393b83ac330d9b48690428c0e&chksm=fa2bedf7cd5c64e19fcafbe4dab742b65cfe168ad567f3f799b5fc229a35710eb4164084897c&scene=126&sessionid=1602725812&key=6664ac14267ba66883c13581e1d9e62b3ffc7ddfc44d1984c762bde82d19131986d5d9af50595ab1d798e16e45eddd68ded75929bfc6217a87ec0dcacb393b0aa10b53bcd066f65c7865905a425d129f9f1f110464e3a8faa5601a1b7a192f46240134dd033c0bacd43e93b0b51701140f106a0a52acfaabf76e8fee9f2cae06&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=Adc0WAca8bFpyYT3RtaxAjo=&pass_ticket=gNZw604QfgMyZ5MfqQB17Zb9G0KO/y/Gpe3+UhEBieJBkyQwt1xU8LnZyQLLT598&wx_header=0">面试题 2</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI2NTk2NzUxNg==&mid=2247488674&idx=1&sn=3f5c6af2c52365525aa84ff92b9f865b&chksm=ea941651dde39f4790e96e2d8f2530fa23257afb50de8d40d6d318507b873f9d870c0f507863&mpshare=1&scene=1&srcid=1026yMwvhU6WsEBstdZUyIgl&sharer_sharetime=1603682665969&sharer_shareid=1b2206d548f7c54418de346a0102e46f&key=041bb01ba83758f9c012f304255f853e521afbe7bbf65555a0e068f76f2c433eea39d0413b426b59a870039c71945328b288292bbbbac9811706f2f09f6716c482684831e94eab0b6935f37a6a5c8892d4ca9ecd897e139bf608b85a18e8ee5339e931c56cc60e39443738eeb63253718488c0322710c61a17510cbfa97910cb&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AQ+cZHmGMZ8MBH/qQ1l2YVc=&pass_ticket=L+jndQVDhQl1X8R7c+wxUxrwQN/fivdCt7LVG0oUoik5qA1Gx2ZTiVGm+4shiHQn&wx_header=0">源码面试题</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions">前端开发面试题</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/">WEB 前端面试宝典</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/shfshanyue/blog/blob/master/post/juejin-interview.md">掘金前端面试题合集</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://yuchengkai.cn/">前端面试图谱</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/issues/47">前端面试开源项目汇总 | Github 上 100K+ Star 的前端面试开源项目汇总</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.poetries.top/FE-Interview-Questions/">前端面试常考问题整理 | 按模块和知识点分类</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/column/6964717704712290317">2021 前端面试题集</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://h5bp.org/Front-end-Developer-Interview-Questions/">Front-end Developer Interview Questions</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/InterviewMap/CS-Interview-Knowledge-Map">CS-Interview-knowledge-Map</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/shfshanyue/Daily-Question">Daily-Question</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question">Daily-Interview-Question</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://lucifer.ren/fe-interview">fe-interview 大前端面试宝典</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/blob/master/interview/fe-interview.md">前端硬核面试专题</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problemset/all">LeetCode 算法试题学习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/">LeetCode 算法试题学习</a></p>
+</li>
+</ul>
+<p>2021面试题<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/penghuwan/p/7194133.html">http://www.cnblogs.com/penghuwan/p/7194133.html</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/60577972">https://www.zhihu.com/question/60577972</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35493203">https://zhuanlan.zhihu.com/p/35493203</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/59ffb4b66fb9a04512385402">https://juejin.im/post/59ffb4b66fb9a04512385402</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fengxiongZz/p/8191503.html">https://www.cnblogs.com/fengxiongZz/p/8191503.html</a><br><a target="_blank" rel="noopener" href="https://yuchengkai.cn/docs/zh/frontend/">https://yuchengkai.cn/docs/zh/frontend/</a><br><a target="_blank" rel="noopener" href="https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/doctype-and-brower-render.html">https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/doctype-and-brower-render.html</a><br><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers">https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/FEGuideTeam/FEGuide/blob/master/%E6%A1%86%E6%9E%B6/vue.md">https://github.com/FEGuideTeam/FEGuide/blob/master/%E6%A1%86%E6%9E%B6/vue.md</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5bc92e9ce51d450e8e777136">https://juejin.im/post/5bc92e9ce51d450e8e777136</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5c0e68ec6fb9a04a01642925">https://juejin.im/post/5c0e68ec6fb9a04a01642925</a></p>
+<p>2022面试题<br><a target="_blank" rel="noopener" href="https://barryyeee.github.io/InterviewGuide/">https://barryyeee.github.io/InterviewGuide/</a><br><a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes">https://github.com/CyC2018/CS-Notes</a><br><a target="_blank" rel="noopener" href="https://github.com/huihut/interview">https://github.com/huihut/interview</a><br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/leetcode">https://github.com/azl397985856/leetcode</a><br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/fe-interview">https://github.com/azl397985856/fe-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/jiajunhua/imhuay-Algorithm_Interview_Notes-Chinese">https://github.com/jiajunhua/imhuay-Algorithm_Interview_Notes-Chinese</a><br><a target="_blank" rel="noopener" href="https://github.com/WenDesi/lihang_book_algorithm">https://github.com/WenDesi/lihang_book_algorithm</a><br><a target="_blank" rel="noopener" href="https://github.com/julycoding/The-Art-Of-Programming-By-July">https://github.com/julycoding/The-Art-Of-Programming-By-July</a><br><a target="_blank" rel="noopener" href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource">https://github.com/helloqingfeng/Awsome-Front-End-learning-resource</a><br><a target="_blank" rel="noopener" href="https://github.com/poetries/FE-Interview-Questions">https://github.com/poetries/FE-Interview-Questions</a><br><a target="_blank" rel="noopener" href="https://space.bilibili.com/9099840/video">https://space.bilibili.com/9099840/video</a><br><a target="_blank" rel="noopener" href="https://jishuin.proginn.com/p/763bfbd23be3">https://jishuin.proginn.com/p/763bfbd23be3</a><br><a target="_blank" rel="noopener" href="https://github.com/phodal/fe">https://github.com/phodal/fe</a><br><a target="_blank" rel="noopener" href="https://github.com/lefex/FE">https://github.com/lefex/FE</a><br><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview">https://github.com/haizlin/fe-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/lgwebdream/FE-Interview">https://github.com/lgwebdream/FE-Interview</a></p>
+<p>2022年算法知识集合<br><a target="_blank" rel="noopener" href="https://leetcode.cn/">https://leetcode.cn/</a><br>Leetcode<br><a target="_blank" rel="noopener" href="https://www.gitbook.com/book/siddontang/leetcode-solution/details">https://www.gitbook.com/book/siddontang/leetcode-solution/details</a><br>LeetCode题解<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38005681">https://zhuanlan.zhihu.com/p/38005681</a><br>如何高效使用 LeetCode<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/280279208/">https://www.zhihu.com/question/280279208/</a><br>大家都是如何刷 LeetCode 的？<br><a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">https://github.com/MisterBooo/LeetCodeAnimation</a><br>用动画的形式呈现解LeetCode题目的思路<br><a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com/</a><br>代码随想录<br><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/">https://labuladong.github.io/algo/</a><br>LABULADONG 的算法网站</p>
+ <div class="pdf-container" data-target="./前端面试题整合.pdf" data-height="500px"></div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">html面试题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -516,132 +1069,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/" class="post-title-link" itemprop="url">面试题集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-21 16:09:35" itemprop="dateModified" datetime="2022-08-21T16:09:35+08:00">2022-08-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="面试题集"><a href="#面试题集" class="headerlink" title="面试题集"></a>面试题集</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxODE4MTEzMA==&mid=2650081252&idx=1&sn=1fedc422a3806fa1f9c3faf31bb2a20b&chksm=83db9a81b4ac1397132de99ebdbdbdad57dcc6785d0b8fe1a5ee2b57dbb960b0fbf65015c3ca&scene=126&sessionid=1603760808&key=54ce6b15dc70fa94e4cee849718a95dcb45463880bfbf73a52f6e49f4e4a65fb8adec9e1c54df8bf81bfa1d78626a8537229cc36083224e425c795f892103475ca5f06542d47eec5dabc5d55c77dc7f9fabc4524bbc83cf94060d9236d1061a0fa026db04b47ae38fdfd65662df5549a11d6cd60ff371f5492081a022254d0e7&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AXrZ8Ft8M/kmfXMdRQOHyYs=&pass_ticket=Kkp6C7aNRW+SS3CyH29rTpuzIryrfuzR2BkuJOMPRmZ73lUqRYKqbJR1nz5SlRhp&wx_header=0">面试题 1</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247486750&idx=1&sn=d7e13a8393b83ac330d9b48690428c0e&chksm=fa2bedf7cd5c64e19fcafbe4dab742b65cfe168ad567f3f799b5fc229a35710eb4164084897c&scene=126&sessionid=1602725812&key=6664ac14267ba66883c13581e1d9e62b3ffc7ddfc44d1984c762bde82d19131986d5d9af50595ab1d798e16e45eddd68ded75929bfc6217a87ec0dcacb393b0aa10b53bcd066f65c7865905a425d129f9f1f110464e3a8faa5601a1b7a192f46240134dd033c0bacd43e93b0b51701140f106a0a52acfaabf76e8fee9f2cae06&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=Adc0WAca8bFpyYT3RtaxAjo=&pass_ticket=gNZw604QfgMyZ5MfqQB17Zb9G0KO/y/Gpe3+UhEBieJBkyQwt1xU8LnZyQLLT598&wx_header=0">面试题 2</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI2NTk2NzUxNg==&mid=2247488674&idx=1&sn=3f5c6af2c52365525aa84ff92b9f865b&chksm=ea941651dde39f4790e96e2d8f2530fa23257afb50de8d40d6d318507b873f9d870c0f507863&mpshare=1&scene=1&srcid=1026yMwvhU6WsEBstdZUyIgl&sharer_sharetime=1603682665969&sharer_shareid=1b2206d548f7c54418de346a0102e46f&key=041bb01ba83758f9c012f304255f853e521afbe7bbf65555a0e068f76f2c433eea39d0413b426b59a870039c71945328b288292bbbbac9811706f2f09f6716c482684831e94eab0b6935f37a6a5c8892d4ca9ecd897e139bf608b85a18e8ee5339e931c56cc60e39443738eeb63253718488c0322710c61a17510cbfa97910cb&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AQ+cZHmGMZ8MBH/qQ1l2YVc=&pass_ticket=L+jndQVDhQl1X8R7c+wxUxrwQN/fivdCt7LVG0oUoik5qA1Gx2ZTiVGm+4shiHQn&wx_header=0">源码面试题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions">前端开发面试题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/">WEB 前端面试宝典</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/shfshanyue/blog/blob/master/post/juejin-interview.md">掘金前端面试题合集</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://yuchengkai.cn/">前端面试图谱</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/issues/47">前端面试开源项目汇总 | Github 上 100K+ Star 的前端面试开源项目汇总</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.poetries.top/FE-Interview-Questions/">前端面试常考问题整理 | 按模块和知识点分类</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/column/6964717704712290317">2021 前端面试题集</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://h5bp.org/Front-end-Developer-Interview-Questions/">Front-end Developer Interview Questions</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/InterviewMap/CS-Interview-Knowledge-Map">CS-Interview-knowledge-Map</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/shfshanyue/Daily-Question">Daily-Question</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question">Daily-Interview-Question</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://lucifer.ren/fe-interview">fe-interview 大前端面试宝典</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/blob/master/interview/fe-interview.md">前端硬核面试专题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problemset/all">LeetCode 算法试题学习</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/">LeetCode 算法试题学习</a></p>
-</li>
-</ul>
-<p>2021面试题<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/penghuwan/p/7194133.html">http://www.cnblogs.com/penghuwan/p/7194133.html</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/60577972">https://www.zhihu.com/question/60577972</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35493203">https://zhuanlan.zhihu.com/p/35493203</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/59ffb4b66fb9a04512385402">https://juejin.im/post/59ffb4b66fb9a04512385402</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fengxiongZz/p/8191503.html">https://www.cnblogs.com/fengxiongZz/p/8191503.html</a><br><a target="_blank" rel="noopener" href="https://yuchengkai.cn/docs/zh/frontend/">https://yuchengkai.cn/docs/zh/frontend/</a><br><a target="_blank" rel="noopener" href="https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/doctype-and-brower-render.html">https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/doctype-and-brower-render.html</a><br><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers">https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/FEGuideTeam/FEGuide/blob/master/%E6%A1%86%E6%9E%B6/vue.md">https://github.com/FEGuideTeam/FEGuide/blob/master/%E6%A1%86%E6%9E%B6/vue.md</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5bc92e9ce51d450e8e777136">https://juejin.im/post/5bc92e9ce51d450e8e777136</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5c0e68ec6fb9a04a01642925">https://juejin.im/post/5c0e68ec6fb9a04a01642925</a></p>
-<p>2022面试题<br><a target="_blank" rel="noopener" href="https://barryyeee.github.io/InterviewGuide/">https://barryyeee.github.io/InterviewGuide/</a><br><a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes">https://github.com/CyC2018/CS-Notes</a><br><a target="_blank" rel="noopener" href="https://github.com/huihut/interview">https://github.com/huihut/interview</a><br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/leetcode">https://github.com/azl397985856/leetcode</a><br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/fe-interview">https://github.com/azl397985856/fe-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/jiajunhua/imhuay-Algorithm_Interview_Notes-Chinese">https://github.com/jiajunhua/imhuay-Algorithm_Interview_Notes-Chinese</a><br><a target="_blank" rel="noopener" href="https://github.com/WenDesi/lihang_book_algorithm">https://github.com/WenDesi/lihang_book_algorithm</a><br><a target="_blank" rel="noopener" href="https://github.com/julycoding/The-Art-Of-Programming-By-July">https://github.com/julycoding/The-Art-Of-Programming-By-July</a><br><a target="_blank" rel="noopener" href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource">https://github.com/helloqingfeng/Awsome-Front-End-learning-resource</a><br><a target="_blank" rel="noopener" href="https://github.com/poetries/FE-Interview-Questions">https://github.com/poetries/FE-Interview-Questions</a><br><a target="_blank" rel="noopener" href="https://space.bilibili.com/9099840/video">https://space.bilibili.com/9099840/video</a><br><a target="_blank" rel="noopener" href="https://jishuin.proginn.com/p/763bfbd23be3">https://jishuin.proginn.com/p/763bfbd23be3</a><br><a target="_blank" rel="noopener" href="https://github.com/phodal/fe">https://github.com/phodal/fe</a><br><a target="_blank" rel="noopener" href="https://github.com/lefex/FE">https://github.com/lefex/FE</a><br><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview">https://github.com/haizlin/fe-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/lgwebdream/FE-Interview">https://github.com/lgwebdream/FE-Interview</a></p>
-<p>2022年算法知识集合<br><a target="_blank" rel="noopener" href="https://leetcode.cn/">https://leetcode.cn/</a><br>Leetcode<br><a target="_blank" rel="noopener" href="https://www.gitbook.com/book/siddontang/leetcode-solution/details">https://www.gitbook.com/book/siddontang/leetcode-solution/details</a><br>LeetCode题解<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38005681">https://zhuanlan.zhihu.com/p/38005681</a><br>如何高效使用 LeetCode<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/280279208/">https://www.zhihu.com/question/280279208/</a><br>大家都是如何刷 LeetCode 的？<br><a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">https://github.com/MisterBooo/LeetCodeAnimation</a><br>用动画的形式呈现解LeetCode题目的思路<br><a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com/</a><br>代码随想录<br><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/">https://labuladong.github.io/algo/</a><br>LABULADONG 的算法网站</p>
- <div class="pdf-container" data-target="./前端面试题整合.pdf" data-height="500px"></div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/css%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -678,7 +1105,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-11 17:14:54" itemprop="dateModified" datetime="2023-01-11T17:14:54+08:00">2023-01-11</time>
+      <time title="修改时间：2023-02-28 10:03:22" itemprop="dateModified" datetime="2023-02-28T10:03:22+08:00">2023-02-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -890,91 +1317,13 @@
 <p>解决高度塌陷的问题：在对子元素设置浮动之后，父元素会发生高度塌陷，也就是父元素的高度为 0，解决这个问题，只需要把父元素变成一个 BFC。常用的办法是给父元素设置overflow：hidden。</p>
 <p>创建自适应两栏布局：可以用来创建自适应两栏布局：左边的宽度固定，右边的宽度自适应。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line"><span class="attribute">background</span>: red;</span><br><span class="line"><span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">300px</span>;</span><br><span class="line"><span class="attribute">background</span>:blue;</span><br><span class="line"><span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 左侧设置float：left，右侧设置overflow：hidden。这样右边就触发BFC，BFC的区域不会与浮动元素发生重叠，所以两侧就不会发生重叠，实现自适应两栏布局 */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="惊艳一时的-CSS-属性"><a href="#惊艳一时的-CSS-属性" class="headerlink" title="惊艳一时的 CSS 属性"></a>惊艳一时的 CSS 属性</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/52BXTOtw_lj0agg-N87vqw">惊艳一时的 CSS 属性</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Wzy6mlwmXscEgX91G0LvcA">CSS 视口单位：svh、lvh、dvh！</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/j7GCzc_rkuauvTU1tuNBwA">图片的性能优化及体验优化</a></li>
+</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">html面试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-11 09:23:24" itemprop="dateModified" datetime="2022-07-11T09:23:24+08:00">2022-07-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
 
@@ -1036,7 +1385,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-12-07 15:37:26" itemprop="dateModified" datetime="2022-12-07T15:37:26+08:00">2022-12-07</time>
+      <time title="修改时间：2023-03-21 16:38:38" itemprop="dateModified" datetime="2023-03-21T16:38:38+08:00">2023-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1200,152 +1549,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">webpack面试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-31 11:06:22" itemprop="dateModified" datetime="2022-10-31T11:06:22+08:00">2022-10-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="有-没-有-做-过-优-化-相-关-的-？-webpack-做-了-哪-些-优-化"><a href="#有-没-有-做-过-优-化-相-关-的-？-webpack-做-了-哪-些-优-化" class="headerlink" title="有 没 有 做 过 优 化 相 关 的 ？ webpack 做 了 哪 些 优 化"></a>有 没 有 做 过 优 化 相 关 的 ？ webpack 做 了 哪 些 优 化</h2><h2 id="cache-loader-和-hard-source-webpack-plugin-的-区-别是-什-么-？"><a href="#cache-loader-和-hard-source-webpack-plugin-的-区-别是-什-么-？" class="headerlink" title="cache-loader 和 hard-source-webpack-plugin 的 区 别是 什 么 ？"></a>cache-loader 和 hard-source-webpack-plugin 的 区 别是 什 么 ？</h2><h2 id="Babel-profill：怎么把-es6-转化为-es5，兼容-ie"><a href="#Babel-profill：怎么把-es6-转化为-es5，兼容-ie" class="headerlink" title="Babel-profill：怎么把 es6 转化为 es5，兼容 ie"></a>Babel-profill：怎么把 es6 转化为 es5，兼容 ie</h2><ul>
-<li><p>Parser 解析<br>第一步主要是将 ES6 语法解析为 AST 抽象语法树。</p>
-</li>
-<li><p>Transformer 转换<br>第二步是将打散的 AST 语法通过配置好的 plugins 和 presets 转换成新的 AST 语法。这一步主要是由 babel-transform 插件完成。plugins 和 presets 通常在 .babelrc 文件中配置。</p>
-</li>
-<li><p>Generator 生成<br>第三步是将新的 AST 语法树对象再生成浏览器都可以识别的 ES5 语法。这一步主要是由 babel-generator 插件完成</p>
-<p>我们写的原始代码、<br>1.–&gt;parse(解析)阶段，通过–&gt;babylon 工具做代码的解析转换为–&gt;AST(抽象语法树)<br>2.–&gt;transform(改变)阶段，<br>通过—&gt;babel-traverse 工具，把代码转为 es5 或 es3，如果 babel 没有达到我们的预期 babel 还提供了很多插件可以继续转换到–&gt;AST 阶段<br>3.AST(抽象语法树)阶段–&gt;<br>通过 plugin 工具处理过滤代码(删除代码、增加代码)，在 AST 语法树上改，改完之后到—&gt;AST 这个树上，到—&gt;generator 阶段，<br>4.—&gt;generator(生成、生产)阶段<br>通过—&gt;babel-generator 工具处理还原代码，变成浏览器所识别的文本到—&gt;code,我们看到的最后编译后的代码</p>
-</li>
-</ul>
-<h2 id="webpack-plugin-的-原-理-是-什-么-？"><a href="#webpack-plugin-的-原-理-是-什-么-？" class="headerlink" title="webpack plugin 的 原 理 是 什 么 ？"></a>webpack plugin 的 原 理 是 什 么 ？</h2><h2 id="plugin-中-有-异-步-请-求-会-阻-塞-后-面-的-plugin-吗-？"><a href="#plugin-中-有-异-步-请-求-会-阻-塞-后-面-的-plugin-吗-？" class="headerlink" title="plugin 中 有 异 步 请 求 会 阻 塞 后 面 的 plugin 吗 ？"></a>plugin 中 有 异 步 请 求 会 阻 塞 后 面 的 plugin 吗 ？</h2><h2 id="webpack-的-性-能-优-化-？"><a href="#webpack-的-性-能-优-化-？" class="headerlink" title="webpack 的 性 能 优 化 ？"></a>webpack 的 性 能 优 化 ？</h2><h2 id="hard-sour-c-e-webpack-plugin-是-怎-么-做-缓-存-的-？-修-改-文-件-后-会怎-么-样-？"><a href="#hard-sour-c-e-webpack-plugin-是-怎-么-做-缓-存-的-？-修-改-文-件-后-会怎-么-样-？" class="headerlink" title="hard-sour c e-webpack-plugin 是 怎 么 做 缓 存 的 ？ 修 改 文 件 后 会怎 么 样 ？"></a>hard-sour c e-webpack-plugin 是 怎 么 做 缓 存 的 ？ 修 改 文 件 后 会怎 么 样 ？</h2><h2 id="parallel-的-原-理-是-什-么-？-多-个-子-进-程-怎-么-通-信-？"><a href="#parallel-的-原-理-是-什-么-？-多-个-子-进-程-怎-么-通-信-？" class="headerlink" title="parallel 的 原 理 是 什 么 ？ 多 个 子 进 程 怎 么 通 信 ？"></a>parallel 的 原 理 是 什 么 ？ 多 个 子 进 程 怎 么 通 信 ？</h2><h2 id="webpack-与-gulp-grunt"><a href="#webpack-与-gulp-grunt" class="headerlink" title="webpack 与 gulp/grunt"></a>webpack 与 gulp/grunt</h2><ul>
-<li>webpack 是一种模块化打包工具，主要用于模块化方案，预编译模块的方案。</li>
-<li>Grunt/Gulp 是非模块化打包工具, 是工具链，可以配合各种插件做 js 压缩，css 压缩，less 编译 替代手工实现自动化工作</li>
-</ul>
-<h2 id="webpack-的核心概念"><a href="#webpack-的核心概念" class="headerlink" title="webpack 的核心概念"></a>webpack 的核心概念</h2><ul>
-<li>Entry：入口，Webpack 进行打包的起始点(文件)</li>
-<li>Output：出口，webpack 编译打包生成的 bundle(文件)</li>
-<li>Loader：模块加载(转换)器，将非 js 模块包装成 webpack 能理解的 js 模块</li>
-<li>Plugin：插件，在 Webpack 构建流程中的特定时机插入具有特定功能的代码</li>
-<li>Module：模块，在 Webpack 眼里一切皆模块，默认只识别 js 文件, 如果是其它类型文件利用对应的 loader 转换为 js 模块</li>
-<li>Chunk/bundle：代码块/束，一个 Chunk 由多个模块组合而成, 最终浏览器执行的是 webpack 打包生成的 chunk 文件</li>
-</ul>
-<h2 id="有哪些常见的Loader？他们是解决什么问题的？"><a href="#有哪些常见的Loader？他们是解决什么问题的？" class="headerlink" title="有哪些常见的Loader？他们是解决什么问题的？"></a>有哪些常见的Loader？他们是解决什么问题的？</h2><ul>
-<li>file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件</li>
-<li>url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去</li>
-<li>source-map-loader：加载额外的 Source Map 文件，以方便断点调试</li>
-<li>image-loader：加载并且压缩图片文件</li>
-<li>babel-loader：把 ES6 转换成 ES5</li>
-<li>css-loader：加载 CSS，支持模块化、压缩、文件导入等特性</li>
-<li>style-loader：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS。</li>
-<li>eslint-loader：通过 ESLint 检查 JavaScript 代码</li>
-</ul>
-<h2 id="有哪些常见的Plugin？他们是解决什么问题的？"><a href="#有哪些常见的Plugin？他们是解决什么问题的？" class="headerlink" title="有哪些常见的Plugin？他们是解决什么问题的？"></a>有哪些常见的Plugin？他们是解决什么问题的？</h2><p>html-webpack-plugin：可以复制一个有结构的html文件，并自动引入打包输出的所有资源（JS/CSS）<br>clean-webpack-plugin：重新打包自动清空 dist 目录<br>mini-css-extract-plugin：提取 js 中的 css 成单独文件<br>optimize-css-assets-webpack-plugin：压缩css<br>uglifyjs-webpack-plugin：压缩js<br>commons-chunk-plugin：提取公共代码</p>
-<h2 id="webpack-模块化打包的基本流程"><a href="#webpack-模块化打包的基本流程" class="headerlink" title="webpack 模块化打包的基本流程"></a>webpack 模块化打包的基本流程</h2><ul>
-<li>连接: webpack 从入口 JS 开始, 递归查找出所有相关联的模块, 并<code>连接</code>起来形成一个图(网)的结构</li>
-<li>编译: 将 JS 模块中的模块化语法<code>编译</code>为浏览器可以直接运行的模块语法(当然其它类型资源也会处理)</li>
-<li>合并: 将图中所有编译过的模块<code>合并</code>成一个或少量几个 bundle 文件, 而浏览器运行是打包生成的 bundle 文件</li>
-</ul>
-<h2 id="比较-loader-与-plugin"><a href="#比较-loader-与-plugin" class="headerlink" title="比较 loader 与 plugin"></a>比较 loader 与 plugin</h2><p><strong>不同的作用</strong></p>
-<ul>
-<li><strong>Loader</strong>直译为”加载器”。Webpack 将一切文件视为模块，但是 webpack 原生是只能解析 js 文件，如果想将其他文件也打包的话，就会用到 loader。 所以 Loader 的作用是让 webpack 拥有了加载和解析非 JavaScript 文件的能力。</li>
-<li><strong>Plugin</strong>直译为”插件”。Plugin 可以扩展 webpack 的功能，让 webpack 具有更多的灵活性。 在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</li>
-</ul>
-<p><strong>不同的用法</strong></p>
-<ul>
-<li><strong>Loader</strong>在 module.rules 中配置，也就是说他作为模块的解析规则而存在。 类型为数组，每一项都是一个 Object，里面描述了对于什么类型的文件（test），使用什么加载(loader)和使用的参数（options）</li>
-<li><strong>Plugin</strong>在 plugins 中单独配置。 类型为数组，每一项是一个 plugin 的实例，参数都通过构造函数传入。</li>
-</ul>
-<h2 id="webpack-打包后文件体积过大怎么办"><a href="#webpack-打包后文件体积过大怎么办" class="headerlink" title="webpack 打包后文件体积过大怎么办"></a>webpack 打包后文件体积过大怎么办</h2><ul>
-<li>异步加载模块（代码分割）；提取第三方库（使用 cdn 或者 vender）；代码压缩；去除不必要的插件；去除 devtool 选项等等</li>
-</ul>
-<h2 id="webpack-的-Tree-shaking-是什么"><a href="#webpack-的-Tree-shaking-是什么" class="headerlink" title="webpack 的 Tree-shaking 是什么?"></a>webpack 的 Tree-shaking 是什么?</h2><ul>
-<li>Webpack 在打包 js 模块时, 会将模块中向外暴露但没有被使用的功能从打包文件中移除<br>2 个前提:<br>必须是使用 ES6 的 export 向外暴露的<br>必须进行 JS 的压缩处理</li>
-</ul>
-<h2 id="live-reload-与-hot-realod-HMR"><a href="#live-reload-与-hot-realod-HMR" class="headerlink" title="live-reload 与 hot-realod/HMR"></a>live-reload 与 hot-realod/HMR</h2><ul>
-<li>相同点: 代码修改后都会自动重新编译打包</li>
-<li>不同点:<ul>
-<li>live-reload: 刷新整体页面, 从而查看到最新代码的效果, 页面状态全部都是新的</li>
-<li>Hot-reload: 没有刷新整个页面, 只是加载了修改模块的打包文件并运行,从而更新页面的局部界面, 整个界面的其它部分的状态还在</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://juejin.cn/post/7011765691812413476" alt="webpack"></p>
-<h2 id="resolve-alias-字符串替换"><a href="#resolve-alias-字符串替换" class="headerlink" title="resolve.alias 字符串替换"></a>resolve.alias 字符串替换</h2><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/vue%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1382,7 +1585,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-22 09:36:03" itemprop="dateModified" datetime="2022-09-22T09:36:03+08:00">2022-09-22</time>
+      <time title="修改时间：2023-03-16 18:04:05" itemprop="dateModified" datetime="2023-03-16T18:04:05+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1436,6 +1639,29 @@
 <p>对于实现 macrotasks ，会先判断是否能使用 <code>setImmediate</code> ，不能的话降级为 <code>MessageChannel</code> ，以上都不行的话就使用 <code>setTimeout</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> setImmediate !== <span class="string">&#x27;undefined&#x27;</span> &amp;&amp; isNative(setImmediate)) &#123;</span><br><span class="line">  macroTimerFunc = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setImmediate(flushCallbacks)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (</span><br><span class="line">  <span class="keyword">typeof</span> MessageChannel !== <span class="string">&#x27;undefined&#x27;</span> &amp;&amp;</span><br><span class="line">  (isNative(MessageChannel) ||</span><br><span class="line">    <span class="comment">// PhantomJS</span></span><br><span class="line">    MessageChannel.toString() === <span class="string">&#x27;[object MessageChannelConstructor]&#x27;</span>)</span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">const</span> channel = <span class="keyword">new</span> MessageChannel()</span><br><span class="line">  <span class="keyword">const</span> port = channel.port2</span><br><span class="line">  channel.port1.onmessage = flushCallbacks</span><br><span class="line">  macroTimerFunc = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    port.postMessage(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  macroTimerFunc = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(flushCallbacks, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="vue3-为什么比vue2-快"><a href="#vue3-为什么比vue2-快" class="headerlink" title="vue3 为什么比vue2 快"></a>vue3 为什么比vue2 快</h2><p><a target="_blank" rel="noopener" href="https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PkhlbGxvIFdvcmxkPC9kaXY+XHJcbjxkaXY+SGVsbG8gV29ybGQ8L2Rpdj5cclxuPGRpdj5IZWxsbyBXb3JsZDwvZGl2PlxyXG48ZGl2PkhlbGxvIFdvcmxkPC9kaXY+XHJcbjxkaXY+e3ttZXNzfX08L2Rpdj4iLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=">https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PkhlbGxvIFdvcmxkPC9kaXY+XHJcbjxkaXY+SGVsbG8gV29ybGQ8L2Rpdj5cclxuPGRpdj5IZWxsbyBXb3JsZDwvZGl2PlxyXG48ZGl2PkhlbGxvIFdvcmxkPC9kaXY+XHJcbjxkaXY+e3ttZXNzfX08L2Rpdj4iLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=</a></p>
+<h3 id="proxy-响应式"><a href="#proxy-响应式" class="headerlink" title="proxy 响应式"></a>proxy 响应式</h3><h3 id="patchFlag-静态标记"><a href="#patchFlag-静态标记" class="headerlink" title="patchFlag 静态标记"></a>patchFlag 静态标记</h3><ul>
+<li>编译模板时，动态节点做标记</li>
+<li>标记，分为不同的类型，如TEXT PROPS</li>
+<li>diff 算法时，可以区分静态节点，以及不同类型的动态节点</li>
+</ul>
+<h3 id="hoistStatic"><a href="#hoistStatic" class="headerlink" title="hoistStatic"></a>hoistStatic</h3><ul>
+<li>将静态节点的定义，提升到父作用域，缓存起来</li>
+<li>多个相邻的静态节点，会被合并起来 变异优化</li>
+<li>典型的拿空间换时间的优化策略</li>
+</ul>
+<h3 id="cacheHandler"><a href="#cacheHandler" class="headerlink" title="cacheHandler"></a>cacheHandler</h3><ul>
+<li>缓存事件</li>
+</ul>
+<h3 id="SSR优化"><a href="#SSR优化" class="headerlink" title="SSR优化"></a>SSR优化</h3><ul>
+<li>静态节点直接输出 绕过vdom</li>
+<li>动态节点还是动态渲染</li>
+</ul>
+<h3 id="tree-shaking"><a href="#tree-shaking" class="headerlink" title="tree shaking"></a>tree shaking</h3><h2 id="Composition-API和-React-Hooks-对比"><a href="#Composition-API和-React-Hooks-对比" class="headerlink" title="Composition API和 React Hooks 对比"></a>Composition API和 React Hooks 对比</h2><ul>
+<li>前者 setup 只会被调用一次，而后者函数会被多次调用</li>
+<li>前者无需 useMemo useCallback ，因为 setup 只调用一次</li>
+<li>前者无需顾虑调用顺序，而后者需要保证 hooks 的顺序一致</li>
+</ul>
 <h2 id="vue面试题"><a href="#vue面试题" class="headerlink" title="vue面试题"></a>vue面试题</h2><p>[vue面试题]<a target="_blank" rel="noopener" href="https://github.com/57code/vue-interview">https://github.com/57code/vue-interview</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       

@@ -152,18 +152,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -193,6 +193,331 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">webpack面试题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-31 11:06:22" itemprop="dateModified" datetime="2022-10-31T11:06:22+08:00">2022-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="有-没-有-做-过-优-化-相-关-的-？-webpack-做-了-哪-些-优-化"><a href="#有-没-有-做-过-优-化-相-关-的-？-webpack-做-了-哪-些-优-化" class="headerlink" title="有 没 有 做 过 优 化 相 关 的 ？ webpack 做 了 哪 些 优 化"></a>有 没 有 做 过 优 化 相 关 的 ？ webpack 做 了 哪 些 优 化</h2><h2 id="cache-loader-和-hard-source-webpack-plugin-的-区-别是-什-么-？"><a href="#cache-loader-和-hard-source-webpack-plugin-的-区-别是-什-么-？" class="headerlink" title="cache-loader 和 hard-source-webpack-plugin 的 区 别是 什 么 ？"></a>cache-loader 和 hard-source-webpack-plugin 的 区 别是 什 么 ？</h2><h2 id="Babel-profill：怎么把-es6-转化为-es5，兼容-ie"><a href="#Babel-profill：怎么把-es6-转化为-es5，兼容-ie" class="headerlink" title="Babel-profill：怎么把 es6 转化为 es5，兼容 ie"></a>Babel-profill：怎么把 es6 转化为 es5，兼容 ie</h2><ul>
+<li><p>Parser 解析<br>第一步主要是将 ES6 语法解析为 AST 抽象语法树。</p>
+</li>
+<li><p>Transformer 转换<br>第二步是将打散的 AST 语法通过配置好的 plugins 和 presets 转换成新的 AST 语法。这一步主要是由 babel-transform 插件完成。plugins 和 presets 通常在 .babelrc 文件中配置。</p>
+</li>
+<li><p>Generator 生成<br>第三步是将新的 AST 语法树对象再生成浏览器都可以识别的 ES5 语法。这一步主要是由 babel-generator 插件完成</p>
+<p>我们写的原始代码、<br>1.–&gt;parse(解析)阶段，通过–&gt;babylon 工具做代码的解析转换为–&gt;AST(抽象语法树)<br>2.–&gt;transform(改变)阶段，<br>通过—&gt;babel-traverse 工具，把代码转为 es5 或 es3，如果 babel 没有达到我们的预期 babel 还提供了很多插件可以继续转换到–&gt;AST 阶段<br>3.AST(抽象语法树)阶段–&gt;<br>通过 plugin 工具处理过滤代码(删除代码、增加代码)，在 AST 语法树上改，改完之后到—&gt;AST 这个树上，到—&gt;generator 阶段，<br>4.—&gt;generator(生成、生产)阶段<br>通过—&gt;babel-generator 工具处理还原代码，变成浏览器所识别的文本到—&gt;code,我们看到的最后编译后的代码</p>
+</li>
+</ul>
+<h2 id="webpack-plugin-的-原-理-是-什-么-？"><a href="#webpack-plugin-的-原-理-是-什-么-？" class="headerlink" title="webpack plugin 的 原 理 是 什 么 ？"></a>webpack plugin 的 原 理 是 什 么 ？</h2><h2 id="plugin-中-有-异-步-请-求-会-阻-塞-后-面-的-plugin-吗-？"><a href="#plugin-中-有-异-步-请-求-会-阻-塞-后-面-的-plugin-吗-？" class="headerlink" title="plugin 中 有 异 步 请 求 会 阻 塞 后 面 的 plugin 吗 ？"></a>plugin 中 有 异 步 请 求 会 阻 塞 后 面 的 plugin 吗 ？</h2><h2 id="webpack-的-性-能-优-化-？"><a href="#webpack-的-性-能-优-化-？" class="headerlink" title="webpack 的 性 能 优 化 ？"></a>webpack 的 性 能 优 化 ？</h2><h2 id="hard-sour-c-e-webpack-plugin-是-怎-么-做-缓-存-的-？-修-改-文-件-后-会怎-么-样-？"><a href="#hard-sour-c-e-webpack-plugin-是-怎-么-做-缓-存-的-？-修-改-文-件-后-会怎-么-样-？" class="headerlink" title="hard-sour c e-webpack-plugin 是 怎 么 做 缓 存 的 ？ 修 改 文 件 后 会怎 么 样 ？"></a>hard-sour c e-webpack-plugin 是 怎 么 做 缓 存 的 ？ 修 改 文 件 后 会怎 么 样 ？</h2><h2 id="parallel-的-原-理-是-什-么-？-多-个-子-进-程-怎-么-通-信-？"><a href="#parallel-的-原-理-是-什-么-？-多-个-子-进-程-怎-么-通-信-？" class="headerlink" title="parallel 的 原 理 是 什 么 ？ 多 个 子 进 程 怎 么 通 信 ？"></a>parallel 的 原 理 是 什 么 ？ 多 个 子 进 程 怎 么 通 信 ？</h2><h2 id="webpack-与-gulp-grunt"><a href="#webpack-与-gulp-grunt" class="headerlink" title="webpack 与 gulp/grunt"></a>webpack 与 gulp/grunt</h2><ul>
+<li>webpack 是一种模块化打包工具，主要用于模块化方案，预编译模块的方案。</li>
+<li>Grunt/Gulp 是非模块化打包工具, 是工具链，可以配合各种插件做 js 压缩，css 压缩，less 编译 替代手工实现自动化工作</li>
+</ul>
+<h2 id="webpack-的核心概念"><a href="#webpack-的核心概念" class="headerlink" title="webpack 的核心概念"></a>webpack 的核心概念</h2><ul>
+<li>Entry：入口，Webpack 进行打包的起始点(文件)</li>
+<li>Output：出口，webpack 编译打包生成的 bundle(文件)</li>
+<li>Loader：模块加载(转换)器，将非 js 模块包装成 webpack 能理解的 js 模块</li>
+<li>Plugin：插件，在 Webpack 构建流程中的特定时机插入具有特定功能的代码</li>
+<li>Module：模块，在 Webpack 眼里一切皆模块，默认只识别 js 文件, 如果是其它类型文件利用对应的 loader 转换为 js 模块</li>
+<li>Chunk/bundle：代码块/束，一个 Chunk 由多个模块组合而成, 最终浏览器执行的是 webpack 打包生成的 chunk 文件</li>
+</ul>
+<h2 id="有哪些常见的Loader？他们是解决什么问题的？"><a href="#有哪些常见的Loader？他们是解决什么问题的？" class="headerlink" title="有哪些常见的Loader？他们是解决什么问题的？"></a>有哪些常见的Loader？他们是解决什么问题的？</h2><ul>
+<li>file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件</li>
+<li>url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去</li>
+<li>source-map-loader：加载额外的 Source Map 文件，以方便断点调试</li>
+<li>image-loader：加载并且压缩图片文件</li>
+<li>babel-loader：把 ES6 转换成 ES5</li>
+<li>css-loader：加载 CSS，支持模块化、压缩、文件导入等特性</li>
+<li>style-loader：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS。</li>
+<li>eslint-loader：通过 ESLint 检查 JavaScript 代码</li>
+</ul>
+<h2 id="有哪些常见的Plugin？他们是解决什么问题的？"><a href="#有哪些常见的Plugin？他们是解决什么问题的？" class="headerlink" title="有哪些常见的Plugin？他们是解决什么问题的？"></a>有哪些常见的Plugin？他们是解决什么问题的？</h2><p>html-webpack-plugin：可以复制一个有结构的html文件，并自动引入打包输出的所有资源（JS/CSS）<br>clean-webpack-plugin：重新打包自动清空 dist 目录<br>mini-css-extract-plugin：提取 js 中的 css 成单独文件<br>optimize-css-assets-webpack-plugin：压缩css<br>uglifyjs-webpack-plugin：压缩js<br>commons-chunk-plugin：提取公共代码</p>
+<h2 id="webpack-模块化打包的基本流程"><a href="#webpack-模块化打包的基本流程" class="headerlink" title="webpack 模块化打包的基本流程"></a>webpack 模块化打包的基本流程</h2><ul>
+<li>连接: webpack 从入口 JS 开始, 递归查找出所有相关联的模块, 并<code>连接</code>起来形成一个图(网)的结构</li>
+<li>编译: 将 JS 模块中的模块化语法<code>编译</code>为浏览器可以直接运行的模块语法(当然其它类型资源也会处理)</li>
+<li>合并: 将图中所有编译过的模块<code>合并</code>成一个或少量几个 bundle 文件, 而浏览器运行是打包生成的 bundle 文件</li>
+</ul>
+<h2 id="比较-loader-与-plugin"><a href="#比较-loader-与-plugin" class="headerlink" title="比较 loader 与 plugin"></a>比较 loader 与 plugin</h2><p><strong>不同的作用</strong></p>
+<ul>
+<li><strong>Loader</strong>直译为”加载器”。Webpack 将一切文件视为模块，但是 webpack 原生是只能解析 js 文件，如果想将其他文件也打包的话，就会用到 loader。 所以 Loader 的作用是让 webpack 拥有了加载和解析非 JavaScript 文件的能力。</li>
+<li><strong>Plugin</strong>直译为”插件”。Plugin 可以扩展 webpack 的功能，让 webpack 具有更多的灵活性。 在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</li>
+</ul>
+<p><strong>不同的用法</strong></p>
+<ul>
+<li><strong>Loader</strong>在 module.rules 中配置，也就是说他作为模块的解析规则而存在。 类型为数组，每一项都是一个 Object，里面描述了对于什么类型的文件（test），使用什么加载(loader)和使用的参数（options）</li>
+<li><strong>Plugin</strong>在 plugins 中单独配置。 类型为数组，每一项是一个 plugin 的实例，参数都通过构造函数传入。</li>
+</ul>
+<h2 id="webpack-打包后文件体积过大怎么办"><a href="#webpack-打包后文件体积过大怎么办" class="headerlink" title="webpack 打包后文件体积过大怎么办"></a>webpack 打包后文件体积过大怎么办</h2><ul>
+<li>异步加载模块（代码分割）；提取第三方库（使用 cdn 或者 vender）；代码压缩；去除不必要的插件；去除 devtool 选项等等</li>
+</ul>
+<h2 id="webpack-的-Tree-shaking-是什么"><a href="#webpack-的-Tree-shaking-是什么" class="headerlink" title="webpack 的 Tree-shaking 是什么?"></a>webpack 的 Tree-shaking 是什么?</h2><ul>
+<li>Webpack 在打包 js 模块时, 会将模块中向外暴露但没有被使用的功能从打包文件中移除<br>2 个前提:<br>必须是使用 ES6 的 export 向外暴露的<br>必须进行 JS 的压缩处理</li>
+</ul>
+<h2 id="live-reload-与-hot-realod-HMR"><a href="#live-reload-与-hot-realod-HMR" class="headerlink" title="live-reload 与 hot-realod/HMR"></a>live-reload 与 hot-realod/HMR</h2><ul>
+<li>相同点: 代码修改后都会自动重新编译打包</li>
+<li>不同点:<ul>
+<li>live-reload: 刷新整体页面, 从而查看到最新代码的效果, 页面状态全部都是新的</li>
+<li>Hot-reload: 没有刷新整个页面, 只是加载了修改模块的打包文件并运行,从而更新页面的局部界面, 整个界面的其它部分的状态还在</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://juejin.cn/post/7011765691812413476" alt="webpack"></p>
+<h2 id="resolve-alias-字符串替换"><a href="#resolve-alias-字符串替换" class="headerlink" title="resolve.alias 字符串替换"></a>resolve.alias 字符串替换</h2><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">前端性能优化面试题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-19 18:36:43" itemprop="dateModified" datetime="2022-09-19T18:36:43+08:00">2022-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="性能优化琐碎事"><a href="#性能优化琐碎事" class="headerlink" title="性能优化琐碎事"></a>性能优化琐碎事</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：该知识点属于性能优化领域。</span><br></pre></td></tr></table></figure>
+
+<h2 id="计算图片大小"><a href="#计算图片大小" class="headerlink" title="计算图片大小"></a>计算图片大小</h2><p>对于一张 100 <em>100 像素的图片来说，图像上有 10000 个像素点，如果每个像素的值是 <strong>RGBA</strong> 存储的话，那么也就是说每个像素有 4 个通道，每个通道 1 个字节（8 位 = 1个字节），所以该图片大小大概为 39KB（10000</em> 1 * 4 / 1024）。</p>
+<p>但是在实际项目中，一张图片可能并不需要使用那么多颜色去显示，我们可以通过减少每个像素的调色板来相应缩小图片的大小。</p>
+<p>了解了如何计算图片大小的知识，那么对于如何优化图片，想必大家已经有 2 个思路了：</p>
+<ul>
+<li><strong>减少像素点</strong></li>
+<li><strong>减少每个像素点能够显示的颜色</strong></li>
+</ul>
+<h2 id="图片加载优化"><a href="#图片加载优化" class="headerlink" title="图片加载优化"></a>图片加载优化</h2><ol>
+<li>不用图片。很多时候会使用到很多修饰类图片，其实这类修饰图片完全可以用 CSS 去代替。</li>
+<li>对于移动端来说，屏幕宽度就那么点，完全没有必要去加载原图浪费带宽。一般图片都用 CDN 加载，可以计算出适配屏幕的宽度，然后去请求相应裁剪好的图片。</li>
+<li>小图使用 base64 格式</li>
+<li>将多个图标文件整合到一张图片中（雪碧图）</li>
+<li>选择正确的图片格式：<ul>
+<li>对于能够显示 WebP 格式的浏览器尽量使用 WebP 格式。因为 WebP 格式具有更好的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量，缺点就是兼容性并不好</li>
+<li>小图使用 PNG，其实对于大部分图标这类图片，完全可以使用 SVG 代替</li>
+<li>照片使用 JPEG</li>
+</ul>
+</li>
+</ol>
+<h2 id="DNS-预解析"><a href="#DNS-预解析" class="headerlink" title="DNS 预解析"></a>DNS 预解析</h2><p>DNS 解析也是需要时间的，可以通过预解析的方式来预先获得域名所对应的 IP。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//yuchengkai.cn&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>考虑一个场景，滚动事件中会发起网络请求，但是我们并不希望用户在滚动过程中一直发起请求，而是隔一段时间发起一次，对于这种情况我们就可以使用节流。</p>
+<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>考虑一个场景，有一个按钮点击会触发网络请求，但是我们并不希望每次点击都发起网络请求，而是当用户点击按钮一段时间后没有再次点击的情况才去发起网络请求，对于这种情况我们就可以使用防抖。</p>
+<h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>在开发中，可能会遇到这样的情况。有些资源不需要马上用到，但是希望尽早获取，这时候就可以使用预加载。</p>
+<p>预加载其实是声明式的 <code>fetch</code> ，强制浏览器请求资源，并且不会阻塞 <code>onload</code> 事件，可以使用以下代码开启预加载</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>预加载可以一定程度上降低首屏的加载时间，因为可以将一些不影响首屏但重要的文件延后加载，唯一缺点就是兼容性不好。</p>
+<h2 id="预渲染"><a href="#预渲染" class="headerlink" title="预渲染"></a>预渲染</h2><p>可以通过预渲染将下载的文件预先在后台渲染，可以使用以下代码开启预渲染</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prerender&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<p>预渲染虽然可以提高页面的加载速度，但是要确保该页面大概率会被用户在之后打开，否则就是白白浪费资源去渲染。</p>
+<h2 id="懒执行"><a href="#懒执行" class="headerlink" title="懒执行"></a>懒执行</h2><p>懒执行就是将某些逻辑延迟到使用时再计算。该技术可以用于首屏优化，对于某些耗时逻辑并不需要在首屏就使用的，就可以使用懒执行。懒执行需要唤醒，一般可以通过定时器或者事件的调用来唤醒。</p>
+<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><p>懒加载就是将不关键的资源延后加载。</p>
+<p>懒加载的原理就是只加载自定义区域（通常是可视区域，但也可以是即将进入可视区域）内需要加载的东西。对于图片来说，先设置图片标签的 <code>src</code> 属性为一张占位图，将真实的图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 <code>src</code> 属性，这样图片就会去下载资源，实现了图片懒加载。</p>
+<p>懒加载不仅可以用于图片，也可以使用在别的资源上。比如进入可视区域才开始播放视频等等。</p>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>CDN 的原理是尽可能的在各个地方分布机房缓存数据，这样即使我们的根服务器远在国外，在国内的用户也可以通过国内的机房迅速加载资源。</p>
+<p>因此，我们可以将静态资源尽量使用 CDN 加载，由于浏览器对于单个域名有并发请求上限，可以考虑使用多个 CDN 域名。并且对于 CDN 加载静态资源需要注意 CDN 域名要与主站不同，否则每次请求都会带上主站的 Cookie，平白消耗流量。</p>
+<h1 id="Webpack-性能优化"><a href="#Webpack-性能优化" class="headerlink" title="Webpack 性能优化"></a>Webpack 性能优化</h1><p>在这一的章节中，我不会浪费篇幅给大家讲如何写配置文件。<strong>如果你想学习这方面的内容，那么完全可以去官网学习</strong>。在这部分的内容中，我们会聚焦于以下两个知识点，并且每一个知识点都属于高频考点：</p>
+<ul>
+<li>有哪些方式可以减少 Webpack 的打包时间</li>
+<li>有哪些方式可以让 Webpack 打出来的包更小</li>
+</ul>
+<h2 id="减少-Webpack-打包时间"><a href="#减少-Webpack-打包时间" class="headerlink" title="减少 Webpack 打包时间"></a>减少 Webpack 打包时间</h2><h3 id="优化-Loader"><a href="#优化-Loader" class="headerlink" title="优化 Loader"></a>优化 Loader</h3><p>对于 Loader 来说，影响打包效率首当其冲必属 Babel 了。因为 Babel 会将代码转为字符串生成 AST，然后对 AST 继续进行转变最后再生成新的代码，项目越大，<strong>转换代码越多，效率就越低</strong>。当然了，我们是有办法优化的。</p>
+<p>首先我们可以<strong>优化 Loader 的文件搜索范围</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// js 文件才使用 babel</span></span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        loader: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">        <span class="comment">// 只在 src 文件夹下查找</span></span><br><span class="line">        include: [resolve(<span class="string">&#x27;src&#x27;</span>)],</span><br><span class="line">        <span class="comment">// 不会去查找的路径</span></span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于 Babel 来说，我们肯定是希望只作用在 JS 代码上的，然后 <code>node_modules</code> 中使用的代码都是编译过的，所以我们也完全没有必要再去处理一遍。</p>
+<p>当然这样做还不够，我们还可以将 Babel 编译过的文件<strong>缓存</strong>起来，下次只需要编译更改过的代码文件即可，这样可以大幅度加快打包时间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loader: <span class="string">&#x27;babel-loader?cacheDirectory=true&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="HappyPack"><a href="#HappyPack" class="headerlink" title="HappyPack"></a>HappyPack</h3><p>受限于 Node 是单线程运行的，所以 Webpack 在打包的过程中也是单线程的，特别是在执行 Loader 的时候，长时间编译的任务很多，这样就会导致等待的情况。</p>
+<p><strong>HappyPack 可以将 Loader 的同步执行转换为并行的</strong>，这样就能充分利用系统资源来加快打包效率了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      include: [resolve(<span class="string">&#x27;src&#x27;</span>)],</span><br><span class="line">      exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      <span class="comment">// id 后面的内容对应下面</span></span><br><span class="line">      loader: <span class="string">&#x27;happypack/loader?id=happybabel&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">    id: <span class="string">&#x27;happybabel&#x27;</span>,</span><br><span class="line">    loaders: [<span class="string">&#x27;babel-loader?cacheDirectory&#x27;</span>],</span><br><span class="line">    <span class="comment">// 开启 4 个线程</span></span><br><span class="line">    threads: <span class="number">4</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="DllPlugin"><a href="#DllPlugin" class="headerlink" title="DllPlugin"></a>DllPlugin</h3><p><strong>DllPlugin 可以将特定的类库提前打包然后引入</strong>。这种方式可以极大的减少打包类库的次数，只有当类库更新版本才有需要重新打包，并且也实现了将公共代码抽离成单独文件的优化方案。</p>
+<p>接下来我们就来学习如何使用 DllPlugin</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单独配置在一个文件中</span></span><br><span class="line"><span class="comment">// webpack.dll.conf.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    <span class="comment">// 想统一打包的类库</span></span><br><span class="line">    vendor: [<span class="string">&#x27;react&#x27;</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    filename: <span class="string">&#x27;[name].dll.js&#x27;</span>,</span><br><span class="line">    library: <span class="string">&#x27;[name]-[hash]&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DllPlugin(&#123;</span><br><span class="line">      <span class="comment">// name 必须和 output.library 一致</span></span><br><span class="line">      name: <span class="string">&#x27;[name]-[hash]&#x27;</span>,</span><br><span class="line">      <span class="comment">// 该属性需要与 DllReferencePlugin 中一致</span></span><br><span class="line">      context: __dirname,</span><br><span class="line">      path: path.join(__dirname, <span class="string">&#x27;dist&#x27;</span>, <span class="string">&#x27;[name]-manifest.json&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们需要执行这个配置文件生成依赖文件，接下来我们需要使用 <code>DllReferencePlugin</code> 将依赖文件引入项目中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.conf.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...省略其他配置</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DllReferencePlugin(&#123;</span><br><span class="line">      context: __dirname,</span><br><span class="line">      <span class="comment">// manifest 就是之前打包出来的 json 文件</span></span><br><span class="line">      manifest: <span class="built_in">require</span>(<span class="string">&#x27;./dist/vendor-manifest.json&#x27;</span>),</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码压缩"><a href="#代码压缩" class="headerlink" title="代码压缩"></a>代码压缩</h3><p>在 Webpack3 中，我们一般使用 <code>UglifyJS</code> 来压缩代码，但是这个是单线程运行的，为了加快效率，我们可以使用 <code>webpack-parallel-uglify-plugin</code> 来并行运行 <code>UglifyJS</code>，从而提高效率。</p>
+<p>在 Webpack4 中，我们就不需要以上这些操作了，只需要将 <code>mode</code> 设置为 <code>production</code> 就可以默认开启以上功能。代码压缩也是我们必做的性能优化方案，当然我们不止可以压缩 JS 代码，还可以压缩 HTML、CSS 代码，并且在压缩 JS 代码的过程中，我们还可以通过配置实现比如删除 <code>console.log</code> 这类代码的功能。</p>
+<h3 id="一些小的优化点"><a href="#一些小的优化点" class="headerlink" title="一些小的优化点"></a>一些小的优化点</h3><p>我们还可以通过一些小的优化点来加快打包速度</p>
+<ul>
+<li><code>resolve.extensions</code>：用来表明文件后缀列表，默认查找顺序是 <code>[&#39;.js&#39;, &#39;.json&#39;]</code>，如果你的导入文件没有添加后缀就会按照这个顺序查找文件。我们应该尽可能减少后缀列表长度，然后将出现频率高的后缀排在前面</li>
+<li><code>resolve.alias</code>：可以通过别名的方式来映射一个路径，能让 Webpack 更快找到路径</li>
+<li><code>module.noParse</code>：如果你确定一个文件下没有其他依赖，就可以使用该属性让 Webpack 不扫描该文件，这种方式对于大型的类库很有帮助</li>
+</ul>
+<h2 id="减少-Webpack-打包后的文件体积"><a href="#减少-Webpack-打包后的文件体积" class="headerlink" title="减少 Webpack 打包后的文件体积"></a>减少 Webpack 打包后的文件体积</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：该内容也属于性能优化领域。</span><br></pre></td></tr></table></figure>
+
+<h3 id="按需加载"><a href="#按需加载" class="headerlink" title="按需加载"></a>按需加载</h3><p>想必大家在开发 SPA 项目的时候，项目中都会存在十几甚至更多的路由页面。如果我们将这些页面全部打包进一个 JS 文件的话，虽然将多个请求合并了，但是同样也加载了很多并不需要的代码，耗费了更长的时间。那么为了首页能更快地呈现给用户，我们肯定是希望首页能加载的文件体积越小越好，<strong>这时候我们就可以使用按需加载，将每个路由页面单独打包为一个文件</strong>。当然不仅仅路由可以按需加载，对于 <code>loadash</code> 这种大型类库同样可以使用这个功能。</p>
+<p>按需加载的代码实现这里就不详细展开了，因为鉴于用的框架不同，实现起来都是不一样的。当然了，虽然他们的用法可能不同，但是底层的机制都是一样的。都是当使用的时候再去下载对应文件，返回一个 <code>Promise</code>，当 <code>Promise</code> 成功以后去执行回调。</p>
+<h3 id="Scope-Hoisting"><a href="#Scope-Hoisting" class="headerlink" title="Scope Hoisting"></a>Scope Hoisting</h3><p><strong>Scope Hoisting 会分析出模块之间的依赖关系，尽可能的把打包出来的模块合并到一个函数中去。</strong></p>
+<p>比如我们希望打包两个文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; a &#125; <span class="keyword">from</span> <span class="string">&#x27;./test.js&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>对于这种情况，我们打包出来的代码会类似这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="comment">/* 0 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">module</span>, <span class="built_in">exports</span>, <span class="built_in">require</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/* 1 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">module</span>, <span class="built_in">exports</span>, <span class="built_in">require</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>但是如果我们使用 Scope Hoisting 的话，代码就会尽可能的合并到一个函数中去，也就变成了这样的类似代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="comment">/* 0 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">module</span>, <span class="built_in">exports</span>, <span class="built_in">require</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>这样的打包方式生成的代码明显比之前的少多了。如果在 Webpack4 中你希望开启这个功能，只需要启用 <code>optimization.concatenateModules</code> 就可以了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    concatenateModules: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree Shaking"></a>Tree Shaking</h3><p><strong>Tree Shaking 可以实现删除项目中未被引用的代码</strong>，比如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; a &#125; <span class="keyword">from</span> <span class="string">&#x27;./test.js&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>对于以上情况，<code>test</code> 文件中的变量 <code>b</code> 如果没有在项目中使用到的话，就不会被打包到文件中。</p>
+<p>如果你使用 Webpack 4 的话，开启生产环境就会自动启动这个优化功能。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -238,7 +563,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-31 11:06:22" itemprop="dateModified" datetime="2022-10-31T11:06:22+08:00">2022-10-31</time>
+      <time title="修改时间：2023-02-24 17:15:00" itemprop="dateModified" datetime="2023-02-24T17:15:00+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -451,185 +776,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">前端性能优化面试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-19 18:36:43" itemprop="dateModified" datetime="2022-09-19T18:36:43+08:00">2022-09-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="性能优化琐碎事"><a href="#性能优化琐碎事" class="headerlink" title="性能优化琐碎事"></a>性能优化琐碎事</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：该知识点属于性能优化领域。</span><br></pre></td></tr></table></figure>
-
-<h2 id="计算图片大小"><a href="#计算图片大小" class="headerlink" title="计算图片大小"></a>计算图片大小</h2><p>对于一张 100 <em>100 像素的图片来说，图像上有 10000 个像素点，如果每个像素的值是 <strong>RGBA</strong> 存储的话，那么也就是说每个像素有 4 个通道，每个通道 1 个字节（8 位 = 1个字节），所以该图片大小大概为 39KB（10000</em> 1 * 4 / 1024）。</p>
-<p>但是在实际项目中，一张图片可能并不需要使用那么多颜色去显示，我们可以通过减少每个像素的调色板来相应缩小图片的大小。</p>
-<p>了解了如何计算图片大小的知识，那么对于如何优化图片，想必大家已经有 2 个思路了：</p>
-<ul>
-<li><strong>减少像素点</strong></li>
-<li><strong>减少每个像素点能够显示的颜色</strong></li>
-</ul>
-<h2 id="图片加载优化"><a href="#图片加载优化" class="headerlink" title="图片加载优化"></a>图片加载优化</h2><ol>
-<li>不用图片。很多时候会使用到很多修饰类图片，其实这类修饰图片完全可以用 CSS 去代替。</li>
-<li>对于移动端来说，屏幕宽度就那么点，完全没有必要去加载原图浪费带宽。一般图片都用 CDN 加载，可以计算出适配屏幕的宽度，然后去请求相应裁剪好的图片。</li>
-<li>小图使用 base64 格式</li>
-<li>将多个图标文件整合到一张图片中（雪碧图）</li>
-<li>选择正确的图片格式：<ul>
-<li>对于能够显示 WebP 格式的浏览器尽量使用 WebP 格式。因为 WebP 格式具有更好的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量，缺点就是兼容性并不好</li>
-<li>小图使用 PNG，其实对于大部分图标这类图片，完全可以使用 SVG 代替</li>
-<li>照片使用 JPEG</li>
-</ul>
-</li>
-</ol>
-<h2 id="DNS-预解析"><a href="#DNS-预解析" class="headerlink" title="DNS 预解析"></a>DNS 预解析</h2><p>DNS 解析也是需要时间的，可以通过预解析的方式来预先获得域名所对应的 IP。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//yuchengkai.cn&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>考虑一个场景，滚动事件中会发起网络请求，但是我们并不希望用户在滚动过程中一直发起请求，而是隔一段时间发起一次，对于这种情况我们就可以使用节流。</p>
-<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>考虑一个场景，有一个按钮点击会触发网络请求，但是我们并不希望每次点击都发起网络请求，而是当用户点击按钮一段时间后没有再次点击的情况才去发起网络请求，对于这种情况我们就可以使用防抖。</p>
-<h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>在开发中，可能会遇到这样的情况。有些资源不需要马上用到，但是希望尽早获取，这时候就可以使用预加载。</p>
-<p>预加载其实是声明式的 <code>fetch</code> ，强制浏览器请求资源，并且不会阻塞 <code>onload</code> 事件，可以使用以下代码开启预加载</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>预加载可以一定程度上降低首屏的加载时间，因为可以将一些不影响首屏但重要的文件延后加载，唯一缺点就是兼容性不好。</p>
-<h2 id="预渲染"><a href="#预渲染" class="headerlink" title="预渲染"></a>预渲染</h2><p>可以通过预渲染将下载的文件预先在后台渲染，可以使用以下代码开启预渲染</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prerender&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-
-<p>预渲染虽然可以提高页面的加载速度，但是要确保该页面大概率会被用户在之后打开，否则就是白白浪费资源去渲染。</p>
-<h2 id="懒执行"><a href="#懒执行" class="headerlink" title="懒执行"></a>懒执行</h2><p>懒执行就是将某些逻辑延迟到使用时再计算。该技术可以用于首屏优化，对于某些耗时逻辑并不需要在首屏就使用的，就可以使用懒执行。懒执行需要唤醒，一般可以通过定时器或者事件的调用来唤醒。</p>
-<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><p>懒加载就是将不关键的资源延后加载。</p>
-<p>懒加载的原理就是只加载自定义区域（通常是可视区域，但也可以是即将进入可视区域）内需要加载的东西。对于图片来说，先设置图片标签的 <code>src</code> 属性为一张占位图，将真实的图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 <code>src</code> 属性，这样图片就会去下载资源，实现了图片懒加载。</p>
-<p>懒加载不仅可以用于图片，也可以使用在别的资源上。比如进入可视区域才开始播放视频等等。</p>
-<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>CDN 的原理是尽可能的在各个地方分布机房缓存数据，这样即使我们的根服务器远在国外，在国内的用户也可以通过国内的机房迅速加载资源。</p>
-<p>因此，我们可以将静态资源尽量使用 CDN 加载，由于浏览器对于单个域名有并发请求上限，可以考虑使用多个 CDN 域名。并且对于 CDN 加载静态资源需要注意 CDN 域名要与主站不同，否则每次请求都会带上主站的 Cookie，平白消耗流量。</p>
-<h1 id="Webpack-性能优化"><a href="#Webpack-性能优化" class="headerlink" title="Webpack 性能优化"></a>Webpack 性能优化</h1><p>在这一的章节中，我不会浪费篇幅给大家讲如何写配置文件。<strong>如果你想学习这方面的内容，那么完全可以去官网学习</strong>。在这部分的内容中，我们会聚焦于以下两个知识点，并且每一个知识点都属于高频考点：</p>
-<ul>
-<li>有哪些方式可以减少 Webpack 的打包时间</li>
-<li>有哪些方式可以让 Webpack 打出来的包更小</li>
-</ul>
-<h2 id="减少-Webpack-打包时间"><a href="#减少-Webpack-打包时间" class="headerlink" title="减少 Webpack 打包时间"></a>减少 Webpack 打包时间</h2><h3 id="优化-Loader"><a href="#优化-Loader" class="headerlink" title="优化 Loader"></a>优化 Loader</h3><p>对于 Loader 来说，影响打包效率首当其冲必属 Babel 了。因为 Babel 会将代码转为字符串生成 AST，然后对 AST 继续进行转变最后再生成新的代码，项目越大，<strong>转换代码越多，效率就越低</strong>。当然了，我们是有办法优化的。</p>
-<p>首先我们可以<strong>优化 Loader 的文件搜索范围</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// js 文件才使用 babel</span></span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        loader: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">        <span class="comment">// 只在 src 文件夹下查找</span></span><br><span class="line">        include: [resolve(<span class="string">&#x27;src&#x27;</span>)],</span><br><span class="line">        <span class="comment">// 不会去查找的路径</span></span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于 Babel 来说，我们肯定是希望只作用在 JS 代码上的，然后 <code>node_modules</code> 中使用的代码都是编译过的，所以我们也完全没有必要再去处理一遍。</p>
-<p>当然这样做还不够，我们还可以将 Babel 编译过的文件<strong>缓存</strong>起来，下次只需要编译更改过的代码文件即可，这样可以大幅度加快打包时间</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loader: <span class="string">&#x27;babel-loader?cacheDirectory=true&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="HappyPack"><a href="#HappyPack" class="headerlink" title="HappyPack"></a>HappyPack</h3><p>受限于 Node 是单线程运行的，所以 Webpack 在打包的过程中也是单线程的，特别是在执行 Loader 的时候，长时间编译的任务很多，这样就会导致等待的情况。</p>
-<p><strong>HappyPack 可以将 Loader 的同步执行转换为并行的</strong>，这样就能充分利用系统资源来加快打包效率了</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">      include: [resolve(<span class="string">&#x27;src&#x27;</span>)],</span><br><span class="line">      exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      <span class="comment">// id 后面的内容对应下面</span></span><br><span class="line">      loader: <span class="string">&#x27;happypack/loader?id=happybabel&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">    id: <span class="string">&#x27;happybabel&#x27;</span>,</span><br><span class="line">    loaders: [<span class="string">&#x27;babel-loader?cacheDirectory&#x27;</span>],</span><br><span class="line">    <span class="comment">// 开启 4 个线程</span></span><br><span class="line">    threads: <span class="number">4</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h3 id="DllPlugin"><a href="#DllPlugin" class="headerlink" title="DllPlugin"></a>DllPlugin</h3><p><strong>DllPlugin 可以将特定的类库提前打包然后引入</strong>。这种方式可以极大的减少打包类库的次数，只有当类库更新版本才有需要重新打包，并且也实现了将公共代码抽离成单独文件的优化方案。</p>
-<p>接下来我们就来学习如何使用 DllPlugin</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单独配置在一个文件中</span></span><br><span class="line"><span class="comment">// webpack.dll.conf.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    <span class="comment">// 想统一打包的类库</span></span><br><span class="line">    vendor: [<span class="string">&#x27;react&#x27;</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    filename: <span class="string">&#x27;[name].dll.js&#x27;</span>,</span><br><span class="line">    library: <span class="string">&#x27;[name]-[hash]&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DllPlugin(&#123;</span><br><span class="line">      <span class="comment">// name 必须和 output.library 一致</span></span><br><span class="line">      name: <span class="string">&#x27;[name]-[hash]&#x27;</span>,</span><br><span class="line">      <span class="comment">// 该属性需要与 DllReferencePlugin 中一致</span></span><br><span class="line">      context: __dirname,</span><br><span class="line">      path: path.join(__dirname, <span class="string">&#x27;dist&#x27;</span>, <span class="string">&#x27;[name]-manifest.json&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后我们需要执行这个配置文件生成依赖文件，接下来我们需要使用 <code>DllReferencePlugin</code> 将依赖文件引入项目中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.conf.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...省略其他配置</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DllReferencePlugin(&#123;</span><br><span class="line">      context: __dirname,</span><br><span class="line">      <span class="comment">// manifest 就是之前打包出来的 json 文件</span></span><br><span class="line">      manifest: <span class="built_in">require</span>(<span class="string">&#x27;./dist/vendor-manifest.json&#x27;</span>),</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="代码压缩"><a href="#代码压缩" class="headerlink" title="代码压缩"></a>代码压缩</h3><p>在 Webpack3 中，我们一般使用 <code>UglifyJS</code> 来压缩代码，但是这个是单线程运行的，为了加快效率，我们可以使用 <code>webpack-parallel-uglify-plugin</code> 来并行运行 <code>UglifyJS</code>，从而提高效率。</p>
-<p>在 Webpack4 中，我们就不需要以上这些操作了，只需要将 <code>mode</code> 设置为 <code>production</code> 就可以默认开启以上功能。代码压缩也是我们必做的性能优化方案，当然我们不止可以压缩 JS 代码，还可以压缩 HTML、CSS 代码，并且在压缩 JS 代码的过程中，我们还可以通过配置实现比如删除 <code>console.log</code> 这类代码的功能。</p>
-<h3 id="一些小的优化点"><a href="#一些小的优化点" class="headerlink" title="一些小的优化点"></a>一些小的优化点</h3><p>我们还可以通过一些小的优化点来加快打包速度</p>
-<ul>
-<li><code>resolve.extensions</code>：用来表明文件后缀列表，默认查找顺序是 <code>[&#39;.js&#39;, &#39;.json&#39;]</code>，如果你的导入文件没有添加后缀就会按照这个顺序查找文件。我们应该尽可能减少后缀列表长度，然后将出现频率高的后缀排在前面</li>
-<li><code>resolve.alias</code>：可以通过别名的方式来映射一个路径，能让 Webpack 更快找到路径</li>
-<li><code>module.noParse</code>：如果你确定一个文件下没有其他依赖，就可以使用该属性让 Webpack 不扫描该文件，这种方式对于大型的类库很有帮助</li>
-</ul>
-<h2 id="减少-Webpack-打包后的文件体积"><a href="#减少-Webpack-打包后的文件体积" class="headerlink" title="减少 Webpack 打包后的文件体积"></a>减少 Webpack 打包后的文件体积</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：该内容也属于性能优化领域。</span><br></pre></td></tr></table></figure>
-
-<h3 id="按需加载"><a href="#按需加载" class="headerlink" title="按需加载"></a>按需加载</h3><p>想必大家在开发 SPA 项目的时候，项目中都会存在十几甚至更多的路由页面。如果我们将这些页面全部打包进一个 JS 文件的话，虽然将多个请求合并了，但是同样也加载了很多并不需要的代码，耗费了更长的时间。那么为了首页能更快地呈现给用户，我们肯定是希望首页能加载的文件体积越小越好，<strong>这时候我们就可以使用按需加载，将每个路由页面单独打包为一个文件</strong>。当然不仅仅路由可以按需加载，对于 <code>loadash</code> 这种大型类库同样可以使用这个功能。</p>
-<p>按需加载的代码实现这里就不详细展开了，因为鉴于用的框架不同，实现起来都是不一样的。当然了，虽然他们的用法可能不同，但是底层的机制都是一样的。都是当使用的时候再去下载对应文件，返回一个 <code>Promise</code>，当 <code>Promise</code> 成功以后去执行回调。</p>
-<h3 id="Scope-Hoisting"><a href="#Scope-Hoisting" class="headerlink" title="Scope Hoisting"></a>Scope Hoisting</h3><p><strong>Scope Hoisting 会分析出模块之间的依赖关系，尽可能的把打包出来的模块合并到一个函数中去。</strong></p>
-<p>比如我们希望打包两个文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; a &#125; <span class="keyword">from</span> <span class="string">&#x27;./test.js&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>对于这种情况，我们打包出来的代码会类似这样</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="comment">/* 0 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">module</span>, <span class="built_in">exports</span>, <span class="built_in">require</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/* 1 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">module</span>, <span class="built_in">exports</span>, <span class="built_in">require</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>但是如果我们使用 Scope Hoisting 的话，代码就会尽可能的合并到一个函数中去，也就变成了这样的类似代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="comment">/* 0 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">module</span>, <span class="built_in">exports</span>, <span class="built_in">require</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>这样的打包方式生成的代码明显比之前的少多了。如果在 Webpack4 中你希望开启这个功能，只需要启用 <code>optimization.concatenateModules</code> 就可以了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    concatenateModules: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree Shaking"></a>Tree Shaking</h3><p><strong>Tree Shaking 可以实现删除项目中未被引用的代码</strong>，比如</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; a &#125; <span class="keyword">from</span> <span class="string">&#x27;./test.js&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>对于以上情况，<code>test</code> 文件中的变量 <code>b</code> 如果没有在项目中使用到的话，就不会被打包到文件中。</p>
-<p>如果你使用 Webpack 4 的话，开启生产环境就会自动启动这个优化功能。</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -750,7 +896,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-04 17:02:43" itemprop="dateModified" datetime="2023-01-04T17:02:43+08:00">2023-01-04</time>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1063,7 +1209,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-12 17:31:58" itemprop="dateModified" datetime="2023-01-12T17:31:58+08:00">2023-01-12</time>
+      <time title="修改时间：2023-01-16 09:37:20" itemprop="dateModified" datetime="2023-01-16T09:37:20+08:00">2023-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1102,6 +1248,7 @@
 <li><a target="_blank" rel="noopener" href="https://tool.lu/">tool.lu | 程序员在线工具大全</a></li>
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/u-k91GI2POwXeKSeTz8ddQ">CSS生成代码工具</a></li>
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/XutryG2ylqRP3XL4Fbz4pQ">2022年精选文章合集</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7188890491188936762#heading-2">2022年精选文章合集</a></li>
 </ul>
 <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ul>
 <li><a target="_blank" rel="noopener" href="http://justjavac.com/named-function-expressions-demystified.html">命名函数表达式探秘</a> - kangax、为之漫笔(翻译) (原始地址无法打开，所以此处地址为 justjavac 博客上的备份)</li>
@@ -1319,139 +1466,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/25/react%E7%AC%94%E8%AE%B0/react-hooks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/25/react%E7%AC%94%E8%AE%B0/react-hooks/" class="post-title-link" itemprop="url">react-hooks</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-25 10:08:09" itemprop="dateCreated datePublished" datetime="2020-10-25T10:08:09+08:00">2020-10-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-28 17:26:10" itemprop="dateModified" datetime="2022-09-28T17:26:10+08:00">2022-09-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="认识-hooks"><a href="#认识-hooks" class="headerlink" title="认识 hooks"></a>认识 hooks</h2><ul>
-<li><p>Hook 是⼀一个特殊的函数，它可以让你“钩⼊入” React 的特性。例例如， useState 是允许你在 React 函数组件中添加 state 的 Hook</p>
-</li>
-<li><p>如果你在编写函数组件并意识到需要向其添加⼀一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件中使⽤用 Hook</p>
-</li>
-<li><p>函数组件强制刷新   const [,setCount] = useState({});  不传递一个值</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HookPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 声明⼀一个叫 “count” 的 state 变量量，初始化为0</span></span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// 惰性初始 state值</span></span><br><span class="line">  <span class="keyword">const</span> [count1, setCount1] = useState(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">11111</span>); <span class="comment">// 只执行一次</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;HookPage&lt;/h3&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="使⽤-Effect-Hook"><a href="#使⽤-Effect-Hook" class="headerlink" title="使⽤ Effect Hook"></a>使⽤ Effect Hook</h2><ul>
-<li>Effect Hook 可以让你在函数组件中执⾏行行副作⽤用操作。<br>数据获取，设置订阅以及⼿手动更更改 React 组件中的 DOM 都属于副作⽤用。不不管你知不不知道这些操作，或<br>是“副作⽤用”这个名字，应该都在组件中使⽤用过它们。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HookPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 声明⼀一个叫 “count” 的 state 变量量，初始化为0</span></span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// 与 componentDidMount 和 componentDidUpdate相似</span></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 更更新 title</span></span><br><span class="line">    <span class="built_in">document</span>.title = <span class="string">`You clicked <span class="subst">$&#123;count&#125;</span> times`</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;HookPage&lt;/h3&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在函数组件主体内（这⾥里里指在 React 渲染阶段）改变 DOM、添加订阅、设置定时器器、记录⽇日志以及执<br>⾏行行其他包含副作⽤用的操作都是不不被允许的，因为这可能会产⽣生莫名其妙的 bug 并破坏 UI 的⼀一致性。<br>使⽤用 useEffect 完成副作⽤用操作。赋值给 useEffect 的函数会在组件渲染到屏幕之后执⾏行行。你可以<br>把 effect 看作从 React 的纯函数式世界通往命令式世界的逃⽣生通道。</p>
-<h2 id="effect-的条件执⾏"><a href="#effect-的条件执⾏" class="headerlink" title="effect 的条件执⾏"></a>effect 的条件执⾏</h2><p>默认情况下，effect 会在每轮组件渲染完成后执行。这样的话，一旦 effect 的依赖发⽣生变化，它就会被<br>重新创建。<br>然⽽而，在某些场景下这么做可能会矫枉过正。⽐如，在上⼀一章节的订阅示例例中，我们不需要在每次组件<br>更新时都创建新的订阅，⽽而是仅需要在 source props 改变时重新创建。<br>要实现这⼀点，可以给 useEffect 传递第⼆个参数，它是 effect 所依赖的值数组。更更新后的示例例如<br>下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HookPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 声明⼀一个叫 “count” 的 state 变量量，初始化为0</span></span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> [date, setDate] = useState(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">  <span class="comment">// 与 componentDidMount 和 componentDidUpdate相似</span></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 更更新 title</span></span><br><span class="line">    <span class="built_in">document</span>.title = <span class="string">`You clicked <span class="subst">$&#123;count&#125;</span> times`</span>;</span><br><span class="line">  &#125;, [count]);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      setDate(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;HookPage&lt;/h3&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">      &lt;p&gt;&#123;date.toLocaleTimeString()&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此时，只有当 useEffect 第⼆个参数组⾥的数值改变后才会重新创建订阅<br>但依赖项为[],在初次渲染和卸载的时候执行</p>
-<h2 id="清除-effect"><a href="#清除-effect" class="headerlink" title="清除 effect"></a>清除 effect</h2><p>组件卸载时需要清除 effect 创建的诸如订阅或计时器器 ID 等资源。要实现这⼀一点， useEffect<br>函数需返回⼀个清除函数，以防⽌止内存泄漏漏，清除函数会在组件卸载前执⾏行行。<br>执行实际<br>render -useEffect<br>render - 清理函数 - useEffect<br>render - 清理函数 - useEffect<br>render - 清理函数 - useEffect</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setDate(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
-
-<h2 id="react-hooks-竞态"><a href="#react-hooks-竞态" class="headerlink" title="react hooks 竞态"></a>react hooks 竞态</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> didSearch = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (text) &#123;</span><br><span class="line">        dispatch</span><br><span class="line">            (&#123;</span><br><span class="line">                type: <span class="string">&#x27;search/fundSearchApp&#x27;</span>,</span><br><span class="line">                payload: &#123; <span class="attr">input</span>: text, <span class="attr">pageSize</span>: <span class="number">20</span>, <span class="attr">isQueryPerformance</span>: <span class="literal">true</span> &#125;</span><br><span class="line">            &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!didSearch) &#123;</span><br><span class="line">                    setSearchList(res.searchList)</span><br><span class="line">                    setCurrent(res.current)</span><br><span class="line">                    setTotal(res.total)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        setSearchList([]);</span><br><span class="line">        setCurrent(<span class="number">1</span>);</span><br><span class="line">        setTotal(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        didSearch = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;, [text])</span><br></pre></td></tr></table></figure>
-
-<p>定义一个字段didSearch利用JS的闭包，每次都是不同的变量，在下一次text变化完成，useEffect会再次执行（渲染页面再去调用return方法再去执行useEffect），如果接口没有返回重新渲染了标识会改变使更新逻辑不再执行。</p>
-<h2 id="自定义-hooks"><a href="#自定义-hooks" class="headerlink" title="自定义 hooks"></a>自定义 hooks</h2><p>自定义 Hook 是⼀一个函数，其名称以 “use” 开头，函数内部可以调⽤用其他的 Hook。<br><code>&lt;p&gt;&#123;useClock().toLocaleTimeString()&#125;&lt;/p&gt;</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//⾃自定义hook，命名必须以use开头</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useClock</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [date, setDate] = useState(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;date effect&quot;</span>);</span><br><span class="line">    <span class="comment">//只需要在didMount时候执⾏行行就可以了了</span></span><br><span class="line">    <span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      setDate(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">    <span class="comment">//清除定时器器，类似willUnmount</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> date;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="hooks-使用规则"><a href="#hooks-使用规则" class="headerlink" title="hooks 使用规则"></a>hooks 使用规则</h2><ul>
-<li>只能在函数最外层调⽤用 Hook。不不要在循环、条件判断或者⼦子函数中调⽤用。</li>
-<li>只能在 React 的函数组件中调⽤用 Hook。不不要在其他 JavaScript 函数中调⽤用。（还有⼀一个地⽅方可<br>以调⽤用 Hook —— 就是⾃自定义的 Hook 中。）</li>
-</ul>
-<h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h2><p>把“创建”函数和依赖项数组作为参数传⼊入 useMemo ，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进⾏行行⾼高开销的计算</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useMemo &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">UseMemoPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> expensive = useMemo(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;compute&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">      sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">    <span class="comment">//只有count变化，这⾥里里才重新执⾏行行</span></span><br><span class="line">  &#125;, [count]);</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;UseMemoPage&lt;/h3&gt;</span><br><span class="line">      &lt;p&gt;expensive:&#123;expensive&#125;&lt;/p&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">      &lt;input value=&#123;value&#125; onChange=&#123;<span class="function">(<span class="params">event</span>) =&gt;</span> setValue(event.target.value)&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h2><p>把内联回调函数及依赖项数组作为参数传⼊入 useCallback ，它将返回该回调函数的 memoized 版本，<br>该回调函数仅在某个依赖项改变时才会更更新。当你把回调函数传递给经过优化的并使⽤用引⽤用相等性去避<br>免⾮非必要渲染（例例如 shouldComponentUpdate ）的⼦子组件时，它将⾮非常有⽤用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useCallback, PureComponent &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">UseCallbackPage</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> addClick = useCallback(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">      sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">  &#125;, [count]);</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;UseCallbackPage&lt;/h3&gt;</span><br><span class="line">      &lt;p&gt;&#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;add&lt;/button&gt;</span><br><span class="line">      &lt;input value=&#123;value&#125; onChange=&#123;<span class="function">(<span class="params">event</span>) =&gt;</span> setValue(event.target.value)&#125; /&gt;</span><br><span class="line">      &lt;Child addClick=&#123;addClick&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;child render&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> &#123; addClick &#125; = <span class="built_in">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h3&gt;Child&lt;/h3&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(addClick())&#125;&gt;add&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>useCallback(fn, deps) 相当于 useMemo(() =&gt; fn, deps) 。</code><br>依赖项数组不不会作为参数传给“创建”函数。虽然从概念上来说它表现为：所有“创建”函数中引⽤用的<br>值都应该出现在依赖项数组中。未来编译器器会更更加智能，届时⾃自动创建数组将成为可能</p>
-<h2 id="useRef-保存引用值"><a href="#useRef-保存引用值" class="headerlink" title="useRef(保存引用值)"></a>useRef(保存引用值)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myswiper = useRef(<span class="literal">null</span>);  </span><br><span class="line">&lt;Swiper ref=&#123;myswiper&#125;/&gt; </span><br></pre></td></tr></table></figure>
-
-<h2 id="useReducer和useContext-减少组件层级"><a href="#useReducer和useContext-减少组件层级" class="headerlink" title="useReducer和useContext(减少组件层级)"></a>useReducer和useContext(减少组件层级)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">var</span> GlobalContext= React.createContext()</span><br><span class="line"><span class="comment">// 注意此时的reduecer 返回值是一个对象 &#123;isShow:false,list:[]&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">let</span> [state,dispatch]  = useReducer(reducer,&#123;<span class="attr">isShow</span>:<span class="literal">true</span>,<span class="attr">list</span>:[]&#125;)</span><br><span class="line">  <span class="keyword">return</span>  <span class="xml"><span class="tag">&lt;<span class="name">GlobalContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="xml">    dispatch</span></span><br><span class="line"><span class="xml"> &#125;&#125;&gt;</span></span><br><span class="line">    &lt;div&gt;</span><br><span class="line">     &#123;</span><br><span class="line">        state.isShow?</span><br><span class="line">        &lt;div &gt;我是选项卡&lt;/div&gt;</span><br><span class="line">       :null</span><br><span class="line">     &#125;</span><br><span class="line">     &#123;props.children&#125;</span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">GlobalContext.Provider</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Detail</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> &#123;dispatch&#125; = useContext(GlobalContext)</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//隐藏</span></span><br><span class="line">    dispatch(&#123;</span><br><span class="line">      type:<span class="string">&quot;Hide&quot;</span>,</span><br><span class="line">      payload:<span class="literal">false</span></span><br><span class="line">   &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//显示</span></span><br><span class="line">      dispatch(&#123;</span><br><span class="line">        type:<span class="string">&quot;Show&quot;</span>,</span><br><span class="line">        payload:<span class="literal">true</span></span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;;</span><br><span class="line"> &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">    detail</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="React-forwardRef的使用方式"><a href="#React-forwardRef的使用方式" class="headerlink" title="React.forwardRef的使用方式"></a>React.forwardRef的使用方式</h2><p>引用传递（Ref forwading）是一种通过组件向子组件自动传递 引用ref 的技术。对于应用者的大多数组件来说没什<br>么作用。但是对于有些重复使用的组件，可能有用。例如某些input组件，需要控制其focus，本来是可以使用ref来<br>控制，但是因为该input已被包裹在组件中，这时就需要使用Ref forward来透过组件获得该input的引用。可以透传<br>多层</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component,forwardRef &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App_forwardRef</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  mytext=React.createRef()</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">      &lt;button type=<span class="string">&quot;button&quot;</span> onClick=&#123;<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.mytext);</span><br><span class="line">        <span class="built_in">this</span>.mytext.current.value=<span class="string">&quot;2222&quot;</span></span><br><span class="line">      &#125;&#125;&gt;获取焦点&lt;/button&gt;</span><br><span class="line">      &lt;Child ref=&#123;<span class="built_in">this</span>.mytext&#125;/&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里Child是函数式组件</span></span><br><span class="line"><span class="keyword">const</span> Child=forwardRef(<span class="function">(<span class="params">props,ref</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input defaultValue=<span class="string">&quot;11111&quot;</span> ref=&#123;ref&#125;&gt;&lt;/input&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="react-useImperativeHandle的使用"><a href="#react-useImperativeHandle的使用" class="headerlink" title="react  useImperativeHandle的使用"></a>react  useImperativeHandle的使用</h2><p><code>useImperativeHandle(ref, createHandle, [deps])</code><br>useImperativeHandle 可以让你在使用 ref 时自定义暴露给父组件的实例值。在大多数情况下，应当避免使用 ref 这样的命令式代码。useImperativeHandle 应当与 forwardRef 一起使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FancyInput</span>(<span class="params">props, ref</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = useRef();</span><br><span class="line">  useImperativeHandle(ref, <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    focus: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      inputRef.current.focus();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;));</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span> <span class="attr">...</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">FancyInput = forwardRef(FancyInput);</span><br><span class="line"></span><br><span class="line"><span class="comment">//渲染s时 &lt;FancyInput ref=&#123;inputRef&#125; /&gt; 的父组件可以调用 inputRef.current.focus()。</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
 

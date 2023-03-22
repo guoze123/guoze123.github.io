@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-070148.png">
 <meta property="og:image" content="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2022-08-13-070825.png">
 <meta property="article:published_time" content="2020-10-29T03:09:28.000Z">
-<meta property="article:modified_time" content="2023-01-11T09:14:54.712Z">
+<meta property="article:modified_time" content="2023-02-28T02:03:22.333Z">
 <meta property="article:author" content="郭泽">
 <meta property="article:tag" content="css面试题">
 <meta name="twitter:card" content="summary">
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8CSS%E4%B8%AD%EF%BC%8C%E6%9C%89%E7%BB%A7%E6%89%BF%E6%80%A7%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%BB%E5%87%A0%E7%A7%8D"><span class="nav-number">1.</span> <span class="nav-text">在CSS中，有继承性的属性主几种</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84-CSS-%E4%B9%8B%E5%8C%85%E5%90%AB%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">你不知道的 CSS 之包含块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%B1%9E%E6%80%A7%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">CSS属性计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E5%A3%B0%E6%98%8E%E5%80%BC"><span class="nav-number">3.1.</span> <span class="nav-text">确定声明值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0%E5%86%B2%E7%AA%81"><span class="nav-number">3.2.</span> <span class="nav-text">层叠冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%BA%90%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-number">3.2.1.</span> <span class="nav-text">比较源的重要性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.2.2.</span> <span class="nav-text">比较优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%AC%A1%E5%BA%8F"><span class="nav-number">3.2.3.</span> <span class="nav-text">比较次序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%A7%E6%89%BF"><span class="nav-number">3.3.</span> <span class="nav-text">使用继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">3.4.</span> <span class="nav-text">使用默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3BFC"><span class="nav-number">4.</span> <span class="nav-text">如何理解BFC</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8CSS%E4%B8%AD%EF%BC%8C%E6%9C%89%E7%BB%A7%E6%89%BF%E6%80%A7%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%BB%E5%87%A0%E7%A7%8D"><span class="nav-number">1.</span> <span class="nav-text">在CSS中，有继承性的属性主几种</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84-CSS-%E4%B9%8B%E5%8C%85%E5%90%AB%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">你不知道的 CSS 之包含块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%B1%9E%E6%80%A7%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">CSS属性计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E5%A3%B0%E6%98%8E%E5%80%BC"><span class="nav-number">3.1.</span> <span class="nav-text">确定声明值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0%E5%86%B2%E7%AA%81"><span class="nav-number">3.2.</span> <span class="nav-text">层叠冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%BA%90%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-number">3.2.1.</span> <span class="nav-text">比较源的重要性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.2.2.</span> <span class="nav-text">比较优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%AC%A1%E5%BA%8F"><span class="nav-number">3.2.3.</span> <span class="nav-text">比较次序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%A7%E6%89%BF"><span class="nav-number">3.3.</span> <span class="nav-text">使用继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">3.4.</span> <span class="nav-text">使用默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3BFC"><span class="nav-number">4.</span> <span class="nav-text">如何理解BFC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%8A%E8%89%B3%E4%B8%80%E6%97%B6%E7%9A%84-CSS-%E5%B1%9E%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">惊艳一时的 CSS 属性</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,18 +173,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -260,7 +260,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-11 17:14:54" itemprop="dateModified" datetime="2023-01-11T17:14:54+08:00">2023-01-11</time>
+      <time title="修改时间：2023-02-28 10:03:22" itemprop="dateModified" datetime="2023-02-28T10:03:22+08:00">2023-02-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -472,6 +472,12 @@
 <p>解决高度塌陷的问题：在对子元素设置浮动之后，父元素会发生高度塌陷，也就是父元素的高度为 0，解决这个问题，只需要把父元素变成一个 BFC。常用的办法是给父元素设置overflow：hidden。</p>
 <p>创建自适应两栏布局：可以用来创建自适应两栏布局：左边的宽度固定，右边的宽度自适应。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line"><span class="attribute">background</span>: red;</span><br><span class="line"><span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">300px</span>;</span><br><span class="line"><span class="attribute">background</span>:blue;</span><br><span class="line"><span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 左侧设置float：left，右侧设置overflow：hidden。这样右边就触发BFC，BFC的区域不会与浮动元素发生重叠，所以两侧就不会发生重叠，实现自适应两栏布局 */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="惊艳一时的-CSS-属性"><a href="#惊艳一时的-CSS-属性" class="headerlink" title="惊艳一时的 CSS 属性"></a>惊艳一时的 CSS 属性</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/52BXTOtw_lj0agg-N87vqw">惊艳一时的 CSS 属性</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Wzy6mlwmXscEgX91G0LvcA">CSS 视口单位：svh、lvh、dvh！</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/j7GCzc_rkuauvTU1tuNBwA">图片的性能优化及体验优化</a></li>
+</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
     </div>
 
@@ -488,13 +494,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="html面试题">
-                  <i class="fa fa-chevron-left"></i> html面试题
+                <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/http%E7%BD%91%E8%90%BD%E5%8D%8F%E8%AE%AE%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="http网落协议面试题">
+                  <i class="fa fa-chevron-left"></i> http网落协议面试题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/" rel="next" title="面试题集">
-                  面试题集 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="html面试题">
+                  html面试题 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
