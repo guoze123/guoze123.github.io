@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/eventloop.png">
 <meta property="og:image" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/node/nodesystem.png">
 <meta property="article:published_time" content="2022-07-08T18:21:52.000Z">
-<meta property="article:modified_time" content="2023-03-22T01:11:36.542Z">
+<meta property="article:modified_time" content="2023-04-03T01:42:00.719Z">
 <meta property="article:author" content="郭泽">
 <meta property="article:tag" content="node 介绍">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Node 能够解决什么问题? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Node 是什么? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">Node 特点 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-JavaScript-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">为什么 JavaScript 是单线程？ </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">浏览器模型 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A4-JS-%E7%BA%BF%E7%A8%8B%E5%92%8C-UI-%E7%BA%BF%E7%A8%8B%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">除 JS 线程和 UI 线程之外的其它线程 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-number">3.4.</span> <span class="nav-text">任务队列 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.5.</span> <span class="nav-text">Event Loop </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E7%9A%84-Event-Loop"><span class="nav-number">3.6.</span> <span class="nav-text">Node.js 的 Event Loop </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BE%9D%E8%B5%96%E2%BC%A6%E6%A8%A1%E5%9D%97%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">node.js 的主要依赖⼦模块有以下内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">同步与异步 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="nav-number">4.2.</span> <span class="nav-text">阻塞与非阻塞 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88"><span class="nav-number">4.3.</span> <span class="nav-text">组合 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8-Node-%E6%A1%86%E6%9E%B6"><span class="nav-number">5.</span> <span class="nav-text">什么场合下应该考虑使用 Node 框架 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E9%83%A8%E7%BD%B2"><span class="nav-number">6.</span> <span class="nav-text">node 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forever"><span class="nav-number">6.1.</span> <span class="nav-text">forever</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">6.2.</span> <span class="nav-text">pm2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-fnm"><span class="nav-number">7.</span> <span class="nav-text">node 版本管理工具 fnm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">7.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E8%83%BD%E5%A4%9F%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Node 能够解决什么问题? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Node 是什么? </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">Node 特点 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-JavaScript-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">为什么 JavaScript 是单线程？ </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">浏览器模型 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A4-JS-%E7%BA%BF%E7%A8%8B%E5%92%8C-UI-%E7%BA%BF%E7%A8%8B%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">除 JS 线程和 UI 线程之外的其它线程 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-number">3.4.</span> <span class="nav-text">任务队列 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.5.</span> <span class="nav-text">Event Loop </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E7%9A%84-Event-Loop"><span class="nav-number">3.6.</span> <span class="nav-text">Node.js 的 Event Loop </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BE%9D%E8%B5%96%E2%BC%A6%E6%A8%A1%E5%9D%97%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">node.js 的主要依赖⼦模块有以下内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">同步与异步 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="nav-number">4.2.</span> <span class="nav-text">阻塞与非阻塞 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88"><span class="nav-number">4.3.</span> <span class="nav-text">组合 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8-Node-%E6%A1%86%E6%9E%B6"><span class="nav-number">5.</span> <span class="nav-text">什么场合下应该考虑使用 Node 框架 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm%E4%BD%BF%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">npm使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E9%83%A8%E7%BD%B2"><span class="nav-number">7.</span> <span class="nav-text">node 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forever"><span class="nav-number">7.1.</span> <span class="nav-text">forever</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">7.2.</span> <span class="nav-text">pm2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pm2-%E5%91%BD%E4%BB%A4"><span class="nav-number">7.2.1.</span> <span class="nav-text">pm2 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">7.2.2.</span> <span class="nav-text">参数说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-fnm"><span class="nav-number">8.</span> <span class="nav-text">node 版本管理工具 fnm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">8.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +162,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
+      <time title="修改时间：2023-04-03 09:42:00" itemprop="dateModified" datetime="2023-04-03T09:42:00+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -338,6 +338,28 @@
 <li>聊天服务器</li>
 <li>电子商务网站</li>
 </ul>
+<h2 id="npm使用"><a href="#npm使用" class="headerlink" title="npm使用"></a>npm使用</h2><p>查看镜像地址:</p>
+<p>npm get registry</p>
+<p>切换淘宝源:</p>
+<p>npm config set registry <a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org/</a></p>
+<p>yarn config set registry <a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org/</a></p>
+<p>切回npm源:</p>
+<p>npm config set registry=<a target="_blank" rel="noopener" href="http://registry.npmjs.org/">http://registry.npmjs.org</a></p>
+<p>npm源管理工具nrm:</p>
+<p>cnpm i nrm -g   //安装</p>
+<p>nrm ls       //查看源</p>
+<p>nrm current    //查看当前使用源</p>
+<p>nrm use taobao   //切换源</p>
+<p>nrm add cnpm <a target="_blank" rel="noopener" href="http://r.cnpmjs.org/">http://r.cnpmjs.org</a>  //添加源</p>
+<p>nrm del cnpm   //删除源</p>
+<p><strong>注意</strong></p>
+<p>报错:_cacache is not a legal HTTP header value</p>
+<p>解决: 改善网络或者换版本</p>
+<p>报错: throw new ERR_INVALID_ARG_TYPE(name, ‘string’, value)</p>
+<p>原因: 操作系统是32位的</p>
+<p>解决: 修改node\node_modules\nrm\cli.js文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> NRMRC = path.join(process.env.HOME, <span class="string">&#x27;.nrmrc&#x27;</span>);</span><br><span class="line"><span class="comment">//改为</span></span><br><span class="line"><span class="keyword">const</span> NRMRC = path.join(process.env.USERPROFILE, <span class="string">&#x27;.nrmrc&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <h2 id="node-部署"><a href="#node-部署" class="headerlink" title="node 部署"></a>node 部署</h2><h3 id="forever"><a href="#forever" class="headerlink" title="forever"></a>forever</h3><ul>
 <li>forever则可以在cmd或ssh连接断开时,让项目一直运行,而且可以在项目崩溃时自动重启</li>
 <li>安装 npm install -g forever</li>
@@ -347,9 +369,32 @@
 <li>列出所有通过forever管理的项目 forever list</li>
 <li>监视项目中的文件,当文件有变动时重启项目 forever -w start app.js</li>
 </ul>
-<h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>PM2 是具有内置负载均衡器的 Node.js 应用程序的生产流程管理器。它允许您使应用程序永远保持活动状态，在不停机的情况下重新加载它们，并促进常见的系统管理任务。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 全局安装</span><br><span class="line">&gt; npm install pm2 -g</span><br><span class="line"># pm2启动项目</span><br><span class="line">&gt; pm2 start index.js</span><br><span class="line"># pm2停止项目</span><br><span class="line">&gt; pm2 stop index.js</span><br><span class="line"># 列出pm2管理的所有项目 </span><br><span class="line">&gt; pm2 list</span><br><span class="line"># 追踪资源运行情况</span><br><span class="line">&gt; pm2 monit</span><br><span class="line"># 查看日志</span><br><span class="line">&gt; pm2 logs</span><br><span class="line"># pm2重启项目</span><br><span class="line">&gt; pm2 restart id/name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>PM2 是具有内置负载均衡器的 Node.js 应用程序的生产流程管理器。它允许您使应用程序永远保持活动状态，在不停机的情况下重新加载它们，并促进常见的系统管理任务。 npm install -g pm2</p>
+<h4 id="pm2-命令"><a href="#pm2-命令" class="headerlink" title="pm2 命令"></a>pm2 命令</h4><ul>
+<li>启动进程/应用           <code>pm2 start bin/www 或 pm2 start app.js</code></li>
+<li>重命名进程/应用           <code>pm2 start app.js --name wb123</code></li>
+<li>添加进程/应用 watch         <code>pm2 start bin/www --watch</code></li>
+<li>结束进程/应用            <code>pm2 stop www</code></li>
+<li>结束所有进程/应用           <code>pm2 stop all</code></li>
+<li>删除进程/应用            <code>pm2 delete www</code></li>
+<li>删除所有进程/应用             <code>pm2 delete all</code></li>
+<li>列出所有进程/应用          <code>pm2 list</code></li>
+<li>查看某个进程/应用具体情况      <code>pm2 describe www</code></li>
+<li>查看进程/应用的资源消耗情况       <code>pm2 monit</code></li>
+<li>查看pm2的日志                 <code>pm2 logs</code></li>
+<li>若要查看某个进程/应用的日志,使用  <code>pm2 logs www</code></li>
+<li>重新启动进程/应用            <code>pm2 restart www</code></li>
+<li>重新启动所有进程/应用        <code>pm2 restart all</code></li>
+</ul>
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><ul>
+<li><code>--watch</code>：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不见听的目录，最好通过配置文件。</li>
+<li><code>-i --instances</code>：启用多少个实例，可用于负载均衡。如果<code>-i 0</code>或者<code>-i max</code>，则根据当前机器核数确定实例数目。</li>
+<li><code>--ignore-watch</code>：排除监听的目录/文件，可以是特定的文件名，也可以是正则。比如<code>--ignore-watch=&quot;test node_modules &quot;some scripts&quot;&quot;</code></li>
+<li><code>-n --name</code>：应用的名称。查看应用信息的时候可以用到。</li>
+<li><code>-o --output</code>：标准输出日志文件的路径。</li>
+<li><code>-e --error</code>：错误输出日志文件的路径。</li>
+<li><code>--interpreter</code>：the interpreter pm2 should use for executing app (bash, python…)。比如你用的coffee script来编写应用。</li>
+</ul>
 <h2 id="node-版本管理工具-fnm"><a href="#node-版本管理工具-fnm" class="headerlink" title="node 版本管理工具 fnm"></a>node 版本管理工具 fnm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 管理员模式打开终端，安装后只能使用管理员模式打开使用</span><br><span class="line"></span><br><span class="line">choco install fnm</span><br><span class="line"></span><br><span class="line"># 安装完成还需要手动设置环境变量</span><br></pre></td></tr></table></figure>
 
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 命令帮助</span><br><span class="line">fnm --help</span><br><span class="line"></span><br><span class="line"># node 已安装列表</span><br><span class="line">fnm list</span><br><span class="line"></span><br><span class="line"># node 安装</span><br><span class="line">fnm install 版本号(支持模糊&#x2F;lts)</span><br><span class="line"></span><br><span class="line">fnm install v10.22.1  --node-dist-mirror&#x3D;&quot;https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist&quot;</span><br><span class="line"># 速度慢的时候，可以切换到国内源</span><br><span class="line">fnm install 16 --node-dist-mirror&#x3D;https:&#x2F;&#x2F;npmmirror.com&#x2F;mirrors&#x2F;node</span><br><span class="line"></span><br><span class="line"># node 卸载</span><br><span class="line">fnm uninstall 版本号</span><br><span class="line"></span><br><span class="line"># node 切换</span><br><span class="line">fnm use 版本号</span><br><span class="line"></span><br><span class="line"># node 设置默认</span><br><span class="line">fnm default 版本号</span><br><span class="line"></span><br><span class="line">use 是切换当前 shell 环境，临时的</span><br><span class="line">default 是切换全局，永久的</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Windows\System32\WindowsPowerShell\v1.0</span><br><span class="line">添加配置文件 profile.ps1</span><br><span class="line"></span><br><span class="line">http:&#x2F;&#x2F;zhishichong.com&#x2F;article&#x2F;47322</span><br><span class="line"></span><br><span class="line">fnm env --use-on-cd | Out-String | Invoke-Expression</span><br><span class="line"></span><br></pre></td></tr></table></figure>

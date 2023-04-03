@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JestFacebook出品, 老牌单元测试工具 文档地址 生命周期1234567test			&#x2F;&#x2F; 测试用例it				&#x2F;&#x2F; test别名, 功能相同describe		&#x2F;&#x2F; 测试分组beforeAll		&#x2F;&#x2F; 应用到每次测试中, 全局测试开始前afterAll		&#x2F;&#x2F; 应用到每次测试中, 全局测试结束后beforeEach		&#x2F;&#x2F; 应用到当前测试中, 当前测试开始后afterEach		&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单元测试">
+<meta property="og:url" content="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="JestFacebook出品, 老牌单元测试工具 文档地址 生命周期1234567test			&#x2F;&#x2F; 测试用例it				&#x2F;&#x2F; test别名, 功能相同describe		&#x2F;&#x2F; 测试分组beforeAll		&#x2F;&#x2F; 应用到每次测试中, 全局测试开始前afterAll		&#x2F;&#x2F; 应用到每次测试中, 全局测试结束后beforeEach		&#x2F;&#x2F; 应用到当前测试中, 当前测试开始后afterEach		&#x2F;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-08T19:21:52.000Z">
+<meta property="article:modified_time" content="2023-04-03T01:42:00.719Z">
+<meta property="article:author" content="郭泽">
+<meta property="article:tag" content="单元测试">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/","path":"2022/07/09/前端记录整理/单元测试/","title":"单元测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>单元测试 | 郭泽</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jest"><span class="nav-number">1.</span> <span class="nav-text">Jest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.1.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Expect%E6%96%AD%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">Expect断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">匹配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM%E4%BB%BF%E7%9C%9F"><span class="nav-number">1.4.</span> <span class="nav-text">DOM仿真</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vitest"><span class="nav-number">2.</span> <span class="nav-text">Vitest</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="单元测试 | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          单元测试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 03:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T03:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-03 09:42:00" itemprop="dateModified" datetime="2023-04-03T09:42:00+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Jest"><a href="#Jest" class="headerlink" title="Jest"></a>Jest</h2><p>Facebook出品, 老牌单元测试工具</p>
+<p><a target="_blank" rel="noopener" href="https://jestjs.io/zh-Hans/docs/getting-started">文档地址</a></p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test			<span class="comment">// 测试用例</span></span><br><span class="line">it				<span class="comment">// test别名, 功能相同</span></span><br><span class="line">describe		<span class="comment">// 测试分组</span></span><br><span class="line">beforeAll		<span class="comment">// 应用到每次测试中, 全局测试开始前</span></span><br><span class="line">afterAll		<span class="comment">// 应用到每次测试中, 全局测试结束后</span></span><br><span class="line">beforeEach		<span class="comment">// 应用到当前测试中, 当前测试开始后</span></span><br><span class="line">afterEach		<span class="comment">// 应用到当前测试中, 当前测试结束后</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">beforeAll(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;1 - beforeAll&#x27;</span>));</span><br><span class="line">afterAll(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;1 - afterAll&#x27;</span>));</span><br><span class="line">beforeEach(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;1 - beforeEach&#x27;</span>));</span><br><span class="line">afterEach(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;1 - afterEach&#x27;</span>));</span><br><span class="line"></span><br><span class="line">test(<span class="string">&#x27;&#x27;</span>, <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;1 - test&#x27;</span>));</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&#x27;Scoped / Nested block&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  beforeAll(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;2 - beforeAll&#x27;</span>));</span><br><span class="line">  afterAll(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;2 - afterAll&#x27;</span>));</span><br><span class="line">  beforeEach(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;2 - beforeEach&#x27;</span>));</span><br><span class="line">  afterEach(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;2 - afterEach&#x27;</span>));</span><br><span class="line"></span><br><span class="line">  test(<span class="string">&#x27;&#x27;</span>, <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;2 - test&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 - beforeAll</span></span><br><span class="line"><span class="comment">// 1 - beforeEach</span></span><br><span class="line"><span class="comment">// 1 - test</span></span><br><span class="line"><span class="comment">// 1 - afterEach</span></span><br><span class="line"><span class="comment">// 2 - beforeAll</span></span><br><span class="line"><span class="comment">// 1 - beforeEach</span></span><br><span class="line"><span class="comment">// 2 - beforeEach</span></span><br><span class="line"><span class="comment">// 2 - test</span></span><br><span class="line"><span class="comment">// 2 - afterEach</span></span><br><span class="line"><span class="comment">// 1 - afterEach</span></span><br><span class="line"><span class="comment">// 2 - afterAll</span></span><br><span class="line"><span class="comment">// 1 - afterAll</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Expect断言"><a href="#Expect断言" class="headerlink" title="Expect断言"></a>Expect断言</h3><p>在写测试的时候，我们经常需要检查值是否满足指定的条件。 <code>expect</code> 让你可以使用不同的“匹配器”去验证不同类型的东西。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">expect(value)							<span class="comment">// 判断一个值是否满足条件, 搭配匹配器使用</span></span><br><span class="line">expect.extend(matchers)					<span class="comment">// 添加自定义匹配器, 传入对象可设置多个匹配器方法</span></span><br><span class="line">expect.anything()						<span class="comment">// 匹配是否是null和undefined之外的任何内容</span></span><br><span class="line">expect.any(<span class="title">constructor</span>)					// 匹配构造函数创建的实例, 或者原始值类型</span><br><span class="line"><span class="title">expect</span>.<span class="title">arrayContaining</span>(<span class="params">array</span>)			// 匹配接收到的数组, 预期数组是接收数组的子集</span><br><span class="line"><span class="title">expect</span>.<span class="title">assertions</span>(<span class="params">number</span>) 				// 验证在测试期间是否调用了一定数量的断言</span><br><span class="line"><span class="title">expect</span>.<span class="title">hasAssertions</span>(<span class="params"></span>)					// 验证在测试期间至少调用了一个断言</span><br><span class="line"><span class="title">expect</span>.<span class="title">closeTo</span>(<span class="params">number, numDigits?</span>)		// 验证浮点数的计算结果, 第二个参数为限制精确位数</span><br><span class="line"><span class="title">expect</span>.<span class="title">not</span>.<span class="title">arrayContaining</span>(<span class="params">array</span>)		// 匹配接收到的数组，该数组不包含预期数组中的所有元素</span><br><span class="line"><span class="title">expect</span>.<span class="title">not</span>.<span class="title">objectContaining</span>(<span class="params">object</span>)		// 匹配接收到的对象, 预期对象不是接收对象的子集</span><br><span class="line"><span class="title">expect</span>.<span class="title">not</span>.<span class="title">stringContaining</span>(<span class="params">string</span>)		// 验证不是一个字符串, 或不包含预期字符串的字符串</span><br><span class="line"><span class="title">expect</span>.<span class="title">objectContaining</span>(<span class="params">object</span>)			// 验证预期对象是接收对象的子集</span><br><span class="line"><span class="title">expect</span>.<span class="title">stringContaining</span>(<span class="params">string</span>)			// 验证预期字符串是接收字符串所包含的</span><br><span class="line"><span class="title">expect</span>.<span class="title">stringMatching</span>(<span class="params">string | regexp</span>)	// 验证是与预期字符串或正则表达式匹配的字符串</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="匹配器"><a href="#匹配器" class="headerlink" title="匹配器"></a>匹配器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.toBe(value)					<span class="comment">// 匹配原始值, 或对象的属性值</span></span><br><span class="line">.toBeCloseTo					<span class="comment">// 匹配浮点数</span></span><br><span class="line">.toBeDefined					<span class="comment">// 检查变量是否未定义</span></span><br><span class="line">.toHaveLength(number)			<span class="comment">// 检查对象是否有length属性, 或指定length值</span></span><br><span class="line">.toBeNull()						<span class="comment">// 检查是否为空</span></span><br><span class="line">.toBeUndefined()				<span class="comment">// 检查变量是否未定义</span></span><br><span class="line">.toBeNaN()						<span class="comment">// 检查值为NaN</span></span><br><span class="line">.toEqual(value)					<span class="comment">// 比较对象是否相等</span></span><br><span class="line">.toMatch(regexp | string)		<span class="comment">// 检查字符串是否与正则表达式匹配</span></span><br><span class="line">.toThrow(error?)				<span class="comment">// 检查是否为抛出异常</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="DOM仿真"><a href="#DOM仿真" class="headerlink" title="DOM仿真"></a>DOM仿真</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm i jsdom -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jsdom-config.js</span></span><br><span class="line"><span class="keyword">const</span> jsdom = <span class="built_in">require</span>(<span class="string">&#x27;jsdom&#x27;</span>) <span class="comment">// eslint-disable-line</span></span><br><span class="line"><span class="keyword">const</span> &#123; JSDOM &#125; = jsdom</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dom = <span class="keyword">new</span> JSDOM(<span class="string">&#x27;&lt;!DOCTYPE html&gt;&lt;head/&gt;&lt;body&gt;&lt;/body&gt;&#x27;</span>, &#123;</span><br><span class="line">  url: <span class="string">&#x27;http://localhost/&#x27;</span>,</span><br><span class="line">  referrer: <span class="string">&#x27;https://example.com/&#x27;</span>,</span><br><span class="line">  contentType: <span class="string">&#x27;text/html&#x27;</span>,</span><br><span class="line">  userAgent: <span class="string">&#x27;Mellblomenator/9000&#x27;</span>,</span><br><span class="line">  includeNodeLocations: <span class="literal">true</span>,</span><br><span class="line">  storageQuota: <span class="number">10000000</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">global</span>.window = dom.window</span><br><span class="line"><span class="built_in">global</span>.document = <span class="built_in">window</span>.document</span><br><span class="line"><span class="built_in">global</span>.navigator = <span class="built_in">window</span>.navigator</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dom.js</span></span><br><span class="line"><span class="built_in">exports</span>.generateDiv = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">  div.className = <span class="string">&quot;c1&quot;</span>;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dom.test.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; generateDiv &#125; = <span class="built_in">require</span>(<span class="string">&#x27;../dom&#x27;</span>) </span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;../jsdom-config&#x27;</span>)</span><br><span class="line">describe(<span class="string">&#x27;Dom测试&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">    test(<span class="string">&#x27;测试dom操作&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        generateDiv()</span><br><span class="line">        expect(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;c1&#x27;</span>).length).toBe(<span class="number">1</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Vitest"><a href="#Vitest" class="headerlink" title="Vitest"></a>Vitest</h2><p>Vitest 是一个基于 Vite 的测试框架</p>
+<ol>
+<li>与 vite 同配置, 共用配置</li>
+<li>兼容 Jest 的 API</li>
+<li>使用 worker 线程并发执行, 效率高</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pnpm i -D vitest@<span class="string">&quot;0.21.1&quot;</span> happy-dom@<span class="string">&quot;6.0.4&quot;</span> @vue/test-utils@<span class="string">&quot;2.0.2&quot;</span></span><br><span class="line"><span class="comment">// vitest ：测试框架，用于执行整个测试过程并提供断言库、mock、覆盖率</span></span><br><span class="line"><span class="comment">// happy-dom：是用于提供在 Node 环境中的 Dom 仿真模型</span></span><br><span class="line"><span class="comment">// @vue/test-utils 工具库： Vue推荐的测试工具库</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.ts</span></span><br><span class="line"><span class="comment">/// &lt;reference types=&quot;vitest&quot; /&gt;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">    ...</span><br><span class="line">    test: &#123;</span><br><span class="line">        <span class="comment">// enable jest-like global test APIs</span></span><br><span class="line">        globals: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// simulate DOM with happy-dom</span></span><br><span class="line">        <span class="comment">// (requires installing happy-dom as a peer dependency)</span></span><br><span class="line">        environment: <span class="string">&#x27;happy-dom&#x27;</span>,</span><br><span class="line">        <span class="comment">// 支持tsx组件，很关键</span></span><br><span class="line">        transformMode: &#123;</span><br><span class="line">            web: [<span class="regexp">/.[tj]sx$/</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag"># 单元测试</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/module&NPM/" rel="prev" title="module&NPM">
+                  <i class="fa fa-chevron-left"></i> module&NPM
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/Encoding/" rel="next" title="Encoding">
+                  Encoding <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

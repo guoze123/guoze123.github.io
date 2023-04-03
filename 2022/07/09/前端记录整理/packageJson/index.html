@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -349,7 +349,7 @@
 <ul>
 <li>对于子npm包a,在npm7中，如果单独安装子npm a,其peerDependicies中的包，会被安装下来。但是npm7之前是不会的。</li>
 <li>请规范和详细的指定PeerDependicies的配置，笔者在看到有些react组件库，不在PeerDependicies中指定react和react-dom，或者将react和- react-dom放到了dependicies中，这两种不规范的指定都会存在一些问题。</li>
-<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#101;&#x61;&#99;&#x74;&#45;&#x66;&#111;&#x63;&#117;&#115;&#x2d;&#108;&#x6f;&#99;&#x6b;&#64;&#50;&#46;&#56;&#x2e;&#x31;">&#x72;&#101;&#x61;&#99;&#x74;&#45;&#x66;&#111;&#x63;&#117;&#115;&#x2d;&#108;&#x6f;&#99;&#x6b;&#64;&#50;&#46;&#56;&#x2e;&#x31;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
+<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#101;&#97;&#x63;&#x74;&#45;&#x66;&#x6f;&#x63;&#x75;&#x73;&#45;&#x6c;&#x6f;&#x63;&#x6b;&#64;&#50;&#x2e;&#x38;&#46;&#x31;">&#x72;&#101;&#97;&#x63;&#x74;&#45;&#x66;&#x6f;&#x63;&#x75;&#x73;&#45;&#x6c;&#x6f;&#x63;&#x6b;&#64;&#50;&#x2e;&#x38;&#46;&#x31;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
 </ul>
 <h3 id="peerDependenciesMeta"><a href="#peerDependenciesMeta" class="headerlink" title="peerDependenciesMeta"></a>peerDependenciesMeta</h3><p>看到“Meta”就有元数据的意思，这里的peerDependenciesMeta就是详细修饰了peerDependicies，比如在react-redux这个npm包中的package.json中有这么一段：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">   &quot;react&quot;: &quot;^16.8.3 || ^17 || ^18&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&quot;peerDependenciesMeta&quot;: &#123;</span><br><span class="line">   &quot;react-dom&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;react-native&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
@@ -388,13 +388,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" rel="prev" title="包管理器">
-                  <i class="fa fa-chevron-left"></i> 包管理器
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/" rel="prev" title="promise">
+                  <i class="fa fa-chevron-left"></i> promise
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/" rel="next" title="promise">
-                  promise <i class="fa fa-chevron-right"></i>
+                <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/mySql/" rel="next" title="sql">
+                  sql <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
