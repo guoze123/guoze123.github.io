@@ -152,7 +152,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -163,7 +163,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -193,6 +193,118 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/" class="post-title-link" itemprop="url">nodeCore</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="控制台"><a href="#控制台" class="headerlink" title=". 控制台"></a>. 控制台</h2><p>在 Node.js 中，使用 <code>console</code>对象代表控制台(在操作系统中表现为一个操作系统指定的字符界面，比如 Window 中的命令提示窗口)。</p>
+<ul>
+<li>console.log</li>
+<li>console.info</li>
+<li>console.error 重定向到文件</li>
+<li>console.warn</li>
+<li>console.dir</li>
+<li>console.time</li>
+<li>console.timeEnd</li>
+<li>console.trace</li>
+<li>console.assert</li>
+</ul>
+<h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title=". 全局作用域"></a>. 全局作用域</h2><ul>
+<li>全局作用域(global)可以定义一些不需要通过任何模块的加载即可使用的变量、函数或类</li>
+<li>定义全局变量时变量会成为 global 的属性。</li>
+<li>永远不要不使用 var 关键字定义变量，以免污染全局作用域</li>
+<li>setTimeout clearTimeout</li>
+<li>setInterval clearInterval</li>
+<li>unref 和 ref</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;callback&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> timer = <span class="built_in">setInterval</span>(test, <span class="number">1000</span>);</span><br><span class="line">timer.unref();</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  timer.ref();</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/nodeCore/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -356,6 +468,193 @@
           <p>npm、yarn、cnpm、npx、pnpm</p>
 <p><a href="./%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.pdf">包管理工具</a></p>
 <div class="pdf-container" data-target="./包管理工具.pdf" data-height="500px"></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/" class="post-title-link" itemprop="url">package.json</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-28 17:54:26" itemprop="dateModified" datetime="2023-01-28T17:54:26+08:00">2023-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/info.png" alt="package"><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2MTIyNDUwMA==&mid=2247499545&idx=1&sn=bf3b3cf415274cd5db8f82604e5ccb2f&chksm=fc7eb142cb09385417ea9259bc34e5fbf8b845d1b3946c1f2a59ca8b5623e9d587083a51708e&token=400768939&lang=zh_CN&scene=21#wechat_redirect">package.json</a></p>
+<h3 id="package-json简介"><a href="#package-json简介" class="headerlink" title="package.json简介"></a>package.json简介</h3><p>在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y<br>然后在你的目录下会生成3个目录/文件， node_modules, package.json和 package.lock.json。其中package.json的内容为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Your project description&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;app.js&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Author name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: <span class="string">&quot;^1.4.0&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: <span class="string">&quot;^1.5.2&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>package.json中包含了项目本身的元数据,以及项目的子依赖信息(比如dependicies等)。</p>
+<h3 id="package-lock-json"><a href="#package-lock-json" class="headerlink" title="package-lock.json"></a>package-lock.json</h3><p>我们发现在npm init的时候，不仅生成了package.json文件，还生成了package-lock.json文件。那么为什么存在package.json的清空下，还需要生成package-lock.json文件呢。</p>
+<p>本质上package-lock.json文件是为了锁版本，在package.json中指定的子npm包比如：react: “^16.0.0”，在实际安装中，只要高于react的版本都满足package.json的要求。这样就使得根据同一个package.json文件，两次安装的子依赖版本不能保证一致。</p>
+<p>而package-lock文件如下所示，子依赖dependency1就详细的指定了其版本。起到lock版本的作用。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;lockfileVersion&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;requires&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.4.0&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency1/-/dependency1-1.4.0.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.5.2&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency2/-/dependency2-1.5.2.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-WOn21V8AhyE1QqVfPIVxe3tupJacq1xGkPTB4iagT6o+P2cAgEOOwIxMftr4+ZCTI6d551ij9j61DFr0nsP2uQ==&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="package-json常用属性"><a href="#package-json常用属性" class="headerlink" title="package.json常用属性"></a>package.json常用属性</h2><h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p>在npm中使用script标签来定义脚本，每当制定npm run的时候，就会自动创建一个shell脚本，这里需要注意的是，npm run新建的这个 Shell，会将本地目录的node_modules/.bin子目录加入PATH变量。</p>
+<p>这意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 esbuild，只要直接写esbuild xxx 就可以了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;esbuild index.js&quot;</span>,</span><br><span class="line"> <span class="comment">// &quot;build&quot;: &quot;./node_modules/.bin/esbuild index.js&quot;  上面两种写法是等价的。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h3><p>bin属性用来将可执行文件加载到全局环境中，指定了bin字段的npm包，一旦在全局安装，就会被加载到全局环境中，可以通过别名来执行该文件。<br>比如@bytepack/cli的npm包：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">    &quot;bytepack&quot;: &quot;./bin/index.js&quot;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>一旦在全局安装了@bytepack/cli，就可以直接通过bytepack来执行相应的命令，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bytepack -v</span><br><span class="line"><span class="comment">//显示1.11.0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果非全局安装，那么会自动连接到项目的node_module/.bin目录中。与前面介绍的script标签中所说的一致，可以直接用别名来使用。</p>
+<h3 id="workspaces"><a href="#workspaces" class="headerlink" title="workspaces"></a>workspaces</h3><p>在项目过大的时候，最近越来越流行monorepo。提到monorepo就绕不看workspaces，早期我们会用yarn workspaces，现在npm官方也支持了workspaces.<br>workspaces解决了本地文件系统中如何在一个顶层root package下管理多个子packages的问题，在workspaces声明目录下的package会软链到最上层root package的node_modules中</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;workspaces&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;packages/a&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个npm包名为my-project的npm包中，存在workspaces配置的目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- package.json</span><br><span class="line">+-- index.js</span><br><span class="line">&#96;-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |  &#96;-- package.json</span><br></pre></td></tr></table></figure>
+
+<p>并且该最上层的名为my-project的root包，有packages/a子包。此时，我们如果npm install,那么在root package中node_modules中安装的npm包a，指向的是本地的package/a.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- node_modules</span><br><span class="line">|  `-- packages/a -&gt; ../packages/a</span><br><span class="line">+-- package-lock.json</span><br><span class="line">+-- package.json</span><br><span class="line">`-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |   `-- package.json</span><br></pre></td></tr></table></figure>
+
+<p><code>-- packages/a -&gt; ../packages/a</code>指的就是从node_modules中a链接到本地npm包的软链</p>
+<p>###</p>
+<h2 id="package-json环境相关属性"><a href="#package-json环境相关属性" class="headerlink" title="package.json环境相关属性"></a>package.json环境相关属性</h2><p>常见的环境，基本上分为浏览器browser和node环境两大类，接下来我们来看看package.json中，跟环境相关的配置属性。环境的定义可以简单理解如下：</p>
+<ul>
+<li>browser环境：比如存在一些只有在浏览器中才会存在的全局变量等，比如window，Document等</li>
+<li>node环境: npm包的源文件中存在只有在node环境中才会有的一些变量和内置包，内置函数等。</li>
+</ul>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>js的模块化规范包含了commonjs、CMD、UMD、AMD和ES module等，最早先在node中支持的仅仅是commonjs字段，但是从node13.2.0开始后，node正式支持了ES module规范，在package.json中可以通过type字段来声明npm包遵循的模块化规范。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   name: &quot;some package&quot;,</span><br><span class="line">   type: &quot;module&quot;||&quot;commonjs&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不指定type的时候，type的默认值是commonjs，不过建议npm包都指定一下type</li>
+<li>当type字段指定值为module则采用ESModule规范</li>
+<li>当type字段指定时，目录下的所有.js后缀结尾的文件，都遵循type所指定的模块化规范</li>
+<li>除了type可以指定模块化规范外，通过文件的后缀来指定文件所遵循的模块化规范，以.mjs结尾的文件就是使用的ESModule规范，以.cjs结尾的遵循的是commonjs规范</li>
+</ul>
+<h3 id="main-amp-module-amp-browser"><a href="#main-amp-module-amp-browser" class="headerlink" title="main &amp; module &amp; browser"></a>main &amp; module &amp; browser</h3><p>除了type外，package.json中还有main,module和browser 3个字段来定义npm包的入口文件。</p>
+<ul>
+<li>main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用</li>
+<li>module : 定义 npm 包的 ESM 规范的入口文件，browser 环境和 node - 环境均可使用</li>
+<li>browser : 定义 npm 包在 browser 环境下的入口文件<br>我们来看一下这3个字段的使用场景，以及同时存在这3个字段时的优先级。我们假设有一个npm包为demo1</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">----- dist</span><br><span class="line">   |-- index.browser.js</span><br><span class="line">   |-- index.browser.mjs</span><br><span class="line">   |-- index.js</span><br><span class="line">   |-- index.mjs</span><br></pre></td></tr></table></figure>
+
+<p>其package.json中同时指定了main,module和browser这3个字段，</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;dist/index.js&quot;,  // main </span><br><span class="line">  &quot;module&quot;: &quot;dist/index.mjs&quot;, // module</span><br><span class="line"></span><br><span class="line">  <span class="comment">// browser 可定义成和 main/module 字段一一对应的映射对象，也可以直接定义为字符串</span></span><br><span class="line">  &quot;browser&quot;: &#123;</span><br><span class="line">    &quot;./dist/index.js&quot;: &quot;./dist/index.browser.js&quot;, // browser+cjs</span><br><span class="line">    &quot;./dist/index.mjs&quot;: &quot;./dist/index.browser.mjs&quot;  // browser+mjs</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &quot;browser&quot;: &quot;./dist/index.browser.js&quot; // browser</span></span><br></pre></td></tr></table></figure>
+
+<p>默认构建和使用，比如我们在项目中引用这个npm包 <code>import demo from &#39;demo&#39;</code><br>通过构建工具构建上述代码后，模块的加载循序为：</p>
+<p><code>browser+mjs &gt; module &gt; browser+cjs &gt; main</code></p>
+<p>这个加载顺序是大部分构建工具默认的加载顺序，比如webapck、esbuild等等。可以通过相应的配置修改这个加载顺序，不过大部分场景，我们还是会遵循默认的加载顺序。</p>
+<h3 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h3><p>如果在package.json中定义了exports字段，那么这个字段所定义的内容就是该npm包的真实和全部的导出，优先级会高于main和file等字段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;pkg&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;.&quot;: &quot;.&#x2F;main.mjs&quot;,</span><br><span class="line">    &quot;.&#x2F;foo&quot;: &quot;.&#x2F;foo.js&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import &#123; something &#125; from &quot;pkg&quot;; &#x2F;&#x2F; from &quot;pkg&#x2F;main.mjs&quot;</span><br><span class="line">const &#123; something &#125; &#x3D; require(&quot;pkg&#x2F;foo&quot;); &#x2F;&#x2F; require(&quot;pkg&#x2F;foo.js&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>从上述的例子来看，exports可以定义不同path的导出。如果存在exports后，以前正常生效的file目录到处会失效，比如require(‘pkg/package.json’)，因为在exports中没有指定，就会报错。</p>
+<p>exports还有一个最大的特点，就是条件引用，比如我们可以根据不同的引用方式或者模块化类型，来指定npm包引用不同的入口文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  &quot;name&quot;:&quot;pkg&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;.&#x2F;main-require.cjs&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;import&quot;: &quot;.&#x2F;main-module.js&quot;,</span><br><span class="line">    &quot;require&quot;: &quot;.&#x2F;main-require.cjs&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;type&quot;: &quot;module&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的例子中，如果我们通过</p>
+<p><code>const p = require(&#39;pkg&#39;)</code><br>引用的就是”./main-require.cjs”。</p>
+<p>如果通过：<br><code>import p from &#39;pkg&#39;</code><br>引用的就是”./main-module.js”<br>最后需要注意的是 ：<code>如果存在exports属性，exports属性不仅优先级高于main，同时也高于module和browser字段</code>。</p>
+<h2 id="package-json依赖相关属性"><a href="#package-json依赖相关属性" class="headerlink" title="package.json依赖相关属性"></a>package.json依赖相关属性</h2><p>package.json中跟依赖相关的配置属性包含了dependencies、devDependencies、peerDependencies和peerDependenciesMeta等。</p>
+<p>dependencies是项目的依赖，而devDependencies是开发所需要的模块，所以我们可以在开发过程中需要的安装上去，来提高我们的开发效率。这里需要注意的时，在自己的项目中尽量的规范使用，形如webpack、babel等是开发依赖，而不是项目本身的依赖，不要放在dependencies中。<br>dependencies除了dependencies和devDependencies，重点peerDependencies和peerDependenciesMeta。</p>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>peerDependencies是package.json中的依赖项,可以解决核心库被下载多次，以及统一核心库版本的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;package&#x2F;pkg</span><br><span class="line">----- node_modules</span><br><span class="line">   |-- npm-a -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- npm-b -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- index.js</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<p>比如上述的例子中如果子npm包a,b都依赖了react和react-dom,此时如果我们在子npm包a,b的package.json中声明了PeerDependicies后，相应的依赖就不会重新安装。</p>
+<p>需要注意的有两点：</p>
+<ul>
+<li>对于子npm包a,在npm7中，如果单独安装子npm a,其peerDependicies中的包，会被安装下来。但是npm7之前是不会的。</li>
+<li>请规范和详细的指定PeerDependicies的配置，笔者在看到有些react组件库，不在PeerDependicies中指定react和react-dom，或者将react和- react-dom放到了dependicies中，这两种不规范的指定都会存在一些问题。</li>
+<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#x65;&#x61;&#99;&#x74;&#45;&#102;&#111;&#99;&#x75;&#115;&#45;&#108;&#111;&#99;&#107;&#x40;&#x32;&#x2e;&#56;&#x2e;&#x31;">&#x72;&#x65;&#x61;&#99;&#x74;&#45;&#102;&#111;&#99;&#x75;&#115;&#45;&#108;&#111;&#99;&#107;&#x40;&#x32;&#x2e;&#56;&#x2e;&#x31;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
+</ul>
+<h3 id="peerDependenciesMeta"><a href="#peerDependenciesMeta" class="headerlink" title="peerDependenciesMeta"></a>peerDependenciesMeta</h3><p>看到“Meta”就有元数据的意思，这里的peerDependenciesMeta就是详细修饰了peerDependicies，比如在react-redux这个npm包中的package.json中有这么一段：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">   &quot;react&quot;: &quot;^16.8.3 || ^17 || ^18&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&quot;peerDependenciesMeta&quot;: &#123;</span><br><span class="line">   &quot;react-dom&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;react-native&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里指定了”react-dom”,”react-native”在peerDependenciesMeta中，且为可选项，因此如果项目中检测没有安装”react-dom”和”react-native”都不会报错。</p>
+<p>值得注意的是，通过peerDependenciesMeta我们确实是取消了限制，但是这里经常存在非A即B的场景，比如上述例子中，我们需要的是“react-dom”和”react-native”需要安装一个，但是实际上通过上述的声明，我们实现不了这种提示。</p>
+<h2 id="依赖包的版本管理"><a href="#依赖包的版本管理" class="headerlink" title="依赖包的版本管理"></a>依赖包的版本管理</h2><p>^2.0.3或~2.0.3，这是什么意思呢</p>
+<h3 id="npm的包通常需要遵从semver版本规范"><a href="#npm的包通常需要遵从semver版本规范" class="headerlink" title="npm的包通常需要遵从semver版本规范"></a>npm的包通常需要遵从semver版本规范</h3><ul>
+<li>semver：<a target="_blank" rel="noopener" href="https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
+<li>npm semver：<a target="_blank" rel="noopener" href="https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>
+<h3 id="semver版本规范是X-Y-Z"><a href="#semver版本规范是X-Y-Z" class="headerlink" title="semver版本规范是X.Y.Z"></a>semver版本规范是X.Y.Z</h3><ul>
+<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
+</ul>
+<h3 id="和-的区别"><a href="#和-的区别" class="headerlink" title="^ * 和~的区别"></a>^ * 和~的区别</h3><ul>
+<li>x.y.z：表示一个明确的版本号；</li>
+<li>^x.y.z：表示x是保持不变的，y和z永远安装最新的版本；</li>
+<li>~x.y.z：表示x和y保持不变的，z永远安装最新的版本；</li>
+<li>*x.y.x: 一般是最后一次正式发布版本</li>
+</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
@@ -1201,220 +1500,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E5%9C%A8%E7%BA%BF/" class="post-title-link" itemprop="url">面试题集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-31 14:03:44" itemprop="dateModified" datetime="2023-01-31T14:03:44+08:00">2023-01-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="面试题集"><a href="#面试题集" class="headerlink" title="面试题集"></a>面试题集</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxODE4MTEzMA==&mid=2650081252&idx=1&sn=1fedc422a3806fa1f9c3faf31bb2a20b&chksm=83db9a81b4ac1397132de99ebdbdbdad57dcc6785d0b8fe1a5ee2b57dbb960b0fbf65015c3ca&scene=126&sessionid=1603760808&key=54ce6b15dc70fa94e4cee849718a95dcb45463880bfbf73a52f6e49f4e4a65fb8adec9e1c54df8bf81bfa1d78626a8537229cc36083224e425c795f892103475ca5f06542d47eec5dabc5d55c77dc7f9fabc4524bbc83cf94060d9236d1061a0fa026db04b47ae38fdfd65662df5549a11d6cd60ff371f5492081a022254d0e7&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AXrZ8Ft8M/kmfXMdRQOHyYs=&pass_ticket=Kkp6C7aNRW+SS3CyH29rTpuzIryrfuzR2BkuJOMPRmZ73lUqRYKqbJR1nz5SlRhp&wx_header=0">面试题 1</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247486750&idx=1&sn=d7e13a8393b83ac330d9b48690428c0e&chksm=fa2bedf7cd5c64e19fcafbe4dab742b65cfe168ad567f3f799b5fc229a35710eb4164084897c&scene=126&sessionid=1602725812&key=6664ac14267ba66883c13581e1d9e62b3ffc7ddfc44d1984c762bde82d19131986d5d9af50595ab1d798e16e45eddd68ded75929bfc6217a87ec0dcacb393b0aa10b53bcd066f65c7865905a425d129f9f1f110464e3a8faa5601a1b7a192f46240134dd033c0bacd43e93b0b51701140f106a0a52acfaabf76e8fee9f2cae06&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=Adc0WAca8bFpyYT3RtaxAjo=&pass_ticket=gNZw604QfgMyZ5MfqQB17Zb9G0KO/y/Gpe3+UhEBieJBkyQwt1xU8LnZyQLLT598&wx_header=0">面试题 2</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI2NTk2NzUxNg==&mid=2247488674&idx=1&sn=3f5c6af2c52365525aa84ff92b9f865b&chksm=ea941651dde39f4790e96e2d8f2530fa23257afb50de8d40d6d318507b873f9d870c0f507863&mpshare=1&scene=1&srcid=1026yMwvhU6WsEBstdZUyIgl&sharer_sharetime=1603682665969&sharer_shareid=1b2206d548f7c54418de346a0102e46f&key=041bb01ba83758f9c012f304255f853e521afbe7bbf65555a0e068f76f2c433eea39d0413b426b59a870039c71945328b288292bbbbac9811706f2f09f6716c482684831e94eab0b6935f37a6a5c8892d4ca9ecd897e139bf608b85a18e8ee5339e931c56cc60e39443738eeb63253718488c0322710c61a17510cbfa97910cb&ascene=1&uin=MjQ4OTg5MDk4MQ==&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AQ+cZHmGMZ8MBH/qQ1l2YVc=&pass_ticket=L+jndQVDhQl1X8R7c+wxUxrwQN/fivdCt7LVG0oUoik5qA1Gx2ZTiVGm+4shiHQn&wx_header=0">源码面试题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions">前端开发面试题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/">WEB 前端面试宝典</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/shfshanyue/blog/blob/master/post/juejin-interview.md">掘金前端面试题合集</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://yuchengkai.cn/">前端面试图谱</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/issues/47">前端面试开源项目汇总 | Github 上 100K+ Star 的前端面试开源项目汇总</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.poetries.top/FE-Interview-Questions/">前端面试常考问题整理 | 按模块和知识点分类</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/column/6964717704712290317">2021 前端面试题集</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://h5bp.org/Front-end-Developer-Interview-Questions/">Front-end Developer Interview Questions</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/InterviewMap/CS-Interview-Knowledge-Map">CS-Interview-knowledge-Map</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/shfshanyue/Daily-Question">Daily-Question</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question">Daily-Interview-Question</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://lucifer.ren/fe-interview">fe-interview 大前端面试宝典</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/blob/master/interview/fe-interview.md">前端硬核面试专题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problemset/all">LeetCode 算法试题学习</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/">LeetCode 算法试题学习</a></p>
-</li>
-</ul>
-<p>2021面试题<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/penghuwan/p/7194133.html">http://www.cnblogs.com/penghuwan/p/7194133.html</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/60577972">https://www.zhihu.com/question/60577972</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35493203">https://zhuanlan.zhihu.com/p/35493203</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/59ffb4b66fb9a04512385402">https://juejin.im/post/59ffb4b66fb9a04512385402</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fengxiongZz/p/8191503.html">https://www.cnblogs.com/fengxiongZz/p/8191503.html</a><br><a target="_blank" rel="noopener" href="https://yuchengkai.cn/docs/zh/frontend/">https://yuchengkai.cn/docs/zh/frontend/</a><br><a target="_blank" rel="noopener" href="https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/doctype-and-brower-render.html">https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/doctype-and-brower-render.html</a><br><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers">https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/FEGuideTeam/FEGuide/blob/master/%E6%A1%86%E6%9E%B6/vue.md">https://github.com/FEGuideTeam/FEGuide/blob/master/%E6%A1%86%E6%9E%B6/vue.md</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5bc92e9ce51d450e8e777136">https://juejin.im/post/5bc92e9ce51d450e8e777136</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5c0e68ec6fb9a04a01642925">https://juejin.im/post/5c0e68ec6fb9a04a01642925</a></p>
-<p>2022面试题<br><a target="_blank" rel="noopener" href="https://barryyeee.github.io/InterviewGuide/">https://barryyeee.github.io/InterviewGuide/</a><br><a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes">https://github.com/CyC2018/CS-Notes</a><br><a target="_blank" rel="noopener" href="https://github.com/huihut/interview">https://github.com/huihut/interview</a><br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/leetcode">https://github.com/azl397985856/leetcode</a><br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/fe-interview">https://github.com/azl397985856/fe-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/jiajunhua/imhuay-Algorithm_Interview_Notes-Chinese">https://github.com/jiajunhua/imhuay-Algorithm_Interview_Notes-Chinese</a><br><a target="_blank" rel="noopener" href="https://github.com/WenDesi/lihang_book_algorithm">https://github.com/WenDesi/lihang_book_algorithm</a><br><a target="_blank" rel="noopener" href="https://github.com/julycoding/The-Art-Of-Programming-By-July">https://github.com/julycoding/The-Art-Of-Programming-By-July</a><br><a target="_blank" rel="noopener" href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource">https://github.com/helloqingfeng/Awsome-Front-End-learning-resource</a><br><a target="_blank" rel="noopener" href="https://github.com/poetries/FE-Interview-Questions">https://github.com/poetries/FE-Interview-Questions</a><br><a target="_blank" rel="noopener" href="https://space.bilibili.com/9099840/video">https://space.bilibili.com/9099840/video</a><br><a target="_blank" rel="noopener" href="https://jishuin.proginn.com/p/763bfbd23be3">https://jishuin.proginn.com/p/763bfbd23be3</a><br><a target="_blank" rel="noopener" href="https://github.com/phodal/fe">https://github.com/phodal/fe</a><br><a target="_blank" rel="noopener" href="https://github.com/lefex/FE">https://github.com/lefex/FE</a><br><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview">https://github.com/haizlin/fe-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a><br><a target="_blank" rel="noopener" href="https://github.com/lgwebdream/FE-Interview">https://github.com/lgwebdream/FE-Interview</a></p>
-<p>2022年算法知识集合<br><a target="_blank" rel="noopener" href="https://leetcode.cn/">https://leetcode.cn/</a><br>Leetcode<br><a target="_blank" rel="noopener" href="https://www.gitbook.com/book/siddontang/leetcode-solution/details">https://www.gitbook.com/book/siddontang/leetcode-solution/details</a><br>LeetCode题解<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38005681">https://zhuanlan.zhihu.com/p/38005681</a><br>如何高效使用 LeetCode<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/280279208/">https://www.zhihu.com/question/280279208/</a><br>大家都是如何刷 LeetCode 的？<br><a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">https://github.com/MisterBooo/LeetCodeAnimation</a><br>用动画的形式呈现解LeetCode题目的思路<br><a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com/</a><br>代码随想录<br><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/">https://labuladong.github.io/algo/</a><br>LABULADONG 的算法网站</p>
- <div class="pdf-container" data-target="./前端面试题整合.pdf" data-height="500px"></div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/29/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/htm%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">html面试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-29 11:09:28" itemprop="dateCreated datePublished" datetime="2020-10-29T11:09:28+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-03 09:42:00" itemprop="dateModified" datetime="2023-04-03T09:42:00+08:00">2023-04-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="头部meta标签"><a href="#头部meta标签" class="headerlink" title="头部meta标签"></a>头部meta标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 使用 HTML5 doctype，不区分大小写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-cmn-Hans&quot;</span>&gt;</span> <span class="comment">&lt;!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 声明文档使用的字符编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&#x27;utf-8&#x27;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 页面内容描述 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;不超过150个字符&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 页面关键词 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 网页作者 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;高江华, g598670138@163.com&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 搜索引擎抓取</span></span><br><span class="line"><span class="comment">        1.none : 搜索引擎将忽略此网页，等价于noindex，nofollow。</span></span><br><span class="line"><span class="comment">        2.noindex : 搜索引擎不索引此网页。</span></span><br><span class="line"><span class="comment">        3.nofollow: 搜索引擎不继续通过此网页的链接索引搜索其它的网页。</span></span><br><span class="line"><span class="comment">        4.all : 搜索引擎将索引此网页与继续通过此网页的链接索引，等价于index，follow。</span></span><br><span class="line"><span class="comment">        5.index : 搜索引擎索引此网页。</span></span><br><span class="line"><span class="comment">        6.follow : 搜索引擎继续通过此网页的链接索引搜索其它的网页。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;index,follow&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为移动设备添加 viewport</span></span><br><span class="line"><span class="comment">        `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz </span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no&quot;</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- iOS 设备 begin --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;标题&quot;</span> /&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-capable&quot;</span> <span class="attr">content</span>=<span class="string">&quot;yes&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-itunes-app&quot;</span> <span class="attr">content</span>=<span class="string">&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设置苹果工具栏颜色 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-status-bar-style&quot;</span> <span class="attr">content</span>=<span class="string">&quot;black&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telphone=no, email=no&quot;</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 双核浏览器渲染方式</span></span><br><span class="line"><span class="comment">        webkit //默认webkit内核</span></span><br><span class="line"><span class="comment">        ie-comp //默认IE兼容模式</span></span><br><span class="line"><span class="comment">        ie-stand //默认IE标准模式</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;renderer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;webkit&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;HandheldFriendly&quot;</span> <span class="attr">content</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 微软的老式浏览器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;MobileOptimized&quot;</span> <span class="attr">content</span>=<span class="string">&quot;320&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- uc强制竖屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;screen-orientation&quot;</span> <span class="attr">content</span>=<span class="string">&quot;portrait&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- QQ强制竖屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;x5-orientation&quot;</span> <span class="attr">content</span>=<span class="string">&quot;portrait&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- UC强制全屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;full-screen&quot;</span> <span class="attr">content</span>=<span class="string">&quot;yes&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- QQ强制全屏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;x5-fullscreen&quot;</span> <span class="attr">content</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- UC应用模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;browsermode&quot;</span> <span class="attr">content</span>=<span class="string">&quot;application&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- QQ应用模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;x5-page-mode&quot;</span> <span class="attr">content</span>=<span class="string">&quot;app&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- windows phone 点击无高光 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-tap-highlight&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 用于标明网页是什么软件做的 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;generator&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Sublime Text3&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 用于标注版权信息 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;copyright&quot;</span> <span class="attr">content</span>=<span class="string">&quot;高江华&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 搜索引擎爬虫重访时间</span></span><br><span class="line"><span class="comment">        如果页面不是经常更新，为了减轻搜索引擎爬虫对服务器带来的压力，可以设置一个爬虫的重访时间。如果重访时间过短，爬虫将按它们定义的默认时间来访问</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;revisit-after&quot;</span> <span class="attr">content</span>=<span class="string">&quot;7 days&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- [ http-equiv ] --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 浏览器采取何种版本渲染当前页面(优先使用 IE 最新版本和 Chrome) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge,chrome=1&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 避免IE使用兼容模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不让百度转码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Cache-Control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-siteapp&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设定网页字符集(推荐使用HTML5的方式)</span></span><br><span class="line"><span class="comment">        下面是旧的HTML字符集配置，不推荐</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html;charset=utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定请求和响应遵循的缓存机制</span></span><br><span class="line"><span class="comment">        no-cache: 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。</span></span><br><span class="line"><span class="comment">        no-store: 不允许缓存，每次都要去服务器上，下载完整的响应。（安全措施）</span></span><br><span class="line"><span class="comment">        public : 缓存所有响应，但并非必须。因为max-age也可以做到相同效果</span></span><br><span class="line"><span class="comment">        private : 只为单个用户缓存，因此不允许任何中继进行缓存。（比如说CDN就不允许缓存private的响应）</span></span><br><span class="line"><span class="comment">        maxage : 表示当前请求开始，该响应在多久内能被缓存和重用，而不去服务器重新请求。例如：max-age=60表示响应可以再缓存和重用 60 秒。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;cache-control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-cache&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 禁止百度自动转码 </span></span><br><span class="line"><span class="comment">        用于禁止当前页面在移动端浏览时，被百度自动转码。虽然百度的本意是好的，但是转码效果很多时候却不尽人意。所以可以在head中加入例子中的那句话，就可以避免百度自动转码了</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Cache-Control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-siteapp&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 网页到期时间(用于设定网页的到期时间，过期后网页必须到服务器上重新传输) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;expires&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Sunday 26 October 2016 01:00 GMT&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 自动刷新并指向某页面(网页将在设定的时间内，自动刷新并调向设定的网址) </span></span><br><span class="line"><span class="comment">        以下是2秒后跳转到指定网页</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;2；URL=http://gaojianghua.cn/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- cookie设定 (如果网页过期。那么这个网页存在本地的cookies也会被自动删除)</span></span><br><span class="line"><span class="comment">        &lt;meta http-equiv=&quot;Set-Cookie&quot; content=&quot;name, date&quot; /&gt; //格式</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Set-Cookie&quot;</span> <span class="attr">content</span>=<span class="string">&quot;User=gaojianghua; path=/; expires=Sunday, 10-Jan-16 10:00:00 GMT&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 启动DNS预解析, 以及src与href属性的预解析--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;x-dns-prefetch-control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;on&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- [ rel ] --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iOS 图标 begin --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon-precomposed&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/apple-touch-icon-57x57-precomposed.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon-precomposed&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;114x114&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/apple-touch-icon-114x114-precomposed.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon-precomposed&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;144x144&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/apple-touch-icon-144x144-precomposed.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iOS 图标 end --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- iOS 启动画面 begin --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;768x1004&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/splash-screen-768x1004.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;1536x2008&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/splash-screen-1536x2008.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;1024x748&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/Default-Portrait-1024x748.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;2048x1496&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/splash-screen-2048x1496.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPad 横屏 2048x1496（Retina） --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/splash-screen-320x480.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;640x960&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/splash-screen-640x960.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-startup-image&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;640x1136&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/splash-screen-640x1136.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- iOS 启动画面 end --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- iOS 设备 end --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-TileColor&quot;</span> <span class="attr">content</span>=<span class="string">&quot;#000&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Windows 8 磁贴颜色 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-TileImage&quot;</span> <span class="attr">content</span>=<span class="string">&quot;icon.png&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Windows 8 磁贴图标 --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;alternate&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/rss+xml&quot;</span> <span class="attr">title</span>=<span class="string">&quot;RSS&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/rss.xml&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加 RSS 订阅 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/ico&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/favicon.ico&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 添加 favicon icon --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- sns 社交标签 begin</span></span><br><span class="line"><span class="comment">        Open Graph Protocol，是 Facebook 制订的一个社交网络分享协议，有了上面的内容，分享之后会带上更多的信息、展示图片等，让分享的内容更吸引人</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;website&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:url&quot;</span> <span class="attr">content</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Wolffy-Document&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:image&quot;</span> <span class="attr">content</span>=<span class="string">&quot;https://gaojianghua.oss-cn-hangzhou.aliyuncs.com/home/%E7%81%B0%E5%A4%AA%E7%8B%BC.png&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;技术博客--前端后端运维知识点收录: Vue, React, Taro, ReactNative, Webpack, Vite, UniApp, 小程序, H5, Docker, GitGoLang, Node, Nest, Mysql, Redis, 数据结构, 算法&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- sns 社交标签 end --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="头部link标签"><a href="#头部link标签" class="headerlink" title="头部link标签"></a>头部link标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 使用 HTML5 doctype，不区分大小写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-cmn-Hans&quot;</span>&gt;</span> <span class="comment">&lt;!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- [link] </span></span><br><span class="line"><span class="comment">        属性: </span></span><br><span class="line"><span class="comment">        href：指明外部资源文件的路径，即告诉浏览器外部资源的位置</span></span><br><span class="line"><span class="comment">        hreflang：说明外部资源使用的语言</span></span><br><span class="line"><span class="comment">        media：说明外部资源用于哪种设备</span></span><br><span class="line"><span class="comment">        rel：必填，表明当前文档和外部资源的关系</span></span><br><span class="line"><span class="comment">        sizes：指定图标的大小，只对属性rel=&quot;icon&quot;生效</span></span><br><span class="line"><span class="comment">        type：说明外部资源的 MIME 类型，如text/css、image/x-icon</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- title属性会控制css样式文件的加载方式</span></span><br><span class="line"><span class="comment">        无title属性：ref=stylesheet时css样式始终都会加载并渲染</span></span><br><span class="line"><span class="comment">        有title属性：ref=stylesheet时css样式会作为默认样式加载并渲染</span></span><br><span class="line"><span class="comment">        有title属性：ref=alternate stylesheet时css样式会作为预备样式渲染，默认不加载</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./index.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- alternate (用于主题样式切换，将css作为预备样式，通过对link使用disabled进行切换) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;alternate stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./index.css&quot;</span> <span class="attr">title</span>=<span class="string">&quot;gaojianghua&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- alternate (也可以做处于移动端访问时跳转H5的网页) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;alternate&quot;</span> <span class="attr">media</span>=<span class="string">&quot;only screen and (max-width:750px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定网页的规范版本，搜索引擎则会把权重集中到规范版本页面，由此提升网页的权重，排名更加靠前</span></span><br><span class="line"><span class="comment">        可指定为PC端网页, 区分H5移动端</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;canonical&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- DNS预解析 (link方式的DNS的预解析与页面的加载是并行处理的，不会影响到页面的加载性能) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 链接到外部，告知浏览器，此链接非本站链接 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;external&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 链接到集合中的首个文档 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;first&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 链接帮助信息 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;help&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义网站或网页在浏览器标题栏中的图标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;favicon.ico&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 链接到文档的版权信息，即文档的版权声明 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;license&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 链接到集合中的末尾文档 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;last&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定页面不被搜索引擎跟踪，或者此页面不被搜索引擎爬取 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;nofollow&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;nofollow&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 用于记录文档的下一页，可提示浏览器文章的开始URL，且浏览器可提前加载此页 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;start&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 阻止浏览器发送访问来源信息 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;noreferrer&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在页面渲染之前对资源进行预加载，且不易阻塞页面的初步渲染</span></span><br><span class="line"><span class="comment">        其中href和as属性用于指定被加载资源的路径和类型，as指定资源的类型后，浏览器可以更加精确地优化资源加载优先级。</span></span><br><span class="line"><span class="comment">        as属性值:</span></span><br><span class="line"><span class="comment">        audio: 音频文件。</span></span><br><span class="line"><span class="comment">        document: 一个将要被嵌入到[&lt;frame&gt;]或[&lt;iframe&gt;]内部的HTML文档。</span></span><br><span class="line"><span class="comment">        embed: 一个将要被嵌入到[&lt;embed&gt;]元素内部的资源。</span></span><br><span class="line"><span class="comment">        fetch: 那些将要通过fetch和XHR请求来获取的资源，比如一个ArrayBuffer或JSON文件。</span></span><br><span class="line"><span class="comment">        font: 字体文件。</span></span><br><span class="line"><span class="comment">        image: 图片文件。</span></span><br><span class="line"><span class="comment">        object: 一个将会被嵌入到[&lt;embed&gt;]元素内的文件。</span></span><br><span class="line"><span class="comment">        script: JavaScript文件。</span></span><br><span class="line"><span class="comment">        style: 样式表。</span></span><br><span class="line"><span class="comment">        track: WebVTT文件。</span></span><br><span class="line"><span class="comment">        worker: 一个JavaScript的web worker或shared worker。</span></span><br><span class="line"><span class="comment">        video: 视频文件。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;main.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 博客中用来通知其他文章被引用的一种方式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;pingback&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 空闲时预加载未来要使用的资源，优先级较低，一般用于加载非本页的其他页面所需要的资源，以便加快后续页面的首屏渲染速度。</span></span><br><span class="line"><span class="comment">        资源加载完成后，可以被缓存 </span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 优化可能导航到的下一页上的资源的加载，在后台渲染了整个页面以及整个页面所有的资源 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preconnect&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 允许浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，建立与服务器的连接</span></span><br><span class="line"><span class="comment">        其中包括DNS预解析、TLS协商、TCP握手</span></span><br><span class="line"><span class="comment">        消除了往返延迟并为用户节省了时间，以便后续可以更快地获取链接内容</span></span><br><span class="line"><span class="comment">        crossorigin: 浏览器为该模式维护一个单独的套接字池</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preconnect&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://gaojianghua.cn/docs/&quot;</span> <span class="attr">crossorigin</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 用于记录文档的上一页 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prev&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 链接到文档的搜索工具 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;search&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定作为样式表的外部资源，若未设置type，浏览器默认为text/css --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定当前文档使用的标签、关键词 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;tag&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指向一个文档，此文档提供此网页的上下文关系 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;up&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
 
