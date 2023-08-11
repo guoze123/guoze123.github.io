@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="eslintESlint ESLint规则的三种级别 “off” 或者 0：关闭规则。 “warn” 或者 1：打开规则，并且作为一个警告（不影响exit code）。 “error” 或者 2：打开规则，并且作为一个错误（exit code将会是1）。  下面的一些配置规则 “no-console”:”off” 禁用 console。 “no-unused-vars”:2 禁止出现未使用过的变量">
+<meta property="og:type" content="website">
+<meta property="og:title" content="郭泽">
+<meta property="og:url" content="https://gz1234.gitee.io/spec-master/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E5%B7%A5%E5%85%B7.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="eslintESlint ESLint规则的三种级别 “off” 或者 0：关闭规则。 “warn” 或者 1：打开规则，并且作为一个警告（不影响exit code）。 “error” 或者 2：打开规则，并且作为一个错误（exit code将会是1）。  下面的一些配置规则 “no-console”:”off” 禁用 console。 “no-unused-vars”:2 禁止出现未使用过的变量">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-31T01:45:12.641Z">
+<meta property="article:modified_time" content="2023-05-31T01:45:12.641Z">
+<meta property="article:author" content="郭泽">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/spec-master/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E5%B7%A5%E5%85%B7">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/spec-master/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E5%B7%A5%E5%85%B7.html","path":"spec-master/代码规范的工具.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 郭泽
+</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#eslint"><span class="nav-number">1.</span> <span class="nav-text">eslint</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ESLint%E8%A7%84%E5%88%99%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BA%A7%E5%88%AB"><span class="nav-number">1.1.</span> <span class="nav-text">ESLint规则的三种级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">下面的一些配置规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prettier%EF%BC%88%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">Prettier（代码格式化）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#editorconfig"><span class="nav-number">3.</span> <span class="nav-text">.editorconfig</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h2 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h2><p><a target="_blank" rel="noopener" href="https://eslint.org/?spm=a21iq3.home.0.0.5d7f2764MgeeRD">ESlint</a></p>
+<h3 id="ESLint规则的三种级别"><a href="#ESLint规则的三种级别" class="headerlink" title="ESLint规则的三种级别"></a>ESLint规则的三种级别</h3><ul>
+<li>“off” 或者 0：关闭规则。</li>
+<li>“warn” 或者 1：打开规则，并且作为一个警告（不影响exit code）。</li>
+<li>“error” 或者 2：打开规则，并且作为一个错误（exit code将会是1）。</li>
+</ul>
+<h3 id="下面的一些配置规则"><a href="#下面的一些配置规则" class="headerlink" title="下面的一些配置规则"></a>下面的一些配置规则</h3><ul>
+<li>“no-console”:”off” 禁用 console。</li>
+<li>“no-unused-vars”:2 禁止出现未使用过的变量。</li>
+<li>“no-use-before-define”:2 不允许在变量定义之前使用它们。</li>
+<li>“linebreak-style”:[2, “unix”] 强制使用一致的换行风格。</li>
+<li>“quotes”: [“error”, “single”] 强制使用一致的单引号。</li>
+<li>“semi”:[“error”, “always”] 控制行尾部分号。</li>
+<li>“curly”:[“error”, “all”] 强制所有控制语句使用一致的括号风格。</li>
+<li>“default-case”: “error” switch 语句强制 default 分支，也可添加 // no default 注释取消此次警告。</li>
+<li>“no-else-return”:”error” 禁止 if 语句中有 return 之后有 else。</li>
+<li>“no-implicit-coercion”: “error” 禁止出现空函数.如果一个函数包含了一条注释，它将不会被认为有问题。</li>
+<li>“no-invalid-this”: “error” 禁止 this 关键字出现在类和类对象之外。</li>
+<li>“no-loop-func”:”error” 禁止在循环中出现 function 声明和表达式。</li>
+<li>“no-multi-spaces”:”error” 禁止使用多个空格。</li>
+<li>“no-new-func”:”error” 禁止对 空Function 对象使用 new 操作符。</li>
+<li>“no-useless-return”:”error” 禁止没有任何内容的return;</li>
+<li>“global-require”: “error” 要求 require() 出现在顶层模块作用域中。</li>
+<li>“no-path-concat”: “error” 禁止对 dirname 和 filename进行字符串连接</li>
+<li>“no-sync”: “error” 禁用同步方法。</li>
+<li>“array-bracket-spacing”: [“error”, “never”] 指定数组的元素之间要以空格隔开(, 后面)， never参数：[ 之前和 ] 之后不能带空格，always参数： [ 之前和 ] 之后必须带空格。</li>
+<li>“block-spacing”: [“error”, “always”] 禁止或强制在单行代码块中使用空格(禁用)。</li>
+<li>“brace-style”: [“error”, “1tbs”]</li>
+<li>“camelcase”: “error” 强制驼峰法命名。</li>
+<li>“comma-dangle”: [“error”, “always-multiline”] 数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗,- always-multiline：多行模式必须带逗号，单行模式不能带逗号号。</li>
+<li>“comma-spacing”: [“error”, { “before”: false, “after”: true }] 控制逗号前后的空格。</li>
+<li>“comma-style”: [“error”, “last”] 控制逗号在行尾出现还是在行首出现 (默认行尾)。</li>
+<li>“key-spacing”: [“error”, { “beforeColon”: false, “afterColon”: true }] 该规则规定了在对象字面量语法中，key和value之间的空白，冒号前不要空格，冒号后面需要一个空格。</li>
+<li>“lines-around-comment”: [“error”, { “beforeBlockComment”: true }] 要求在注释周围有空行 ( 要求在块级注释之前有一空行)。</li>
+<li>“newline-after-var”: [“error”, “always”] 要求或禁止 var 声明语句后有一行空行。</li>
+<li>“newline-before-return”: “error” 要求 return 语句之前有一空行。</li>
+<li>“no-multi-assign”: “error” 链接变量的赋值可能会导致意外的结果并难以阅读，不允许在单个语句中使用多个分配。</li>
+<li>“max-params”: [1, 3] function 定义中最多允许的参数数量。</li>
+<li>“new-cap”: [“error”, { “newIsCap”: true, “capIsNew”: false}] 构造函数首字母大写。</li>
+<li>“no-multiple-empty-lines”: [“error”, {“max”: 2}] 空行不能够超过2行。</li>
+<li>“no-shadow-restricted-names”: “error” 禁止对一些关键字或者保留字进行赋值操作，比如NaN、Infinity、undefined、eval、arguments等。</li>
+<li>“no-undef-init”: “error” 禁止把undefined赋值给一个变量。</li>
+<li>“keyword-spacing”: “error” keyword 前后需要空格。</li>
+<li>“space-before-blocks”: [“error”,”always”] 强制在块之前使用一致的空格。</li>
+</ul>
+<h2 id="Prettier（代码格式化）"><a href="#Prettier（代码格式化）" class="headerlink" title="Prettier（代码格式化）"></a>Prettier（代码格式化）</h2><p><a target="_blank" rel="noopener" href="https://prettier.io/?spm=a21iq3.home.0.0.5d7f2764MgeeRD">Prettier</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 指定prettier将换行的行长&lt;int&gt;，默认80</span></span><br><span class="line">  printWidth: <span class="number">80</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 指定每个缩进级别的空格数&lt;int&gt;，默认2</span></span><br><span class="line">  tabWidth: <span class="number">2</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用制表符而不是空格缩进行&lt;bool&gt;，默认false</span></span><br><span class="line">  useTabs: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在语句末尾添加分号&lt;bool&gt;，默认true</span></span><br><span class="line">  semi: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用单引号而不是双引号&lt;bool&gt;，默认false</span></span><br><span class="line">  singleQuote: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// object对象中key值是否加引号&lt;as-needed|consistent|preserve&gt;，默认as-needed</span></span><br><span class="line">  <span class="comment">// as-needed-仅在需要时在对象属性周围添加引号</span></span><br><span class="line">  <span class="comment">// consistent-如果一个对象中至少有一个属性需要引号，所有属性添加引号</span></span><br><span class="line">  <span class="comment">// preserve-保留对象属性中用户输入使用的引号</span></span><br><span class="line">  quoteProps: <span class="string">&#x27;as-needed&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在 JSX 中使用单引号而不是双引号&lt;bool&gt;，默认false</span></span><br><span class="line">  jsxSingleQuote: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在多行逗号分隔的句法结构中尽可能打印尾随逗号&lt;es5|none|all&gt;，默认es5</span></span><br><span class="line">  <span class="comment">// es5-在 ES5 中有效的尾随逗号（对象、数组等），TypeScript 的类型参数中没有尾随逗号</span></span><br><span class="line">  <span class="comment">// none-没有尾随逗号</span></span><br><span class="line">  <span class="comment">// all-尽可能以逗号结尾（包括函数参数和调用）。要运行以这种方式格式化的 JavaScript 代码需要一个支持 ES2017（Node.js 8+ 或现代浏览器）或下层编译的引擎。这还会在 TypeScript 的类型参数中启用尾随逗号（自 2018 年 1 月发布的 TypeScript 2.7 起支持）</span></span><br><span class="line">  trailingComma: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对象字面量中括号之间的空格&lt;bool&gt;，默认true</span></span><br><span class="line">  bracketSpacing: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将&gt;多行 HTML（HTML、JSX、Vue、Angular）元素放在最后一行的末尾，而不是单独放在下一行（不适用于自关闭元素）&lt;bool&gt;，默认false</span></span><br><span class="line">  <span class="comment">// true：</span></span><br><span class="line">  <span class="comment">// &lt;button</span></span><br><span class="line">  <span class="comment">//   className=&quot;prettier-class&quot;</span></span><br><span class="line">  <span class="comment">//   id=&quot;prettier-id&quot;</span></span><br><span class="line">  <span class="comment">//   onClick=&#123;this.handleClick&#125;&gt;</span></span><br><span class="line">  <span class="comment">//   Click Here</span></span><br><span class="line">  <span class="comment">// &lt;/button&gt;</span></span><br><span class="line">  <span class="comment">// false：</span></span><br><span class="line">  <span class="comment">// &lt;button</span></span><br><span class="line">  <span class="comment">//   className=&quot;prettier-class&quot;</span></span><br><span class="line">  <span class="comment">//   id=&quot;prettier-id&quot;</span></span><br><span class="line">  <span class="comment">//   onClick=&#123;this.handleClick&#125;</span></span><br><span class="line">  <span class="comment">// &gt;</span></span><br><span class="line">  <span class="comment">//   Click Here</span></span><br><span class="line">  <span class="comment">// &lt;/button&gt;</span></span><br><span class="line">  bracketSameLine: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在唯一的箭头函数参数周围包含括号&lt;always|avoid&gt;</span></span><br><span class="line">  <span class="comment">// always-始终包含括号</span></span><br><span class="line">  <span class="comment">// avoid-尽可能省略括号</span></span><br><span class="line">  arrowParens: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Prettier 可以限制自己只格式化在文件顶部包含特殊注释（称为 pragma）的文件。这在逐渐将大型、未格式化的代码库过渡到 Prettier 时非常有用&lt;bool&gt;</span></span><br><span class="line">  requirePragma: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Prettier可以在文件的顶部插入一个 @format的特殊注释，以表明改文件已经被Prettier格式化过了。在使用 --require-pragma参数处理一连串的文件时这个功能将十分有用。如果文件顶部已经有一个doclock，这个选项将新建一行注释，并打上@format标记&lt;bool&gt;，默认false</span></span><br><span class="line">  insertPragma: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 超过最大宽度是否换行&lt;always|never|preserve&gt;，默认preserve</span></span><br><span class="line">  <span class="comment">// always-如果超过最大宽度换行</span></span><br><span class="line">  <span class="comment">// never-不要换行</span></span><br><span class="line">  <span class="comment">// preserve-按原样显示</span></span><br><span class="line">  proseWrap: <span class="string">&#x27;preserve&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 指定 HTML、Vue、Angular 和 Handlebars 的全局空格敏感度&lt;css|strict|ignore&gt;，默认css</span></span><br><span class="line">  <span class="comment">// css-遵循CSS属性的默认值</span></span><br><span class="line">  <span class="comment">// strict-所有标签周围的空格（或缺少空格）被认为是重要的</span></span><br><span class="line">  <span class="comment">// ignore-所有标签周围的空格（或缺少空格）被认为是无关紧要的</span></span><br><span class="line">  htmlWhitespaceSensitivity: <span class="string">&#x27;css&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// vue文件script和style标签中是否缩进&lt;bool&gt;，默认false</span></span><br><span class="line">  vueIndentScriptAndStyle: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 行尾换行符&lt;lf|crlf|cr|auto&gt;，默认lf</span></span><br><span class="line">  endOfLine: <span class="string">&#x27;lf&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 控制 Prettier 是否格式化嵌入在文件中的引用代码&lt;off|auto&gt;，默认auto</span></span><br><span class="line">  <span class="comment">// auto–如果 Prettier 可以自动识别，则格式化嵌入代码</span></span><br><span class="line">  <span class="comment">// off-从不自动格式化嵌入代码</span></span><br><span class="line">  embeddedLanguageFormatting: <span class="string">&#x27;auto&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在 HTML、Vue 和 JSX 中强制执行每行单个属性&lt;bool&gt;，默认false</span></span><br><span class="line">  singleAttributePerLine: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h2><p><a target="_blank" rel="noopener" href="https://editorconfig.org/">editorconfig</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 告诉EditorConfig插件，这是根文件，不用继续往上查找</span><br><span class="line">root &#x3D; true</span><br><span class="line"># 匹配全部文件</span><br><span class="line">[*]</span><br><span class="line"># 设置字符集</span><br><span class="line">charset &#x3D; utf-8</span><br><span class="line"># 缩进风格，可选space、tab</span><br><span class="line">indent_style &#x3D; space</span><br><span class="line"># 缩进的空格数</span><br><span class="line">indent_size &#x3D; 2</span><br><span class="line"># 结尾换行符，可选lf、cr、crlf</span><br><span class="line">end_of_line &#x3D; lf</span><br><span class="line"># 在文件结尾插入新行</span><br><span class="line">insert_final_newline &#x3D; true</span><br><span class="line"># 删除一行中的前后空格</span><br><span class="line">trim_trailing_whitespace &#x3D; true</span><br><span class="line"></span><br><span class="line"># 匹配md结尾的文件</span><br><span class="line">[*.md]</span><br><span class="line">insert_final_newline &#x3D; false</span><br><span class="line">trim_trailing_whitespace &#x3D; false</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

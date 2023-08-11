@@ -314,6 +314,193 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郭泽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭泽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 郭泽">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/" class="post-title-link" itemprop="url">package.json</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-28 17:54:26" itemprop="dateModified" datetime="2023-01-28T17:54:26+08:00">2023-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/info.png" alt="package"><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2MTIyNDUwMA==&mid=2247499545&idx=1&sn=bf3b3cf415274cd5db8f82604e5ccb2f&chksm=fc7eb142cb09385417ea9259bc34e5fbf8b845d1b3946c1f2a59ca8b5623e9d587083a51708e&token=400768939&lang=zh_CN&scene=21#wechat_redirect">package.json</a></p>
+<h3 id="package-json简介"><a href="#package-json简介" class="headerlink" title="package.json简介"></a>package.json简介</h3><p>在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y<br>然后在你的目录下会生成3个目录/文件， node_modules, package.json和 package.lock.json。其中package.json的内容为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Your project description&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;app.js&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Author name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: <span class="string">&quot;^1.4.0&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: <span class="string">&quot;^1.5.2&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>package.json中包含了项目本身的元数据,以及项目的子依赖信息(比如dependicies等)。</p>
+<h3 id="package-lock-json"><a href="#package-lock-json" class="headerlink" title="package-lock.json"></a>package-lock.json</h3><p>我们发现在npm init的时候，不仅生成了package.json文件，还生成了package-lock.json文件。那么为什么存在package.json的清空下，还需要生成package-lock.json文件呢。</p>
+<p>本质上package-lock.json文件是为了锁版本，在package.json中指定的子npm包比如：react: “^16.0.0”，在实际安装中，只要高于react的版本都满足package.json的要求。这样就使得根据同一个package.json文件，两次安装的子依赖版本不能保证一致。</p>
+<p>而package-lock文件如下所示，子依赖dependency1就详细的指定了其版本。起到lock版本的作用。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;lockfileVersion&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;requires&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.4.0&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency1/-/dependency1-1.4.0.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.5.2&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency2/-/dependency2-1.5.2.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-WOn21V8AhyE1QqVfPIVxe3tupJacq1xGkPTB4iagT6o+P2cAgEOOwIxMftr4+ZCTI6d551ij9j61DFr0nsP2uQ==&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="package-json常用属性"><a href="#package-json常用属性" class="headerlink" title="package.json常用属性"></a>package.json常用属性</h2><h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p>在npm中使用script标签来定义脚本，每当制定npm run的时候，就会自动创建一个shell脚本，这里需要注意的是，npm run新建的这个 Shell，会将本地目录的node_modules/.bin子目录加入PATH变量。</p>
+<p>这意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 esbuild，只要直接写esbuild xxx 就可以了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;esbuild index.js&quot;</span>,</span><br><span class="line"> <span class="comment">// &quot;build&quot;: &quot;./node_modules/.bin/esbuild index.js&quot;  上面两种写法是等价的。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h3><p>bin属性用来将可执行文件加载到全局环境中，指定了bin字段的npm包，一旦在全局安装，就会被加载到全局环境中，可以通过别名来执行该文件。<br>比如@bytepack/cli的npm包：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">    &quot;bytepack&quot;: &quot;./bin/index.js&quot;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>一旦在全局安装了@bytepack/cli，就可以直接通过bytepack来执行相应的命令，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bytepack -v</span><br><span class="line"><span class="comment">//显示1.11.0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果非全局安装，那么会自动连接到项目的node_module/.bin目录中。与前面介绍的script标签中所说的一致，可以直接用别名来使用。</p>
+<h3 id="workspaces"><a href="#workspaces" class="headerlink" title="workspaces"></a>workspaces</h3><p>在项目过大的时候，最近越来越流行monorepo。提到monorepo就绕不看workspaces，早期我们会用yarn workspaces，现在npm官方也支持了workspaces.<br>workspaces解决了本地文件系统中如何在一个顶层root package下管理多个子packages的问题，在workspaces声明目录下的package会软链到最上层root package的node_modules中</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;workspaces&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;packages/a&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个npm包名为my-project的npm包中，存在workspaces配置的目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- package.json</span><br><span class="line">+-- index.js</span><br><span class="line">&#96;-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |  &#96;-- package.json</span><br></pre></td></tr></table></figure>
+
+<p>并且该最上层的名为my-project的root包，有packages/a子包。此时，我们如果npm install,那么在root package中node_modules中安装的npm包a，指向的是本地的package/a.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- node_modules</span><br><span class="line">|  `-- packages/a -&gt; ../packages/a</span><br><span class="line">+-- package-lock.json</span><br><span class="line">+-- package.json</span><br><span class="line">`-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |   `-- package.json</span><br></pre></td></tr></table></figure>
+
+<p><code>-- packages/a -&gt; ../packages/a</code>指的就是从node_modules中a链接到本地npm包的软链</p>
+<p>###</p>
+<h2 id="package-json环境相关属性"><a href="#package-json环境相关属性" class="headerlink" title="package.json环境相关属性"></a>package.json环境相关属性</h2><p>常见的环境，基本上分为浏览器browser和node环境两大类，接下来我们来看看package.json中，跟环境相关的配置属性。环境的定义可以简单理解如下：</p>
+<ul>
+<li>browser环境：比如存在一些只有在浏览器中才会存在的全局变量等，比如window，Document等</li>
+<li>node环境: npm包的源文件中存在只有在node环境中才会有的一些变量和内置包，内置函数等。</li>
+</ul>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>js的模块化规范包含了commonjs、CMD、UMD、AMD和ES module等，最早先在node中支持的仅仅是commonjs字段，但是从node13.2.0开始后，node正式支持了ES module规范，在package.json中可以通过type字段来声明npm包遵循的模块化规范。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   name: &quot;some package&quot;,</span><br><span class="line">   type: &quot;module&quot;||&quot;commonjs&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不指定type的时候，type的默认值是commonjs，不过建议npm包都指定一下type</li>
+<li>当type字段指定值为module则采用ESModule规范</li>
+<li>当type字段指定时，目录下的所有.js后缀结尾的文件，都遵循type所指定的模块化规范</li>
+<li>除了type可以指定模块化规范外，通过文件的后缀来指定文件所遵循的模块化规范，以.mjs结尾的文件就是使用的ESModule规范，以.cjs结尾的遵循的是commonjs规范</li>
+</ul>
+<h3 id="main-amp-module-amp-browser"><a href="#main-amp-module-amp-browser" class="headerlink" title="main &amp; module &amp; browser"></a>main &amp; module &amp; browser</h3><p>除了type外，package.json中还有main,module和browser 3个字段来定义npm包的入口文件。</p>
+<ul>
+<li>main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用</li>
+<li>module : 定义 npm 包的 ESM 规范的入口文件，browser 环境和 node - 环境均可使用</li>
+<li>browser : 定义 npm 包在 browser 环境下的入口文件<br>我们来看一下这3个字段的使用场景，以及同时存在这3个字段时的优先级。我们假设有一个npm包为demo1</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">----- dist</span><br><span class="line">   |-- index.browser.js</span><br><span class="line">   |-- index.browser.mjs</span><br><span class="line">   |-- index.js</span><br><span class="line">   |-- index.mjs</span><br></pre></td></tr></table></figure>
+
+<p>其package.json中同时指定了main,module和browser这3个字段，</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;dist/index.js&quot;,  // main </span><br><span class="line">  &quot;module&quot;: &quot;dist/index.mjs&quot;, // module</span><br><span class="line"></span><br><span class="line">  <span class="comment">// browser 可定义成和 main/module 字段一一对应的映射对象，也可以直接定义为字符串</span></span><br><span class="line">  &quot;browser&quot;: &#123;</span><br><span class="line">    &quot;./dist/index.js&quot;: &quot;./dist/index.browser.js&quot;, // browser+cjs</span><br><span class="line">    &quot;./dist/index.mjs&quot;: &quot;./dist/index.browser.mjs&quot;  // browser+mjs</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &quot;browser&quot;: &quot;./dist/index.browser.js&quot; // browser</span></span><br></pre></td></tr></table></figure>
+
+<p>默认构建和使用，比如我们在项目中引用这个npm包 <code>import demo from &#39;demo&#39;</code><br>通过构建工具构建上述代码后，模块的加载循序为：</p>
+<p><code>browser+mjs &gt; module &gt; browser+cjs &gt; main</code></p>
+<p>这个加载顺序是大部分构建工具默认的加载顺序，比如webapck、esbuild等等。可以通过相应的配置修改这个加载顺序，不过大部分场景，我们还是会遵循默认的加载顺序。</p>
+<h3 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h3><p>如果在package.json中定义了exports字段，那么这个字段所定义的内容就是该npm包的真实和全部的导出，优先级会高于main和file等字段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;pkg&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;.&quot;: &quot;.&#x2F;main.mjs&quot;,</span><br><span class="line">    &quot;.&#x2F;foo&quot;: &quot;.&#x2F;foo.js&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import &#123; something &#125; from &quot;pkg&quot;; &#x2F;&#x2F; from &quot;pkg&#x2F;main.mjs&quot;</span><br><span class="line">const &#123; something &#125; &#x3D; require(&quot;pkg&#x2F;foo&quot;); &#x2F;&#x2F; require(&quot;pkg&#x2F;foo.js&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>从上述的例子来看，exports可以定义不同path的导出。如果存在exports后，以前正常生效的file目录到处会失效，比如require(‘pkg/package.json’)，因为在exports中没有指定，就会报错。</p>
+<p>exports还有一个最大的特点，就是条件引用，比如我们可以根据不同的引用方式或者模块化类型，来指定npm包引用不同的入口文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  &quot;name&quot;:&quot;pkg&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;.&#x2F;main-require.cjs&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;import&quot;: &quot;.&#x2F;main-module.js&quot;,</span><br><span class="line">    &quot;require&quot;: &quot;.&#x2F;main-require.cjs&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;type&quot;: &quot;module&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的例子中，如果我们通过</p>
+<p><code>const p = require(&#39;pkg&#39;)</code><br>引用的就是”./main-require.cjs”。</p>
+<p>如果通过：<br><code>import p from &#39;pkg&#39;</code><br>引用的就是”./main-module.js”<br>最后需要注意的是 ：<code>如果存在exports属性，exports属性不仅优先级高于main，同时也高于module和browser字段</code>。</p>
+<h2 id="package-json依赖相关属性"><a href="#package-json依赖相关属性" class="headerlink" title="package.json依赖相关属性"></a>package.json依赖相关属性</h2><p>package.json中跟依赖相关的配置属性包含了dependencies、devDependencies、peerDependencies和peerDependenciesMeta等。</p>
+<p>dependencies是项目的依赖，而devDependencies是开发所需要的模块，所以我们可以在开发过程中需要的安装上去，来提高我们的开发效率。这里需要注意的时，在自己的项目中尽量的规范使用，形如webpack、babel等是开发依赖，而不是项目本身的依赖，不要放在dependencies中。<br>dependencies除了dependencies和devDependencies，重点peerDependencies和peerDependenciesMeta。</p>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>peerDependencies是package.json中的依赖项,可以解决核心库被下载多次，以及统一核心库版本的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;package&#x2F;pkg</span><br><span class="line">----- node_modules</span><br><span class="line">   |-- npm-a -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- npm-b -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- index.js</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<p>比如上述的例子中如果子npm包a,b都依赖了react和react-dom,此时如果我们在子npm包a,b的package.json中声明了PeerDependicies后，相应的依赖就不会重新安装。</p>
+<p>需要注意的有两点：</p>
+<ul>
+<li>对于子npm包a,在npm7中，如果单独安装子npm a,其peerDependicies中的包，会被安装下来。但是npm7之前是不会的。</li>
+<li>请规范和详细的指定PeerDependicies的配置，笔者在看到有些react组件库，不在PeerDependicies中指定react和react-dom，或者将react和- react-dom放到了dependicies中，这两种不规范的指定都会存在一些问题。</li>
+<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#x65;&#x61;&#99;&#116;&#x2d;&#x66;&#111;&#x63;&#117;&#x73;&#45;&#x6c;&#111;&#x63;&#107;&#x40;&#x32;&#x2e;&#x38;&#46;&#49;">&#x72;&#x65;&#x61;&#99;&#116;&#x2d;&#x66;&#111;&#x63;&#117;&#x73;&#45;&#x6c;&#111;&#x63;&#107;&#x40;&#x32;&#x2e;&#x38;&#46;&#49;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
+</ul>
+<h3 id="peerDependenciesMeta"><a href="#peerDependenciesMeta" class="headerlink" title="peerDependenciesMeta"></a>peerDependenciesMeta</h3><p>看到“Meta”就有元数据的意思，这里的peerDependenciesMeta就是详细修饰了peerDependicies，比如在react-redux这个npm包中的package.json中有这么一段：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">   &quot;react&quot;: &quot;^16.8.3 || ^17 || ^18&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&quot;peerDependenciesMeta&quot;: &#123;</span><br><span class="line">   &quot;react-dom&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;react-native&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里指定了”react-dom”,”react-native”在peerDependenciesMeta中，且为可选项，因此如果项目中检测没有安装”react-dom”和”react-native”都不会报错。</p>
+<p>值得注意的是，通过peerDependenciesMeta我们确实是取消了限制，但是这里经常存在非A即B的场景，比如上述例子中，我们需要的是“react-dom”和”react-native”需要安装一个，但是实际上通过上述的声明，我们实现不了这种提示。</p>
+<h2 id="依赖包的版本管理"><a href="#依赖包的版本管理" class="headerlink" title="依赖包的版本管理"></a>依赖包的版本管理</h2><p>^2.0.3或~2.0.3，这是什么意思呢</p>
+<h3 id="npm的包通常需要遵从semver版本规范"><a href="#npm的包通常需要遵从semver版本规范" class="headerlink" title="npm的包通常需要遵从semver版本规范"></a>npm的包通常需要遵从semver版本规范</h3><ul>
+<li>semver：<a target="_blank" rel="noopener" href="https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
+<li>npm semver：<a target="_blank" rel="noopener" href="https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>
+<h3 id="semver版本规范是X-Y-Z"><a href="#semver版本规范是X-Y-Z" class="headerlink" title="semver版本规范是X.Y.Z"></a>semver版本规范是X.Y.Z</h3><ul>
+<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
+</ul>
+<h3 id="和-的区别"><a href="#和-的区别" class="headerlink" title="^ * 和~的区别"></a>^ * 和~的区别</h3><ul>
+<li>x.y.z：表示一个明确的版本号；</li>
+<li>^x.y.z：表示x是保持不变的，y和z永远安装最新的版本；</li>
+<li>~x.y.z：表示x和y保持不变的，z永远安装最新的版本；</li>
+<li>*x.y.x: 一般是最后一次正式发布版本</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -468,193 +655,6 @@
           <p>npm、yarn、cnpm、npx、pnpm</p>
 <p><a href="./%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.pdf">包管理工具</a></p>
 <div class="pdf-container" data-target="./包管理工具.pdf" data-height="500px"></div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://gz1234.gitee.io/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="郭泽">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="郭泽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 郭泽">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/" class="post-title-link" itemprop="url">package.json</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-09 02:21:52" itemprop="dateCreated datePublished" datetime="2022-07-09T02:21:52+08:00">2022-07-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-28 17:54:26" itemprop="dateModified" datetime="2023-01-28T17:54:26+08:00">2023-01-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">前端整理</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p><img src="/2022/07/09/%E5%89%8D%E7%AB%AF%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/packageJson/info.png" alt="package"><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2MTIyNDUwMA==&mid=2247499545&idx=1&sn=bf3b3cf415274cd5db8f82604e5ccb2f&chksm=fc7eb142cb09385417ea9259bc34e5fbf8b845d1b3946c1f2a59ca8b5623e9d587083a51708e&token=400768939&lang=zh_CN&scene=21#wechat_redirect">package.json</a></p>
-<h3 id="package-json简介"><a href="#package-json简介" class="headerlink" title="package.json简介"></a>package.json简介</h3><p>在nodejs项目中，package.json是管理其依赖的配置文件，通常我们在初始化一个nodejs项目的时候会通过：npm init -y<br>然后在你的目录下会生成3个目录/文件， node_modules, package.json和 package.lock.json。其中package.json的内容为：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Your project description&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;app.js&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Author name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: <span class="string">&quot;^1.4.0&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: <span class="string">&quot;^1.5.2&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>package.json中包含了项目本身的元数据,以及项目的子依赖信息(比如dependicies等)。</p>
-<h3 id="package-lock-json"><a href="#package-lock-json" class="headerlink" title="package-lock.json"></a>package-lock.json</h3><p>我们发现在npm init的时候，不仅生成了package.json文件，还生成了package-lock.json文件。那么为什么存在package.json的清空下，还需要生成package-lock.json文件呢。</p>
-<p>本质上package-lock.json文件是为了锁版本，在package.json中指定的子npm包比如：react: “^16.0.0”，在实际安装中，只要高于react的版本都满足package.json的要求。这样就使得根据同一个package.json文件，两次安装的子依赖版本不能保证一致。</p>
-<p>而package-lock文件如下所示，子依赖dependency1就详细的指定了其版本。起到lock版本的作用。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Your project name&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;lockfileVersion&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;requires&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;dependency1&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.4.0&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency1/-/dependency1-1.4.0.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;dependency2&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.5.2&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;resolved&quot;</span>: </span><br><span class="line"><span class="string">&quot;https://registry.npmjs.org/dependency2/-/dependency2-1.5.2.tgz&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;integrity&quot;</span>: </span><br><span class="line"><span class="string">&quot;sha512-WOn21V8AhyE1QqVfPIVxe3tupJacq1xGkPTB4iagT6o+P2cAgEOOwIxMftr4+ZCTI6d551ij9j61DFr0nsP2uQ==&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="package-json常用属性"><a href="#package-json常用属性" class="headerlink" title="package.json常用属性"></a>package.json常用属性</h2><h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p>在npm中使用script标签来定义脚本，每当制定npm run的时候，就会自动创建一个shell脚本，这里需要注意的是，npm run新建的这个 Shell，会将本地目录的node_modules/.bin子目录加入PATH变量。</p>
-<p>这意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 esbuild，只要直接写esbuild xxx 就可以了。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;esbuild index.js&quot;</span>,</span><br><span class="line"> <span class="comment">// &quot;build&quot;: &quot;./node_modules/.bin/esbuild index.js&quot;  上面两种写法是等价的。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h3><p>bin属性用来将可执行文件加载到全局环境中，指定了bin字段的npm包，一旦在全局安装，就会被加载到全局环境中，可以通过别名来执行该文件。<br>比如@bytepack/cli的npm包：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">    &quot;bytepack&quot;: &quot;./bin/index.js&quot;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>一旦在全局安装了@bytepack/cli，就可以直接通过bytepack来执行相应的命令，比如</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bytepack -v</span><br><span class="line"><span class="comment">//显示1.11.0</span></span><br></pre></td></tr></table></figure>
-
-<p>如果非全局安装，那么会自动连接到项目的node_module/.bin目录中。与前面介绍的script标签中所说的一致，可以直接用别名来使用。</p>
-<h3 id="workspaces"><a href="#workspaces" class="headerlink" title="workspaces"></a>workspaces</h3><p>在项目过大的时候，最近越来越流行monorepo。提到monorepo就绕不看workspaces，早期我们会用yarn workspaces，现在npm官方也支持了workspaces.<br>workspaces解决了本地文件系统中如何在一个顶层root package下管理多个子packages的问题，在workspaces声明目录下的package会软链到最上层root package的node_modules中</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;workspaces&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;packages/a&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在一个npm包名为my-project的npm包中，存在workspaces配置的目录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- package.json</span><br><span class="line">+-- index.js</span><br><span class="line">&#96;-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |  &#96;-- package.json</span><br></pre></td></tr></table></figure>
-
-<p>并且该最上层的名为my-project的root包，有packages/a子包。此时，我们如果npm install,那么在root package中node_modules中安装的npm包a，指向的是本地的package/a.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- node_modules</span><br><span class="line">|  `-- packages/a -&gt; ../packages/a</span><br><span class="line">+-- package-lock.json</span><br><span class="line">+-- package.json</span><br><span class="line">`-- packages</span><br><span class="line">   +-- a</span><br><span class="line">   |   `-- package.json</span><br></pre></td></tr></table></figure>
-
-<p><code>-- packages/a -&gt; ../packages/a</code>指的就是从node_modules中a链接到本地npm包的软链</p>
-<p>###</p>
-<h2 id="package-json环境相关属性"><a href="#package-json环境相关属性" class="headerlink" title="package.json环境相关属性"></a>package.json环境相关属性</h2><p>常见的环境，基本上分为浏览器browser和node环境两大类，接下来我们来看看package.json中，跟环境相关的配置属性。环境的定义可以简单理解如下：</p>
-<ul>
-<li>browser环境：比如存在一些只有在浏览器中才会存在的全局变量等，比如window，Document等</li>
-<li>node环境: npm包的源文件中存在只有在node环境中才会有的一些变量和内置包，内置函数等。</li>
-</ul>
-<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>js的模块化规范包含了commonjs、CMD、UMD、AMD和ES module等，最早先在node中支持的仅仅是commonjs字段，但是从node13.2.0开始后，node正式支持了ES module规范，在package.json中可以通过type字段来声明npm包遵循的模块化规范。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   name: &quot;some package&quot;,</span><br><span class="line">   type: &quot;module&quot;||&quot;commonjs&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>不指定type的时候，type的默认值是commonjs，不过建议npm包都指定一下type</li>
-<li>当type字段指定值为module则采用ESModule规范</li>
-<li>当type字段指定时，目录下的所有.js后缀结尾的文件，都遵循type所指定的模块化规范</li>
-<li>除了type可以指定模块化规范外，通过文件的后缀来指定文件所遵循的模块化规范，以.mjs结尾的文件就是使用的ESModule规范，以.cjs结尾的遵循的是commonjs规范</li>
-</ul>
-<h3 id="main-amp-module-amp-browser"><a href="#main-amp-module-amp-browser" class="headerlink" title="main &amp; module &amp; browser"></a>main &amp; module &amp; browser</h3><p>除了type外，package.json中还有main,module和browser 3个字段来定义npm包的入口文件。</p>
-<ul>
-<li>main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用</li>
-<li>module : 定义 npm 包的 ESM 规范的入口文件，browser 环境和 node - 环境均可使用</li>
-<li>browser : 定义 npm 包在 browser 环境下的入口文件<br>我们来看一下这3个字段的使用场景，以及同时存在这3个字段时的优先级。我们假设有一个npm包为demo1</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">----- dist</span><br><span class="line">   |-- index.browser.js</span><br><span class="line">   |-- index.browser.mjs</span><br><span class="line">   |-- index.js</span><br><span class="line">   |-- index.mjs</span><br></pre></td></tr></table></figure>
-
-<p>其package.json中同时指定了main,module和browser这3个字段，</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;dist/index.js&quot;,  // main </span><br><span class="line">  &quot;module&quot;: &quot;dist/index.mjs&quot;, // module</span><br><span class="line"></span><br><span class="line">  <span class="comment">// browser 可定义成和 main/module 字段一一对应的映射对象，也可以直接定义为字符串</span></span><br><span class="line">  &quot;browser&quot;: &#123;</span><br><span class="line">    &quot;./dist/index.js&quot;: &quot;./dist/index.browser.js&quot;, // browser+cjs</span><br><span class="line">    &quot;./dist/index.mjs&quot;: &quot;./dist/index.browser.mjs&quot;  // browser+mjs</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &quot;browser&quot;: &quot;./dist/index.browser.js&quot; // browser</span></span><br></pre></td></tr></table></figure>
-
-<p>默认构建和使用，比如我们在项目中引用这个npm包 <code>import demo from &#39;demo&#39;</code><br>通过构建工具构建上述代码后，模块的加载循序为：</p>
-<p><code>browser+mjs &gt; module &gt; browser+cjs &gt; main</code></p>
-<p>这个加载顺序是大部分构建工具默认的加载顺序，比如webapck、esbuild等等。可以通过相应的配置修改这个加载顺序，不过大部分场景，我们还是会遵循默认的加载顺序。</p>
-<h3 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h3><p>如果在package.json中定义了exports字段，那么这个字段所定义的内容就是该npm包的真实和全部的导出，优先级会高于main和file等字段。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;pkg&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;.&quot;: &quot;.&#x2F;main.mjs&quot;,</span><br><span class="line">    &quot;.&#x2F;foo&quot;: &quot;.&#x2F;foo.js&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import &#123; something &#125; from &quot;pkg&quot;; &#x2F;&#x2F; from &quot;pkg&#x2F;main.mjs&quot;</span><br><span class="line">const &#123; something &#125; &#x3D; require(&quot;pkg&#x2F;foo&quot;); &#x2F;&#x2F; require(&quot;pkg&#x2F;foo.js&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>从上述的例子来看，exports可以定义不同path的导出。如果存在exports后，以前正常生效的file目录到处会失效，比如require(‘pkg/package.json’)，因为在exports中没有指定，就会报错。</p>
-<p>exports还有一个最大的特点，就是条件引用，比如我们可以根据不同的引用方式或者模块化类型，来指定npm包引用不同的入口文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  &quot;name&quot;:&quot;pkg&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;.&#x2F;main-require.cjs&quot;,</span><br><span class="line">  &quot;exports&quot;: &#123;</span><br><span class="line">    &quot;import&quot;: &quot;.&#x2F;main-module.js&quot;,</span><br><span class="line">    &quot;require&quot;: &quot;.&#x2F;main-require.cjs&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;type&quot;: &quot;module&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上述的例子中，如果我们通过</p>
-<p><code>const p = require(&#39;pkg&#39;)</code><br>引用的就是”./main-require.cjs”。</p>
-<p>如果通过：<br><code>import p from &#39;pkg&#39;</code><br>引用的就是”./main-module.js”<br>最后需要注意的是 ：<code>如果存在exports属性，exports属性不仅优先级高于main，同时也高于module和browser字段</code>。</p>
-<h2 id="package-json依赖相关属性"><a href="#package-json依赖相关属性" class="headerlink" title="package.json依赖相关属性"></a>package.json依赖相关属性</h2><p>package.json中跟依赖相关的配置属性包含了dependencies、devDependencies、peerDependencies和peerDependenciesMeta等。</p>
-<p>dependencies是项目的依赖，而devDependencies是开发所需要的模块，所以我们可以在开发过程中需要的安装上去，来提高我们的开发效率。这里需要注意的时，在自己的项目中尽量的规范使用，形如webpack、babel等是开发依赖，而不是项目本身的依赖，不要放在dependencies中。<br>dependencies除了dependencies和devDependencies，重点peerDependencies和peerDependenciesMeta。</p>
-<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>peerDependencies是package.json中的依赖项,可以解决核心库被下载多次，以及统一核心库版本的问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;package&#x2F;pkg</span><br><span class="line">----- node_modules</span><br><span class="line">   |-- npm-a -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- npm-b -&gt; 依赖了react,react-dom</span><br><span class="line">   |-- index.js</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
-
-<p>比如上述的例子中如果子npm包a,b都依赖了react和react-dom,此时如果我们在子npm包a,b的package.json中声明了PeerDependicies后，相应的依赖就不会重新安装。</p>
-<p>需要注意的有两点：</p>
-<ul>
-<li>对于子npm包a,在npm7中，如果单独安装子npm a,其peerDependicies中的包，会被安装下来。但是npm7之前是不会的。</li>
-<li>请规范和详细的指定PeerDependicies的配置，笔者在看到有些react组件库，不在PeerDependicies中指定react和react-dom，或者将react和- react-dom放到了dependicies中，这两种不规范的指定都会存在一些问题。</li>
-<li>其二，正确的指定PeerDependicies中npm包的版本，<a href="mailto:&#x72;&#x65;&#x61;&#99;&#x74;&#45;&#102;&#111;&#99;&#x75;&#115;&#45;&#108;&#111;&#99;&#107;&#x40;&#x32;&#x2e;&#56;&#x2e;&#x31;">&#x72;&#x65;&#x61;&#99;&#x74;&#45;&#102;&#111;&#99;&#x75;&#115;&#45;&#108;&#111;&#99;&#107;&#x40;&#x32;&#x2e;&#56;&#x2e;&#x31;</a>,peerDependicies指定的是：”react”: “^16.8.0 || ^17.0.0 || ^18.0.0”，但实际上，这个react-focus-lock并不支持18.x的react</li>
-</ul>
-<h3 id="peerDependenciesMeta"><a href="#peerDependenciesMeta" class="headerlink" title="peerDependenciesMeta"></a>peerDependenciesMeta</h3><p>看到“Meta”就有元数据的意思，这里的peerDependenciesMeta就是详细修饰了peerDependicies，比如在react-redux这个npm包中的package.json中有这么一段：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">   &quot;react&quot;: &quot;^16.8.3 || ^17 || ^18&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&quot;peerDependenciesMeta&quot;: &#123;</span><br><span class="line">   &quot;react-dom&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;react-native&quot;: &#123;</span><br><span class="line">     &quot;optional&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里指定了”react-dom”,”react-native”在peerDependenciesMeta中，且为可选项，因此如果项目中检测没有安装”react-dom”和”react-native”都不会报错。</p>
-<p>值得注意的是，通过peerDependenciesMeta我们确实是取消了限制，但是这里经常存在非A即B的场景，比如上述例子中，我们需要的是“react-dom”和”react-native”需要安装一个，但是实际上通过上述的声明，我们实现不了这种提示。</p>
-<h2 id="依赖包的版本管理"><a href="#依赖包的版本管理" class="headerlink" title="依赖包的版本管理"></a>依赖包的版本管理</h2><p>^2.0.3或~2.0.3，这是什么意思呢</p>
-<h3 id="npm的包通常需要遵从semver版本规范"><a href="#npm的包通常需要遵从semver版本规范" class="headerlink" title="npm的包通常需要遵从semver版本规范"></a>npm的包通常需要遵从semver版本规范</h3><ul>
-<li>semver：<a target="_blank" rel="noopener" href="https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
-<li>npm semver：<a target="_blank" rel="noopener" href="https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
-</ul>
-<h3 id="semver版本规范是X-Y-Z"><a href="#semver版本规范是X-Y-Z" class="headerlink" title="semver版本规范是X.Y.Z"></a>semver版本规范是X.Y.Z</h3><ul>
-<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
-<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
-<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
-</ul>
-<h3 id="和-的区别"><a href="#和-的区别" class="headerlink" title="^ * 和~的区别"></a>^ * 和~的区别</h3><ul>
-<li>x.y.z：表示一个明确的版本号；</li>
-<li>^x.y.z：表示x是保持不变的，y和z永远安装最新的版本；</li>
-<li>~x.y.z：表示x和y保持不变的，z永远安装最新的版本；</li>
-<li>*x.y.x: 一般是最后一次正式发布版本</li>
-</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
@@ -1425,7 +1425,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-22 09:11:36" itemprop="dateModified" datetime="2023-03-22T09:11:36+08:00">2023-03-22</time>
+      <time title="修改时间：2023-05-15 17:17:15" itemprop="dateModified" datetime="2023-05-15T17:17:15+08:00">2023-05-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="百度图表库标准（1.0）简介图表在各种类型的产品中都有应用，本文档主要的设计目标是规范前端图表库的标准图表类型、接口、数据格式及样式设置，使之容易被理解、使用和维护。 同时，希望通过这次标准化，推动创建出可用的标准图表库，使之能更快捷地应用到各个项目中。 编撰林志峰、赵庶、erik、刘阳、杨冬 本文档由百度Flash组与商业运营体系前端技术组联合审校发布。 要求在本文档中，使用的关键字会以中文+括">
+<meta property="og:type" content="website">
+<meta property="og:title" content="郭泽">
+<meta property="og:url" content="https://gz1234.gitee.io/spec-master/chart.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="百度图表库标准（1.0）简介图表在各种类型的产品中都有应用，本文档主要的设计目标是规范前端图表库的标准图表类型、接口、数据格式及样式设置，使之容易被理解、使用和维护。 同时，希望通过这次标准化，推动创建出可用的标准图表库，使之能更快捷地应用到各个项目中。 编撰林志峰、赵庶、erik、刘阳、杨冬 本文档由百度Flash组与商业运营体系前端技术组联合审校发布。 要求在本文档中，使用的关键字会以中文+括">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gz1234.gitee.io/chart/charts.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/chart/legend.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/chart/grid.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/chart/axisDetail.jpg">
+<meta property="og:image" content="https://gz1234.gitee.io/chart/multiControl.jpg">
+<meta property="article:published_time" content="2023-07-11T06:23:19.430Z">
+<meta property="article:modified_time" content="2023-05-31T00:57:28.680Z">
+<meta property="article:author" content="郭泽">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gz1234.gitee.io/chart/charts.jpg">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/spec-master/chart">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/spec-master/chart.html","path":"spec-master/chart.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 郭泽
+</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%99%BE%E5%BA%A6%E5%9B%BE%E8%A1%A8%E5%BA%93%E6%A0%87%E5%87%86%EF%BC%881-0%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">百度图表库标准（1.0）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E6%92%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">编撰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82"><span class="nav-number">1.1.2.</span> <span class="nav-text">要求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">名词解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%90%8D%E8%AF%8D"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本名词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%A1%A8%E5%90%8D%E8%AF%8D"><span class="nav-number">1.2.2.</span> <span class="nav-text">图表名词</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">图表类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#line"><span class="nav-number">1.3.1.</span> <span class="nav-text">line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bar"><span class="nav-number">1.3.2.</span> <span class="nav-text">bar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scatter"><span class="nav-number">1.3.3.</span> <span class="nav-text">scatter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pie"><span class="nav-number">1.3.4.</span> <span class="nav-text">pie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radar"><span class="nav-number">1.3.5.</span> <span class="nav-text">radar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.4.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E9%A1%B9"><span class="nav-number">1.6.</span> <span class="nav-text">选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#option"><span class="nav-number">1.6.1.</span> <span class="nav-text">option</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#legend"><span class="nav-number">1.6.2.</span> <span class="nav-text">legend</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#legend-data"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">legend.data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tooltip"><span class="nav-number">1.6.3.</span> <span class="nav-text">tooltip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grid"><span class="nav-number">1.6.4.</span> <span class="nav-text">grid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xAxis"><span class="nav-number">1.6.5.</span> <span class="nav-text">xAxis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yAxis"><span class="nav-number">1.6.6.</span> <span class="nav-text">yAxis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axis"><span class="nav-number">1.6.7.</span> <span class="nav-text">axis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#axis-axisLabel"><span class="nav-number">1.6.7.1.</span> <span class="nav-text">axis.axisLabel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#axis-data"><span class="nav-number">1.6.7.2.</span> <span class="nav-text">axis.data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#series"><span class="nav-number">1.6.8.</span> <span class="nav-text">series</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#series-data"><span class="nav-number">1.6.8.1.</span> <span class="nav-text">series.data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itemStyle"><span class="nav-number">1.6.9.</span> <span class="nav-text">itemStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lineStyle"><span class="nav-number">1.6.10.</span> <span class="nav-text">lineStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#areaStyle"><span class="nav-number">1.6.11.</span> <span class="nav-text">areaStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textStyle"><span class="nav-number">1.6.12.</span> <span class="nav-text">textStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loadingOption"><span class="nav-number">1.6.13.</span> <span class="nav-text">loadingOption</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E6%8E%A7%E5%88%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.6.14.</span> <span class="nav-text">多级控制设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%9B%B4%E8%A7%82%E7%9A%84%E4%BA%8B%E4%BE%8B"><span class="nav-number">1.7.</span> <span class="nav-text">附录：一个直观的事例</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="百度图表库标准（1-0）"><a href="#百度图表库标准（1-0）" class="headerlink" title="百度图表库标准（1.0）"></a>百度图表库标准（1.0）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>图表在各种类型的产品中都有应用，本文档主要的设计目标是规范前端图表库的标准图表类型、接口、数据格式及样式设置，使之容易被理解、使用和维护。</p>
+<p>同时，希望通过这次标准化，推动创建出可用的标准图表库，使之能更快捷地应用到各个项目中。</p>
+<h3 id="编撰"><a href="#编撰" class="headerlink" title="编撰"></a>编撰</h3><p>林志峰、赵庶、erik、刘阳、杨冬</p>
+<p>本文档由<code>百度Flash组</code>与<code>商业运营体系前端技术组</code>联合审校发布。</p>
+<h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><p>在本文档中，使用的关键字会以中文+括号包含的关键字英文表示： <em>必须(MUST)</em> 。关键字”MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”被定义在rfc2119中。</p>
+<h2 id="名词解析"><a href="#名词解析" class="headerlink" title="名词解析"></a>名词解析</h2><h3 id="基本名词"><a href="#基本名词" class="headerlink" title="基本名词"></a>基本名词</h3><table>
+    <thead>
+        <tr>
+            <td>名词</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; chart &lt;/td&gt;
+        &lt;td&gt; 是指一个完整的图表，如折线图，饼图等“基本”图表类型或由基本图表组合而成的“混搭”图表，可能包括坐标轴、图例等 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; axis &lt;/td&gt;
+        &lt;td&gt; 直角坐标系中的一个坐标轴，坐标轴可分为类目轴和数值轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; xAxis &lt;/td&gt;
+        &lt;td&gt; 直角坐标系中的横轴，通常并默认为类目轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; yAxis &lt;/td&gt;
+        &lt;td&gt; 直角坐标系中的纵轴，通常并默认为数值轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; grid &lt;/td&gt;
+        &lt;td&gt; 直角坐标系中除坐标轴外的绘图网格 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; tooltip &lt;/td&gt;
+        &lt;td&gt; 提示框 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; legend &lt;/td&gt;
+        &lt;td&gt; 图例 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; series &lt;/td&gt;
+        &lt;td&gt; 数据系列 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="图表名词"><a href="#图表名词" class="headerlink" title="图表名词"></a>图表名词</h3><table>
+    <thead>
+        <tr>
+            <td>名词</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; line &lt;/td&gt;
+        &lt;td&gt; 折线图，堆积折线图，面积图，堆积面积图 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; bar &lt;/td&gt;
+        &lt;td&gt; 柱形图，堆积柱形图，条形图，堆积条形图 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; scatter &lt;/td&gt;
+        &lt;td&gt; 散点图，气泡图 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; pie &lt;/td&gt;
+        &lt;td&gt; 饼图，圆环图 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; radar &lt;/td&gt;
+        &lt;td&gt; 雷达图，填充雷达图 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h2 id="图表类型"><a href="#图表类型" class="headerlink" title="图表类型"></a>图表类型</h2><p>图表库标准包含单图表类型的标准图表以及多图表类型混合的混搭图表：</p>
+<p><img src="/./chart/charts.jpg" alt="标准图表类型" title="标准图表类型"></p>
+<h3 id="line"><a href="#line" class="headerlink" title="line"></a>line</h3><table>
+    <thead>
+        <tr>
+            <td>折线图</td>
+            <td>堆积折线图</td>
+            <td>面积图</td>
+            <td>堆积面积图</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/line1.jpg&quot; alt=&quot;折线图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/line2.jpg&quot; alt=&quot;堆积折线图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/line3.jpg&quot; alt=&quot;面积图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/line4.jpg&quot; alt=&quot;堆积面积图&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="bar"><a href="#bar" class="headerlink" title="bar"></a>bar</h3><table>
+    <thead>
+        <tr>
+            <td>柱形图</td>
+            <td>堆积柱形图</td>
+            <td>条形图</td>
+            <td>堆积条形图</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/bar1.jpg&quot; alt=&quot;柱形图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/bar2.jpg&quot; alt=&quot;堆积柱形图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/bar3.jpg&quot; alt=&quot;条形图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/bar4.jpg&quot; alt=&quot;堆积条形图&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="scatter"><a href="#scatter" class="headerlink" title="scatter"></a>scatter</h3><table>
+    <thead>
+        <tr>
+            <td>散点图</td>
+            <td>气泡图</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/scatter1.jpg&quot; alt=&quot;散点图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/scatter2.jpg&quot; alt=&quot;气泡图&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="pie"><a href="#pie" class="headerlink" title="pie"></a>pie</h3><table>
+    <thead>
+        <tr>
+            <td>饼图</td>
+            <td>圆环图</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/pie1.jpg&quot; alt=&quot;饼图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/pie2.jpg&quot; alt=&quot;圆环图&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="radar"><a href="#radar" class="headerlink" title="radar"></a>radar</h3><table>
+    <thead>
+        <tr>
+            <td>雷达图</td>
+            <td>填充雷达图</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/radar1.jpg&quot; alt=&quot;雷达图&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/radar2.jpg&quot; alt=&quot;填充雷达图&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>图表库实现 <em>必须(MUST)</em> 为多实例的，实例选项 <em>应当(SHOULD)</em> 在新建时传入，同时 <em>可选(OPTIONAL)</em> 的在实例新建后通过实例方法setOption（见<a href="#%E6%96%B9%E6%B3%95">方法</a>）传入，两种初始化方式最终产出效果 <em>必须(MUST)</em> 是等价的，即如下两组代码产出效果相同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化实例时传入选项</span></span><br><span class="line"><span class="keyword">var</span> myChart = <span class="keyword">new</span> echarts(option);</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化实例选项为空，通过实例方法传入选项</span></span><br><span class="line"><span class="keyword">var</span> myChart = <span class="keyword">new</span> echarts();</span><br><span class="line">myChart.setOption(option);</span><br></pre></td></tr></table></figure>
+
+<p>同时，在实例中任何个性化选项 <em>不得(MUST NOT)</em> 影响其他已存在或未来生成的实例。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; setOption( &#123;Object&#125; option ) &lt;/td&gt;
+        &lt;td&gt; 万能接口，配置图表实例任何可配置选项（详见 &lt;a href=&quot;#Option&quot;&gt;option&lt;/a&gt; ），多次调用时option选项 *必须(MUST)* 是合并（merge）的 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; setSeries( &#123;Array&#125; series ) &lt;/td&gt;
+        &lt;td&gt; 数据接口，驱动图表生成的数据内容（详见 &lt;a href=&quot;#Series&quot;&gt;series&lt;/a&gt; ），效果 *应当(SHOULD)* 等同调用setOption(&#123;series:&#123;...&#125;&#125;) &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; on( &#123;string&#125; eventName, &#123;Function&#125; eventListener ) &lt;/td&gt;
+        &lt;td&gt; 事件绑定， *必须(MUST)* 支持事件有：click，hover &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; un( &#123;string&#125; eventName, &#123;Function&#125; eventListener ) &lt;/td&gt;
+        &lt;td&gt; 事件解绑定 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; showLoading( &#123;Object&#125; loadingOption) &lt;/td&gt;
+        &lt;td&gt; 过渡控制（详见 &lt;a href=&quot;#Loadingoption&quot;&gt;loadingOption&lt;/a&gt; ），显示loading（读取中） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; hideLoading( &#123;void&#125; ) &lt;/td&gt;
+        &lt;td&gt; 过渡控制，隐藏loading（读取中） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; clear( &#123;void&#125; ) &lt;/td&gt;
+        &lt;td&gt; 清空绘画内容，清空后实例可用 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;void&#125; dispose( &#123;void&#125; ) &lt;/td&gt;
+        &lt;td&gt; 释放图表实例，释放后实例不再可用 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="option"><a href="#option" class="headerlink" title="option"></a>option</h3><p>图表选项，包含图表实例任何可配置选项</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; color &lt;/td&gt;
+        &lt;td&gt; 数值系列的颜色列表，默认为null则采用内置颜色，可配数组，eg：[&#39;#87cefa&#39;, &#39;rgba(123,123,123,0.5)&#39;,&#39;...&#39;]，当系列数量个数比颜色列表长度大时将循环选取 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; legend &lt;/td&gt;
+        &lt;td&gt; 图例（详见 &lt;a href=&quot;#Legend&quot;&gt;legend&lt;/a&gt; ），每个图表最多仅有一个图例，混搭图表共享 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; tooltip &lt;/td&gt;
+        &lt;td&gt; 提示框（详见 &lt;a href=&quot;#Tooltip&quot;&gt;tooltip&lt;/a&gt; ）,鼠标悬浮交互时的信息提示 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; grid &lt;/td&gt;
+        &lt;td&gt; 直角坐标系内绘图网格（详见 &lt;a href=&quot;#Grid&quot;&gt;grid&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; xAxis &lt;/td&gt;
+        &lt;td&gt; 直角坐标系中横轴数组（详见 &lt;a href=&quot;#Xaxis&quot;&gt;xAxis&lt;/a&gt; ），数组中每一项代表一条横轴坐标轴，标准（1.0）中规定最多同时存在2条横轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; yAxis &lt;/td&gt;
+        &lt;td&gt; 直角坐标系中纵轴数组（详见 &lt;a href=&quot;#Yaxis&quot;&gt;yAxis&lt;/a&gt; ），数组中每一项代表一条纵轴坐标轴，标准（1.0）中规定最多同时存在2条纵轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; series &lt;/td&gt;
+        &lt;td&gt; 驱动图表生成的数据内容（详见 &lt;a href=&quot;#Series&quot;&gt;series&lt;/a&gt; ），数组中每一项代表一个系列的特殊选项及数据 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="legend"><a href="#legend" class="headerlink" title="legend"></a>legend</h3><p>图例，每个图表最多仅有一个图例</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; orient &lt;/td&gt;
+        &lt;td&gt; &#39;horizontal&#39; &lt;/td&gt;
+        &lt;td&gt; 布局方式，默认为水平布局，可选为：&#39;horizontal&#39; &amp;brvbar; &#39;vertical&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;number&#125; x &lt;/td&gt;
+        &lt;td&gt; &#39;center&#39; &lt;/td&gt;
+        &lt;td&gt; 水平安放位置，默认为全图居中，可选为：&#39;center&#39; &amp;brvbar; &#39;left&#39; &amp;brvbar; &#39;right&#39; &amp;brvbar; &#123;number&#125;（x坐标，单位px） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;number&#125; y &lt;/td&gt;
+        &lt;td&gt; &#39;top&#39; &lt;/td&gt;
+        &lt;td&gt; 垂直安放位置，默认为全图顶端，可选为：&#39;top&#39; &amp;brvbar; &#39;bottom&#39; &amp;brvbar; &#39;center&#39; &amp;brvbar; &#123;number&#125;（y坐标，单位px） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; backgroundColor &lt;/td&gt;
+        &lt;td&gt; &#39;#fff&#39; &lt;/td&gt;
+        &lt;td&gt; 图例背景颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; borderColor &lt;/td&gt;
+        &lt;td&gt; &#39;#333&#39; &lt;/td&gt;
+        &lt;td&gt; 图例边框颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; borderRadius &lt;/td&gt;
+        &lt;td&gt; 4 &lt;/td&gt;
+        &lt;td&gt; 图例边框圆角，单位px，默认为4 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; borderWidth &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 图例边框线宽，单位px，默认为0（无边框） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; &amp;brvbar; &#123;Array&#125; padding &lt;/td&gt;
+        &lt;td&gt; 5 &lt;/td&gt;
+        &lt;td&gt; 图例内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距，同css &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; itemGap &lt;/td&gt;
+        &lt;td&gt; 10 &lt;/td&gt;
+        &lt;td&gt; 各个item之间的间隔，单位px，默认为10，横向布局时为水平间隔，纵向布局时为纵向间隔 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; itemRender &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 默认item渲染器（详见 &lt;a href=&quot;#Series&quot;&gt;series&lt;/a&gt; 中itemRender描述） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; itemStyle &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 默认item渲染样式（详见 &lt;a href=&quot;#Series&quot;&gt;series&lt;/a&gt; 中itemStyle描述） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; data &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 图例内容（详见 &lt;a href=&quot;#LegendData&quot;&gt;legend.data&lt;/a&gt; ，数组中每一项代表一个item &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p><img src="/./chart/legend.jpg" alt="图例"></p>
+<h4 id="legend-data"><a href="#legend-data" class="headerlink" title="legend.data"></a>legend.data</h4><p>图例内容数组，数组中每一项代表一个item，数组项可为{Object}，可以完整指定一个图例item的内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        name:<span class="string">&#x27;xxx&#x27;</span>,                         <span class="comment">//图例名称</span></span><br><span class="line">        itemRender:<span class="string">&#x27;yyy&#x27;</span>,                 <span class="comment">//item渲染器，详见series中itemRender描述</span></span><br><span class="line">        itemStyle:&#123;...&#125;                     <span class="comment">//item渲染样式，详见series中itemStyle描述</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*,&#123;...&#125;*/</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>当不指定itemRender或itemStyle时，则会根据name值索引<a href="#Series">series</a>中同名name所用的itemRender或itemStyle，如果上述两项都不指定则数组项可退化为{string}，即</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        name:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        name:<span class="string">&#x27;zzz&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>和</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;xxx&#x27;</span>,<span class="string">&#x27;zzz&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>是等价的。</p>
+<p>当不指定itemRender或itemStyle，同时根据name值索引不到<a href="#Series">series</a>中有同名name时，则会使用<a href="#Legend">legend</a>中itemRender或itemStyle，如果此时legend.itemRender或legend.itemStyle不存在则该项图例item将不被显示</p>
+<h3 id="tooltip"><a href="#tooltip" class="headerlink" title="tooltip"></a>tooltip</h3><p>提示框,鼠标悬浮交互时的信息提示</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; trigger &lt;/td&gt;
+        &lt;td&gt; &#39;item&#39; &lt;/td&gt;
+        &lt;td&gt; 触发类型，默认数据触发，见下图，可选为：&#39;item&#39; &amp;brvbar; &#39;axis&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;boolean&#125; show &lt;/td&gt;
+        &lt;td&gt; true &lt;/td&gt;
+        &lt;td&gt; 显示策略，可选为：true（显示） &amp;brvbar; false（隐藏） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;Function&#125; formatter &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 内容格式器：&#123;string&#125;（Template） &amp;brvbar; &#123;Function&#125;，见表格下方&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; backgroundColor &lt;/td&gt;
+        &lt;td&gt; &#39;rgba(0,0,0,0.7)&#39; &lt;/td&gt;
+        &lt;td&gt; 提示背景颜色，默认为透明度为0.7的黑色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; borderColor &lt;/td&gt;
+        &lt;td&gt; &#39;#333&#39; &lt;/td&gt;
+        &lt;td&gt; 提示边框颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; borderRadius &lt;/td&gt;
+        &lt;td&gt; 4 &lt;/td&gt;
+        &lt;td&gt; 提示边框圆角，单位px，默认为4 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; borderWidth &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 提示边框线宽，单位px，默认为0（无边框） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; &amp;brvbar; &#123;Array&#125; padding &lt;/td&gt;
+        &lt;td&gt; 5 &lt;/td&gt;
+        &lt;td&gt; 提示内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距，同css &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; textStyle &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 文本样式（详见 &lt;a href=&quot;#Textstyle&quot;&gt;textStyle&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>内容格式器formatter：</p>
+<ul>
+<li>{string}，模板（Template），其变量为：<ul>
+<li>{a} &brvbar; {a0} </li>
+<li>{b} &brvbar; {b0} </li>
+<li>{c} &brvbar; {c0} </li>
+<li>{d} &brvbar; {d0} （部分图表类型无此项）</li>
+<li>多值下则存在多套{a1}, {b1}, {c1}, {d1}, {a2}, {b2}, {c2}, {d2}, …</li>
+<li>其中变量a、b、c在不同图表类型下代表数据含义为：<ul>
+<li>折线（面积）图、柱状（条形）图、散点图 : a（系列名称），b（横轴值），c（纵轴值）, d（无）</li>
+<li>气泡图 : a（系列名称），b（横轴值），c（纵轴值）, d（数值）</li>
+<li>饼图、雷达图 : a（系列名称），b（数据项名称），c（数值）, d（百分比）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>{Function}，传递参数为数组，数组项同模板变量：<ul>
+<li>[[a, b, c, d], [a1, b1, c1, d1], …] </li>
+</ul>
+</li>
+</ul>
+<p>触发类型</p>
+<table>
+    <thead>
+        <tr>
+            <td>item触发</td>
+            <td>axis触发</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/tooltip1.jpg&quot; alt=&quot;item触发&quot; /&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/tooltip2.jpg&quot; alt=&quot;axis触发&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h3><p>直角坐标系内绘图网格</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; x &lt;/td&gt;
+        &lt;td&gt; 80 &lt;/td&gt;
+        &lt;td&gt; 直角坐标系内绘图网格起始横坐标，数值单位px &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; y &lt;/td&gt;
+        &lt;td&gt; 40 &lt;/td&gt;
+        &lt;td&gt; 直角坐标系内绘图网格起始纵坐标，数值单位px &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; width &lt;/td&gt;
+        &lt;td&gt; 600 &lt;/td&gt;
+        &lt;td&gt; 直角坐标系内绘图网格宽度，数值单位px &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; height &lt;/td&gt;
+        &lt;td&gt; 250 &lt;/td&gt;
+        &lt;td&gt; 直角坐标系内绘图网格高度，数值单位px &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p><img src="/./chart/grid.jpg" alt="绘图网格"> </p>
+<h3 id="xAxis"><a href="#xAxis" class="headerlink" title="xAxis"></a>xAxis</h3><p>直角坐标系中横轴数组，数组中每一项代表一条横轴坐标轴。<br>标准（1.0）中规定最多同时存在2条横轴，单条横轴时可指定安放于<a href="#Grid">grid</a>的底部（默认）或顶部，2条同时存在时则默认第一条安放于底部，第二天安放于顶部。<br>坐标轴有两种类型，类目型和数值型（区别详见<a href="#Axis">axis</a>），横轴通常为类目型，但条形图时则横轴为数值型，散点图时则横纵均为数值型，具体参数详见<a href="#Axis">axis</a>。</p>
+<h3 id="yAxis"><a href="#yAxis" class="headerlink" title="yAxis"></a>yAxis</h3><p>直角坐标系中纵轴数组，数组中每一项代表一条纵轴坐标轴。<br>标准（1.0）中规定最多同时存在2条纵轴，单条纵轴时可指定安放于<a href="#Grid">grid</a>的左侧（默认）或右侧，2条同时存在时则默认第一条安放于左侧，第二天安放于右侧。<br>坐标轴有两种类型，类目型和数值型（区别详见<a href="#Axis">axis</a>），纵轴通常为数值型，但条形图时则纵轴为类目型，具体参数详见<a href="#Axis">axis</a>。</p>
+<h3 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h3><p>坐标轴有两种类型，类目型和数值型，他们的区别在于：</p>
+<ul>
+<li>类目型：需要指定类目列表，坐标轴内有且仅有这些指定类目坐标</li>
+<li>数值型：需要指定数值区间，坐标轴内包含数值区间内容全部坐标</li>
+</ul>
+<p>下面是坐标轴的全部选项，其中个别选项仅在类目型或数值型时有效，请注意适用类型：</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>适用类型</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; type &lt;/td&gt;
+        &lt;td&gt; &#39;category&#39; &amp;brvbar; &#39;value&#39; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 坐标轴类型，横轴默认为类目型&#39;category&#39;，纵轴默认为数值型&#39;value&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; position &lt;/td&gt;
+        &lt;td&gt; &#39;bottom&#39; &amp;brvbar; &#39;left&#39; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 坐标轴类型，横轴默认为类目型&#39;bottom&#39;，纵轴默认为数值型&#39;left&#39;，可选为：&#39;bottom&#39; &amp;brvbar; &#39;top&#39; &amp;brvbar; &#39;left&#39; &amp;brvbar; &#39;right&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;boolean&#125; boundaryGap &lt;/td&gt;
+        &lt;td&gt; true &lt;/td&gt;
+        &lt;td&gt; 类目型 &lt;/td&gt;
+        &lt;td&gt; 类目起始和结束两端空白策略，见下图，默认为true留空，false则顶头 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; boundaryGap &lt;/td&gt;
+        &lt;td&gt; [0, 0] &lt;/td&gt;
+        &lt;td&gt; 数值型 &lt;/td&gt;
+        &lt;td&gt; 数值轴两端空白策略，数组内数值代表百分比，[原始数据最小值与最终最小值之间的差额，原始数据最大值与最终最大值之间的差额] &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; min &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 数值型 &lt;/td&gt;
+        &lt;td&gt; 指定的最小值，eg: 0，默认无，会自动根据具体数值调整，指定后将忽略boundaryGap[0] &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; max &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 数值型 &lt;/td&gt;
+        &lt;td&gt; 指定的最大值，eg: 100，默认无，会自动根据具体数值调整，指定后将忽略boundaryGap[1] &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; precision &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 数值型 &lt;/td&gt;
+        &lt;td&gt; 小数精度，默认为0，无小数点 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; power &lt;/td&gt;
+        &lt;td&gt; 100 &lt;/td&gt;
+        &lt;td&gt; 数值型 &lt;/td&gt;
+        &lt;td&gt; 整数精度，默认为100，个位和百位为0 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; splitNumber &lt;/td&gt;
+        &lt;td&gt; 5 &lt;/td&gt;
+        &lt;td&gt; 数值型 &lt;/td&gt;
+        &lt;td&gt; 分割段数，默认为5 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; axisLine &lt;/td&gt;
+        &lt;td&gt; &#123;show : true&#125; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 坐标轴线，默认显示，属性show控制显示与否，属性lineStyle（详见 &lt;a href=&quot;#Linestyle&quot;&gt;lineStyle&lt;/a&gt; ）控制线条样式 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; axisTick &lt;/td&gt;
+        &lt;td&gt; &#123;show : false&#125; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 坐标轴小标记，默认不显示，属性show控制显示与否，属性length控制线长，属性lineStyle（详见 &lt;a href=&quot;#Linestyle&quot;&gt;lineStyle&lt;/a&gt; ）控制线条样式 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; axisLabel &lt;/td&gt;
+        &lt;td&gt; &#123;show : true&#125; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 坐标轴文本标签，详见 &lt;a href=&quot;#AxisAxislabel&quot;&gt;axis.axisLabel&lt;/a&gt;  &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; splitLine &lt;/td&gt;
+        &lt;td&gt; &#123;show : true&#125; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 分隔线，默认显示，属性show控制显示与否，属性lineStyle（详见 &lt;a href=&quot;#Linestyle&quot;&gt;lineStyle&lt;/a&gt; ）控制线条样式 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; splitArea &lt;/td&gt;
+        &lt;td&gt; &#123;show : false&#125; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 分隔区域，默认不显示，属性show控制显示与否，属性areaStyle（详见 &lt;a href=&quot;#Areastyle&quot;&gt;areaStyle&lt;/a&gt; ）控制区域样式 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; data &lt;/td&gt;
+        &lt;td&gt; [] &lt;/td&gt;
+        &lt;td&gt; 类目型 &lt;/td&gt;
+        &lt;td&gt; 类目列表，同时也是label内容，详见 &lt;a href=&quot;#AxisData&quot;&gt;axis.data&lt;/a&gt;  &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>boundaryGap端空白策略</p>
+<table>
+    <thead>
+        <tr>
+            <td>设置</td>
+            <td>效果</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; boundaryGap: true &lt;/td&gt;
+        &lt;td&gt; &lt;img src=&quot;./chart/axisBoundaryGap1.jpg&quot; alt=&quot;axisBoundaryGap1&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; boundaryGap: false &lt;/td&gt;
+        &lt;td&gt;&lt;img src=&quot;./chart/axisBoundaryGap.png&quot; alt=&quot;axisBoundaryGap&quot; /&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>axis属性说明</p>
+<p><img src="/./chart/axisDetail.jpg" alt="axisDetail"></p>
+<h4 id="axis-axisLabel"><a href="#axis-axisLabel" class="headerlink" title="axis.axisLabel"></a>axis.axisLabel</h4><p>坐标轴文本标签选项</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>适用类型</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;boolean&#125; show &lt;/td&gt;
+        &lt;td&gt; true &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 是否显示，默认为true，设为false后下面都没意义了 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;number&#125; interval &lt;/td&gt;
+        &lt;td&gt; &#39;auto&#39; &lt;/td&gt;
+        &lt;td&gt; 类目型 &lt;/td&gt;
+        &lt;td&gt; 标签显示挑选间隔，默认为&#39;auto&#39;，可选为：&#39;auto&#39;（自动隐藏显示不下的） &amp;brvbar; 0（全部显示） &amp;brvbar; &#123;number&#125;（用户指定选择间隔） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; rotate &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 标签旋转角度，默认为0，不旋转，正直为逆时针，负值为顺时针，可选为：-90 ~ 90 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; margin &lt;/td&gt;
+        &lt;td&gt; 2 &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 坐标轴文本标签与坐标轴的间距，默认为2 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;Function&#125; formatter &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 间隔名称格式器：&#123;string&#125;（Template） &amp;brvbar; &#123;Function&#125; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; textStyle &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 文本样式（详见 &lt;a href=&quot;#Textstyle&quot;&gt;textStyle&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>间隔名称格式器formatter：</p>
+<ul>
+<li>{string}，模板（Template），其变量为：<ul>
+<li>{value}: 内容或值</li>
+</ul>
+</li>
+<li>{Function}，传递参数同模板变量：<ul>
+<li>eg：function(value){return “星期” + “日一二三四五六”.charAt(value);’}</li>
+</ul>
+</li>
+</ul>
+<h4 id="axis-data"><a href="#axis-data" class="headerlink" title="axis.data"></a>axis.data</h4><p>类目型坐标轴文本标签数组，指定label内容。<br>数组项通常为文本，如: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;Jan&#x27;</span>, <span class="string">&#x27;Feb&#x27;</span>, <span class="string">&#x27;Mar&#x27;</span>, <span class="string">&#x27;Apr&#x27;</span>, <span class="string">&#x27;May&#x27;</span>, <span class="string">&#x27;Jun&#x27;</span>, ..., <span class="string">&#x27;Dec&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>当需要对个别标签进行个性化定义时，数组项可用对象，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    <span class="string">&#x27;Jav&#x27;</span>, <span class="string">&#x27;Feb&#x27;</span>, <span class="string">&#x27;Mar&#x27;</span>,</span><br><span class="line">     &#123;</span><br><span class="line">        value:<span class="string">&#x27;Apr&#x27;</span>,            <span class="comment">//文本内容，如指定间隔名称格式器formatter，则这个值将被作为模板变量值或参数传入</span></span><br><span class="line">        textStyle:&#123;             <span class="comment">//详见textStyle</span></span><br><span class="line">            color : <span class="string">&#x27;red&#x27;</span></span><br><span class="line">            ...         </span><br><span class="line">        &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">    <span class="string">&#x27;May&#x27;</span>, <span class="string">&#x27;...&#x27;</span></span><br><span class="line">] </span><br></pre></td></tr></table></figure>
+
+<h3 id="series"><a href="#series" class="headerlink" title="series"></a>series</h3><p>驱动图表生成的数据内容，数组中每一项代表一个系列的特殊选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型：</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>适用类型</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; name &lt;/td&gt;
+        &lt;td&gt; &#39;&#39; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 系列名称 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; tooltip &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 提示框样式，仅对本系列有效，如不设则用option.tooltip（详见 &lt;a href=&quot;#Tooltip&quot;&gt;tooltip&lt;/a&gt; ）,鼠标悬浮交互时的信息提示 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; type &lt;/td&gt;
+        &lt;td&gt; &#39;line&#39; &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 图表类型，必要参数！可选为：折线图&#39;line&#39; &amp;brvbar; 散点图&#39;scatter&#39; &amp;brvbar; 柱状图&#39;bar&#39; &amp;brvbar; 饼图&#39;pie&#39; &amp;brvbar; 雷达图&#39;radar&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; itemRender &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 图形项渲染器 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; itemStyle &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 图形样式（详见 &lt;a href=&quot;#Itemstyle&quot;&gt;itemStyle&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; stack &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 折线图，柱状图，散点图 &lt;/td&gt;
+        &lt;td&gt; 组合名称，做多组数据的堆积图时使用，eg：stack:&#39;group1&#39;，则series数组中stack值等于&#39;group1&#39;的数据做堆积计算 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; xAxisIndex &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 折线图，柱状图，散点图 &lt;/td&gt;
+        &lt;td&gt;  &lt;a href=&quot;#Xaxis&quot;&gt;xAxis&lt;/a&gt; 坐标轴数组的索引，指定该系列数据所用的横坐标轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; yAxisIndex &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 折线图，柱状图，散点图 &lt;/td&gt;
+        &lt;td&gt;  &lt;a href=&quot;#Yaxis&quot;&gt;yAxis&lt;/a&gt; 坐标轴数组的索引，指定该系列数据所用的纵坐标轴 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; barMinHeight &lt;/td&gt;
+        &lt;td&gt; 20 &lt;/td&gt;
+        &lt;td&gt; 柱状图 &lt;/td&gt;
+        &lt;td&gt; 柱条最小高度,防止某item的值过小而影响交互 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; barWidth &lt;/td&gt;
+        &lt;td&gt; 40 &lt;/td&gt;
+        &lt;td&gt; 柱状图 &lt;/td&gt;
+        &lt;td&gt; 柱条宽度 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; center &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 饼图 &lt;/td&gt;
+        &lt;td&gt; 圆心坐标，默认无（为自适应居中） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; &amp;brvbar; &#123;Array&#125; radius &lt;/td&gt;
+        &lt;td&gt; 100 &lt;/td&gt;
+        &lt;td&gt; 饼图 &lt;/td&gt;
+        &lt;td&gt; 半径，传数组实现环形图，[内半径，外半径] &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; startAngle &lt;/td&gt;
+        &lt;td&gt; 0 &lt;/td&gt;
+        &lt;td&gt; 饼图 &lt;/td&gt;
+        &lt;td&gt; 开始角度, &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; minAngle &lt;/td&gt;
+        &lt;td&gt; 5 &lt;/td&gt;
+        &lt;td&gt; 饼图 &lt;/td&gt;
+        &lt;td&gt; 最小角度，避免显示过小 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Array&#125; data &lt;/td&gt;
+        &lt;td&gt; [] &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 数据（详见 &lt;a href=&quot;#SeriesData&quot;&gt;series.data&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h4 id="series-data"><a href="#series-data" class="headerlink" title="series.data"></a>series.data</h4><p>系列中的内容数组，折线图以及柱状图中当前数组长度 <em>必须(MUST)</em> 等于所使用类目轴文本标签数组<a href="#AxisData">axis.data</a>的长度，并且他们间是一一对应的，。<br>数组项通常为数值，如: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">12</span>, <span class="number">34</span>, <span class="number">56</span>, ..., <span class="number">10</span>, <span class="number">23</span>]</span><br></pre></td></tr></table></figure>
+
+<p>当某类目对应数据不存在（’不存在’ != 0）时，可用’-‘表示，无数据在折线图中表现为折线在该点断开，在柱状图中表现为该点无柱形，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">12</span>, <span class="string">&#x27;-&#x27;</span>, <span class="number">56</span>, ..., <span class="number">10</span>, <span class="number">23</span>]</span><br></pre></td></tr></table></figure>
+
+<p>当需要对个别内容进行个性化定义时，数组项可用对象，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    <span class="number">12</span>, <span class="number">34</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        value : <span class="number">56</span>,         </span><br><span class="line">        tooltip:&#123;&#125;,             <span class="comment">//自定义特殊tooltip，仅对该item有效，详见tooltip</span></span><br><span class="line">        itemRender:&#123;&#125;,        <span class="comment">//自定义特殊itemRender，仅对该item有效，同itemRender</span></span><br><span class="line">        itemStyle:&#123;&#125;            <span class="comment">//自定义特殊itemStyle，仅对该item有效，详见itemStyle</span></span><br><span class="line">    &#125;,</span><br><span class="line">    ..., <span class="number">10</span>, <span class="number">23</span></span><br><span class="line">] </span><br></pre></td></tr></table></figure>
+
+<p>特别的，当图表类型为scatter（散点图或气泡图）时，其数值设置比较特殊，他的横纵坐标轴都可能为数值型，并且气泡图时需要指定气泡大小，所以scatter型图表 <em>应当(SHOULD)</em> 设置为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        value : [<span class="number">10</span>, <span class="number">25</span>, <span class="number">5</span>]     <span class="comment">//[xValue, yValue, rValue]，数组内依次为横值，纵值，大小</span></span><br><span class="line">    &#125;,</span><br><span class="line">    ...,</span><br><span class="line">    &#123;</span><br><span class="line">        value : [<span class="number">30</span>, <span class="number">128</span>, <span class="number">15</span>],  <span class="comment">//同上        </span></span><br><span class="line">        tooltip:&#123;&#125;,             <span class="comment">//自定义特殊tooltip，仅对该item有效，详见tooltip</span></span><br><span class="line">        itemRender:&#123;&#125;,          <span class="comment">//自定义特殊itemRender，仅对该item有效，同itemRender</span></span><br><span class="line">        itemStyle:&#123;&#125;            <span class="comment">//自定义特殊itemStyle，仅对该item有效，详见itemStyle</span></span><br><span class="line">    &#125;</span><br><span class="line">] </span><br></pre></td></tr></table></figure>
+
+<p>再特别的，当图表类型为饼图时，需要说明每部分数据的名称name，所以 <em>应当(SHOULD)</em> 设置为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        value : <span class="number">12</span>，</span><br><span class="line">        name : <span class="string">&#x27;apple&#x27;</span>          <span class="comment">//每部分数据的名称</span></span><br><span class="line">    &#125;,</span><br><span class="line">    ...,</span><br><span class="line">    &#123;</span><br><span class="line">        value : <span class="number">23</span>,             <span class="comment">//同上</span></span><br><span class="line">        name : <span class="string">&#x27;orange&#x27;</span>         <span class="comment">//同上        </span></span><br><span class="line">        tooltip:&#123;&#125;,             <span class="comment">//自定义特殊tooltip，仅对该item有效，详见tooltip</span></span><br><span class="line">        itemRender:&#123;&#125;,          <span class="comment">//自定义特殊itemRender，仅对该item有效，同itemRender</span></span><br><span class="line">        itemStyle:&#123;&#125;            <span class="comment">//自定义特殊itemStyle，仅对该item有效，详见itemStyle</span></span><br><span class="line">    &#125;</span><br><span class="line">] </span><br></pre></td></tr></table></figure>
+
+<h3 id="itemStyle"><a href="#itemStyle" class="headerlink" title="itemStyle"></a>itemStyle</h3><p>图形样式，可设置图表内图形的默认样式和强调样式（悬浮悬浮时样式）：</p>
+<pre><code>itemStyle: &#123; 
+    normal: &#123;
+        ...
+    &#125;,
+    emphasis: &#123;
+        ...
+    &#125; 
+&#125;</code></pre>
+<p>其中normal和emphasis属性为对象，其包含：</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>适用类型</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; color &lt;/td&gt;
+        &lt;td&gt; 图表各异 &lt;/td&gt;
+        &lt;td&gt; 通用 &lt;/td&gt;
+        &lt;td&gt; 颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; lineStyle &lt;/td&gt;
+        &lt;td&gt; 图表各异 &lt;/td&gt;
+        &lt;td&gt; 折线图 &lt;/td&gt;
+        &lt;td&gt; 线条样式，详见 &lt;a href=&quot;#Linestyle&quot;&gt;lineStyle&lt;/a&gt;  &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; areaStyle &lt;/td&gt;
+        &lt;td&gt; 图表各异 &lt;/td&gt;
+        &lt;td&gt; 堆积折线图，柱状图，饼图，填充雷达图&lt;/td&gt;
+        &lt;td&gt; 区域样式，详见 &lt;a href=&quot;#Areastyle&quot;&gt;areaStyle&lt;/a&gt;  &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; label &lt;/td&gt;
+        &lt;td&gt; &#123;show: true,  position:&#39;outer&#39;&#125; &lt;/td&gt;
+        &lt;td&gt; 饼图 &lt;/td&gt;
+        &lt;td&gt; 饼图标签，默认悬浮时显示 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; labelLine &lt;/td&gt;
+        &lt;td&gt; &#123;show: true&#125; &lt;/td&gt;
+        &lt;td&gt; 饼图 &lt;/td&gt;
+        &lt;td&gt; 饼图标签视觉引导线，当饼图标签位置（label.position）为&#39;outer&#39;时有效 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>其中饼图标签label属性为对象，其包含：</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;boolean&#125; show &lt;/td&gt;
+        &lt;td&gt; true &lt;/td&gt;
+        &lt;td&gt; 标签显示策略，可选为：true（显示） &amp;brvbar; false（隐藏） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; position &lt;/td&gt;
+        &lt;td&gt; &#39;outer&#39; &lt;/td&gt;
+        &lt;td&gt; 标签显示位置，可选为：&#39;outer&#39;（外部） &amp;brvbar; &#39;inner&#39;（内部） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; textStyle &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 标签的文本样式（详见 &lt;a href=&quot;#Textstyle&quot;&gt;textStyle&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>其中饼图标签视觉引导线labelLine属性为对象，其包含：</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;boolean&#125; show &lt;/td&gt;
+        &lt;td&gt; true &lt;/td&gt;
+        &lt;td&gt; 饼图标签视觉引导线显示策略，可选为：true（显示） &amp;brvbar; false（隐藏） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; length &lt;/td&gt;
+        &lt;td&gt; 50 &lt;/td&gt;
+        &lt;td&gt; 线长 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; lineStyle &lt;/td&gt;
+        &lt;td&gt; 各异 &lt;/td&gt;
+        &lt;td&gt; 线条样式，详见 &lt;a href=&quot;#Linestyle&quot;&gt;lineStyle&lt;/a&gt;  &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<p>通过有效设置itemStyle的normal和emphasis选项可实现个性化的显示策略，比如希望饼图文字标签默认隐藏，并在鼠标悬浮时通过一条红色的视觉引导线显示在饼图外部区域，可以如下设置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">itemStyle: &#123; </span><br><span class="line">    normal: &#123;</span><br><span class="line">        label: &#123;</span><br><span class="line">            show: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        labelLine: &#123;</span><br><span class="line">            show: <span class="literal">false</span></span><br><span class="line">        &#125;           </span><br><span class="line">    &#125; ,</span><br><span class="line">    emphasis: &#123;</span><br><span class="line">        label: &#123;</span><br><span class="line">            show: <span class="literal">true</span>,</span><br><span class="line">            position: <span class="string">&#x27;outer&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        labelLine: &#123;</span><br><span class="line">            show: <span class="literal">true</span>,</span><br><span class="line">            lineStyle: &#123;</span><br><span class="line">                color: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="lineStyle"><a href="#lineStyle" class="headerlink" title="lineStyle"></a>lineStyle</h3><p>线条（线段）样式</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; color  &lt;/td&gt;
+        &lt;td&gt; 颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; type &lt;/td&gt;
+        &lt;td&gt; 线条样式，可选为：&#39;solid&#39; &amp;brvbar; &#39;dotted&#39; &amp;brvbar; &#39;dashed&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;number&#125; width &lt;/td&gt;
+        &lt;td&gt; 线宽 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="areaStyle"><a href="#areaStyle" class="headerlink" title="areaStyle"></a>areaStyle</h3><p>区域填充样式</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; color  &lt;/td&gt;
+        &lt;td&gt; 颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; type &lt;/td&gt;
+        &lt;td&gt; 填充样式，标准（1.0）目前仅支持&#39;default&#39;(实填充) &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="textStyle"><a href="#textStyle" class="headerlink" title="textStyle"></a>textStyle</h3><p>文字样式</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; color  &lt;/td&gt;
+        &lt;td&gt; 颜色 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; decoration &lt;/td&gt;
+        &lt;td&gt; 修饰，可选为：&#39;none&#39; &amp;brvbar; &#39;underline&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; align &lt;/td&gt;
+        &lt;td&gt; 对齐方式，可选为：&#39;left&#39; &amp;brvbar; &#39;right&#39; &amp;brvbar; &#39;center&#39; &amp;brvbar; &#39;justify&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; fontFamily &lt;/td&gt;
+        &lt;td&gt; 字体系列 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; fontSize &lt;/td&gt;
+        &lt;td&gt; 字号 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; fontStyle &lt;/td&gt;
+        &lt;td&gt; 样式，可选为：&#39;normal&#39; &amp;brvbar; &#39;italic&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; fontWeight &lt;/td&gt;
+        &lt;td&gt; 粗细，可选为：&#39;normal&#39; &amp;brvbar; &#39;bold&#39; &amp;brvbar; &#39;bolder&#39; &amp;brvbar; &#39;lighter&#39; &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="loadingOption"><a href="#loadingOption" class="headerlink" title="loadingOption"></a>loadingOption</h3><p>过渡显示，loading（读取中）的选项</p>
+<table>
+    <thead>
+        <tr>
+            <td>名称</td>
+            <td>默认值</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+    <tbody>
+
+<pre><code>    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; text &lt;/td&gt;
+        &lt;td&gt; &#39;&#39; &lt;/td&gt;
+        &lt;td&gt; 显示话术 &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;number&#125; x &lt;/td&gt;
+        &lt;td&gt; &#39;center&#39; &lt;/td&gt;
+        &lt;td&gt; 水平安放位置，默认为全图居中，可选为：&#39;center&#39; &amp;brvbar; &#39;left&#39; &amp;brvbar; &#39;right&#39; &amp;brvbar; &#123;number&#125;（x坐标，单位px） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;string&#125; &amp;brvbar; &#123;number&#125; y &lt;/td&gt;
+        &lt;td&gt; &#39;center&#39; &lt;/td&gt;
+        &lt;td&gt; 垂直安放位置，默认为全图居中，可选为：&#39;center&#39; &amp;brvbar; &#39;bottom&#39; &amp;brvbar; &#39;top&#39; &amp;brvbar; &#123;number&#125;（y坐标，单位px） &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt; &#123;Object&#125; textStyle &lt;/td&gt;
+        &lt;td&gt; null &lt;/td&gt;
+        &lt;td&gt; 显示话术的文本样式（详见 &lt;a href=&quot;#Textstyle&quot;&gt;textStyle&lt;/a&gt; ） &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+</tbody></table>
+
+
+<h3 id="多级控制设计"><a href="#多级控制设计" class="headerlink" title="多级控制设计"></a>多级控制设计</h3><p>简单的说，你可以通过这三级满足不同level的定制和个性化需求：</p>
+<ul>
+<li>通过 option.* 设置全局统一配置；</li>
+<li>通过 option.series.* 设置特定系列特殊配置，其优先级高于 option 内的同名配置；</li>
+<li>通过 option.series.data.* 设置特定数据项的特殊配置，最高优先级；</li>
+</ul>
+<p><img src="/./chart/multiControl.jpg" alt="多级控制"></p>
+<h2 id="附录：一个直观的事例"><a href="#附录：一个直观的事例" class="headerlink" title="附录：一个直观的事例"></a>附录：一个直观的事例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图表实例化------------------</span></span><br><span class="line"><span class="keyword">var</span> myChart = <span class="keyword">new</span> echarts();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图表使用-------------------</span></span><br><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    <span class="comment">// 图例配置</span></span><br><span class="line">    legend: &#123;</span><br><span class="line">        padding: <span class="number">5</span>,                             <span class="comment">// 图例内边距，单位px，默认上下左右内边距为5</span></span><br><span class="line">        itemGap: <span class="number">10</span>,                            <span class="comment">// Legend各个item之间的间隔，横向布局时为水平间隔，纵向布局时为纵向间隔</span></span><br><span class="line">        data: [<span class="string">&#x27;ios&#x27;</span>, <span class="string">&#x27;android&#x27;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 气泡提示配置</span></span><br><span class="line">    tooltip: &#123;</span><br><span class="line">        trigger: <span class="string">&#x27;item&#x27;</span>,                        <span class="comment">// 触发类型，默认数据触发，可选为：&#x27;axis&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 直角坐标系内绘图网格</span></span><br><span class="line">    grid: &#123;                   </span><br><span class="line">        width: <span class="number">500</span>,                             <span class="comment">// 直角坐标系内绘图网格宽度，数值单位px，并不包括坐标label</span></span><br><span class="line">        height: <span class="number">300</span>                             <span class="comment">// 直角坐标系内绘图网格高度，数值单位px，并不包括坐标label</span></span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 直角坐标系中横轴数组</span></span><br><span class="line">    xAxis: [</span><br><span class="line">        &#123;</span><br><span class="line">            type: <span class="string">&#x27;category&#x27;</span>,                   <span class="comment">// 坐标轴类型，横轴默认为类目轴，数值轴则参考yAxis说明</span></span><br><span class="line">            data: [<span class="string">&#x27;Jan&#x27;</span>, <span class="string">&#x27;Feb&#x27;</span>, <span class="string">&#x27;Mar&#x27;</span>, <span class="string">&#x27;Apr&#x27;</span>, <span class="string">&#x27;May&#x27;</span>, <span class="string">&#x27;Jun&#x27;</span>, <span class="string">&#x27;Jul&#x27;</span>, <span class="string">&#x27;Aug&#x27;</span>, <span class="string">&#x27;Sep&#x27;</span>, <span class="string">&#x27;Oct&#x27;</span>, <span class="string">&#x27;Nov&#x27;</span>, <span class="string">&#x27;Dec&#x27;</span>]       </span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 直角坐标系中纵轴数组</span></span><br><span class="line">    yAxis: [</span><br><span class="line">        &#123;</span><br><span class="line">            type: <span class="string">&#x27;value&#x27;</span>,                      <span class="comment">// 坐标轴类型，纵轴默认为数值轴，类目轴则参考xAxis说明</span></span><br><span class="line">            boundaryGap: [<span class="number">0.1</span>, <span class="number">0.1</span>],            <span class="comment">// 坐标轴两端空白策略，数组内数值代表百分比</span></span><br><span class="line">            splitNumber: <span class="number">4</span>                      <span class="comment">// 数值轴用，分割段数，默认为5</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]               </span><br><span class="line">&#125;;</span><br><span class="line">myChart.setOption(option);</span><br><span class="line"></span><br><span class="line"><span class="comment">//ajax getting data...............</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 过渡---------------------</span></span><br><span class="line">myChart.showLoading(&#123;</span><br><span class="line">    text: <span class="string">&#x27;正在努力的读取数据中...&#x27;</span>,    <span class="comment">//loading话术</span></span><br><span class="line">    x: <span class="string">&#x27;center&#x27;</span>,                        <span class="comment">//水平安放位置，默认为 &#x27;center&#x27;，可选为：&#x27;left&#x27; || &#x27;right&#x27; || Number可指定x坐标</span></span><br><span class="line">    y: <span class="string">&#x27;center&#x27;</span>                         <span class="comment">//垂直安放位置，默认为&#x27;center&#x27;，可选为： &#x27;top&#x27; || bottom&#x27; || Number可指定y坐标</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//ajax return</span></span><br><span class="line">myChart.hideLoading();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数据数组，data from ajax</span></span><br><span class="line"><span class="keyword">var</span> series = [</span><br><span class="line">    &#123;</span><br><span class="line">        name: <span class="string">&#x27;ios&#x27;</span>,                            <span class="comment">// 系列名称</span></span><br><span class="line">        type: <span class="string">&#x27;line&#x27;</span>,                           <span class="comment">// 图表类型，折线图line、散点图scatter、柱状图bar、饼图pie、雷达图radar</span></span><br><span class="line">        data: [<span class="number">112</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="number">56</span>, <span class="number">233</span>, <span class="number">343</span>, <span class="number">454</span>, <span class="number">89</span>, <span class="number">343</span>, <span class="number">123</span>, <span class="number">45</span>, <span class="number">123</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        name: <span class="string">&#x27;android&#x27;</span>,                        <span class="comment">// 系列名称</span></span><br><span class="line">        type: <span class="string">&#x27;line&#x27;</span>,                           <span class="comment">// 图表类型，折线图line、散点图scatter、柱状图bar、饼图pie、雷达图radar</span></span><br><span class="line">        data: [<span class="number">45</span>, <span class="number">123</span>, <span class="number">145</span>, <span class="number">526</span>, <span class="number">233</span>, <span class="number">343</span>, <span class="number">44</span>, <span class="number">829</span>, <span class="number">33</span>, <span class="number">123</span>, <span class="number">45</span>, <span class="number">13</span>]</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">myChart.setSeries(series);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图表清空-------------------</span></span><br><span class="line">myChart.clear();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图表释放-------------------</span></span><br><span class="line">myChart.dispose(); </span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

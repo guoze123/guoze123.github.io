@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gz1234.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Less 编码规范 (1.1)简介该文档主要的设计目标是提高 Less 文档的团队一致性与可维护性。 Less 代码的基本规范和原则与 CSS 编码规范 保持一致。 编撰erik、顾轶灵、黄后锦、李玉北、赵雷。 本文档由商业运营体系前端技术组审校发布。 要求在本文档中，使用的关键字会以中文+括号包含的关键字英文表示：必须（MUST）。关键字”MUST”, “MUST NOT”, “REQUIRED">
+<meta property="og:type" content="website">
+<meta property="og:title" content="郭泽">
+<meta property="og:url" content="https://gz1234.gitee.io/spec-master/less-code-style.html">
+<meta property="og:site_name" content="郭泽">
+<meta property="og:description" content="Less 编码规范 (1.1)简介该文档主要的设计目标是提高 Less 文档的团队一致性与可维护性。 Less 代码的基本规范和原则与 CSS 编码规范 保持一致。 编撰erik、顾轶灵、黄后锦、李玉北、赵雷。 本文档由商业运营体系前端技术组审校发布。 要求在本文档中，使用的关键字会以中文+括号包含的关键字英文表示：必须（MUST）。关键字”MUST”, “MUST NOT”, “REQUIRED">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-31T01:02:38.816Z">
+<meta property="article:modified_time" content="2023-05-31T00:57:28.724Z">
+<meta property="article:author" content="郭泽">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gz1234.gitee.io/spec-master/less-code-style">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://gz1234.gitee.io/spec-master/less-code-style.html","path":"spec-master/less-code-style.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 郭泽
+</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">郭泽</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Less-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83-1-1"><span class="nav-number">1.</span> <span class="nav-text">Less 编码规范 (1.1)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E6%92%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">编撰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82"><span class="nav-number">1.1.2.</span> <span class="nav-text">要求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87"><span class="nav-number">1.3.</span> <span class="nav-text">代码组织</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.4.</span> <span class="nav-text">@import 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E6%A0%BC"><span class="nav-number">1.5.</span> <span class="nav-text">空格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E3%80%81%E5%8F%98%E9%87%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">属性、变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97"><span class="nav-number">1.5.2.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E5%85%A5%EF%BC%88Mixin%EF%BC%89"><span class="nav-number">1.5.3.</span> <span class="nav-text">混入（Mixin）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%81%E7%95%A5%E4%B8%8E%E7%BC%A9%E5%86%99"><span class="nav-number">1.7.</span> <span class="nav-text">省略与缩写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E5%86%99"><span class="nav-number">1.7.1.</span> <span class="nav-text">缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC"><span class="nav-number">1.7.2.</span> <span class="nav-text">数值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E5%80%BC"><span class="nav-number">1.7.3.</span> <span class="nav-text">0 值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2"><span class="nav-number">1.7.4.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7%E5%89%8D%E7%BC%80"><span class="nav-number">1.7.5.</span> <span class="nav-text">私有属性前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.7.6.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%92%8C%E7%BC%A9%E8%BF%9B"><span class="nav-number">1.8.</span> <span class="nav-text">嵌套和缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">1.9.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E5%85%A5%EF%BC%88Mixin%EF%BC%89-1"><span class="nav-number">1.11.</span> <span class="nav-text">混入（Mixin）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.12.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.13.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.14.</span> <span class="nav-text">JS 表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">1.15.</span> <span class="nav-text">注释</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">郭泽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="Less-编码规范-1-1"><a href="#Less-编码规范-1-1" class="headerlink" title="Less 编码规范 (1.1)"></a>Less 编码规范 (1.1)</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>该文档主要的设计目标是提高 Less 文档的团队一致性与可维护性。</p>
+<p>Less 代码的基本规范和原则与 <a target="_blank" rel="noopener" href="https://github.com/ecomfe/spec/blob/master/css-style-guide.md">CSS 编码规范</a> 保持一致。</p>
+<h3 id="编撰"><a href="#编撰" class="headerlink" title="编撰"></a>编撰</h3><p>erik、顾轶灵、黄后锦、李玉北、赵雷。</p>
+<p>本文档由<code>商业运营体系前端技术组</code>审校发布。</p>
+<h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><p>在本文档中，使用的关键字会以中文+括号包含的关键字英文表示：必须（MUST）。关键字”MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”被定义在rfc2119中。</p>
+<hr>
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>使用UTF-8编码。<em>不得</em>（MUST NOT）包含BOM信息。</p>
+<hr>
+<h2 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h2><p>代码<em>必须</em>（MUST）按如下形式按顺序组织：</p>
+<ol>
+<li><code>@import</code></li>
+<li>变量声明</li>
+<li>样式声明</li>
+</ol>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;est/all.less&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">@default-text-color:</span> <span class="number">#333</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.page</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="import-语句"><a href="#import-语句" class="headerlink" title="@import 语句"></a><code>@import</code> 语句</h2><p><code>@import</code> 语句引用的文件<em>必须</em>（MUST）写在一对引号内，<code>.less</code> 后缀<em>不得</em>（MUST NOT）省略（与引入 CSS 文件时的路径格式一致）。引号使用 <code>&#39;</code> 和 <code>&quot;</code> 均可，但在同一项目内<em>必须</em>（MUST）统一。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;est/all&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;my/mixins.less&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;est/all.less&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;my/mixins.less&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><h3 id="属性、变量"><a href="#属性、变量" class="headerlink" title="属性、变量"></a>属性、变量</h3><p>选择器和 <code>&#123;</code> 之间<em>必须</em>（MUST）保留一个空格。</p>
+<p>属性名后的冒号（<code>:</code>）与属性值之间<em>必须</em>（MUST）保留一个空格，冒号前<em>不得</em>（MUST NOT）保留空格。</p>
+<p>定义变量时冒号（<code>:</code>）与变量值之间<em>必须</em>（MUST）保留一个空格，冒号前<em>不得</em>（MUST NOT）保留空格。</p>
+<p>在用逗号（<code>,</code>）分隔的列表（Less 函数参数列表、以 <code>,</code> 分隔的属性值等）中，逗号后<em>必须</em>（MUST）保留一个空格，逗号前<em>不得</em>（MUST NOT）保留空格。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="variable">@w:</span><span class="number">50px</span>;</span><br><span class="line">    <span class="variable">@h :</span><span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="variable">@w</span>;</span><br><span class="line">    <span class="attribute">height </span>:<span class="variable">@h</span>;</span><br><span class="line">    <span class="attribute">color</span>: rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">transition</span>: width <span class="number">1s</span>,height <span class="number">3s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="variable">@w:</span> <span class="number">50px</span>;</span><br><span class="line">    <span class="variable">@h:</span> <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">@w</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">@h</span>;</span><br><span class="line">    <span class="attribute">transition</span>: width <span class="number">1s</span>, height <span class="number">3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p><code>+</code> / <code>-</code> / <code>*</code> / <code>/</code> 四个运算符两侧<em>必须</em>（MUST）保留一个空格。<code>+</code> / <code>-</code> 两侧的操作数<em>必须</em>（MUST）有相同的单位，如果其中一个是变量，另一个数值<em>必须</em>（MUST）书写单位。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="variable">@a:</span> <span class="number">200px</span>;</span><br><span class="line"><span class="variable">@b:</span> (<span class="variable">@a</span>+<span class="number">100</span>)*<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="variable">@a:</span> <span class="number">200px</span>;</span><br><span class="line"><span class="variable">@b:</span> (<span class="variable">@a</span> + <span class="number">100px</span>) * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="混入（Mixin）"><a href="#混入（Mixin）" class="headerlink" title="混入（Mixin）"></a>混入（Mixin）</h3><p>Mixin 和后面的空格之间<em>不得</em>（MUST NOT）包含空格。在给 mixin 传递参数时，在参数分隔符（<code>,</code> / <code>;</code>）后<em>必须</em>（MUST）保留一个空格：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.size</span>(<span class="number">30px</span>,<span class="number">20px</span>);</span><br><span class="line">    <span class="selector-class">.clearfix</span> ();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.size</span>(<span class="number">30px</span>, <span class="number">20px</span>);</span><br><span class="line">    <span class="selector-class">.clearfix</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>当多个选择器共享一个声明块时，每个选择器声明<em>必须</em>（MUST）独占一行。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">h2</span>,</span><br><span class="line"><span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Class 命名不得以样式信息进行描述，如 <code>.float-right</code>、<code>text-red</code> 等。</p>
+<hr>
+<h2 id="省略与缩写"><a href="#省略与缩写" class="headerlink" title="省略与缩写"></a>省略与缩写</h2><h3 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h3><p>多个属性定义可以使用缩写时， <em>尽量</em>（SHOULD）使用缩写。缩写更清晰字节数更少。常见缩写有 <code>margin</code>、<code>border</code>、<code>padding</code>、<code>font</code>、<code>list-style</code> 等。在书写时<em>必须</em>（MUST）考量缩写展开后是否有不需要覆盖的属性内容被修改，从而带来副作用。</p>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>对于处于 <code>(0, 1)</code> 范围内的数值，小数点前的 <code>0</code> <em>可以</em>（MAY）省略，同一项目中<em>必须</em>（MUST）保持一致。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="attribute">transition-duration</span>: <span class="number">0.5s</span>, .<span class="number">7s</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="attribute">transition-duration</span>: .<span class="number">5s</span>, .<span class="number">7s</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="0-值"><a href="#0-值" class="headerlink" title="0 值"></a>0 值</h3><p>当属性值为 0 时，<em>必须</em>（MUST）省略可省的单位（长度单位如 <code>px</code>、<code>em</code>，不包括时间、角度等如 <code>s</code>、<code>deg</code>）。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>颜色定义<em>必须</em>（MUST）使用 <code>#rrggbb</code> 格式定义，并在可能时<em>尽量</em>（SHOULD）缩写为 <code>#rgb</code> 形式，且避免直接使用颜色名称与 <code>rgb()</code> 表达式。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="attribute">border-color</span>: red;</span><br><span class="line"><span class="attribute">color</span>: rgb(<span class="number">254</span>, <span class="number">254</span>, <span class="number">254</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="attribute">border-color</span>: <span class="number">#f00</span>;</span><br><span class="line"><span class="attribute">color</span>: <span class="number">#fefefe</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="私有属性前缀"><a href="#私有属性前缀" class="headerlink" title="私有属性前缀"></a>私有属性前缀</h3><p>同一属性有不同私有前缀的，<em>尽量</em>（SHOULD）按前缀长度降序书写，标准形式<em>必须</em>（MUST）写在最后。且这一组属性以第一条的位置为准，<em>尽量</em>（SHOULD）按冒号的位置对齐。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: rotate(<span class="number">30deg</span>);</span><br><span class="line">       <span class="attribute">-moz-transform</span>: rotate(<span class="number">30deg</span>);</span><br><span class="line">        <span class="attribute">-ms-transform</span>: rotate(<span class="number">30deg</span>);</span><br><span class="line">         <span class="attribute">-o-transform</span>: rotate(<span class="number">30deg</span>);</span><br><span class="line">            <span class="attribute">transform</span>: rotate(<span class="number">30deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><em>可以</em>（MAY）在无其他更好解决办法时使用 CSS hack，并且<em>尽量</em>（SHOULD）使用简单的属性名 hack 如 <code>_zoom</code>、<code>*margin</code>。</p>
+<p><em>可以</em>（MAY）但谨慎使用 IE 滤镜。需要注意的是，IE 滤镜中图片的 URL 是以页面路径作为相对目录，而不是 CSS 文件路径。</p>
+<hr>
+<h2 id="嵌套和缩进"><a href="#嵌套和缩进" class="headerlink" title="嵌套和缩进"></a>嵌套和缩进</h2><p><em>必须</em>（MUST）采用 4 个空格为一次缩进， <em>不得</em>（MUST NOT）采用 TAB 作为缩进。</p>
+<p>嵌套的声明块前<em>必须</em>（MUST）增加一次缩进，有多个声明块共享命名空间时<em>尽量</em>（SHOULD）嵌套书写，避免选择器的重复。</p>
+<p>但是需注意的是，<em>尽量</em>（SHOULD）仅在必须区分上下文时才引入嵌套关系（在嵌套书写前先考虑如果不能嵌套，会如何书写选择器）。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-class">.main</span> <span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> <span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">  <span class="selector-class">.comment-form</span> &#123;</span><br><span class="line">    <span class="selector-id">#comment</span><span class="selector-pseudo">:invalid</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">    <span class="selector-class">.title</span> &#123;</span><br><span class="line">        <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.content</span> &#123;</span><br><span class="line">        <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="selector-class">.warning</span> &#123;</span><br><span class="line">        <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#comment</span><span class="selector-pseudo">:invalid</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>Less 的变量值总是以同一作用域下最后一个同名变量为准，务必注意后面的设定会覆盖所有之前的设定。</p>
+<p>变量命名<em>必须</em>（MUST）采用 <code>@foo-bar</code> 形式，<em>不得</em>（MUST NOT）使用 <code>@fooBar</code> 形式。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="variable">@sidebarWidth:</span> <span class="number">200px</span>;</span><br><span class="line"><span class="variable">@width:</span><span class="number">800px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="variable">@sidebar-width:</span> <span class="number">200px</span>;</span><br><span class="line"><span class="variable">@width:</span> <span class="number">800px</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>使用继承时，如果在声明块内书写 <code>:extend</code> 语句，<em>必须</em>（MUST）写在开头：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-class">.sub</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.mod</span> <span class="keyword">all</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.sub</span> &#123;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.mod</span> <span class="keyword">all</span>);</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="混入（Mixin）-1"><a href="#混入（Mixin）-1" class="headerlink" title="混入（Mixin）"></a>混入（Mixin）</h2><p>在定义 mixin 时，如果 mixin 名称不是一个需要使用的 className，<em>必须</em>（MUST）加上括号，否则即使不被调用也会输出到 CSS 中。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-class">.big-text</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="selector-class">.big-text</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.big-text</span>() &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="selector-class">.big-text</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果混入的是本身不输出内容的 mixin，<em>必须</em>（MUST）在 mixin 后添加括号（即使不传参数），以区分这是否是一个 className（修改以后是否会影响 HTML）。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✗</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.clearfix</span>;</span><br><span class="line">    <span class="selector-class">.size</span> (<span class="number">20px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✓</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.clearfix</span>();</span><br><span class="line">    <span class="selector-class">.size</span>(<span class="number">20px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Mixin 的参数分隔符使用 <code>,</code> 和 <code>;</code> 均可，但在同一项目中<em>必须</em>（MUST）保持统一。</p>
+<hr>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>变量和 mixin 在命名时<em>必须</em>（MUST）遵循如下原则：</p>
+<ul>
+<li>一个项目只能引入一个无命名前缀的基础样式库（如 est）</li>
+<li>业务代码和其他被引入的样式代码中，变量和 mixin 必须有项目或库的前缀</li>
+</ul>
+<hr>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>在进行字符串转义时，使用 <code>~&quot;&quot;</code> 表达式与 <code>e()</code> 函数均可，但在同一项目中<em>必须</em>（MUST）保持一致。</p>
+<p>字符串两侧的引号<em>必须</em>（MUST）使用 <code>&quot;</code>。</p>
+<h2 id="JS-表达式"><a href="#JS-表达式" class="headerlink" title="JS 表达式"></a>JS 表达式</h2><p><em>可以</em>（MAY）使用 JS 表达式（<code>~``</code>）生成属性值或变量，其中包含的字符串两侧的引号<em>尽量</em>（SHOULD）使用单引号（<code>&#39;</code>）。</p>
+<hr>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释<em>尽量</em>（SHOULD）使用 <code>//</code> 方式。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hide everything</span></span><br><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭泽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>
